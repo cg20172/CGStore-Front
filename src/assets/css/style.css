@@ -354,7 +354,7 @@ section{
 
 .intro-box{
 	height: 100vh;
-	display: table;
+    display: table;
 	text-align: center;
 	width: 100%;
 }
@@ -375,12 +375,14 @@ section{
 	padding-bottom: 40px;
 }
 .header .vira-btn{
-	border-color: #fff;
-	color: #fff;
+	border-color: rgba(46, 165, 7, 0.64);
+    border-width: 0.3vh;
+    border-radius: 0.8vh;
+    color: #fff;
 }
 .header .vira-btn:hover{
-	background-color: #fff;
-	color: #424242;
+	background-color:rgba(32, 101, 10, 0.64);
+	color: #f3e7e7;
 }
 
 .about{

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
-
+/*Importamos el operador de la promesa*/
 @Injectable()
 export class HttpService {
 

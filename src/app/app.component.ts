@@ -7,8 +7,13 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-
     
+buscarPiezas(Seccion : string){
+    console.log(Seccion);
+
+
+
+}
 
 
 
