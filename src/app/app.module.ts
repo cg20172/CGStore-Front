@@ -7,14 +7,21 @@ import { AdminModule } from './admin/admin.module';
 import { LandingModule } from './landing/landing.module';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './partials/header/header.component';
+import { FooterComponent } from './partials/footer/footer.component';
+
 import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { ServerErrorComponent } from './errors/server-error/server-error.component';
 
 import { HttpService } from './services/http.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ServerErrorComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
