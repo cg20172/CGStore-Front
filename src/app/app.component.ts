@@ -6,15 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-    
-buscarPiezas(Seccion : string){
-    console.log(Seccion);
-
-
-
-}
-
-
-
-}
+export class AppComponent { }

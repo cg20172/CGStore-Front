@@ -4,18 +4,19 @@ import { Observable } from 'rxjs';
 /*Importamos el operador de la promesa*/
 @Injectable()
 export class HttpService {
+  private domain: String = 'http://google.com';
 
   constructor(private http: Http) {}
-    
-getRequest(url: string) {
+
+getRequest(path: string) {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let requestOptions = new RequestOptions({ headers: headers });
-        
-        return this.http.get(url, requestOptions)
+
+        return this.http.get(this.domain + path, requestOptions)
             .catch(error => {
                 return Observable.throw(error);
             });
-        
+
     }
 
 }

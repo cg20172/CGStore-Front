@@ -1,20 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
+import { AuthModule } from './auth/auth.module';
+import { AdminModule } from './admin/admin.module';
+import { LandingModule } from './landing/landing.module';
+
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { PageComponent } from './page/page.component';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
+
+import { HttpService } from './services/http.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    PageComponent
+    NotFoundComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    AuthModule,
+    LandingModule,
+    AdminModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
