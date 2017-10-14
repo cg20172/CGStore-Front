@@ -87,26 +87,26 @@ section{
     color: #fff;
 }
 .form-control:-moz-placeholder { /* Firefox 18- */
-    color: #fff;  
+    color: #fff;
 }
 .form-control::-moz-placeholder {  /* Firefox 19+ */
-    color: #fff;  
+    color: #fff;
 }
-.form-control:-ms-input-placeholder {  
-    color: #fff;  
+.form-control:-ms-input-placeholder {
+    color: #fff;
 }
 
 .element .form-control::-webkit-input-placeholder {
     color: #424242;
 }
 .element .form-control:-moz-placeholder { /* Firefox 18- */
-    color: #424242;  
+    color: #424242;
 }
 .element .form-control::-moz-placeholder {  /* Firefox 19+ */
-    color: #424242;  
+    color: #424242;
 }
-.element .form-control:-ms-input-placeholder {  
-    color: #424242;  
+.element .form-control:-ms-input-placeholder {
+    color: #424242;
 }
 
 
@@ -346,7 +346,7 @@ section{
 
 /*Home page*/
 .header{
-	background-image: url(../images/1.jpg);
+	background-image: url(../../images/landing/1.jpg);
 	height: 100vh;
 	position: relative;
 	min-height: 659px;
@@ -404,7 +404,7 @@ section{
 	line-height: 200%;
 }
 .expert .bg-img{
-	background-image: url(../images/2.jpg);
+	background-image: url(../../images/landing/2.jpg);
 	background-position-x: 85%;
 	height: 100%;
 }
@@ -418,7 +418,7 @@ section{
 
 
 .vira-quote{
-	background-image: url(../images/3.jpg);
+	background-image: url(../../images/landing/3.jpg);
 	/*padding: 120px 0;*/
 	color: #fff;
 	font-style: italic;
@@ -435,7 +435,7 @@ section{
 	margin-bottom: 40px;
 }
 .watch{
-	background-image: url(../images/7.jpg);
+	background-image: url(../../images/landing/7.jpg);
 	font-style: italic;
 	font-size: 32px;
 	color: #fff;
@@ -459,7 +459,7 @@ section{
 }
 
 .subscribe{
-	background-image: url(../images/11.jpg);
+	background-image: url(../../images/landing/11.jpg);
 }
 .subscribe .vira-btn{
 	margin-bottom: 0;
