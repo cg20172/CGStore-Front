@@ -19,19 +19,24 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "assets/css/vendor/bootstrap.min.css",
-        "assets/css/vendor/magnific-popup.css",
-        "assets/css/vendor/owl.carousel.css",
-        "assets/css/vendor/owl.theme.default.min.css",
-        "assets/css/landing/style.css",
+        "assets/css/bootstrap.min.css",
+        "assets/css/animate.css",
+        "assets/css/custom.css",
+        "assets/css/font-awesome.css",
+        "assets/css/owl.carousel.css",
+        "assets/css/style.red.css",
         "styles.css"
       ],
       "scripts": [
-        "assets/js/vendor/jquery-3.1.1.js",
-        "assets/js/vendor/bootstrap.min.js",
-        "assets/js/vendor/jquery.magnific-popup.min.js",
-        "assets/js/vendor/owl.carousel.min.js",
-        "assets/js/landing/script.js"
+        "assets/js/jquery-1.11.0.min.js",
+        "assets/js/jquery.parallax-1.1.3.js",
+        "assets/js/jquery.cookie.js",
+        "assets/js/bootstrap.min.js",
+        "assets/js/owl.carousel.min.js",
+        "assets/js/respond.min.js",
+        "assets/js/waypoints.min.js",
+        "assets/js/gmaps.js",
+        "assets/js/front.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
