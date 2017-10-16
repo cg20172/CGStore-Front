@@ -3,55 +3,54 @@
   "project": {
     "name": "web"
   },
-  "apps": [
-    {
-      "root": "src",
-      "outDir": "dist",
-      "assets": [
-        "assets",
-        "favicon.ico"
-      ],
-      "index": "index.html",
-      "main": "main.ts",
-      "polyfills": "polyfills.ts",
-      "test": "test.ts",
-      "tsconfig": "tsconfig.app.json",
-      "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
-      "styles": [
-        "assets/css/bootstrap.min.css",
-        "assets/css/animate.css",
-        "assets/css/custom.css",
-        "assets/css/font-awesome.css",
-        "assets/css/owl.carousel.css",
-        "assets/css/style.red.css",
-        "styles.css"
-      ],
-      "scripts": [
-        "assets/js/jquery-1.11.0.min.js",
-        "assets/js/jquery.parallax-1.1.3.js",
-        "assets/js/jquery.cookie.js",
-        "assets/js/bootstrap.min.js",
-        "assets/js/owl.carousel.min.js",
-        "assets/js/respond.min.js",
-        "assets/js/waypoints.min.js",
-        "assets/js/gmaps.js",
-        "assets/js/front.js"
-      ],
-      "environmentSource": "environments/environment.ts",
-      "environments": {
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
-      }
+  "apps": [{
+    "root": "src",
+    "outDir": "dist",
+    "assets": [
+      "assets",
+      "favicon.ico"
+    ],
+    "index": "index.html",
+    "main": "main.ts",
+    "polyfills": "polyfills.ts",
+    "test": "test.ts",
+    "tsconfig": "tsconfig.app.json",
+    "testTsconfig": "tsconfig.spec.json",
+    "prefix": "app",
+    "styles": [
+      "assets/css/bootstrap.min.css",
+      "assets/css/animate.css",
+      "assets/css/custom.css",
+      "assets/css/font-awesome.css",
+      "assets/css/owl.carousel.css",
+      "assets/css/style.red.css",
+      "styles.css"
+    ],
+    "scripts": [
+      "assets/js/jquery-1.11.0.min.js",
+      "assets/js/jquery.parallax-1.1.3.js",
+      "assets/js/bootstrap-hover-dropdown.js",
+      "assets/js/gmaps.sensors.js",
+      "assets/js/gmaps.js",
+      "assets/js/gmaps.init.js",
+      "assets/js/bootstrap.min.js",
+      "assets/js/owl.carousel.min.js",
+      "assets/js/respond.min.js",
+      "assets/js/waypoints.min.js",
+      "assets/js/front.js"
+    ],
+    "environmentSource": "environments/environment.ts",
+    "environments": {
+      "dev": "environments/environment.ts",
+      "prod": "environments/environment.prod.ts"
     }
-  ],
+  }],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"
     }
   },
-  "lint": [
-    {
+  "lint": [{
       "project": "src/tsconfig.app.json",
       "exclude": "**/node_modules/**"
     },

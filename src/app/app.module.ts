@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { AdminModule } from './admin/admin.module';
-import { LandingModule } from './landing/landing.module';
+import { PagesModule } from './pages/pages.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './partials/header/header.component';
@@ -27,7 +27,7 @@ import { HttpService } from './services/http.service';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    LandingModule,
+    PagesModule,
     AdminModule
   ],
   providers: [HttpService],
