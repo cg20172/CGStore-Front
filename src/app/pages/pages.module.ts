@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule }       from '@angular/platform-browser';
+
 import { ReactiveFormsModule } from '@angular/forms';  // <-- #1 import module
- 
+import { FormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule,MatSliderModule} from '@angular/material';
 
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
@@ -15,11 +18,17 @@ import { HeroListComponent }   from './products/doors/hero-list.component';
 
 import { HeroService }         from './products/doors/hero.service';
 
+
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
-    ReactiveFormsModule // <-- #2 add to @NgModule imports
+    ReactiveFormsModule, // <-- #2 add to @NgModule imports
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatSliderModule
   ],
   declarations: [
   	HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent,

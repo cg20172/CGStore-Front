@@ -6,6 +6,8 @@ import { AuthModule } from './auth/auth.module';
 import { AdminModule } from './admin/admin.module';
 import { PagesModule } from './pages/pages.module';
 
+
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './partials/header/header.component';
 import { FooterComponent } from './partials/footer/footer.component';
@@ -13,7 +15,10 @@ import { FooterComponent } from './partials/footer/footer.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 
+import { HttpModule ,RequestOptions, Headers } from '@angular/http';
 import { HttpService } from './services/http.service';
+
+import { ConnectionService } from './services/connection.service';
 
 @NgModule({
   declarations: [
@@ -26,11 +31,12 @@ import { HttpService } from './services/http.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpModule,
     AuthModule,
     PagesModule,
     AdminModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, ConnectionService],
   bootstrap: [AppComponent]
 })
 
