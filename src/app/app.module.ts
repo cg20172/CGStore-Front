@@ -1,10 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Logger } from "angular2-logger/core";
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AuthModule } from './auth/auth.module';
 import { AdminModule } from './admin/admin.module';
 import { PagesModule } from './pages/pages.module';
+import { AuthModule } from './auth/auth.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './partials/header/header.component';
@@ -13,24 +18,35 @@ import { FooterComponent } from './partials/footer/footer.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 
-import { HttpService } from './services/http.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,
-    ServerErrorComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+
+    NotFoundComponent,
+    ServerErrorComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    SimpleNotificationsModule.forRoot(),
+
     AppRoutingModule,
+
     AuthModule,
     PagesModule,
     AdminModule
   ],
-  providers: [HttpService],
+  providers: [
+    Logger,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 

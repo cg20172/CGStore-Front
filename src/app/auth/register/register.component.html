@@ -30,51 +30,107 @@
           <hr>
 
           <div class="row">
-            <form action="customer-orders.html" method="post">
-              <div class="col-xs-12 col-sm-6">
-                <div class="form-group">
-                  <label for="firstname">Nombres</label>
-                  <input type="text" class="form-control" id="firstname">
+            <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm)" novalidate>
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                      <label for="firstname">Nombres</label>
+                      <input type="text" class="form-control" id="firstname" formControlName="firstName">
+                      <div class="alert alert-danger alert-sm border-flat" *ngIf="registerForm.controls.firstName.dirty && registerForm.controls.firstName.errors">
+                        <ul class="list-unstyled">
+                          <li *ngIf="registerForm.controls.firstName.hasError('required')">
+                            <span class="fa fa-exclamation"></span> Oops, este campo es requerido!
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                      <label for="lastname">Apellidos</label>
+                      <input type="text" class="form-control" id="lastname" formControlName="lastName">
+                      <div class="alert alert-danger alert-sm border-flat" *ngIf="registerForm.controls.lastName.dirty && registerForm.controls.lastName.errors">
+                        <ul class="list-unstyled">
+                          <li *ngIf="registerForm.controls.lastName.hasError('required')">
+                            <span class="fa fa-exclamation"></span> Oops, este campo es requerido!
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="col-xs-12 col-sm-6">
-                <div class="form-group">
-                  <label for="lastname">Apellidos</label>
-                  <input type="text" class="form-control" id="lastname">
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6">
-                <div class="form-group">
-                  <label for="address">Dirección</label>
-                  <input type="text" class="form-control" id="address">
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6">
-                <div class="form-group">
-                  <label for="phone">Teléfono</label>
-                  <input type="text" class="form-control" id="phone">
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                      <label for="address">Dirección</label>
+                      <input type="text" class="form-control" id="address" formControlName="address">
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                      <label for="phone">Teléfono</label>
+                      <input type="text" class="form-control" id="phone" formControlName="phone">
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="col-xs-12">
                 <div class="form-group">
                   <label for="email">Correo electrónico</label>
-                  <input type="text" class="form-control" id="email">
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6">
-                <div class="form-group">
-                  <label for="password">Contraseña</label>
-                  <input type="password" class="form-control" id="password">
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6">
-                <div class="form-group">
-                  <label for="confirmpassword">Confirmar contraseña</label>
-                  <input type="password" class="form-control" id="confirmpassword">
+                  <input type="text" class="form-control" id="email" formControlName="email">
+                  <div class="alert alert-danger alert-sm border-flat" *ngIf="registerForm.controls.email.dirty && registerForm.controls.email.errors">
+                    <ul class="list-unstyled">
+                      <li *ngIf="registerForm.controls.email.hasError('required')">
+                        <span class="fa fa-exclamation"></span> Oops, este campo es requerido!
+                      </li>
+                      <li *ngIf="!registerForm.controls.email.hasError('required') && registerForm.controls.email.hasError('email')">
+                        <span class="fa fa-exclamation"></span> Oops, este campo debe contener un email valido!
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
               <div class="col-xs-12">
-                <button type="submit" class="btn btn-template-main pull-right"><i class="fa fa-user-md"></i> Registrarme</button>
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                      <label for="password">Contraseña</label>
+                      <input type="password" class="form-control" id="password" formControlName="password">
+                      <div class="alert alert-danger alert-sm border-flat" *ngIf="registerForm.controls.password.dirty && registerForm.controls.password.errors">
+                        <ul class="list-unstyled">
+                          <li *ngIf="registerForm.controls.password.hasError('required')">
+                            <span class="fa fa-exclamation"></span> Oops, este campo es requerido!
+                          </li>
+                          <li *ngIf="!registerForm.controls.password.hasError('required') && registerForm.controls.password.hasError('minlength')">
+                            <span class="fa fa-exclamation"></span> Oops, este campo debe contener minimo 8 caracteres!
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                      <label for="confirmpassword">Confirmar contraseña</label>
+                      <input type="password" class="form-control" id="confirmpassword" formControlName="confirmPassword">
+                      <div class="alert alert-danger alert-sm border-flat" *ngIf="registerForm.controls.confirmPassword.dirty && registerForm.controls.confirmPassword.errors">
+                        <ul class="list-unstyled">
+                          <li *ngIf="registerForm.controls.confirmPassword.hasError('required')">
+                            <span class="fa fa-exclamation"></span> Oops, este campo es requerido!
+                          </li>
+                          <li *ngIf="!registerForm.controls.confirmPassword.hasError('required') && registerForm.value.password != registerForm.value.confirmPassword">
+                            <span class="fa fa-exclamation"></span> Oops, los campos de contraseña deben coincidir!
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <button type="submit" class="btn btn-template-main pull-right" [disabled]="registerForm.invalid || savingUser"><i class="fa fa-user-md"></i> {{ savingUser ? 'Registrando' : 'Registrarme' }}</button>
                 <span>Ya tienes una cuenta? <a href="javascript: void(0);" (click)="goToLogin()">Inicia sesión</a></span>
               </div>
             </form>
