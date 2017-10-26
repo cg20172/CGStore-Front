@@ -19,7 +19,8 @@ constructor( private connServ : ConnectionService ) { }
     test(){
         console.log("hola");
         let o: any;
-        this.connServ.getRequest("quotes/2").subscribe( data=>{ 
+        this.connServ.getRequest("quotes/2").subscribe( data=>{
+            /*los datos solo se pueden manejar acá*/
             console.log(data);o = data;
             console.log(o.status);
         });
