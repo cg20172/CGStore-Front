@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {OwlCarousel} from 'ng2-owl-carousel';
+
+
+
 
 @Component({
   selector: 'app-home',
@@ -10,6 +14,12 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
+      
+   
 
 }
+
+        
+
+} 
+    

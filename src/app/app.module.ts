@@ -17,7 +17,7 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { HttpModule ,RequestOptions, Headers } from '@angular/http';
 import { AuthService } from './services/auth.service';
 import { ConnectionService } from './services/connection.service';
-
+import { OwlModule } from 'ng2-owl-carousel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +38,8 @@ import { ConnectionService } from './services/connection.service';
     HttpModule,
     AuthModule,
     PagesModule,
-    AdminModule
+    AdminModule,
+    OwlModule
   ],
   providers: [
     ConnectionService,

@@ -2,11 +2,12 @@
   legos works!
 </p>
 
-<mat-slider></mat-slider>
+<mat-slider id="slider"></mat-slider>
 
-<mat-slider vertical thumbLabel tickInterval="1"></mat-slider>
+<mat-slider vertical thumbLabel tickInterval="1">100</mat-slider>
 
 <button (click)="test()">sdf</button>
+<button >{{ficha1.id}}</button>
 
 
 
@@ -18,10 +19,28 @@
      preserveAspectRatio="xMinYMin meet"
      style="border: 1px solid #cccccc;">
 
-    <svg:rect x="1" y="1" width="50" height="50"
-          style="stroke: #000000; fill:blue;"/>
+    <svg:rect class="puerta"  x="1" y="1"  width="100" height="150"/>
 
 </svg>
+
+
+<mat-card class="SliderConfigurableExample">
+  <mat-card-content>
+    <h2 class="example-h2">Result</h2>
+
+    <mat-slider
+        class="example-margin" thumbLabel tickInterval="1" SliderConfigurableExample
+        [disabled]="disabled"
+        [invert]="invert"
+        [max]="max"
+        [min]="min"
+        [step]="step"
+        
+        [value]="value"
+        [vertical]="vertical">
+    </mat-slider>
+  </mat-card-content>
+</mat-card>
 
 </figure>
 
