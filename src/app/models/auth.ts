@@ -19,4 +19,12 @@ export class Auth {
     return this.uid && this.client && this.token && this.user;
   }
 
+  public getLogoutData() {
+    return {
+      uid: this.uid,
+      client: this.client,
+      'access-token': this.token
+    };
+  }
+
 }

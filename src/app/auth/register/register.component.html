@@ -81,12 +81,12 @@
                 <div class="form-group">
                   <label for="email">Correo electrónico</label>
                   <input type="text" class="form-control" id="email" formControlName="email">
-                  <div class="alert alert-danger alert-sm border-flat" *ngIf="registerForm.controls.email.dirty && registerForm.controls.email.errors">
+                  <div class="alert alert-danger alert-sm border-flat" *ngIf="registerForm.controls.email.dirty &&  registerForm.controls.email.errors">
                     <ul class="list-unstyled">
                       <li *ngIf="registerForm.controls.email.hasError('required')">
                         <span class="fa fa-exclamation"></span> Oops, este campo es requerido!
                       </li>
-                      <li *ngIf="!registerForm.controls.email.hasError('required') && registerForm.controls.email.hasError('email')">
+                      <li *ngIf="registerForm.controls.email.hasError('email')">
                         <span class="fa fa-exclamation"></span> Oops, este campo debe contener un email valido!
                       </li>
                     </ul>
@@ -130,7 +130,7 @@
                 </div>
               </div>
               <div class="col-xs-12">
-                <button type="submit" class="btn btn-template-main pull-right" [disabled]="registerForm.invalid || savingUser"><i class="fa fa-user-md"></i> {{ savingUser ? 'Registrando' : 'Registrarme' }}</button>
+                <button type="submit" class="btn btn-template-main pull-right" [disabled]="disabledForm()"><i class="fa fa-user-md"></i> {{ savingUser ? 'Registrando' : 'Registrarme' }}</button>
                 <span>Ya tienes una cuenta? <a href="javascript: void(0);" (click)="goToLogin()">Inicia sesión</a></span>
               </div>
             </form>
