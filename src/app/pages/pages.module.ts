@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule }       from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';  // <-- #1 import module
 import { FormsModule } from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule,MatSliderModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule, MatSliderModule } from '@angular/material';
+
+import { QuotationModule } from './quotation/quotation.module';
+
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { DoorsComponent } from './products/doors/doors.component';
@@ -19,6 +22,8 @@ import { HeroService } from './products/doors/hero.service';
 
 
 
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -28,7 +33,9 @@ import { HeroService } from './products/doors/hero.service';
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatSliderModule
+    MatSliderModule,
+
+    QuotationModule
   ],
   declarations: [
     HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent,
@@ -38,7 +45,8 @@ import { HeroService } from './products/doors/hero.service';
   exports: [
     HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent,
     HeroDetailComponent,
-    HeroListComponent
+    HeroListComponent,
+
   ],
   providers: [HeroService]
 })

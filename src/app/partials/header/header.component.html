@@ -7,20 +7,29 @@
       <div class="row">
         <div class="col-xs-5 contact">
           <p class="hidden-sm hidden-xs">Contactenos al +57 322 942 25 67 o contact@cg2017-2.com.</p>
-          <p class="hidden-md hidden-lg"><a href="#" data-animate-hover="pulse"><i class="fa fa-phone"></i></a> <a href="#" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+          <p class="hidden-md hidden-lg">
+            <a href="#" data-animate-hover="pulse"><i class="fa fa-phone"></i></a>
+            <a href="#" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
           </p>
         </div>
         <div class="col-xs-7">
           <div class="social">
-            <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-            <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-            <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-            <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+            <a href="#" class="external facebook" data-animate-hover="pulse" title="Siguenos en Facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="external gplus" data-animate-hover="pulse" title="Siguenos en Google+"><i class="fa fa-google-plus"></i></a>
+            <a href="#" class="external twitter" data-animate-hover="pulse" title="Siguenos en Twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="email" data-animate-hover="pulse" title="Envianos un email"><i class="fa fa-envelope"></i></a>
           </div>
 
           <div class="login">
-            <a href="#" routerLink="auth/login"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Acceder</span></a>
-            <a href="#" routerLink="auth/register"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Registrese!</span></a>
+            <a href="#" routerLink="auth/login" *ngIf="authService.isGuest()">
+              <i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Acceder</span>
+            </a>
+            <a href="#" routerLink="auth/register" *ngIf="authService.isGuest()">
+              <i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Registrese!</span>
+            </a>
+            <a href="#" routerLink="auth/profile" *ngIf="authService.isAuth()">
+              <i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Mi Perfil</span>
+            </a>
           </div>
 
         </div>
@@ -66,6 +75,16 @@
             </li>
             <li routerLink="contact/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
               <a href="javascript: void(0);">Contacto</a>
+            </li>
+            <li routerLink="auth/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="authService.isGuest()">
+              <a href="javascript: void(0);">Iniciar Sesión</a>
+            </li>
+            <li class="dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}" *ngIf="authService.isAuth()">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">{{ authService.getUser().firstName }} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a routerLink="auth/profile" href="javascript: void(0);">Mi Perfil</a></li>
+                <li><a (click)="logoutUser()" href="javascript: void(0);">Cerrar Sesión</a></li>
+              </ul>
             </li>
           </ul>
         </div>

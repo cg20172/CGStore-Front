@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { defaultIcons } from 'angular2-notifications';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +17,5 @@ export class AppComponent {
       timeOut: 3000,
       animate: 'fromRight'
     };
-
-    defaultIcons.success = '<i class="fa fa-check fa-3x"></i>';
   }
 }

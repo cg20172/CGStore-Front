@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { CustomValidators } from 'ng2-validation';
 import { Logger } from 'angular2-logger/core';
+import { Component, OnInit } from '@angular/core';
+import { CustomValidators } from 'ng2-validation';
 import { NotificationsService } from 'angular2-notifications';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { AuthService } from './../../services/auth.service';
 import { UserRegister } from './../../models/user-register';
@@ -17,7 +17,7 @@ import { UserRegister } from './../../models/user-register';
 export class RegisterComponent implements OnInit {
 
   private registerForm: FormGroup;
-  private savingUser: boolean = false;
+  private savingUser: boolean;
 
   constructor(private router: Router,
     private authService: AuthService,
@@ -25,6 +25,8 @@ export class RegisterComponent implements OnInit {
     private notificationsService: NotificationsService) { }
 
   ngOnInit() {
+    this.savingUser = false;
+
     let password = new FormControl('', [Validators.required, Validators.minLength(8)]);
     let confirmPassword = new FormControl('', [Validators.required, CustomValidators.equalTo(password)]);
     this.registerForm = new FormGroup({
@@ -40,6 +42,7 @@ export class RegisterComponent implements OnInit {
 
   public registerUser(form: FormGroup) {
     this.logger.info('Registering user:', form.value);
+    console.log(form.value);
     this.savingUser = true;
 
     let registerData = new UserRegister(form.value);
@@ -50,11 +53,37 @@ export class RegisterComponent implements OnInit {
           this.savingUser = false;
           const toast = this.notificationsService.success(
             'Usuario Creado',
-            'El usuario ha sido creado correctamente');
+            'El usuario ha sido creado correctamente'
+          );
+          this.router.navigateByUrl('/');
         }
       }, (error) => {
-        console.log(error);
+        this.savingUser = false;
+
+        if (error.status === 422) {
+          let responseData = JSON.parse(error.error);
+          if (responseData.errors.email) {
+            const toast = this.notificationsService.error(
+              'Error en Formulario',
+              responseData.errors['full_messages'][0]
+            );
+          } else {
+            const toast = this.notificationsService.error(
+              'Error en Formulario',
+              'Parece que han habido un error. Vuelva a intentarlo'
+            );
+          }
+        } else {
+          const toast = this.notificationsService.error(
+            'Error ' + error.status,
+            error.statusText
+          );
+        }
       });
+  }
+
+  public disabledForm(): boolean {
+    return this.registerForm.invalid || this.savingUser;
   }
 
   public goToLogin() {

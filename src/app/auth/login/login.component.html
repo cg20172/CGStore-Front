@@ -30,16 +30,33 @@
           <hr>
 
           <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1">
-            <form action="customer-orders.html" method="post">
+            <form [formGroup]="loginForm" (ngSubmit)="attemptLogin(loginForm)" novalidate>
               <div class="form-group">
                 <label for="email">Correo electrónico</label>
-                <input type="text" class="form-control" id="email">
+                <input type="text" class="form-control" id="email" formControlName="email">
+                <div class="alert alert-danger alert-sm border-flat" *ngIf="loginForm.controls.email.dirty && loginForm.controls.email.errors">
+                  <ul class="list-unstyled">
+                    <li *ngIf="loginForm.controls.email.hasError('required')">
+                      <span class="fa fa-exclamation"></span> Oops, este campo es requerido!
+                    </li>
+                    <li *ngIf="!loginForm.controls.email.hasError('required') && loginForm.controls.email.hasError('email')">
+                      <span class="fa fa-exclamation"></span> Oops, este campo debe contener un email valido!
+                    </li>
+                  </ul>
+                </div>
               </div>
               <div class="form-group">
                 <label for="password">Contraseña</label>
-                <input type="password" class="form-control" id="password">
+                <input type="password" class="form-control" id="password" formControlName="password">
+                <div class="alert alert-danger alert-sm border-flat" *ngIf="loginForm.controls.password.dirty && loginForm.controls.password.errors">
+                  <ul class="list-unstyled">
+                    <li *ngIf="loginForm.controls.password.hasError('required')">
+                      <span class="fa fa-exclamation"></span> Oops, este campo es requerido!
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <button type="submit" class="btn btn-template-main pull-right"><i class="fa fa-sign-in"></i> Acceder</button>
+              <button type="submit" class="btn btn-template-main pull-right" [disabled]="disabledForm()"><i class="fa fa-sign-in"></i> Acceder</button>
               <span>No tienes una cuenta? <a href="javascript: void(0);" (click)="goToRegister()">Registrate aquí!</a></span>
             </form>
           </div>

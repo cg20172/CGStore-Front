@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Logger } from 'angular2-logger/core';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { Auth } from './../models/auth';
 import { User } from './../models/user';
@@ -14,18 +14,47 @@ export class AuthService {
   private auth: Auth;
 
   constructor(private http: HttpClient,
-    private logger: Logger) { }
+    private logger: Logger) {
 
-  public logIn(loginData: any) {
+    let authData = JSON.parse(window.localStorage.getItem('auth'));
+    if (authData) {
+      this.auth = new Auth(authData.uid, authData.client, authData.token, new User(authData.user));
+    }
+  }
 
+  public logIn(credentials: Object): Observable<any> {
+    return this.http.post(this.url + '/sign_in', credentials, { observe: 'response' })
+      .map((response) => {
+
+        let uid = response.body['data'].uid;
+        let client = response.headers.get('client');
+        let token = response.headers.get('access-token');
+        let user = new User(response.body['data']);
+
+        this.auth = new Auth(uid, client, token, user);
+        window.localStorage.setItem('auth', JSON.stringify(this.auth));
+
+        return response.body;
+      })
+      .catch((error: any) => Observable.throw(error || 'ServerError'));
   }
 
   public logOut() {
+    if (this.isAuth()) {
+      let headers = new HttpHeaders(this.auth.getLogoutData());
 
-  }
+      return this.http.delete(this.url + '/sign_out', { headers: headers, observe: 'response' })
+        .map((response) => {
 
-  public isAuth() {
-    return this.auth.check();
+          if (response.status === 200 && response.body['success'] === true) {
+            window.localStorage.removeItem('auth');
+            this.auth = null;
+          }
+
+          return response.body;
+        })
+        .catch((error) => Observable.throw(error || 'ServerError'));
+    }
   }
 
   public register(register: UserRegister): Observable<any> {
@@ -38,10 +67,19 @@ export class AuthService {
         let user = new User(response.body['data']);
 
         this.auth = new Auth(uid, client, token, user);
+        window.localStorage.setItem('auth', JSON.stringify(this.auth));
 
         return response.body;
       })
-      .catch((error: any) => Observable.throw(error || 'Server Error'));
+      .catch((error: any) => Observable.throw(error || 'ServerError'));
+  }
+
+  public isAuth() {
+    return this.auth && this.auth.check();
+  }
+
+  public isGuest() {
+    return !this.auth || (this.auth && !this.auth.check());
   }
 
   public getUser() {
