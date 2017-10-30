@@ -20,7 +20,7 @@ import { HeroListComponent } from './products/doors/hero-list.component';
 import { HeroService } from './products/doors/hero.service';
 
 
-
+import { OwlModule } from 'ngx-owl-carousel';
 
 
 
@@ -34,7 +34,7 @@ import { HeroService } from './products/doors/hero.service';
     MatButtonModule,
     MatCheckboxModule,
     MatSliderModule,
-
+    OwlModule,
     QuotationModule
   ],
   declarations: [

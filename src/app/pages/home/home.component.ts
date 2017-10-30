@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {OwlCarousel} from 'ng2-owl-carousel';
+import { Image } from '../../models/image';
 
 
 
@@ -11,15 +11,23 @@ import {OwlCarousel} from 'ng2-owl-carousel';
 })
 export class HomeComponent implements OnInit {
 
+      images :Image[] = [
+        new Image('1','Primera Imagen', 'Descripcion Imagen Uno ','https://angular.io/assets/images/logos/angular/angular.svg','https://jaxenter.com/wp-content/uploads/2016/12/angular.png' ),
+        new Image('1','Primera Imagen', 'Descripcion Imagen Uno ','https://angular.io/assets/images/logos/angular/angular.svg','https://jaxenter.com/wp-content/uploads/2016/12/angular.png' ),
+        new Image('1','Primera Imagen', 'Descripcion Imagen Uno ','https://angular.io/assets/images/logos/angular/angular.svg','https://jaxenter.com/wp-content/uploads/2016/12/angular.png' ),
+        new Image('1','Primera Imagen', 'Descripcion Imagen Uno ','https://angular.io/assets/images/logos/angular/angular.svg','https://jaxenter.com/wp-content/uploads/2016/12/angular.png' )
+
+    ];
+    
+    
   constructor() { }
 
   ngOnInit() {
-      
    
 
 }
 
-        
+     
 
 } 
     
