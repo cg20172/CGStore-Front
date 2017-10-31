@@ -2,6 +2,9 @@ import { Component,ViewEncapsulation, OnInit } from '@angular/core';
 import { ConnectionService } from '../../../services/connection.service';
 import { Ficha1 } from '../../../models/ficha1'; 
 
+import { ProductService } from './../../../services/product.service';
+
+import { Product } from './../../../models/product';
 
 
 @Component({
@@ -14,30 +17,22 @@ encapsulation: ViewEncapsulation.None,
 })
 export class LegosComponent implements OnInit {
 
-    
-     ficha1 = new Ficha1 ('2');
+private legos: Product[];
         
     
-constructor( private connServ : ConnectionService ) {  }
-    
-    test(){
-        
-         
-        console.log("hola");
-        let o: any;
-        this.connServ.getRequest("quotes/2").subscribe( data=>{
-            /*los datos solo se pueden manejar acá*/
-            console.log(data);o = data;
-
-            
-            console.log(o.status);
-        });
-        
- 
-    }
+constructor( private productService : ProductService) {  }
     
       ngOnInit() {
-          
+          this.productService.getAllProducts()
+        .subscribe((res)=>{
+            
+            this.legos = res.filter((elem) => elem.stock > 5 );
+            console.log("Mi respuesta:",res);
+            
+            
+        },(error)=>{
+            console.log("Hay error",error);
+        });
       }
 }
 

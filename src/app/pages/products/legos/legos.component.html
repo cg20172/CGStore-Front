@@ -2,12 +2,25 @@
   legos works!
 </p>
 
+{{legos|json}}
+<select>
+  <option value="volvo">asdas</option>
+  <option value="saab">Saab</option>
+  <option value="opel">Opel</option>
+  <option value="audi">Audi</option>
+</select>
+
+
+<select [(ngModel)]="selectedValue">
+  <option *ngFor="let lego of legos" [ngValue]="lego">{{lego.name}}</option>
+</select>
+
+
+<hr>
+
 <mat-slider id="slider"></mat-slider>
 
 <mat-slider vertical thumbLabel tickInterval="1">100</mat-slider>
-
-<button (click)="test()">sdf</button>
-<button >{{ficha1.id}}</button>
 
 
 
