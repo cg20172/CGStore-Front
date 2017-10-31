@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { AfterViewInit } from '@angular/core';
 import { MatRadioModule } from '@angular/material';
+import { Logger } from 'angular2-logger/core';
+import { NotificationsService } from 'angular2-notifications';
+import * as _ from 'lodash';
+
 import { ProductService } from './../../../services/product.service';
-
 import { Product } from './../../../models/product';
-
-import { PuertaRapida } from './PuertaRapida.interface';
 
 @Component({
   selector: 'app-doors-quotation',
@@ -16,14 +17,14 @@ import { PuertaRapida } from './PuertaRapida.interface';
 export class DoorsQuotationComponent implements OnInit {
 
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,
+    private logger: Logger,
+    private notificationsService: NotificationsService) { }
 
   private selectedValue: Product;
   private doors: Product[];
 
   selectColor: string;
-
-
 
   listColor = [
     'azul',
@@ -38,115 +39,35 @@ export class DoorsQuotationComponent implements OnInit {
 
 
   context: CanvasRenderingContext2D;
-
-
   @ViewChild("myCanvas") myCanvas;
 
-
-
   ngOnInit() {
-
     this.productService.getAllProducts()
       .subscribe((res) => {
-        this.doors = res;//.filter((elem) => elem.stock > 5);
-        console.log("Mi respuesta:", res);
+        this.doors = res.filter((elem) => [1, 2].includes(elem.id));
+
+        _.forEach(this.doors, (door) => {
+          if (door.name.toLowerCase() === 'puerta rapida') {
+            door.characteristics = [
+              { name: 'ancho', type: 'text', value: 0 },
+              { name: 'alto', type: 'text', value: 0 },
+              { name: 'color_lona', type: 'text', value: 0 },
+              { name: 'color_perfiles', type: 'text', value: 0 },
+              { name: 'interruptor', type: 'text', value: 0 },
+              { name: 'lazo', type: 'text', value: 0 },
+              { name: 'luces', type: 'text', value: 0 },
+              { name: 'senal', type: 'text', value: 0 },
+              { name: 'mando', type: 'text', value: 0 },
+              { name: 'numero_mandos', type: 'text', value: 0 }
+            ];
+          }
+        });
       }, (error) => {
-        console.log("Hay error", error)
+        console.log(error);
+        const toast = this.notificationsService.error(
+          'Error ' + error.status,
+          error.statusText
+        );
       });
-
-
-  public puertaRapida: PuertaRapida;
-
-  constructor() { }
-
-  ngOnInit() {
-    this.puertaRapida = {
-      color: null,
-      height: null,
-      width: null
-
-    }
   }
-
-  step2: any = {
-    showNext: true,
-    showPrev: true
-  };
-
-  step3: any = {
-    showSecret: false
-  };
-
-  data: any = {
-    email: 'muk@gmail.com'
-  };
-
-  isCompleted: boolean = false;
-
-  onStep1Next(event) {
-    console.log('Step1 - Next');
-  }
-
-  onStep2Next(event) {
-    console.log('Step2 - Next');
-  }
-
-  onStep3Next(event) {
-    console.log('Step3 - Next');
-  }
-
-  onComplete(event) {
-    this.isCompleted = true;
-
-  }
-  ngAfterViewInit() {
-
-    let canvas = this.myCanvas.nativeElement;
-    this.context = canvas.getContext("2d");
-
-    this.tick();
-
-  }
-
-  tipeColor(nombre: String) {
-    switch (nombre) {
-      case "azul": {
-        this.rectColor = "#00ffff";
-        break;
-      }
-      case "rojo": {
-        this.rectColor = "#FF0000";
-        break;
-      }
-
-    }
-
-  }
-
-  tick() {
-
-    requestAnimationFrame(() => {
-      this.tick()
-
-    });
-
-    var ctx = this.context;
-    ctx.clearRect(0, 0, 400, 400);
-    ctx.fillStyle = this.rectColor;
-    ctx.fillRect(10, 10, this.rectW, this.rectH);
-  }
-
-
-  onStepChanged(step) {
-    console.log('Changed to ' + step.title);
-  }
-
-
-
-  public colors = [
-    { value: 1, display: 'Blanco' },
-    { value: 2, display: 'Negro' },
-    { value: 3, display: 'Rojo' }
-  ]
-
 }

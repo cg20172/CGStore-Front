@@ -3,15 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { QuotationComponent } from './quotation.component';
 import { DoorsQuotationComponent } from './doors-quotation/doors-quotation.component';
 import { LegosQuotationComponent } from './legos-quotation/legos-quotation.component';
 import { MachineryQuotationComponent } from './machinery-quotation/machinery-quotation.component';
-
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { FormWizardModule } from 'angular2-wizard';
 
 
 @NgModule({
@@ -20,7 +17,7 @@ import { FormWizardModule } from 'angular2-wizard';
     RouterModule,
     BrowserModule,
     FormsModule,
-    FormWizardModule
+    MatRadioModule
   ],
   declarations: [
     QuotationComponent,

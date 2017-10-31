@@ -11,36 +11,32 @@ import { Product } from './../models/product';
 export class ProductService {
   private url: string = 'https://herokucg2017.herokuapp.com/products';
 
-    public products: Product[];
-    
-constructor(private http: HttpClient,
-    private logger: Logger){ 
+  public products: Product[];
 
-}   
-    
+  constructor(private http: HttpClient,
+    private logger: Logger) {
+  }
 
-    public getAllProducts():Observable<any>{
+  public getAllProducts(): Observable<any> {
 
 
-            return this.http.get(this.url)
-            .map((response) => {
-                console.log(response);
-                
-                if (!this.products) {
-                    this.products = [];
-                
-                _.forEach(response, (element) => {
-                    let product = new Product(element['id'],element['name'], element['description'],element['price'],element['stock'],element['created_at'],element['updated_at']);
-                    this.products.push(product);
-                });
-                }
+    return this.http.get(this.url)
+      .map((response) => {
+        if (!this.products) {
+          this.products = [];
 
-                return this.products;
-                
-            })
-            .catch((error: any) => Observable.throw(error || 'ServerError'));
+          _.forEach(response, (element) => {
+            let product = new Product(element['id'], element['name'], element['description'], element['stock'], element['created_at'], element['updated_at']);
+            this.products.push(product);
+          });
+        }
 
-    }
+        return this.products;
+
+      })
+      .catch((error: any) => Observable.throw(error || 'ServerError'));
+
+  }
 
 
 }
