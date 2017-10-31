@@ -20,7 +20,7 @@ import { HeroListComponent } from './products/doors/hero-list.component';
 import { HeroService } from './products/doors/hero.service';
 
 
-import { OwlModule } from 'ngx-owl-carousel';
+import { OwlModule } from 'ng2-owl-carousel';
 
 
 
