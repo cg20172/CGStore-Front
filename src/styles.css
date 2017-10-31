@@ -45,3 +45,34 @@ nav a.active {
 .icon {
   border-color: transparent;
 }
+
+
+/*  Style for wizard form */
+
+[hidden] {
+display: none !important;
+}
+
+.card-footer {
+  background-color: rgba(255, 255, 255, 0) !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+    color: white;
+    background: #1976d2;
+  }
+
+.btn:hover {
+    color: white;
+    background: #145a9e;
+  }
+
+ a:link {
+    color: #ffc1c1;
+}
+
+.demo{
+  overflow-y: -webkit-paged-x;
+}
