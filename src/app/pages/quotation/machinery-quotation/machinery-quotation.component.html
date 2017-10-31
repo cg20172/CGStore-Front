@@ -1,3 +1,4 @@
-<p>
-  machinery-quotation works!
-</p>
+<select class="form-control" [(ngModel)]="selectedValue">
+  <option *ngFor="let machine of machines" [ngValue]="machine">{{ machine.name }}</option>
+</select>
+<h3>{{ selectedValue ? selectedValue.name : 'Nada' }}</h3>

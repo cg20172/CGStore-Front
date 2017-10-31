@@ -1,3 +1,17 @@
-<p>
-  doors-quotation works!
-</p>
+<select class="form-control" [(ngModel)]="selectedValue">
+  <option *ngFor="let door of doors" [ngValue]="door">{{ door.name }}</option>
+</select>
+<h3>{{ selectedValue ? selectedValue.name : 'Nada' }}</h3>
+
+
+<div>
+  <div style=" wibackground:lightgray;">
+    <canvas #myCanvas width="310" height="400" style="  background:black;"></canvas>
+    <br> Ancho <input type="range" min="100" max="200" [(ngModel)]="rectW" /> Alto <input type="range" min="100" max="300" [(ngModel)]="rectH" /><br />
+  </div>
+  <mat-radio-group class="example-radio-group">
+    <mat-radio-button class="example-radio-button" (click)="tipeColor(color)" *ngFor="let color of listColor" [value]="color">
+      {{color}}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>

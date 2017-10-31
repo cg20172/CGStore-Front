@@ -1,39 +1,23 @@
-import { Component,ViewEncapsulation, OnInit } from '@angular/core';
-import { ConnectionService } from '../../../services/connection.service';
-import { Ficha1 } from '../../../models/ficha1'; 
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 
-import { ProductService } from './../../../services/product.service';
-
-import { Product } from './../../../models/product';
 
 
 @Component({
   selector: 'app-legos',
   templateUrl: './legos.component.html',
   styleUrls: ['./legos.component.css'],
-encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None,
   preserveWhitespaces: false,
 
 })
 export class LegosComponent implements OnInit {
 
-private legos: Product[];
-        
-    
-constructor( private productService : ProductService) {  }
-    
-      ngOnInit() {
-          this.productService.getAllProducts()
-        .subscribe((res)=>{
-            
-            this.legos = res.filter((elem) => elem.stock > 5 );
-            console.log("Mi respuesta:",res);
-            
-            
-        },(error)=>{
-            console.log("Hay error",error);
-        });
-      }
+
+  constructor() { }
+
+  ngOnInit() {
+
+  }
 }
 
 export class SliderConfigurableExample {

@@ -21,7 +21,6 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 
 import { AuthService } from './services/auth.service';
-import { ConnectionService } from './services/connection.service';
 import { ProductService } from './services/product.service';
 
 
@@ -52,7 +51,6 @@ import { ProductService } from './services/product.service';
     AdminModule
   ],
   providers: [
-    ConnectionService,
     Logger,
     AuthService,
     ProductService

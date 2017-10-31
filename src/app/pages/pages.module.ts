@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatSliderModule } from '@angular/material';
 import { OwlModule } from 'ng2-owl-carousel';
+import { MatRadioModule } from '@angular/material';
 
 import { QuotationModule } from './quotation/quotation.module';
 
@@ -31,6 +31,7 @@ import { HeroService } from './products/doors/hero.service';
     MatButtonModule,
     MatCheckboxModule,
     MatSliderModule,
+    MatRadioModule,
     OwlModule,
     QuotationModule,
 
