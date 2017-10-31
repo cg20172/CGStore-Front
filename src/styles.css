@@ -72,3 +72,7 @@ display: none !important;
  a:link {
     color: #ffc1c1;
 }
+
+.demo{
+  overflow-y: -webkit-paged-x;
+}

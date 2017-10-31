@@ -1,3 +1,96 @@
-<p>
-  legos-quotation works!
-</p>
+<!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+-->
+  <section class="demo">
+    <h1>
+      Legos - Cotización
+    </h1>
+    <hr/>
+    <div style="height: 350px;">
+    <form-wizard (onStepChanged)="onStepChanged($event)">
+      <wizard-step [title]="'Paso 1'" [isValid]="emailForm.form.valid" (onNext)="onStep1Next($event)">
+        <h1>Paso 1</h1>
+        <p class="lead">El email es requerido para proceder con el siguiente paso</p>
+        <form #emailForm="ngForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
+              [(ngModel)]="data.email" required>
+            <small id="emailHelp" class="form-text text-muted">
+            Nosotros no compartiremos tu email con nadie.</small>
+          </div>
+        </form>
+        
+        <form #emailForm="ngForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
+              [(ngModel)]="data.email" required>
+            <small id="emailHelp" class="form-text text-muted">
+            Nosotros no compartiremos tu email con nadie.</small>
+          </div>
+        </form>
+        <form #emailForm="ngForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
+              [(ngModel)]="data.email" required>
+            <small id="emailHelp" class="form-text text-muted">
+            Nosotros no compartiremos tu email con nadie.</small>
+          </div>
+        </form>
+
+
+      </wizard-step>
+      <wizard-step [title]="'Paso 2'" [showNext]="step2.showNext" [showPrev]="step2.showPrev" (onNext)="onStep2Next($event)">
+        <h1>Paso 2</h1>
+        <p class="lead">Ocultar botones de navegación.</p>
+        <form>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" name="showNext" [(ngModel)]="step2.showNext"/>
+              Mostrar Botón Next
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" name="showPrev" [(ngModel)]="step2.showPrev"/>
+              Mostrar Botón Previous
+            </label>
+          </div>
+        </form>
+      </wizard-step>
+      <wizard-step [title]="'Paso 3'" (onNext)="onStep3Next($event)">
+        <h1>Step3</h1>
+        <p class="lead">Selecciona para ver un paso secreto</p>
+        <form>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" name="secret" [(ngModel)]="step3.showSecret"/>
+              Quiero ver el paso secreto
+            </label>
+          </div>
+        </form>
+      </wizard-step>
+      <wizard-step [title]="'Paso 3.5'" [hidden]="!step3.showSecret">
+        <h1>Step3.5</h1>
+        <p class="lead">Este es el paso secreto!!</p>
+      </wizard-step>
+     <wizard-step [title]="'Paso 4'" (onComplete)="onComplete($event)">
+        <div [ngSwitch]="isCompleted">
+          <div *ngSwitchDefault>
+            <h1>Step4</h1>
+            <p class="lead">Este es el paso final</p>
+          </div>
+          <div *ngSwitchCase="true">
+            <h4>Gracias {{data.email}}! Completaste todos los pasos.</h4>
+          </div>
+        </div>
+      </wizard-step>
+    </form-wizard>
+    </div>
+  </section>
