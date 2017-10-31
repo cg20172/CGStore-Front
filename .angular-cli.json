@@ -27,7 +27,6 @@
       "styles.css"
     ],
     "scripts": [
-    "../node_modules/jquery/dist/jquery.js",
       "assets/js/jquery-1.11.0.min.js",
       "assets/js/jquery.parallax-1.1.3.js",
       "assets/js/bootstrap-hover-dropdown.js",

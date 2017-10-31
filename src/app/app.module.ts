@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
+import { OwlModule } from 'ng2-owl-carousel';
+import { Logger } from "angular2-logger/core";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Logger } from "angular2-logger/core";
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { HttpModule, RequestOptions, Headers } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module';
@@ -21,8 +23,6 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { AuthService } from './services/auth.service';
 import { ConnectionService } from './services/connection.service';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,12 +33,16 @@ import { ConnectionService } from './services/connection.service';
     ServerErrorComponent
   ],
   imports: [
+    OwlModule,
     FormsModule,
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+
     SimpleNotificationsModule.forRoot(),
+    NgbModule.forRoot(),
+
     AppRoutingModule,
     HttpModule,
     AuthModule,
