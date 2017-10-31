@@ -13,34 +13,34 @@
     <div>
     <form #f="ngForm" novalidate>
     <form-wizard (onStepChanged)="onStepChanged($event)">
-      <wizard-step [title]="'Paso 1'" [isValid]="emailForm.form.valid" (onNext)="onStep1Next($event)">
+      <wizard-step [title]="'Paso 1'" [isValid]="f.form.valid" (onNext)="onStep1Next($event)">
         <h1>Paso 1</h1>
         <p class="lead">El email es requerido para proceder con el siguiente paso</p>
-        <form #emailForm="ngForm">
+
           <div class="form-group">
-            <label for="exampleInputEmail1">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
+            <label for="email">Email</label>
+            <input name="email"  type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"
               [(ngModel)]="data.email" required>
             <small id="emailHelp" class="form-text text-muted">
             Nosotros no compartiremos tu email con nadie.</small>
           </div>
-        </form>
+
 
         <div class="form-group">
               <label>Color</label>
-              <select name="color" class="form-control" [(ngModel)]="puertaRapida.color">
+              <select name="color" class="form-control" [(ngModel)]="puertaRapida.color" required>
                 <option *ngFor="let color of colors" [value]="color.value">{{color.display}}</option>
               </select>
          </div>
 
         <div class="form-group">
               <label>Ancho</label>
-              <input type="number" class="form-control" name="width" [(ngModel)]="puertaRapida.width">
+              <input type="number" class="form-control" name="width"  [(ngModel)]="puertaRapida.width" required>
         </div>
 
         <div class="form-group">
               <label>Alto</label>
-              <input type="number" class="form-control" name="height" [(ngModel)]="puertaRapida.height">
+              <input type="number" class="form-control" name="height"  [(ngModel)]="puertaRapida.height" required>
         </div>
 
       </wizard-step>
