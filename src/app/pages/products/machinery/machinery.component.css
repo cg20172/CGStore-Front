@@ -15,26 +15,34 @@
 
 .alfa {
   background-image: url(https://2.bp.blogspot.com/-v3a3glbYRA8/UnqwXdlbwvI/AAAAAAAAHug/gNE9IhI2WSI/s1600/primavera-2.jpg);
-  width: 800px;
-  height: 470px;
-  border: 2vh solid #000000;
-  border-radius: 3px;
-  box-shadow: 0 0 1px #999, -2px 2px 3px rgba(0, 0, 0, .2);
+  background-size: 60vh 40vh;
+  width: 60vh;
+  height: 40vh;
+  border: 1vh solid #000000;
+  border-radius: 1vh;
+  box-shadow: 0 0 1vh #000000, -2vh 2vh 3vh rgba(0, 0, 0, .4);
   padding: 0;
   margin: 1rem auto;
   position: relative;
   overflow: hidden;
 }
 
+.style-two {
+  border: 0;
+  height: 1.5vh;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
 .bravo {
   background-image: url(https://1.bp.blogspot.com/-W4DXI0ORnZg/UnqwWvUkTmI/AAAAAAAAHuY/vEsWcZBOCcI/s1600/oto%C3%B1o.jpg);
-  height: 470px;
+  background-size: 60vh 40vh;
+  height: 40vh;
   resize: horizontal;
   position: absolute;
   top: 0;
   left: 0;
   min-width: 0;
-  max-width: 800px;
+  max-width: 500px;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -42,12 +50,12 @@
 .bravo:before {
   content: '↔';
   background: rgba(0, 0, 0, .7);
-  font-size: 18px;
+  font-size: 3vh;
   color: white;
   top: 0;
   right: 0px;
   hight: 100%;
-  line-height: 486px;
+  line-height: 50vh;
   position: absolute;
 }
 
@@ -55,29 +63,29 @@
   resize: horizontal;
   opacity: 0;
   position: relative;
-  top: 50%;
+  top: 20%;
   left: 0px;
   margin-right: 0px;
   width: 0px;
   height: 15px;
-  max-width: 794px;
+  max-width: 486px;
   min-width: 15px;
   outline: 0 solid transparent;
   cursor: move;
   cursor: all-scroll;
-  transform: scaley(35);
+  transform: scaley(25);
   transform-origin: center center;
   animation: delta 5s 1 normal ease-in-out 1s;
 }
 
 @keyframes delta {
   30% {
-    width: 500px
+    width: 40vh
   }
   60% {
-    width: 150px
+    width: 0
   }
   80% {
-    width: 250px
+    width: 10vh
   }
 }
