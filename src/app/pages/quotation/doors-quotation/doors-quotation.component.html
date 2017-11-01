@@ -22,7 +22,7 @@
     <br> Ancho <input type="range" min="100" max="200" [(ngModel)]="rectW" /> Alto <input type="range" min="100" max="300" [(ngModel)]="rectH" /><br />
   </div>
   <mat-radio-group class="example-radio-group">
-    <mat-radio-button class="example-radio-button" (click)="tipeColor(color)" *ngFor="let color of listColor" [value]="color">
+    <mat-radio-button class="example-radio-button" [value]="color" (click)="tipeColor(color)" *ngFor="let color of listColor">
       {{color}}
     </mat-radio-button>
   </mat-radio-group>

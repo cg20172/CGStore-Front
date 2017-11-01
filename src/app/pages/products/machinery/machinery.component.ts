@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-machinery',
@@ -9,7 +9,17 @@ export class MachineryComponent implements OnInit {
 
   constructor() { }
 
+  @ViewChild('hola') message: any;
+  @ViewChild('img') imagen: any;
   ngOnInit() {
+
+
+
   }
+
+
+
+
+
 
 }

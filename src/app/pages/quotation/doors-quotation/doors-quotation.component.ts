@@ -4,6 +4,8 @@ import { AfterViewInit } from '@angular/core';
 import { MatRadioModule } from '@angular/material';
 import { Logger } from 'angular2-logger/core';
 import { NotificationsService } from 'angular2-notifications';
+import { PuertaRapida } from './PuertaRapida.interface';
+
 import * as _ from 'lodash';
 
 import { ProductService } from './../../../services/product.service';
@@ -36,6 +38,7 @@ export class DoorsQuotationComponent implements OnInit {
   rectW: number = 200;
   rectH: number = 300;
   rectColor: string = "#FF0000";
+  public puertaRapida: PuertaRapida;
 
 
   context: CanvasRenderingContext2D;
@@ -63,11 +66,46 @@ export class DoorsQuotationComponent implements OnInit {
           }
         });
       }, (error) => {
+
         console.log(error);
         const toast = this.notificationsService.error(
           'Error ' + error.status,
           error.statusText
         );
       });
+
+
+
+    this.puertaRapida = {
+      color: null,
+      height: null,
+      width: null
+
+    }
+
+  }
+
+
+
+
+
+  step2: any = {
+    showNext: true,
+    showPrev: true
+  };
+
+  step3: any = {
+    showSecret: false
+  };
+
+  data: any = {
+    email: 'muk@gmail.com'
+  };
+
+  isCompleted: boolean = false;
+
+  onStep1Next(event) {
+    console.log('Step1 - Next');
+
   }
 }

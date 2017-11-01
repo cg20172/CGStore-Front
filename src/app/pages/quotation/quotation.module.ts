@@ -11,12 +11,16 @@ import { LegosQuotationComponent } from './legos-quotation/legos-quotation.compo
 import { MachineryQuotationComponent } from './machinery-quotation/machinery-quotation.component';
 
 
+import { FormWizardModule } from 'angular2-wizard';
+
+
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     BrowserModule,
     FormsModule,
+    FormWizardModule,
     MatRadioModule
   ],
   declarations: [
