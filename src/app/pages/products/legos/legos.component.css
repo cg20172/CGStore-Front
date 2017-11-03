@@ -1,33 +1,153 @@
-mat-slider {
+/*--------------------------------------*/
+
+/*     jpolly168 AeVale/OneSixEight     */
+
+/*     XblackvelvetX                    */
+
+/*     Main Elements,,,,,,,             */
+
+/*     #wah comes int waves....wahhhhhh.*/
+
+/*--------------------------------------*/
+
+.over {
+  width: 28vh;
+  height: 25vh;
+  background-image: url("https://trello-attachments.s3.amazonaws.com/59c180c9df975fa33b73f7aa/59f98f07324c8361d67aad07/7e4354d88d03e9c98069709dd4b8db05/lego2.png");
+  -webkit-background-size: 100% 100%;
+  /* Safari 3.0 */
+  -moz-background-size: 100% 100%;
+  /* Gecko 1.9.2 (Firefox 3.6) */
+  -o-background-size: 100% 100%;
+  /* Opera 9.5 */
+  background-size: 100% 100%;
+  /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+  background-repeat: no-repeat;
+}
+
+.over:hover {
+  width: 28vh;
+  height: 25vh;
+  background-image: url("https://trello-attachments.s3.amazonaws.com/59c180c9df975fa33b73f7aa/59f98f07324c8361d67aad07/2a98633ce8c7da7231c24db0a1fbb0fd/lego1.png");
+  background-repeat: no-repeat;
+}
+
+.bar.background-image-fixed-3 {
+  background: url('./../../../../assets/img/lego.jpg') center top no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.card-content {
+  justify-content: center;
+}
+
+.avatar {
   width: 200px;
+  height: 200px;
+  margin-left: 2em;
+  margin-top: 2em;
+  border-radius: 200px;
+  float: center;
 }
 
-.puerta{
- stroke: #000000;
-    fill:red; 
-    /**/
+.headline {
+  color: #FFFFFF;
+  margin: 1em;
 }
 
-
-.example-h2 {
-  margin: 10px;
-}
-
-.example-section {
+.card {
+  background: #FFF;
+  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-content: center;
-  align-items: center;
-  height: 60px;
+  border: 1px solid #AAA;
+  border-bottom: 3px solid #BBB;
+  padding: 0px;
+  margin-top: 5em;
+  overflow: hidden;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: 'Roboto', sans-serif;
+  -webkit-transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.example-margin {
-  margin: 10px;
+.card-header {
+  width: 100%;
+  color: #467fbf;
+  border-bottom: 3px solid #BBB;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: 'Roboto', sans-serif;
+  padding: 0px;
+  margin-top: 0px;
+  overflow: hidden;
+  -webkit-transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.mat-slider-horizontal {
-  width: 300px;
+.card-header-black .card-heading {
+  padding: 0.5vh;
+  color: #467fbf;
 }
 
-.mat-slider-vertical {
-  height: 300px;
+.card-header-blue .card-heading {
+  padding: 0.5vh;
+  color: white;
+}
+
+.card-body {
+  margin: 1em;
+  background-color: rgba(36, 159, 237, 0.85);
+  padding: 2vh;
+  border-radius: 1vh;
+}
+
+.card-p {
+  padding: 1vh;
+  color: white;
+  border-radius: 2px;
+  background-color: rgba(43, 41, 45, 0.11);
+}
+
+.card-header-black {
+  background-color: #3b3838;
+  color: #FFFFFF;
+  border-bottom: 3px solid #BBB;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: 'Roboto', sans-serif;
+  padding: 2vh;
+  overflow: hidden;
+  -webkit-transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-header-blue {
+  background-color: #467fbf;
+  color: #294d76;
+  border-bottom: 3px solid #BBB;
+  box-shadow: 0 8px 17px 0 rgba(14, 16, 43, 0.55), 0 6px 20px 0 rgba(32, 67, 189, 0.86);
+  font-family: 'Roboto', sans-serif;
+  padding: 0px;
+  margin-top: 0px;
+  overflow: hidden;
+  -webkit-transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-footer {
+  border-top: 1px solid #000;
+}
+
+.btn:hover:not(.btn-link):not(.btn-flat) {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.23), 0 10px 30px rgba(0, 0, 0, 0.19);
+}
+
+.btn:active:not(.btn-link):not(.btn-flat) {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.23), 0 10px 30px rgba(0, 0, 0, 0.19);
+}
+
+.btn:not(.btn-link):not(.btn-flat), .btn-default:not(.btn-link):not(.btn-flat) {
+  background-color: transparent;
 }

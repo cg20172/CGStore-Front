@@ -17,5 +17,8 @@ export class LegosComponent implements OnInit {
 
   ngOnInit() {
 
+
   }
+
+
 }
