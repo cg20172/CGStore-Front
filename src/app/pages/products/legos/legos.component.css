@@ -10,6 +10,17 @@
 
 /*--------------------------------------*/
 
+.bar .blue-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(28, 42, 167);
+  opacity: 0.3;
+  filter: alpha(opacity=20);
+}
+
 .over {
   width: 28vh;
   height: 25vh;
@@ -150,4 +161,30 @@
 
 .btn:not(.btn-link):not(.btn-flat), .btn-default:not(.btn-link):not(.btn-flat) {
   background-color: transparent;
+}
+
+/*|||||||CARROUSEL||||||*/
+
+@keyframes change-background {
+  0% {
+    background-image: url("https://trello-attachments.s3.amazonaws.com/59c180c9df975fa33b73f7aa/59f98f07324c8361d67aad07/3a2a2a64f2762772da4cc69a95c37a42/Frame1.png");
+  }
+  50% {
+    background-image: url("https://trello-attachments.s3.amazonaws.com/59c180c9df975fa33b73f7aa/59f98f07324c8361d67aad07/78bbdfc2a2ad5352db7948fea37d1b28/Frame2.png");
+  }
+  100% {
+    background-image: url("https://trello-attachments.s3.amazonaws.com/59c180c9df975fa33b73f7aa/59f98f07324c8361d67aad07/2491f464177446f08a65d7f52893ebdd/Frame3.png");
+  }
+}
+
+.box {}
+
+.box {
+  margin: 2vh;
+  border-radius: 3vh;
+  background-image: url("https://trello-attachments.s3.amazonaws.com/59c180c9df975fa33b73f7aa/59f98f07324c8361d67aad07/3a2a2a64f2762772da4cc69a95c37a42/Frame1.png");
+  background-size: cover;
+  width: 90vh;
+  height: 50vh;
+  animation: change-background 5s ease-in infinite alternate;
 }
