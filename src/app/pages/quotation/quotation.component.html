@@ -4,18 +4,35 @@
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
     in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
-  <br>
-
   <div class="clearfix"></div>
   <br>
 
-  <ul class="nav nav-tabs nav-justified" role="tablist">
-    <li role="presentation" [routerLinkActive]="['active']"><a href="#home" routerLink="/quotation/doors" aria-controls="home" role="tab" data-toggle="tab">Puertas Rápidas</a></li>
-    <li role="presentation" [routerLinkActive]="['active']"><a href="#profile" routerLink="/quotation/machinery" aria-controls="profile" role="tab" data-toggle="tab">Maquinaria Pesada</a></li>
-    <li role="presentation" [routerLinkActive]="['active']"><a href="#messages" routerLink="/quotation/legos" aria-controls="messages" role="tab" data-toggle="tab">Fichas Legos</a></li>
-  </ul>
-  <div class="well well-sm border-flat">
-    <router-outlet></router-outlet>
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <ul class="nav nav-pills nav-stacked">
+        <li *ngFor="let productType of productTypes" [ngClass]="{active: productType == selectedProductType }">
+          <a href="javascript: void(0);" (click)="selectProductType(productType)">{{ productType.name }}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-sm-9">
+      <div class="well well-sm border-flat" *ngIf="selectedProductType">
+        <h2 class="page-header">{{ selectedProductType.name }} <small>{{ selectedProductType.description }}</small></h2>
+        <div class="col-xs-12 col-sm-6">
+          <select class="form-control" [(ngModel)]="selectedProduct" (ngModelChange)="selectProduct(selectedProduct)">
+            <option *ngFor="let product of selectedProductType.products" [ngValue]="product">{{ product.name }}</option>
+          </select>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-xs-12 col-sm-6" *ngIf="selectedProduct">
+          <ul>
+            <li *ngFor="let property of selectedProduct.properties">{{ property.name }}</li>
+          </ul>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
   </div>
 </div>
-<div class=" clearfix "></div>
+<div class="clearfix"></div>
+<br><br>

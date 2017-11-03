@@ -20,10 +20,6 @@ import { ResetComponent } from './auth/reset/reset.component';
 
 // Quotation Components
 import { QuotationComponent } from './pages/quotation/quotation.component';
-import { DoorsQuotationComponent } from './pages/quotation/doors-quotation/doors-quotation.component';
-import { MachineryQuotationComponent } from './pages/quotation/machinery-quotation/machinery-quotation.component';
-import { LegosQuotationComponent } from './pages/quotation/legos-quotation/legos-quotation.component';
-
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,16 +29,7 @@ const routes: Routes = [
   { path: 'products/machinery', component: MachineryComponent },
   { path: 'products/legos', component: LegosComponent },
 
-  {
-    path: 'quotation',
-    component: QuotationComponent,
-    children: [
-      { path: '', redirectTo: 'doors', pathMatch: 'full' },
-      { path: 'doors', component: DoorsQuotationComponent },
-      { path: 'machinery', component: MachineryQuotationComponent },
-      { path: 'legos', component: LegosQuotationComponent }
-    ]
-  },
+  { path: 'quotation', component: QuotationComponent },
 
   { path: 'auth/forgot', component: ForgotComponent },
   { path: 'auth/login', component: LoginComponent },

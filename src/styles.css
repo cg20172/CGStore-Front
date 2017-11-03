@@ -46,11 +46,11 @@ nav a.active {
   border-color: transparent;
 }
 
-
 /*  Style for wizard form */
 
+/*
 [hidden] {
-display: none !important;
+  display: none !important;
 }
 
 .card-footer {
@@ -75,4 +75,4 @@ display: none !important;
 
 .demo{
   overflow-y: -webkit-paged-x;
-}
+}*/

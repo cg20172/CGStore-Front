@@ -8,8 +8,6 @@ import { MatButtonModule, MatCheckboxModule, MatSliderModule } from '@angular/ma
 import { OwlModule } from 'ng2-owl-carousel';
 import { MatRadioModule } from '@angular/material';
 
-import { QuotationModule } from './quotation/quotation.module';
-
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { DoorsComponent } from './products/doors/doors.component';
@@ -20,6 +18,7 @@ import { HeroDetailComponent } from './products/doors/hero-detail.component';
 import { HeroListComponent } from './products/doors/hero-list.component';
 
 import { HeroService } from './products/doors/hero.service';
+import { QuotationComponent } from './quotation/quotation.component';
 
 @NgModule({
   imports: [
@@ -33,7 +32,6 @@ import { HeroService } from './products/doors/hero.service';
     MatSliderModule,
     MatRadioModule,
     OwlModule,
-    QuotationModule,
 
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCJgE_ZRBAXSFQb-ilbeU7OSqo74wUKUdk'
@@ -42,7 +40,7 @@ import { HeroService } from './products/doors/hero.service';
   declarations: [
     HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent,
     HeroDetailComponent, // <-- #3 declare app component
-    HeroListComponent
+    HeroListComponent, QuotationComponent
   ],
   exports: [
     HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent,
