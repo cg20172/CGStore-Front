@@ -78,6 +78,10 @@
   animation: delta 5s 1 normal ease-in-out 1s;
 }
 
+maximun-container {
+  background-image: url("http://cache.lego.com/r/ldd/-/media/digital%20designer/carousel/contentbg_home_racecar.png?l.r2=-779130651");
+}
+
 @keyframes delta {
   30% {
     width: 40vh

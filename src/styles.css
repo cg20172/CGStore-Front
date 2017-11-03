@@ -46,11 +46,10 @@ nav a.active {
   border-color: transparent;
 }
 
-
 /*  Style for wizard form */
 
 [hidden] {
-display: none !important;
+  display: none !important;
 }
 
 .card-footer {
@@ -60,19 +59,19 @@ display: none !important;
 }
 
 .btn {
-    color: white;
-    background: #1976d2;
-  }
-
-.btn:hover {
-    color: white;
-    background: #145a9e;
-  }
-
- a:link {
-    color: #ffc1c1;
+  color: white;
+  background: #1976d2;
 }
 
-.demo{
+.btn:hover {
+  color: white;
+  background: #145a9e;
+}
+
+a:link {
+  color: #ffc1c1;
+}
+
+.demo {
   overflow-y: -webkit-paged-x;
 }
