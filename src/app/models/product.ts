@@ -10,7 +10,7 @@ export class Product {
     if (data instanceof Object) {
       this.id = data.id;
       this.name = data.name;
-      this.productType = data.product_type;
+      this.productType = data.product_id;
       this.created_at = new Date(data.created_at);
       this.updated_at = new Date(data.updated_at);
     }

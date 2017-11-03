@@ -8,8 +8,8 @@ export class ProductProperty {
     if (data instanceof Object) {
       this.id = data.id;
       this.name = data.name;
-      this.type = data.type;
-      this.values = data.values;
+      this.type = data.typefeature;
+      this.values = data.range;
     }
   }
 }

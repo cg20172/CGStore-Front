@@ -46,6 +46,10 @@ nav a.active {
   border-color: transparent;
 }
 
+.text-strong {
+  font-weight: bold;
+}
+
 /*  Style for wizard form */
 
 /*

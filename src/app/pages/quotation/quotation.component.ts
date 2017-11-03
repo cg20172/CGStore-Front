@@ -18,6 +18,7 @@ export class QuotationComponent implements OnInit {
   private productTypes: ProductType[] = [];
   private selectedProductType: ProductType = null;
   private selectedProduct: Product = null;
+  private showProductProperties: boolean = false;
 
   constructor(private productService: ProductService,
     private logger: Logger,
@@ -52,28 +53,67 @@ export class QuotationComponent implements OnInit {
       .subscribe((result) => {
         this.notificationsService.remove(toast.id);
         productType.products = result;
+        this.selectedProduct = null;
         this.selectedProductType = productType;
       }, (error) => {
-        console.log('Error: ' + error);
+        if (error.status === 401) {
+          let responseData = JSON.parse(error.error);
+          if (responseData.errors) {
+            const toast = this.notificationsService.error(
+              'Error en Formulario',
+              responseData.errors[0]
+            );
+          } else {
+            const toast = this.notificationsService.error(
+              'Error en Formulario',
+              'Parece que han habido un error. Vuelva a intentarlo'
+            );
+          }
+        } else {
+          const toast = this.notificationsService.error(
+            'Error ' + error.status,
+            error.statusText
+          );
+        }
       });
   }
 
   public selectProduct(product) {
+    product.properties = [];
+    this.showProductProperties = false;
+
     const toast = this.notificationsService.info(
       'Cargando',
       'Cargando información...',
       { timeOut: 0 }
     );
-    console.log(product);
-    product.properties = [];
 
     this.productService.getProductProperties(product.id)
       .subscribe((result) => {
         this.notificationsService.remove(toast.id);
-        product.properties = result;
+        product.properties = result.sort((a, b) => a.type < b.type);
+        this.showProductProperties = true;
         this.selectedProduct = product;
       }, (error) => {
-        console.log('Error: ' + error);
+        if (error.status === 401) {
+          let responseData = JSON.parse(error.error);
+          if (responseData.errors) {
+            const toast = this.notificationsService.error(
+              'Error en Formulario',
+              responseData.errors[0]
+            );
+          } else {
+            const toast = this.notificationsService.error(
+              'Error en Formulario',
+              'Parece que han habido un error. Vuelva a intentarlo'
+            );
+          }
+        } else {
+          const toast = this.notificationsService.error(
+            'Error ' + error.status,
+            error.statusText
+          );
+        }
       });
   }
 
