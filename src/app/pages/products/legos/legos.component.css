@@ -1,17 +1,23 @@
-/*Second Desing*/
+/*--------------------------------------*/
 
-.style-two {
-  border: 0;
-  height: 1.5vh;
-  margin: 4vh;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-}
+/*     jpolly168 AeVale/OneSixEight     */
+
+/*     XblackvelvetX                    */
+
+/*     Main Elements,,,,,,,             */
+
+/*     #wah comes int waves....wahhhhhh.*/
+
+/*--------------------------------------*/
+
+/*Second Dein*/
 
 .embed-container {
   position: relative;
   padding-bottom: 47%;
   height: 0;
   overflow: hidden;
+  margin: 2vh;
 }
 
 .embed-container iframe {
@@ -22,15 +28,26 @@
   height: 100%;
 }
 
-.model {
+.style-two {
+  border: 0;
+  height: 1.5vh;
+  margin: 2vh;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.bar.background-image-fixed-3 {
+  background: url('https://c1.staticflickr.com/4/3539/5848267059_d682665616_b.jpg') center top no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.box-image .bg {
   border-radius: 2vh;
-  background: -moz-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.67) 0%, rgba(255, 255, 255, 0.94) 57%, rgba(214, 214, 214, 1) 70%, rgba(186, 186, 186, 1) 79%, rgba(238, 238, 238, 1) 98%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255, 255, 255, 0.67)), color-stop(57%, rgba(255, 255, 255, 0.94)), color-stop(70%, rgba(214, 214, 214, 1)), color-stop(79%, rgba(186, 186, 186, 1)), color-stop(98%, rgba(238, 238, 238, 1)));
-  background: -webkit-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.67) 0%, rgba(255, 255, 255, 0.94) 57%, rgba(214, 214, 214, 1) 70%, rgba(186, 186, 186, 1) 79%, rgba(238, 238, 238, 1) 98%);
-  background: -o-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.67) 0%, rgba(255, 255, 255, 0.94) 57%, rgba(214, 214, 214, 1) 70%, rgba(186, 186, 186, 1) 79%, rgba(238, 238, 238, 1) 98%);
-  background: -ms-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.67) 0%, rgba(255, 255, 255, 0.94) 57%, rgba(214, 214, 214, 1) 70%, rgba(186, 186, 186, 1) 79%, rgba(238, 238, 238, 1) 98%);
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.67) 0%, rgba(255, 255, 255, 0.94) 57%, rgba(214, 214, 214, 1) 70%, rgba(186, 186, 186, 1) 79%, rgba(238, 238, 238, 1) 98%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=1);
+  background-color: rgb(0, 0, 0);
+}
+
+.jumbotron {
+  background-image: url('https://images2.alphacoders.com/519/519085.jpg');
 }
 
 /*************************************/
@@ -66,12 +83,6 @@
   height: 25vh;
   background-image: url("https://trello-attachments.s3.amazonaws.com/59c180c9df975fa33b73f7aa/59f98f07324c8361d67aad07/2a98633ce8c7da7231c24db0a1fbb0fd/lego1.png");
   background-repeat: no-repeat;
-}
-
-.bar.background-image-fixed-3 {
-  background: url('./../../../../assets/img/lego.jpg') center top no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
 }
 
 .card-content {
