@@ -31,7 +31,7 @@
         </div>
         <div class="clearfix"></div>
         <br>
-        <div class="well well-sm form" *ngIf="showProductProperties">
+        <div class="well well-sm form" *ngIf="showProductProperties && selectedProduct">
           <div *ngFor="let property of selectedProduct.properties; let idx = index">
             <div class="clearfix" *ngIf="idx % 2 === 0"></div>
             <div class="col-xs-12 col-sm-6">
@@ -50,6 +50,7 @@
         </div>
         <div class="clearfix"></div>
       </div>
+
     </div>
   </div>
 </div>

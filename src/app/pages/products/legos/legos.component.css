@@ -1,14 +1,39 @@
-/*--------------------------------------*/
+/*Second Desing*/
 
-/*     jpolly168 AeVale/OneSixEight     */
+.style-two {
+  border: 0;
+  height: 1.5vh;
+  margin: 4vh;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
 
-/*     XblackvelvetX                    */
+.embed-container {
+  position: relative;
+  padding-bottom: 47%;
+  height: 0;
+  overflow: hidden;
+}
 
-/*     Main Elements,,,,,,,             */
+.embed-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
-/*     #wah comes int waves....wahhhhhh.*/
+.model {
+  border-radius: 2vh;
+  background: -moz-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.67) 0%, rgba(255, 255, 255, 0.94) 57%, rgba(214, 214, 214, 1) 70%, rgba(186, 186, 186, 1) 79%, rgba(238, 238, 238, 1) 98%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255, 255, 255, 0.67)), color-stop(57%, rgba(255, 255, 255, 0.94)), color-stop(70%, rgba(214, 214, 214, 1)), color-stop(79%, rgba(186, 186, 186, 1)), color-stop(98%, rgba(238, 238, 238, 1)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.67) 0%, rgba(255, 255, 255, 0.94) 57%, rgba(214, 214, 214, 1) 70%, rgba(186, 186, 186, 1) 79%, rgba(238, 238, 238, 1) 98%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.67) 0%, rgba(255, 255, 255, 0.94) 57%, rgba(214, 214, 214, 1) 70%, rgba(186, 186, 186, 1) 79%, rgba(238, 238, 238, 1) 98%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.67) 0%, rgba(255, 255, 255, 0.94) 57%, rgba(214, 214, 214, 1) 70%, rgba(186, 186, 186, 1) 79%, rgba(238, 238, 238, 1) 98%);
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.67) 0%, rgba(255, 255, 255, 0.94) 57%, rgba(214, 214, 214, 1) 70%, rgba(186, 186, 186, 1) 79%, rgba(238, 238, 238, 1) 98%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=1);
+}
 
-/*--------------------------------------*/
+/*************************************/
 
 .bar .blue-mask {
   position: absolute;

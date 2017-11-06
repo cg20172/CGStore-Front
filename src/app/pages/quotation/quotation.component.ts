@@ -43,6 +43,8 @@ export class QuotationComponent implements OnInit {
   }
 
   public selectProductType(productType) {
+
+
     const toast = this.notificationsService.info(
       'Cargando',
       'Cargando información...',
