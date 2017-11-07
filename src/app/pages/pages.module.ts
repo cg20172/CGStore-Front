@@ -14,10 +14,7 @@ import { DoorsComponent } from './products/doors/doors.component';
 import { MachineryComponent } from './products/machinery/machinery.component';
 import { LegosComponent } from './products/legos/legos.component';
 
-import { HeroDetailComponent } from './products/doors/hero-detail.component';
-import { HeroListComponent } from './products/doors/hero-list.component';
 
-import { HeroService } from './products/doors/hero.service';
 import { QuotationComponent } from './quotation/quotation.component';
 
 @NgModule({
@@ -38,17 +35,11 @@ import { QuotationComponent } from './quotation/quotation.component';
     }),
   ],
   declarations: [
-    HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent,
-    HeroDetailComponent, // <-- #3 declare app component
-    HeroListComponent, QuotationComponent
+    HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent,QuotationComponent
   ],
   exports: [
-    HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent,
-    HeroDetailComponent,
-    HeroListComponent,
-
-  ],
-  providers: [HeroService]
+    HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent
+  ]
 })
 
 export class PagesModule { }
