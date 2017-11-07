@@ -34,10 +34,12 @@
     "lodash": "^4.17.4",
     "ng2-bootstrap": "^1.6.3",
     "ng2-owl-carousel": "^0.1.15",
+    "ng2-pdf-viewer": "^2.0.3",
     "ng2-validation": "^4.2.0",
     "ngjs-color-picker": "^1.1.2",
     "ngx-bootstrap": "^1.9.3",
     "ngx-owl-carousel": "^2.0.1",
+    "pdfjs-dist": "^2.0.104",
     "rxjs": "^5.4.2",
     "script-loader": "^0.7.2",
     "zone.js": "^0.8.14"

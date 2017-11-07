@@ -14,6 +14,7 @@ import { DoorsComponent } from './products/doors/doors.component';
 import { MachineryComponent } from './products/machinery/machinery.component';
 import { LegosComponent } from './products/legos/legos.component';
 
+import { PdfViewerComponent } from 'ng2-pdf-viewer';
 
 import { QuotationComponent } from './quotation/quotation.component';
 
@@ -35,7 +36,8 @@ import { QuotationComponent } from './quotation/quotation.component';
     }),
   ],
   declarations: [
-    HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent,QuotationComponent
+    HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent,QuotationComponent,
+    PdfViewerComponent
   ],
   exports: [
     HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent
