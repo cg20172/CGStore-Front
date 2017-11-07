@@ -22,4 +22,6 @@ export class MachineryComponent implements OnInit {
 
 
 
+
+
 }

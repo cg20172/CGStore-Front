@@ -1,3 +1,18 @@
+audio {
+  background-color: rgb(147, 35, 205) !important;
+  border-radius: 30px;
+}
+
+.player {
+  border-radius: 5vh;
+}
+
+.mejs-container .mejs-controls {
+  background: #000000 !important;
+}
+
+/**/
+
 .embed-container {
   position: relative;
   padding-bottom: 47%;
@@ -14,7 +29,7 @@
 }
 
 .alfa {
-  background-image: url(https://2.bp.blogspot.com/-v3a3glbYRA8/UnqwXdlbwvI/AAAAAAAAHug/gNE9IhI2WSI/s1600/primavera-2.jpg);
+  background-image: url(https://trello-attachments.s3.amazonaws.com/59c180c9df975fa33b73f7aa/59f98e6c05380dffe055dd02/7bcca45ac5b99503fc20356bbe9e36aa/1New.png);
   background-size: 60vh 40vh;
   width: 60vh;
   height: 40vh;
@@ -35,7 +50,7 @@
 }
 
 .bravo {
-  background-image: url(https://1.bp.blogspot.com/-W4DXI0ORnZg/UnqwWvUkTmI/AAAAAAAAHuY/vEsWcZBOCcI/s1600/oto%C3%B1o.jpg);
+  background-image: url(https://trello-attachments.s3.amazonaws.com/59c180c9df975fa33b73f7aa/59f98e6c05380dffe055dd02/8fb1704c5aabe3fd88b8ff33feea3ff6/2New.png);
   background-size: 60vh 40vh;
   height: 40vh;
   resize: horizontal;
