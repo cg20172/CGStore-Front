@@ -1,0 +1,69 @@
+.background-image-fixed-3 {
+  background-image: url('http://www.dbci.com/assets/0/1092/1099/1387/6d271694-54a8-4fb6-8549-8f5478c84f29.jpg?n=370');
+  background-size: cover;
+}
+
+/*flip cards*/
+
+.icon-cards {
+  width: 190px;
+  height: 210px;
+  perspective: 800px;
+  transform: translate(-50%, -50%);
+}
+
+.icon-cards__content {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: translateZ(-182px) rotateY(0);
+  animation: carousel 10s infinite cubic-bezier(1, 0.015, 0.295, 1.225) forwards;
+}
+
+.icon-cards__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 190px;
+  height: 210px;
+  border-radius: 6px;
+}
+
+.icon-cards__item:nth-child(1) {
+  background: rgba(252, 192, 77, .9);
+  background-image: url('http://serretecno.com/wp-content/uploads/2014/03/rampas-hidraulicas-de-carga-anden-taller-discapacitados_MLM-O-79512437_827.jpg');
+  transform: rotateY(0) translateZ(182px);
+}
+
+.icon-cards__item:nth-child(2) {
+  background: rgba(49, 192, 204, .9);
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRDN0n-y5tEK5mFR3raLm-iB8uMfQHGp6Ct8v1I3HvLNTiouHy');
+  transform: rotateY(120deg) translateZ(182px);
+}
+
+.icon-cards__item:nth-child(3) {
+  background: rgba(236, 233, 242, .9);
+  background-image: url('http://img.ecer.com/nimg/e3/16/3e37dae0d1cad4b49284dd2452fe-200x200-1/high_frequency_motor_system_high_speed_pvc_stainless_steel_industrial_roll_up_door.jpg');
+  transform: rotateY(240deg) translateZ(182px);
+}
+
+@keyframes carousel {
+  0%, 17.5% {
+    transform: translateZ(-182px) rotateY(0);
+  }
+  27.5%, 45% {
+    transform: translateZ(-182px) rotateY(-120deg);
+  }
+  55%, 72.5% {
+    transform: translateZ(-182px) rotateY(-240deg);
+  }
+  82.5%, 100% {
+    transform: translateZ(-182px) rotateY(-360deg);
+  }
+}
+
+body {
+  background: rgba(32, 33, 38, 1);
+}
+
+/**end flip cards*/
