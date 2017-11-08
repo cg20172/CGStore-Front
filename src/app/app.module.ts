@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { OwlModule } from 'ng2-owl-carousel';
+import { OwlModule } from 'ngx-owl-carousel';
 import { Logger } from "angular2-logger/core";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
