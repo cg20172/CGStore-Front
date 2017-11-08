@@ -17,6 +17,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { ForgotComponent } from './auth/forgot/forgot.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ResetComponent } from './auth/reset/reset.component';
+import { ProfileComponent } from './auth/profile/profile.component'
 
 // Quotation Components
 import { QuotationComponent } from './pages/quotation/quotation.component';
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'auth/forgot', component: ForgotComponent },
   { path: 'auth/login', component: LoginComponent },
   { path: 'auth/register', component: RegisterComponent },
+  { path: "auth/profile", component: ProfileComponent },
   { path: 'auth/reset', component: ResetComponent },
 
   { path: '**', component: NotFoundComponent }

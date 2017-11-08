@@ -212,15 +212,3 @@
     background-image: url("https://trello-attachments.s3.amazonaws.com/59c180c9df975fa33b73f7aa/59f98f07324c8361d67aad07/2491f464177446f08a65d7f52893ebdd/Frame3.png");
   }
 }
-
-.box {}
-
-.box {
-  margin: 2vh;
-  border-radius: 3vh;
-  background-image: url("https://trello-attachments.s3.amazonaws.com/59c180c9df975fa33b73f7aa/59f98f07324c8361d67aad07/3a2a2a64f2762772da4cc69a95c37a42/Frame1.png");
-  background-size: cover;
-  width: 90vh;
-  height: 50vh;
-  animation: change-background 5s ease-in infinite alternate;
-}
