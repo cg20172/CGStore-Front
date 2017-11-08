@@ -24,7 +24,8 @@
       "assets/css/font-awesome.css",
       "assets/css/owl.carousel.css",
       "assets/css/style.blue.css",
-      "styles.css"
+      "styles.css",
+      "theme.default.scss"
     ],
     "scripts": [
       "assets/js/jquery-1.11.0.min.js",
