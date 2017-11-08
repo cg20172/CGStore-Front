@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Logger } from 'angular2-logger/core';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -10,7 +10,7 @@ import { UserRegister } from './../models/user-register';
 @Injectable()
 export class AuthService {
 
-  private url: string = 'https://herokucg2017.herokuapp.com/auth';
+  private url: string = 'https://cgstore-back2017.herokuapp.com/auth';
   private auth: Auth;
 
   constructor(private http: HttpClient,
@@ -26,9 +26,10 @@ export class AuthService {
     return this.http.post(this.url + '/sign_in', credentials, { observe: 'response' })
       .map((response) => {
 
+        console.log(response.headers);
         let uid = response.body['data'].uid;
-        let client = response.headers.get('client');
-        let token = response.headers.get('access-token');
+        let client = response.headers.get('Client');
+        let token = response.headers.get('Access-Token');
         let user = new User(response.body['data']);
 
         this.auth = new Auth(uid, client, token, user);
@@ -62,8 +63,8 @@ export class AuthService {
       .map((response) => {
 
         let uid = response.body['data'].uid;
-        let client = response.headers.get('client');
-        let token = response.headers.get('access-token');
+        let client = response.headers.get('Client');
+        let token = response.headers.get('Access-Token');
         let user = new User(response.body['data']);
 
         this.auth = new Auth(uid, client, token, user);

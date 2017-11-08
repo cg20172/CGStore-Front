@@ -1,0 +1,19 @@
+<form class="form" [formGroup]="productForm" (ngSubmit)="registerQuotation(quotationForm)" novalidate>
+  <div *ngFor="let property of product.properties">
+    <div class="clearfix" *ngIf="property.type === 'bool'"></div>
+    <div class="col-xs-12 col-sm-6">
+      <mat-form-field class="full-width" *ngIf="property.type === 'integer' || property.type === 'list'">
+        <input matInput class="full-width" *ngIf="property.type === 'integer'" type="number" [placeholder]="property.name" [(value)]="property.value" [required]="true" [min]="property.values[0]" [max]="property.values[1]" />
+        <mat-select *ngIf="property.type === 'list'" placeholder="property.name" [(value)]="property.value" [required]="true">
+          <mat-option *ngFor="let option of property.values" [value]="option">
+            {{ option.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-slide-toggle class="full-width" *ngIf="property.type === 'bool'" [required]="true">
+        {{ property.name }}
+      </mat-slide-toggle>
+    </div>
+  </div>
+</form>
+<div class="clearfix"></div>

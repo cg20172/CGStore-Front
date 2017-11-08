@@ -44,15 +44,27 @@ export class ProductService {
 
   public getProductProperties(productId: number): Observable<any> {
     return this.http.post(this.url, { parametro1: 3, parametro2: productId })
-      .map((response) => {
-        console.log(response);
-        let productProperties = [];
-        _.forEach(response, (productProperty) => {
-          productProperties.push(new ProductProperty(productProperty));
-        });
+      .map((response: Array<any>) => response.map((property) => {
+        property = new ProductProperty(property);
 
-        return productProperties;
-      })
+        if (property.type === 'integer' || property.type == 'bool') {
+          property.values = property.values.split(',').map((val) => parseInt(val));
+        } else if (property.type === 'list') {
+          let items = [];
+          property.values.split(',').map((item) => {
+            let data = item.split('-');
+            data[0] = parseInt(data[0]);
+            items.push({
+              value: data[0],
+              name: data[1]
+            });
+          });
+
+          property.values = items;
+        }
+
+        return property;
+      }).sort((a, b) => a.type < b.type ? 1 : -1))
       .catch((error: any) => Observable.throw(error || 'ServerError'));;
   }
 

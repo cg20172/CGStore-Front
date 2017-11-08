@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatSliderModule } from '@angular/material';
-import { OwlModule } from 'ng2-owl-carousel';
-import { MatRadioModule } from '@angular/material';
+import { OwlModule } from 'ngx-owl-carousel';
+
+import { MaterialModule } from './material/material.module';
 
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
@@ -17,6 +17,8 @@ import { LegosComponent } from './products/legos/legos.component';
 import { PdfViewerComponent } from 'ng2-pdf-viewer';
 
 import { QuotationComponent } from './quotation/quotation.component';
+import { QuotationFormComponent } from './quotation/quotation-form/quotation-form.component';
+import { ProductFormComponent } from './quotation/product-form/product-form.component';
 
 @NgModule({
   imports: [
@@ -25,23 +27,16 @@ import { QuotationComponent } from './quotation/quotation.component';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatSliderModule,
-    MatRadioModule,
+    MaterialModule,
     OwlModule,
 
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCJgE_ZRBAXSFQb-ilbeU7OSqo74wUKUdk'
     }),
   ],
-  declarations: [
-    HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent,QuotationComponent,
-    PdfViewerComponent
-  ],
-  exports: [
-    HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent
-  ]
+  declarations: [HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent, QuotationComponent, QuotationFormComponent, ProductFormComponent, PdfViewerComponent],
+  exports: [HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent, QuotationComponent, QuotationFormComponent],
+  providers: []
 })
 
 export class PagesModule { }

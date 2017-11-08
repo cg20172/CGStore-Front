@@ -1,8 +1,9 @@
 export class ProductProperty {
   public id: number;
   public name: string;
+  public value: any = null;
   public type: string;
-  public values: any = null;
+  public values: any;
 
   constructor(data: any) {
     if (data instanceof Object) {

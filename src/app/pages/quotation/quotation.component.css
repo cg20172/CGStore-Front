@@ -1,6 +1,19 @@
 .quotation-jumbotron {
   background: #467fbf;
-  border: 1px solid #2967AD;
   padding: 10px 20px;
   margin-bottom: 20px;
+}
+
+.ul-with-border {
+  border: 1px solid #467fbf;
+}
+
+.stepper-box {
+  margin-top: 5px;
+  padding-bottom: 10px;
+  border: 1px dashed #467fbf;
+}
+
+.full-width {
+  width: 100%;
 }

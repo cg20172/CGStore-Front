@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Logger } from 'angular2-logger/core';
 import { NotificationsService } from 'angular2-notifications';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { ProductService } from './../../services/product.service';
 
@@ -18,13 +19,18 @@ export class QuotationComponent implements OnInit {
   private productTypes: ProductType[] = [];
   private selectedProductType: ProductType = null;
   private selectedProduct: Product = null;
-  private showProductProperties: boolean = false;
+
+  private productForm: FormGroup;
+  private quotationForm: FormGroup;
+
+  private showProductForm: boolean;
 
   constructor(private productService: ProductService,
     private logger: Logger,
     private notificationsService: NotificationsService) { }
 
   ngOnInit() {
+    this.showProductForm = false;
 
     const toast = this.notificationsService.info(
       'Cargando',
@@ -40,11 +46,21 @@ export class QuotationComponent implements OnInit {
       }, (error) => {
         this.logger.debug('Error: ', error);
       });
+
+    this.quotationForm = new FormGroup({
+      firstName: new FormControl('', [Validators.required]),
+      lastName: new FormControl('', [Validators.required]),
+      identification: new FormControl('', [Validators.required]),
+      address: new FormControl('', []),
+      phone: new FormControl('', []),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      company: new FormControl('', []),
+      companyIdentification: new FormControl('', []),
+      companyRole: new FormControl('', []),
+    })
   }
 
   public selectProductType(productType) {
-
-
     const toast = this.notificationsService.info(
       'Cargando',
       'Cargando información...',
@@ -81,8 +97,7 @@ export class QuotationComponent implements OnInit {
   }
 
   public selectProduct(product) {
-    product.properties = [];
-    this.showProductProperties = false;
+    this.showProductForm = false;
 
     const toast = this.notificationsService.info(
       'Cargando',
@@ -93,9 +108,10 @@ export class QuotationComponent implements OnInit {
     this.productService.getProductProperties(product.id)
       .subscribe((result) => {
         this.notificationsService.remove(toast.id);
-        product.properties = result.sort((a, b) => a.type < b.type);
-        this.showProductProperties = true;
+        product.properties = result;
+        this.initProductForm(product);
         this.selectedProduct = product;
+        this.showProductForm = true;
       }, (error) => {
         if (error.status === 401) {
           let responseData = JSON.parse(error.error);
@@ -119,6 +135,30 @@ export class QuotationComponent implements OnInit {
       });
   }
 
+  private initProductForm(product) {
+    let controls = {};
+    product.properties.forEach((property: ProductProperty) => {
+      let control = null;
+      let validations = [];
 
+      switch (property.type) {
+        case 'integer':
+          validations.push(Validators.required);
+          control = new FormControl('', validations);
+          break;
+        case 'list':
+          validations.push(Validators.required);
+          control = new FormControl('', validations);
+          break;
+        case 'bool':
+          control = new FormControl('', validations);
+          break;
+      }
+
+      controls[property.name] = control;
+    });
+
+    this.productForm = new FormGroup(controls);
+  }
 
 }
