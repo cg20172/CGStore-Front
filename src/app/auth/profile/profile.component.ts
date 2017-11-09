@@ -16,8 +16,8 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.dataUser = this.authService.getUser();
-    console.log ( this.dataUser.lastName );
-    console.log ( this.dataUser.address);
+    console.log(this.dataUser.lastName);
+    console.log(this.dataUser.address);
   }
 
 

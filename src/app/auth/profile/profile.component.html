@@ -38,143 +38,208 @@
 			 _________________________________________________________ -->
 
     <div class="col-md-9 clearfix" id="customer-account">
+      <mat-tab-group>
+        <mat-tab label="Configuración datos de contacto.">
+          <p class="lead"></p>
+          <p class="text-muted">Manten tus datos actualizados, usamos estos datos para poder contactarte y generar la cotizacion.</p>
 
-      <p class="lead">Configuración datos de contacto.</p>
-      <p class="text-muted">Manten tus datos actualizados, usamos estos datos para poder contactarte y generar la cotizacion.</p>
+          <div class="box">
 
-      <div class="box">
-
-        <div class="heading">
-          <h3 class="text-uppercase">Cambio Contraseña</h3>
-        </div>
-
-        <form>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="password_old">Contraseña Antigua</label>
-                <input type="password" class="form-control" id="password_old">
-              </div>
+            <div class="heading">
+              <h3 class="text-uppercase">Cambio Contraseña</h3>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="password_1">Nueva Contraseña</label>
-                <input type="password" class="form-control" id="password_1">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="password_2">Escribe tu nueva contraseña</label>
-                <input type="password" class="form-control" id="password_2">
-              </div>
-            </div>
-          </div>
-          <!-- /.row -->
 
-          <div class="text-center">
-            <button type="submit" class="btn btn-template-main"><i class="fa fa-save"></i> Cambiar contraseña</button>
-          </div>
-        </form>
-
-      </div>
-      <!-- /.box -->
-
-
-      <div class="box clearfix">
-        <div class="heading">
-          <h3 class="text-uppercase">Datos Personales</h3>
-        </div>
-
-        <form>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="firstname">Primer Nombre</label>
-                <input type="text" class="form-control" value="{{dataUser.firstName}}" id="firstname">
+            <form>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="password_old">Contraseña Antigua</label>
+                    <input type="password" class="form-control" id="password_old">
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="lastname">Primer Apellido</label>
-                <input type="text" class="form-control" value="{{dataUser.lastName}}" id="lastname">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="password_1">Nueva Contraseña</label>
+                    <input type="password" class="form-control" id="password_1">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="password_2">Escribe tu nueva contraseña</label>
+                    <input type="password" class="form-control" id="password_2">
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="lastname">Documento</label>
-                <input type="text" value="{{dataUser.uid}}" class="form-control" id="lastname">
+              <!-- /.row -->
+
+              <div class="text-center">
+                <button type="submit" class="btn btn-template-main"><i class="fa fa-save"></i> Cambiar contraseña</button>
               </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="street">Correo Electrónico</label>
-                <input type="text" value="{{dataUser.email}}" class="form-control" id="street">
-              </div>
-            </div>
+            </form>
 
           </div>
-          <!-- /.row -->
+          <!-- /.box -->
 
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="company">Compañia</label>
-                <input type="text" value="{{dataUser.enterprise}}" class="form-control" id="company">
-              </div>
+
+          <div class="box clearfix">
+            <div class="heading">
+              <h3 class="text-uppercase">Datos Personales</h3>
             </div>
+
+            <form>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="firstname">Primer Nombre</label>
+                    <input type="text" class="form-control" value="{{dataUser.firstName}}" id="firstname">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname">Primer Apellido</label>
+                    <input type="text" class="form-control" value="{{dataUser.lastName}}" id="lastname">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname">Documento</label>
+                    <input type="text" value="{{dataUser.uid}}" class="form-control" id="lastname">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="street">Correo Electrónico</label>
+                    <input type="text" value="{{dataUser.email}}" class="form-control" id="street">
+                  </div>
+                </div>
+
+              </div>
+              <!-- /.row -->
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="company">Compañia</label>
+                    <input type="text" value="{{dataUser.enterprise}}" class="form-control" id="company">
+                  </div>
+                </div>
+
+              </div>
+              <!-- /.row -->
+
+              <div class="row">
+                <div class="col-sm-6 col-md-3">
+                  <div class="form-group">
+                    <label for="city">Telefono</label>
+                    <input type="text" class="form-control" id="city">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                  <div class="form-group">
+                    <label for="zip">Dirección</label>
+                    <input type="text" class="form-control" id="zip">
+                  </div>
+                </div>
+
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="phone">Rol en la compañia</label>
+                    <input type="text" class="form-control" id="phone">
+                  </div>
+                </div>
+
+                <div class="col-sm-6 ">
+                  <div class="form-group">
+                    <label for="state">Empresa</label>
+                    <input type="text" class="form-control" id="phone">
+                  </div>
+                </div>
+                <div class="col-sm-6 ">
+                  <div class="form-group">
+                    <label for="country">NIT</label>
+                    <input type="text" class="form-control" id="phone">
+                  </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                  <button type="submit" class="btn btn-template-main"><i class="fa fa-save"></i> Guardar Cambios</button>
+
+                </div>
+
+
+              </div>
+
+            </form>
 
           </div>
-          <!-- /.row -->
+        </mat-tab>
+        <mat-tab label="Estado Cotizaciones">
+          <div class="col-md-12" id="customer-orders">
 
-          <div class="row">
-            <div class="col-sm-6 col-md-3">
-              <div class="form-group">
-                <label for="city">Telefono</label>
-                <input type="text" class="form-control" id="city">
+            <h3 class="text-center">Tus Cotizaciones</h3>
+            <div class="box">
+
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>NumeroOrden</th>
+                      <th>Fecha</th>
+                      <th>Producto Solicitado</th>
+                      <th>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th># 1735</th>
+                      <td>22/06/2013</td>
+                      <td>Puerta1</td>
+                      <td><span class="label label-info">Being prepared</span>
+
+                    </tr>
+                    <tr>
+                      <th># 1735</th>
+                      <td>22/06/2013</td>
+                      <td>carroA</td>
+                      <td><span class="label label-info">Being prepared</span>
+
+                    </tr>
+                    <tr>
+                      <th># 1735</th>
+                      <td>22/06/2013</td>
+                      <td>volqueta</td>
+                      <td><span class="label label-success">Received</span>
+
+                    </tr>
+                    <tr>
+                      <th># 1735</th>
+                      <td>22/06/2013</td>
+                      <td>maquina</td>
+                      <td><span class="label label-danger">Cancelled</span>
+
+                    </tr>
+                    <tr>
+                      <th># 1735</th>
+                      <td>22/06/2013</td>
+                      <td>carro2</td>
+                      <td><span class="label label-warning">On hold</span>
+
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-            </div>
-            <div class="col-sm-6 col-md-3">
-              <div class="form-group">
-                <label for="zip">Dirección</label>
-                <input type="text" class="form-control" id="zip">
-              </div>
-            </div>
-
-
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="phone">Rol en la compañia</label>
-                <input type="text" class="form-control" id="phone">
-              </div>
-            </div>
-
-            <div class="col-sm-6 ">
-              <div class="form-group">
-                <label for="state">Empresa</label>
-                <input type="text" class="form-control" id="phone">
-              </div>
-            </div>
-            <div class="col-sm-6 ">
-              <div class="form-group">
-                <label for="country">NIT</label>
-                <input type="text" class="form-control" id="phone">
-              </div>
-            </div>
-            <div class="col-sm-12 text-center">
-              <button type="submit" class="btn btn-template-main"><i class="fa fa-save"></i> Guardar Cambios</button>
+              <!-- /.table-responsive -->
 
             </div>
-
+            <!-- /.box -->
 
           </div>
-
-        </form>
-
-      </div>
+        </mat-tab>
+      </mat-tab-group>
 
     </div>
     <!-- /.col-md-9 -->
