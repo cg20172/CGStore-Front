@@ -91,4 +91,11 @@ export class AuthService {
     return null;
   }
 
+  public updateUser() {
+
+  }
+  public updatePassword() {
+
+  }
+
 }

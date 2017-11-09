@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-machinery',
   templateUrl: './machinery.component.html',
@@ -7,7 +7,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 })
 export class MachineryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   @ViewChild('hola') message: any;
   @ViewChild('img') imagen: any;
@@ -15,6 +15,9 @@ export class MachineryComponent implements OnInit {
 
 
 
+  }
+  public goToQuotation() {
+    this.router.navigateByUrl('quotation');
   }
 
 

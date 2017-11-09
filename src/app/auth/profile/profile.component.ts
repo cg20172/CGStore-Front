@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from './../../services/auth.service';
+//import { QuoteService } from './../../services/quote.service';
+
 import { User } from './../../models/user';
 
 
@@ -12,7 +14,7 @@ import { User } from './../../models/user';
 export class ProfileComponent implements OnInit {
 
   private dataUser: User;
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService/*, private quoteService: QuoteService*/) { }
 
   ngOnInit() {
     this.dataUser = this.authService.getUser();
