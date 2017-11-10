@@ -30,8 +30,7 @@ export class ProfileComponent implements OnInit {
     this.quoteService.getQuotes(this.dataUser.id)
       .subscribe((result) => {
         this.notificationsService.remove(toast.id);
-        this.quotations = result.body;
-        console.log(this.quotations);
+        this.quotations = result;
       }, (error) => {
         const toast = this.notificationsService.error(
           'Error ' + error.status,

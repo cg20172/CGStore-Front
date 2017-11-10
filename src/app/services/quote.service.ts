@@ -19,7 +19,7 @@ export class QuoteService {
     return this.http.post(this.url, { user_id: userId }, { observe: 'response' })
       .map((response) => {
         let quotes = [];
-        _.forEach(response, (quote) => {
+        _.forEach(response.body, (quote) => {
           quotes.push(new Quotation(quote));
         });
         return quotes;

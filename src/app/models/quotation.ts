@@ -1,28 +1,25 @@
 export class Quotation {
   public pedidoid: number;
-  public fecha: string;
+  public date: string;
   public productid: number;
-  public cantidad: number;
-  public nombre: string;
-  public cedula: string;
-  public direccion: string;
-  public telefono: string;
+  public quantity: number;
+  public name: string;
+  public document: string;
+  public addres: string;
+  public phone: string;
   public email: string;
-  public empresa: string;
+  public enterprise: string;
   public nit: string;
-  public cargo: string;
-  public tipoproducto: string;
-  public familiaproducto: string;
-  public Ancho: string;
-  public Alto: string;
-  public Exposición_Aletas: string;
+  public role: string;
 
   constructor(data: any) {
     if (data instanceof Object) {
       this.pedidoid = data.pedidoid;
-      this.fecha = data.fecha;
+      this.date = data.fecha;
       this.productid = data.productid;
-      this.cantidad = data.cantidad;
+      this.quantity = data.cantidad;
+
+
     }
   }
 
