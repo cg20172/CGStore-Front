@@ -19,11 +19,9 @@ export class QuotationService {
     return this.http.post(this.url + 'user_quote', { user_id: userId }, { observe: 'response' })
       .map((response) => {
         let quotations = [];
-        console.log(response.body);
         _.forEach(response.body, (quote) => {
           quotations.push(new Quotation(quote));
         });
-        console.log(quotations);
         return quotations;
       })
       .catch((error: any) => Observable.throw(error || 'ServerError'));
@@ -32,7 +30,6 @@ export class QuotationService {
   public create(quotation: Quotation): Observable<any> {
     return this.http.post(this.url + 'new_quote', quotation.toJSON(), { observe: 'response' })
       .map((response) => {
-        console.log('RESPONSE: ', response);
         return response;
       })
       .catch((error: any) => Observable.throw(error || 'ServerError'));

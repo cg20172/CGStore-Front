@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Logger } from 'angular2-logger/core';
+import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as _ from 'lodash';
@@ -34,7 +35,8 @@ export class QuotationComponent implements OnInit {
     private notificationsService: NotificationsService,
     private authService: AuthService,
     private productService: ProductService,
-    private quotationService: QuotationService) { }
+    private quotationService: QuotationService,
+    private router: Router) { }
 
   ngOnInit() {
     this.showProductForm = false;
@@ -181,14 +183,24 @@ export class QuotationComponent implements OnInit {
     });
 
     quotationData.quantity = this.productQuantity;
+    quotationData.date = new Date();
     let quotation = new Quotation(quotationData, this.authService.getUser(), this.selectedProduct);
-    console.log('Saving quotation: ', quotation.toJSON());
 
     this.quotationService.create(quotation)
       .subscribe((result) => {
-        console.log(result);
+        if (result.statusText === 'Created') {
+          const toast = this.notificationsService.success(
+            'Cotización Guardada',
+            'La cotización ha sido guardada correctamente'
+          );
+
+          this.router.navigateByUrl('/auth/profile');
+        }
       }, (error) => {
-        console.log(error);
+        const toast = this.notificationsService.error(
+          'Error Guardando Cotización',
+          'No se ha podido guardar la cotización'
+        );
       });
   }
 }

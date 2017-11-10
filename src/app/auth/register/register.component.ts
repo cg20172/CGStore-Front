@@ -1,7 +1,5 @@
 import { Router } from '@angular/router';
-
 import { Logger } from 'angular2-logger/core';
-
 import { Component, OnInit } from '@angular/core';
 import { CustomValidators } from 'ng2-validation';
 import { NotificationsService } from 'angular2-notifications';

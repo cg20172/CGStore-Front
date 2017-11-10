@@ -6,240 +6,166 @@
       </div>
       <div class="col-md-5">
         <ul class="breadcrumb">
-
-          <li><a href="index.html">Home</a>
+          <li><a href="#">Inicio</a>
           </li>
-          <li>Profile</li>
+          <li>Perfil</li>
         </ul>
-
       </div>
     </div>
   </div>
 </div>
 
 <div class="container">
-
   <div class="row">
     <div class="col-md-3">
-
       <div class="profile text-center">
         <img class="ProfileImage" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWuQH3vlB_boW7QuW_SNwYpF5IDBbUlmVhG-RjWhRe_JV3LiJJTg" alt="ProfileIcon">
         <div class="heading">
-          <h2>{{dataUser.firstName}} {{dataUser.lastName}}</h2>
+          <h2>{{ user.firstName }} {{ user.lastName }}</h2>
         </div>
 
-        <h4>{{dataUser.role}}</h4>
-        <p>{{dataUser.enterprise}}</p>
-
-
+        <h4>{{user.role}}</h4>
+        <p>{{user.enterprise}}</p>
       </div>
     </div>
-    <!-- *** LEFT COLUMN ***
-			 _________________________________________________________ -->
 
-    <div class="col-md-9 clearfix" id="customer-account">
-      <mat-tab-group>
-        <mat-tab label="Configuración Datos de Contacto.">
-          <p class="lead"></p>
-          <p class="text-muted">Manten tus datos actualizados, usamos estos datos para poder contactarte y generar la cotizacion.</p>
+    <div class="col-md-9" id="customer-account">
+      <div class="col-xs-12">
+        <mat-tab-group>
+          <mat-tab label="Datos de Contacto">
+            <p class="lead"></p>
+            <p class="text-muted">Manten tus datos actualizados, usamos estos datos para poder contactarte y generar la cotizacion.</p>
 
-          <div class="box">
-
-            <div class="heading">
-              <h3 class="text-uppercase">Cambio Contraseña</h3>
-            </div>
-
-            <form>
-              <div class="row">
-                <div class="col-sm-5">
-                  <div class="form-group">
-                    <label for="password_old">Contraseña Antigua</label>
-                    <input type="password" class="form-control" id="password_old">
-                  </div>
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  DATOS PERSONALES
+                </mat-panel-title>
+                <mat-panel-description>
+                  Aquí podrás actualizar tu información personal
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <form [formGroup]="userForm" (ngSubmit)="updateUser(userForm)">
+                <div class="col-xs-12">
+                  <h4>Información General</h4>
+                  <hr>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-5">
-                  <div class="form-group">
-                    <label for="password_1">Nueva Contraseña</label>
-                    <input type="password" class="form-control" id="password_1">
-                  </div>
-                </div>
-                <div class="col-sm-5">
-                  <div class="form-group">
-                    <label for="password_2">Escribe tu nueva contraseña</label>
-                    <input type="password" class="form-control" id="password_2">
-                  </div>
-                </div>
-              </div>
-              <!-- /.row -->
-
-              <div class="text-center">
-                <button type="submit" class="btn btn-template-main"><i class="fa fa-save"></i> Cambiar contraseña</button>
-              </div>
-            </form>
-
-          </div>
-          <!-- /.box -->
-
-
-          <div class="box clearfix">
-            <div class="heading">
-              <h3 class="text-uppercase">Datos Personales</h3>
-            </div>
-
-            <form>
-              <div class="row">
-                <div class="col-sm-5">
+                <div class="col-xs-12 col-sm-6">
                   <div class="form-group">
                     <label for="firstname">Primer Nombre</label>
-                    <input type="text" class="form-control" value="{{dataUser.firstName}}" id="firstname">
+                    <input type="text" class="form-control" formControlName="firstName" id="firstname">
                   </div>
                 </div>
-                <div class="col-sm-5">
+                <div class="col-xs-12 col-sm-6">
                   <div class="form-group">
                     <label for="lastname">Primer Apellido</label>
-                    <input type="text" class="form-control" value="{{dataUser.lastName}}" id="lastname">
+                    <input type="text" class="form-control" formControlName="lastName" id="lastname">
                   </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-5">
+                <div class="col-xs-12 col-sm-6">
                   <div class="form-group">
                     <label for="lastname">Documento</label>
-                    <input type="text" value="{{dataUser.document}}" class="form-control" id="lastname">
+                    <input type="text" class="form-control" formControlName="document" id="lastname">
                   </div>
                 </div>
-                <div class="col-sm-5">
+                <div class="col-xs-12 col-sm-6">
                   <div class="form-group">
                     <label for="street">Correo Electrónico</label>
-                    <input type="text" value="{{dataUser.email}}" class="form-control" id="street">
+                    <input type="text" class="form-control" formControlName="email" id="email">
                   </div>
                 </div>
-
-              </div>
-              <!-- /.row -->
-
-              <div class="row">
-                <div class="col-sm-5">
+                <div class="col-xs-12 col-sm-6">
                   <div class="form-group">
-                    <label for="company">Compañia</label>
-                    <input type="text" value="{{dataUser.enterprise}}" class="form-control" id="company">
+                    <label for="city">Teléfono</label>
+                    <input type="text" class="form-control" formControlName="phone" id="phone">
                   </div>
                 </div>
-
-              </div>
-              <!-- /.row -->
-
-              <div class="row">
-                <div class="col-sm-5 col-md-3">
-                  <div class="form-group">
-                    <label for="city">Telefono</label>
-                    <input type="text" class="form-control" id="city" value="{{dataUser.phone}}">
-                  </div>
-                </div>
-                <div class="col-sm-5 col-md-3">
+                <div class="col-xs-12 col-sm-6">
                   <div class="form-group">
                     <label for="zip">Dirección</label>
-                    <input type="text" class="form-control" id="zip" value="{{dataUser.address}}">
+                    <input type="text" class="form-control" formControlName="address" id="address">
                   </div>
                 </div>
-
-
-                <div class="col-sm-3">
-                  <div class="form-group">
-                    <label for="phone">Rol en la compañia</label>
-                    <input type="text" class="form-control" id="phone" value="{{dataUser.role}}">
-                  </div>
+                <div class="col-xs-12">
+                  <h4>Información de Empresa</h4>
+                  <hr>
                 </div>
-
-                <div class="col-sm-5 ">
+                <div class="col-xs-12 col-sm-6">
                   <div class="form-group">
                     <label for="state">Empresa</label>
-                    <input type="text" class="form-control" id="phone" value="{{dataUser.enterprise}}">
+                    <input type="text" class="form-control" formControlName="enterprise" id="entreprise">
                   </div>
                 </div>
-                <div class="col-sm-5 ">
+                <div class="col-xs-12 col-sm-6">
                   <div class="form-group">
                     <label for="country">NIT</label>
-                    <input type="text" class="form-control" id="phone" value="{{dataUser.nit}}">
+                    <input type="text" class="form-control" formControlName="nit" id="nit">
                   </div>
                 </div>
-                <div class="col-sm-10 text-center">
-                  <button type="submit" class="btn btn-template-main"><i class="fa fa-save"></i> Guardar Cambios</button>
-
+                <div class="col-xs-12 col-sm-6">
+                  <div class="form-group">
+                    <label for="phone">Rol en la compañia</label>
+                    <input type="text" class="form-control" formControlName="role" id="role">
+                  </div>
                 </div>
+                <div class="col-sm-12 text-center">
+                  <button type="submit" class="btn btn-template-main"><i class="fa fa-save"></i> Guardar Cambios</button>
+                </div>
+                <div class="clearfix"></div>
+              </form>
+            </mat-expansion-panel>
+          </mat-tab>
+          <mat-tab label="Estado Cotizaciones">
+            <div class="col-md-12" id="customer-orders">
+              <h3 class="text-center">Tus Cotizaciones</h3>
+              <div class="box">
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>NumeroOrden</th>
+                        <th>Fecha</th>
+                        <th>Producto Solicitado</th>
+                        <th>cantidad</th>
+                        <th>Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let quotation of quotations">
 
-
+                        <th># {{quotation.id}}</th>
+                        <td>{{quotation.date}}</td>
+                        <td>{{quotation.productId}}</td>
+                        <th>{{quotation.quantity}}</th>
+                        <td>
+                          <span class="label label-success" *ngIf="quotation.state === '1'">
+                            Cotizacion Terminada
+                          </span>
+                          <span class="label label-primary" *ngIf="quotation.state === '2'">
+                            Enviando al Correo
+                          </span>
+                          <span class="label label-info" *ngIf="quotation.state === '3'">
+                            Generando Cotización
+                          </span>
+                          <span class="label label-warning" *ngIf="quotation.state === '2'">
+                            Generando Modelos
+                          </span>
+                          <span class="label label-danger" *ngIf="quotation.state === '1'">
+                            Sin Procesar
+                          </span>
+                          <span class="label label-default" *ngIf="quotation.state === NULL">
+                            UNDEFINED
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
-
-            </form>
-
-          </div>
-        </mat-tab>
-        <mat-tab label="Estado Cotizaciones">
-          <div class="col-md-12" id="customer-orders">
-
-            <h3 class="text-center">Tus Cotizaciones</h3>
-            <div class="box">
-
-              <div class="table-responsive">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>NumeroOrden</th>
-                      <th>Fecha</th>
-                      <th>Producto Solicitado</th>
-                      <th>cantidad</th>
-                      <th>Estado</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let quotation of quotations">
-
-                      <th># {{quotation.id}}</th>
-                      <td>{{quotation.date}}</td>
-                      <td>{{quotation.productId}}</td>
-                      <th>{{quotation.quantity}}</th>
-                      <td>
-                        <span class="label label-success" *ngIf="quotation.state === '1'">
-                          Cotizacion Terminada
-                        </span>
-                        <span class="label label-primary" *ngIf="quotation.state === '2'">
-                          Enviando al Correo
-                        </span>
-                        <span class="label label-info" *ngIf="quotation.state === '3'">
-                          Generando Cotización
-                        </span>
-                        <span class="label label-warning" *ngIf="quotation.state === '2'">
-                          Generando Modelos
-                        </span>
-                        <span class="label label-danger" *ngIf="quotation.state === '1'">
-                          Sin Procesar
-                        </span>
-                        <span class="label label-default" *ngIf="quotation.state === NULL">
-                          UNDEFINED
-                        </span>
-                      </td>
-                    </tr>
-
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.table-responsive -->
-
             </div>
-            <!-- /.box -->
-
-          </div>
-        </mat-tab>
-      </mat-tab-group>
-
+          </mat-tab>
+        </mat-tab-group>
+      </div>
     </div>
-    <!-- /.col-md-9 -->
-
-
   </div>
-  <!-- /.row -->
-
 </div>

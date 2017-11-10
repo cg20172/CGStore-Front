@@ -20,7 +20,7 @@ export class Quotation {
         this.id = data.pedidoid ? data.pedidoid : null;
         this.productId = data.productoid ? data.productoid : null;
         this.quantity = data.cantidad ? data.cantidad : null;
-        this.date = data.fecha ? data.fecha : null;
+        this.date = data.fecha ? new Date(data.fecha) : null;
       } else {
         let date = data.date ? new Date(data.date) : null;
         this.id = data.id ? data.id : null;
@@ -28,7 +28,7 @@ export class Quotation {
         this.quantity = data.quantity ? data.quantity : null;
         this.userId = data.userId ? data.userId : null;
         this.state = data.state ? data.state : "1";
-        this.date = data.date ? new Date(data.fecha) : null;
+        this.date = data.date ? new Date(data.date) : null;
         this.createdAt = data.createdAt ? new Date(data.createdAt) : null;
         this.updatedAt = data.updatedAt ? new Date(data.updatedAt) : null;
       }

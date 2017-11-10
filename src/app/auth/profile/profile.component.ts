@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationsService } from 'angular2-notifications';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { AuthService } from './../../services/auth.service';
 import { QuotationService } from './../../services/quotation.service';
-
-import { NotificationsService } from 'angular2-notifications';
 
 import { User } from './../../models/user';
 import { Quotation } from './../../models/quotation';
@@ -14,10 +14,12 @@ import { Quotation } from './../../models/quotation';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+
 export class ProfileComponent implements OnInit {
 
   private quotations: Quotation[];
-  private dataUser: User;
+  private user: User;
+  private userForm: FormGroup;
 
   constructor(private authService: AuthService,
     private quotationService: QuotationService,
@@ -30,8 +32,8 @@ export class ProfileComponent implements OnInit {
       { timeOut: 0 }
     );
 
-    this.dataUser = this.authService.getUser();
-    this.quotationService.getQuotations(this.dataUser.id)
+    this.user = this.authService.getUser();
+    this.quotationService.getQuotations(this.user.id)
       .subscribe((result) => {
         this.notificationsService.remove(toast.id);
         this.quotations = result;
@@ -41,6 +43,18 @@ export class ProfileComponent implements OnInit {
           error.statusText
         );
       });
+
+    this.userForm = new FormGroup({
+      firstName: new FormControl(this.user.firstName, [Validators.required]),
+      lastName: new FormControl(this.user.lastName, [Validators.required]),
+      document: new FormControl(this.user.document, [Validators.required]),
+      email: new FormControl(this.user.email, [Validators.required]),
+      phone: new FormControl(this.user.phone, [Validators.required]),
+      address: new FormControl(this.user.address, [Validators.required]),
+      enterprise: new FormControl(this.user.enterprise, [Validators.required]),
+      nit: new FormControl(this.user.nit, [Validators.required]),
+      role: new FormControl(this.user.role, [Validators.required]),
+    });
   }
 
 }

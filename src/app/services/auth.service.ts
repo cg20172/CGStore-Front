@@ -25,8 +25,6 @@ export class AuthService {
   public logIn(credentials: Object): Observable<any> {
     return this.http.post(this.url + '/sign_in', credentials, { observe: 'response' })
       .map((response) => {
-
-        console.log(response.headers);
         let uid = response.body['data'].uid;
         let client = response.headers.get('Client');
         let token = response.headers.get('Access-Token');
