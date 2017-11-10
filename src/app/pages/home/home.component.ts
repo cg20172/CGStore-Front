@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Image } from '../../models/image';
-
-
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,21 +8,9 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  images: Image[] = [
-    new Image('1', 'Primera Imagen', 'Descripcion Imagen Uno ', 'https://angular.io/assets/images/logos/angular/angular.svg', 'https://jaxenter.com/wp-content/uploads/2016/12/angular.png'),
-    new Image('1', 'Primera Imagen', 'Descripcion Imagen Uno ', 'https://angular.io/assets/images/logos/angular/angular.svg', 'https://jaxenter.com/wp-content/uploads/2016/12/angular.png'),
-    new Image('1', 'Primera Imagen', 'Descripcion Imagen Uno ', 'https://angular.io/assets/images/logos/angular/angular.svg', 'https://jaxenter.com/wp-content/uploads/2016/12/angular.png'),
-    new Image('1', 'Primera Imagen', 'Descripcion Imagen Uno ', 'https://angular.io/assets/images/logos/angular/angular.svg', 'https://jaxenter.com/wp-content/uploads/2016/12/angular.png')
-
-  ];
-
-
   constructor(private router: Router) { }
 
-  ngOnInit() {
-
-
-  }
+  ngOnInit() { }
 
   public goToQuotation() {
     this.router.navigateByUrl('quotation');
@@ -38,6 +23,5 @@ export class HomeComponent implements OnInit {
   public goToContact() {
     this.router.navigateByUrl('contact');
   }
-
 
 }

@@ -1,29 +1,57 @@
+import { Product } from './product';
+import { User } from './user';
+
 export class Quotation {
-  public pedidoid: number;
-  public date: string;
-  public productid: number;
+  public id: number;
+  public date: Date;
+  public productId: number;
   public quantity: number;
-  public name: string;
-  public document: string;
-  public addres: string;
-  public phone: string;
-  public email: string;
-  public enterprise: string;
-  public nit: string;
-  public role: string;
+  public userId: number;
+  public state: string;
+  public user: User;
+  public product: Product;
+  public createdAt: Date;
+  public updatedAt: Date;
 
-  constructor(data: any) {
+  constructor(data: any, user: User = null, product: Product = null) {
+    let date = data.date ? new Date(data.date) : new Date();
     if (data instanceof Object) {
-      this.pedidoid = data.pedidoid;
-      this.date = data.fecha;
-      this.productid = data.productoid;
-      this.quantity = data.cantidad;
+      this.id = data.id ? data.id : null;
+      this.productId = data.productId ? data.productId : null;
+      this.quantity = data.quantity ? data.quantity : null;
+      this.userId = data.userId ? data.userId : null;
+      this.state = data.state ? data.state : "1";
+      this.date = date;
+      this.createdAt = data.createdAt ? new Date(data.createdAt) : null;
+      this.updatedAt = data.updatedAt ? new Date(data.updatedAt) : null;
+    }
 
+    if (user) {
+      this.user = user;
+    }
 
+    if (product) {
+      this.product = product;
     }
   }
 
+  public toJSON() {
+    let strDate = null;
+    let params = this.product ? this.product.getParamsJSON() : {};
 
+    if (this.date) {
+      let year = this.date.getFullYear();
+      let month = this.date.getMonth() < 10 ? "0" + this.date.getMonth() : this.date.getMonth();
+      let day = this.date.getDay() < 10 ? "0" + this.date.getDay() : this.date.getDay();
+      strDate = "" + year + month + day;
+    }
 
+    return {
+      user_id: this.user ? this.user.id : this.userId,
+      product_id: this.product ? this.product.id : this.productId,
+      date: strDate,
+      params: params
+    }
+  }
 
 }

@@ -22,9 +22,7 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 
 import { AuthService } from './services/auth.service';
 import { ProductService } from './services/product.service';
-import { QuoteService } from './services/quote.service';
-
-
+import { QuotationService } from './services/quotation.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +54,7 @@ import { QuoteService } from './services/quote.service';
     Logger,
     AuthService,
     ProductService,
-    QuoteService
+    QuotationService
   ],
   bootstrap: [AppComponent]
 })

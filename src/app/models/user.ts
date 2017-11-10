@@ -12,8 +12,6 @@ export class User {
   public nit: string;
   public role: string;
 
-
-
   constructor(data: any) {
     if (data instanceof Object) {
       this.id = data.id;

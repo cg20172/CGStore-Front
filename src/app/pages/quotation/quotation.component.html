@@ -31,13 +31,18 @@
               <div class="col-xs-12">
                 <h3 class="text-center">Información de Producto</h3>
               </div>
-              <div class="col-xs-12">
-                <mat-form-field>
+              <div class="col-xs-12 col-sm-6">
+                <mat-form-field class="full-width">
                   <mat-select placeholder="Producto" [(value)]="selectedProduct" (change)="selectProduct($event.value)" [required]="true">
                     <mat-option *ngFor="let product of selectedProductType.products" [value]="product">
                       {{ product.name }}
                     </mat-option>
                   </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <mat-form-field class="full-width">
+                  <input matInput class="full-width" [(value)]="productQuantity" type="number" placeholder="Cantidad" min="1" />
                 </mat-form-field>
               </div>
               <div class="col-xs-12">
@@ -149,13 +154,13 @@
               <div class="quotation-form-box">
                 <div class="col-xs-12">
                   <h3>Completar Cotización</h3>
-                  <p>Para completar el proceso de cotización, haga clic en el botón "Finalizar" de la parte inferior.</p>
+                  <p>Para completar el proceso de cotización, haga clic en el botón "Procesar Cotización" de la parte inferior.</p>
                 </div>
                 <div class="clearfix"></div>
                 <br><br>
                 <div class="col-xs-12">
                   <button mat-raised-button matStepperPrevious>Anterior</button>
-                  <button mat-raised-button matStepperNext color="primary" [disabled]="false" class="pull-right" (click)="saveQuotation(productForm, quotationForm)">Terminar</button>
+                  <button mat-raised-button matStepperNext color="primary" [disabled]="false" class="pull-right" (click)="saveQuotation(productForm, quotationForm)">Procesar Cotización</button>
                 </div>
                 <div class="clearfix"></div>
               </div>

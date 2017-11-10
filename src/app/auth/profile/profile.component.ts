@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from './../../services/auth.service';
-import { QuoteService } from './../../services/quote.service';
+import { QuotationService } from './../../services/quotation.service';
 
 import { NotificationsService } from 'angular2-notifications';
 
@@ -15,9 +15,12 @@ import { Quotation } from './../../models/quotation';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+
   private quotations: Quotation[];
   private dataUser: User;
-  constructor(private authService: AuthService, private quoteService: QuoteService,
+
+  constructor(private authService: AuthService,
+    private quotationService: QuotationService,
     private notificationsService: NotificationsService) { }
 
   ngOnInit() {
@@ -26,8 +29,9 @@ export class ProfileComponent implements OnInit {
       'Cargando Cotizaciones...',
       { timeOut: 0 }
     );
+
     this.dataUser = this.authService.getUser();
-    this.quoteService.getQuotes(this.dataUser.id)
+    this.quotationService.getQuotations(this.dataUser.id)
       .subscribe((result) => {
         this.notificationsService.remove(toast.id);
         this.quotations = result;
@@ -36,10 +40,7 @@ export class ProfileComponent implements OnInit {
           'Error ' + error.status,
           error.statusText
         );
-      }
-
-      );
-
+      });
   }
 
 }
