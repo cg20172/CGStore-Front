@@ -4,6 +4,7 @@ import { NotificationsService } from 'angular2-notifications';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { ProductService } from './../../services/product.service';
+import { AuthService } from './../../services/auth.service';
 
 import { ProductType } from './../../models/product-type';
 import { Product } from './../../models/product';
@@ -27,7 +28,8 @@ export class QuotationComponent implements OnInit {
 
   constructor(private productService: ProductService,
     private logger: Logger,
-    private notificationsService: NotificationsService) { }
+    private notificationsService: NotificationsService,
+    private authService: AuthService) { }
 
   ngOnInit() {
     this.showProductForm = false;
@@ -47,17 +49,18 @@ export class QuotationComponent implements OnInit {
         this.logger.debug('Error: ', error);
       });
 
+    let user = this.authService.getUser();
     this.quotationForm = new FormGroup({
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
-      identification: new FormControl('', [Validators.required]),
-      address: new FormControl('', []),
-      phone: new FormControl('', []),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      company: new FormControl('', []),
-      companyIdentification: new FormControl('', []),
-      companyRole: new FormControl('', []),
-    })
+      firstName: new FormControl(user ? user.firstName : '', [Validators.required]),
+      lastName: new FormControl(user ? user.lastName : '', [Validators.required]),
+      address: new FormControl(user ? user.address : '', []),
+      phone: new FormControl(user ? user.phone : '', []),
+      document: new FormControl(user ? user.document : '', [Validators.required]),
+      email: new FormControl(user ? user.email : '', [Validators.required, Validators.email]),
+      enterprise: new FormControl(user ? user.enterprise : '', []),
+      nit: new FormControl(user ? user.nit : '', []),
+      role: new FormControl(user ? user.role : '', []),
+    });
   }
 
   public selectProductType(productType) {
@@ -159,6 +162,11 @@ export class QuotationComponent implements OnInit {
     });
 
     this.productForm = new FormGroup(controls);
+  }
+
+  public saveQuotation(productForm, quotationForm) {
+    let productData = productForm.value;
+    let quotationData = quotationForm.value;
   }
 
 }
