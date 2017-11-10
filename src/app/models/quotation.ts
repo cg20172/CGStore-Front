@@ -14,16 +14,24 @@ export class Quotation {
   public updatedAt: Date;
 
   constructor(data: any, user: User = null, product: Product = null) {
-    let date = data.date ? new Date(data.date) : new Date();
     if (data instanceof Object) {
-      this.id = data.id ? data.id : null;
-      this.productId = data.productId ? data.productId : null;
-      this.quantity = data.quantity ? data.quantity : null;
-      this.userId = data.userId ? data.userId : null;
-      this.state = data.state ? data.state : "1";
-      this.date = date;
-      this.createdAt = data.createdAt ? new Date(data.createdAt) : null;
-      this.updatedAt = data.updatedAt ? new Date(data.updatedAt) : null;
+      if (data.pedidoid) {
+        let date = data.fecha ? new Date(data.fecha) : null;
+        this.id = data.pedidoid ? data.pedidoid : null;
+        this.productId = data.productoid ? data.productoid : null;
+        this.quantity = data.cantidad ? data.cantidad : null;
+        this.date = data.fecha ? data.fecha : null;
+      } else {
+        let date = data.date ? new Date(data.date) : null;
+        this.id = data.id ? data.id : null;
+        this.productId = data.productId ? data.productId : null;
+        this.quantity = data.quantity ? data.quantity : null;
+        this.userId = data.userId ? data.userId : null;
+        this.state = data.state ? data.state : "1";
+        this.date = data.date ? new Date(data.fecha) : null;
+        this.createdAt = data.createdAt ? new Date(data.createdAt) : null;
+        this.updatedAt = data.updatedAt ? new Date(data.updatedAt) : null;
+      }
     }
 
     if (user) {
@@ -53,5 +61,6 @@ export class Quotation {
       params: params
     }
   }
+
 
 }

@@ -197,9 +197,9 @@
                   <tbody>
                     <tr *ngFor="let quotation of quotations">
 
-                      <th># {{quotation.pedidoid}}</th>
+                      <th># {{quotation.id}}</th>
                       <td>{{quotation.date}}</td>
-                      <td>{{quotation.productid}}</td>
+                      <td>{{quotation.productId}}</td>
                       <th>{{quotation.quantity}}</th>
                       <td>
                         <span class="label label-success" *ngIf="quotation.state === '1'">
