@@ -8,7 +8,6 @@ $(function() {
   productDetailSizes();
   utils();
   animations();
-  demo();
 
 });
 
