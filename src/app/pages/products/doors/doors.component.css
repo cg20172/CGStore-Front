@@ -2,7 +2,8 @@
 
 
 .jumbotron {
-  background: url(/../../../assets/img/3.png) center center repeat;
+  background: url(/../../../assets/img/3.jpg) center center repeat;
+  background-size: cover;
 }
 
 
