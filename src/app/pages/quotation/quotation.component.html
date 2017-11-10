@@ -25,7 +25,7 @@
       <div *ngIf="selectedProductType">
         <h2>{{ selectedProductType.name }} <br><small>{{ selectedProductType.description }}</small></h2>
 
-        <mat-horizontal-stepper>
+        <mat-horizontal-stepper linear>
           <mat-step [stepControl]="productForm" label="Información de Producto">
             <div class="stepper-box">
               <div class="col-xs-12">
@@ -70,7 +70,7 @@
               <div class="clearfix"></div>
             </div>
           </mat-step>
-          <mat-step label="Información de Cotización">
+          <mat-step label="Información de Cotización" [stepControl]="quotationForm">
             <div class="stepper-box">
               <div class="quotation-form-box">
                 <form class="form" [formGroup]="quotationForm" novalidate>
@@ -91,7 +91,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                       <mat-form-field class="full-width">
-                        <input matInput class="full-width" formControlName="identification" type="text" placeholder="Documento de Identidad" />
+                        <input matInput class="full-width" formControlName="document" type="text" placeholder="Documento de Identidad" />
                       </mat-form-field>
                     </div>
                     <div class="col-xs-12 col-sm-6">
@@ -118,24 +118,24 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                       <mat-form-field class="full-width">
-                        <input matInput class="full-width" formControlName="company" type="text" placeholder="Empresa" />
+                        <input matInput class="full-width" formControlName="enterprise" type="text" placeholder="Empresa" />
                       </mat-form-field>
                     </div>
                     <div class="col-xs-12 col-sm-6">
                       <mat-form-field class="full-width">
-                        <input matInput class="full-width" formControlName="companyIdentification" type="text" placeholder="NIT" />
+                        <input matInput class="full-width" formControlName="nit" type="text" placeholder="NIT" />
                       </mat-form-field>
                     </div>
                     <div class="col-xs-12 col-sm-6">
                       <mat-form-field class="full-width">
-                        <input matInput class="full-width" formControlName="companyRole" type="text" placeholder="Rol en la compañia" />
+                        <input matInput class="full-width" formControlName="role" type="text" placeholder="Rol en la compañia" />
                       </mat-form-field>
                     </div>
                   </div>
                   <div class="clearfix"></div>
                   <div class="col-xs-12">
                     <button mat-raised-button matStepperPrevious>Anterior</button>
-                    <button mat-raised-button matStepperNext color="primary" [disabled]="false" class="pull-right">Siguiente</button>
+                    <button mat-raised-button matStepperNext color="primary" [disabled]="quotationForm.invalid" class="pull-right">Siguiente</button>
                     <div class="clearfix"></div>
                   </div>
                 </form>
@@ -145,16 +145,20 @@
             <div class="clearfix"></div>
           </mat-step>
           <mat-step label="Completar Cotización">
-            <div class="col-xs-12">
-              <h3>Completar Cotización</h3>
-              <p>Para completar el proceso de cotización, haga clic en el botón "Finalizar" de la parte inferior.</p>
-            </div>
-            <div class="clearfix"></div>
-            <br><br>
-            <div class="col-xs-12">
-              <button mat-raised-button matStepperPrevious>Anterior</button>
-              <button mat-raised-button matStepperNext color="primary" [disabled]="false" class="pull-right">Terminar</button>
-              <div class="clearfix"></div>
+            <div class="stepper-box">
+              <div class="quotation-form-box">
+                <div class="col-xs-12">
+                  <h3>Completar Cotización</h3>
+                  <p>Para completar el proceso de cotización, haga clic en el botón "Finalizar" de la parte inferior.</p>
+                </div>
+                <div class="clearfix"></div>
+                <br><br>
+                <div class="col-xs-12">
+                  <button mat-raised-button matStepperPrevious>Anterior</button>
+                  <button mat-raised-button matStepperNext color="primary" [disabled]="false" class="pull-right" (click)="saveQuotation(productForm, quotationForm)">Terminar</button>
+                </div>
+                <div class="clearfix"></div>
+              </div>
             </div>
           </mat-step>
         </mat-horizontal-stepper>

@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  private lat: number = 51.678418;
-  private lng: number = 7.809007;
+  private lat: number = 4.639177;
+  private lng: number = -74.082097;
 
   constructor() { }
 

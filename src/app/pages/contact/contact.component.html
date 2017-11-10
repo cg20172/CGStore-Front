@@ -104,6 +104,6 @@
 </div>
 <!-- /#content -->
 
-<agm-map [latitude]="lat" [longitude]="lng">
+<agm-map [latitude]="lat" [longitude]="lng" [draggable]="false" [disableDoubleClickZoom]="true" [streetViewControl]="false" [zoomControl]="false" [scrollwheel]="false" [mapDraggable]="false">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map>

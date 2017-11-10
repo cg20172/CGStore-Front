@@ -36,15 +36,18 @@ export class RegisterComponent implements OnInit {
       lastName: new FormControl('', [Validators.required]),
       address: new FormControl('', []),
       phone: new FormControl('', []),
+      document: new FormControl('', []),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: password,
-      confirmPassword: confirmPassword
+      confirmPassword: confirmPassword,
+      enterprise: new FormControl('', []),
+      nit: new FormControl('', []),
+      role: new FormControl('', [])
     });
   }
 
   public registerUser(form: FormGroup) {
     this.logger.info('Registering user:', form.value);
-    console.log(form.value);
     this.savingUser = true;
 
     let registerData = new UserRegister(form.value);
