@@ -16,7 +16,7 @@ export class Quotation {
     if (data instanceof Object) {
       this.pedidoid = data.pedidoid;
       this.date = data.fecha;
-      this.productid = data.productid;
+      this.productid = data.productoid;
       this.quantity = data.cantidad;
 
 

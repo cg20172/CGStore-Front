@@ -39,9 +39,7 @@ export class ProfileComponent implements OnInit {
       }
 
       );
-    console.log(this.dataUser);
-    console.log(this.dataUser.lastName);
-    console.log(this.dataUser.address);
+
   }
 
 }
