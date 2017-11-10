@@ -22,6 +22,8 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 
 import { AuthService } from './services/auth.service';
 import { ProductService } from './services/product.service';
+import { QuoteService } from './services/quote.service';
+
 
 
 @NgModule({
@@ -53,7 +55,8 @@ import { ProductService } from './services/product.service';
   providers: [
     Logger,
     AuthService,
-    ProductService
+    ProductService,
+    QuoteService
   ],
   bootstrap: [AppComponent]
 })

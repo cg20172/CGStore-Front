@@ -23,12 +23,12 @@
     <div class="col-md-3">
 
       <div class="profile text-center">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWuQH3vlB_boW7QuW_SNwYpF5IDBbUlmVhG-RjWhRe_JV3LiJJTg" alt="ProfileIcon" style="width:100%">
+        <img class="ProfileImage" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWuQH3vlB_boW7QuW_SNwYpF5IDBbUlmVhG-RjWhRe_JV3LiJJTg" alt="ProfileIcon">
         <div class="heading">
           <h2>{{dataUser.firstName}} {{dataUser.lastName}}</h2>
         </div>
 
-        <h4>{{dataUser.email}}</h4>
+        <h4>{{dataUser.role}}</h4>
         <p>{{dataUser.enterprise}}</p>
 
 
@@ -39,7 +39,7 @@
 
     <div class="col-md-9 clearfix" id="customer-account">
       <mat-tab-group>
-        <mat-tab label="Configuración datos de contacto.">
+        <mat-tab label="Configuración Datos de Contacto.">
           <p class="lead"></p>
           <p class="text-muted">Manten tus datos actualizados, usamos estos datos para poder contactarte y generar la cotizacion.</p>
 
@@ -107,7 +107,7 @@
                 <div class="col-sm-5">
                   <div class="form-group">
                     <label for="lastname">Documento</label>
-                    <input type="text" value="{{dataUser.uid}}" class="form-control" id="lastname">
+                    <input type="text" value="{{dataUser.document}}" class="form-control" id="lastname">
                   </div>
                 </div>
                 <div class="col-sm-5">
@@ -149,23 +149,23 @@
                 <div class="col-sm-3">
                   <div class="form-group">
                     <label for="phone">Rol en la compañia</label>
-                    <input type="text" class="form-control" id="phone">
+                    <input type="text" class="form-control" id="phone" value="{{dataUser.role}}">
                   </div>
                 </div>
 
                 <div class="col-sm-5 ">
                   <div class="form-group">
                     <label for="state">Empresa</label>
-                    <input type="text" class="form-control" id="phone">
+                    <input type="text" class="form-control" id="phone" value="{{dataUser.enterprise}}">
                   </div>
                 </div>
                 <div class="col-sm-5 ">
                   <div class="form-group">
                     <label for="country">NIT</label>
-                    <input type="text" class="form-control" id="phone">
+                    <input type="text" class="form-control" id="phone" value="{{dataUser.nit}}">
                   </div>
                 </div>
-                <div class="col-sm-12 text-center">
+                <div class="col-sm-10 text-center">
                   <button type="submit" class="btn btn-template-main"><i class="fa fa-save"></i> Guardar Cambios</button>
 
                 </div>
@@ -190,6 +190,7 @@
                       <th>NumeroOrden</th>
                       <th>Fecha</th>
                       <th>Producto Solicitado</th>
+                      <th>cantidad</th>
                       <th>Estado</th>
                     </tr>
                   </thead>
@@ -198,6 +199,7 @@
                       <th># 1735</th>
                       <td>22/06/2013</td>
                       <td>Puerta1</td>
+                      <th>3</th>
                       <td><span class="label label-info">Being prepared</span>
 
                     </tr>
@@ -205,6 +207,7 @@
                       <th># 1735</th>
                       <td>22/06/2013</td>
                       <td>carroA</td>
+                      <th>3</th>
                       <td><span class="label label-info">Being prepared</span>
 
                     </tr>
@@ -212,6 +215,7 @@
                       <th># 1735</th>
                       <td>22/06/2013</td>
                       <td>volqueta</td>
+                      <th>3</th>
                       <td><span class="label label-success">Received</span>
 
                     </tr>
@@ -219,6 +223,7 @@
                       <th># 1735</th>
                       <td>22/06/2013</td>
                       <td>maquina</td>
+                      <th>3</th>
                       <td><span class="label label-danger">Cancelled</span>
 
                     </tr>
@@ -226,6 +231,7 @@
                       <th># 1735</th>
                       <td>22/06/2013</td>
                       <td>carro2</td>
+                      <th>3</th>
                       <td><span class="label label-warning">On hold</span>
 
                     </tr>
