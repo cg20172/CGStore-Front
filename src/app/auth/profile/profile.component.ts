@@ -21,6 +21,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/observable/of';
 
 
 
@@ -45,6 +46,17 @@ export class PetDataSource extends DataSource<Info> {
   }
   disconnect() { }
 }
+export class ExampleDataSource extends DataSource<any> {
+  constructor(private quotations: Element[]) {
+    super();
+  }
+  /** Connect function called by the table to retrieve one stream containing the data to render. */
+  connect(): Observable<Element[]> {
+    return Observable.of(this.quotations);
+  }
+
+  disconnect() { }
+}
 
 
 @Component({
@@ -57,12 +69,14 @@ export class PetDataSource extends DataSource<Info> {
 export class ProfileComponent {
 
 
-  displayedColumns = ['id', 'quantity', 'typeProduct', 'id'];
-  private quotations: Info[];
+  displayedColumns = ['position', 'name', 'weight', 'symbol'];
+
+  public quotations: Element[];
+  dataSource = new ExampleDataSource(this.quotations);
   private user: User;
   private userForm: FormGroup;
 
-  dataSource: PetDataSource;
+
 
 
   constructor(private authService: AuthService,
@@ -72,7 +86,7 @@ export class ProfileComponent {
   ngOnInit() {
 
 
-    this.dataSource = new PetDataSource(this.quotations);
+    //this.dataSource = new PetDataSource(this.quotations);
 
     const toast = this.notificationsService.info(
       'Cargando',
@@ -90,6 +104,7 @@ export class ProfileComponent {
       .subscribe((result) => {
         this.notificationsService.remove(toast.id);
         this.quotations = result;
+        this.dataSource = new ExampleDataSource(this.quotations);
         console.log(this.quotations);
       }, (error) => {
         const toast = this.notificationsService.error(
@@ -115,4 +130,10 @@ export class ProfileComponent {
 
 
 
+}
+export interface Element {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
 }
