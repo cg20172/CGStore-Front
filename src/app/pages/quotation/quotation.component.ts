@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Logger } from 'angular2-logger/core';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
@@ -13,6 +13,8 @@ import { ProductType } from './../../models/product-type';
 import { Product } from './../../models/product';
 import { ProductProperty } from './../../models/product-property';
 import { Quotation } from './../../models/quotation';
+
+import { DrawDoorComponent} from './draw-door/draw-door.component';
 
 @Component({
   selector: 'app-quotation',
@@ -202,5 +204,17 @@ export class QuotationComponent implements OnInit {
           'No se ha podido guardar la cotización'
         );
       });
+  }
+
+
+
+
+  @ViewChild(DrawDoorComponent)
+     private drawDoorComponent: DrawDoorComponent;
+
+
+
+  public updateDrawDoorWidth() : void{
+    this.drawDoorComponent.updateWidth(20);
   }
 }
