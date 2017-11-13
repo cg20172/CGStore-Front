@@ -1,17 +1,63 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input,  } from '@angular/core';
+
+import { BrowserModule }          from "@angular/platform-browser";
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+
+import { NgvasModule, tweens, hitAreas } from "ngvas";
+
+import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/operator/takeUntil';
+import 'rxjs/add/operator/pairwise';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-draw-door',
   templateUrl: './draw-door.component.html',
   styleUrls: ['./draw-door.component.css']
 })
+
 export class DrawDoorComponent implements OnInit {
 
-  dato = "Componente draw-door";	
+ dato = 1;
+
+
   constructor() { }
 
   ngOnInit() {
   	console.log('componente inicializado...');
   }
+
+  public updateWidth(width): void{
+  	this.dato += width;
+  	//console.log(this.width);
+  }
+
+  
+
+
+   public squareFill = 0x666666;
+  public otherFill = 0xa12aaa;
+  public borderFill = 0x009900;
+   public squareTranslate: any = [250, 250];
+   public squareSize = [100,100];
+   public pixelHitArea = hitAreas.PixelHitArea;
+
+
+
+   public onClick (e: MouseEvent): void {
+     console.log(e);
+     this.squareSize = [200,200];
+     this.squareTranslate = [[0, -100], 500, tweens.easings.easeOutCircular, () => this.squareTranslate = [[0, 100], 800, tweens.easings.easeOutBounce]];
+   }
+
+   public onMouseEnter (e: MouseEvent): void {
+     this.squareFill = 0x666666;
+   }
+
+   public onMouseLeave (e: MouseEvent): void {
+     this.squareFill = 0x009900;
+   }
+  
+
 
 }

@@ -19,6 +19,7 @@ import { QuotationComponent } from './quotation/quotation.component';
 import { QuotationFormComponent } from './quotation/quotation-form/quotation-form.component';
 import { ProductFormComponent } from './quotation/product-form/product-form.component';
 import { DrawDoorComponent } from './quotation/draw-door/draw-door.component';
+import { NgvasModule, tweens, hitAreas } from "ngvas";
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { DrawDoorComponent } from './quotation/draw-door/draw-door.component';
     BrowserAnimationsModule,
     MaterialModule,
     OwlModule,
+    NgvasModule,
 
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCJgE_ZRBAXSFQb-ilbeU7OSqo74wUKUdk'
