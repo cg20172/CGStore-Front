@@ -117,6 +117,24 @@
           </mat-tab>
           <mat-tab label="Estado Cotizaciones">
             <div class="col-md-12" id="customer-orders">
+
+
+
+              <mat-table #table [dataSource]="dataSource">
+
+                <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="typeProduct">
+                  <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                  <mat-cell *matCellDef="let quotations "> {{ typeProduct}} </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+              </mat-table>
+
               <h3 class="text-center">Tus Cotizaciones</h3>
               <div class="box">
                 <div class="table-responsive">

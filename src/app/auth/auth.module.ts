@@ -11,12 +11,14 @@ import { ForgotComponent } from './forgot/forgot.component';
 import { ResetComponent } from './reset/reset.component';
 import { ProfileComponent } from './profile/profile.component';
 
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [LoginComponent, RegisterComponent, ForgotComponent, ResetComponent, ProfileComponent]
 })
