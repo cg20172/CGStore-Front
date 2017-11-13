@@ -50,6 +50,16 @@
               </div>
               <div class="quotation-form-box" *ngIf="selectedProduct !== null && showProductForm">
                 <form class="form" [formGroup]="productForm" novalidate>
+
+
+
+
+                  <div  class="col-xs-12" *ngIf="selectedProduct.name == 'Puerta rápida'">
+                  </div>
+
+
+
+
                   <div *ngFor="let property of selectedProduct.properties">
                     <div class="clearfix" *ngIf="property.type === 'bool'"></div>
                     <div class="col-xs-12 col-sm-6">

@@ -14,11 +14,11 @@ import { DoorsComponent } from './products/doors/doors.component';
 import { MachineryComponent } from './products/machinery/machinery.component';
 import { LegosComponent } from './products/legos/legos.component';
 
-import { PdfViewerComponent } from 'ng2-pdf-viewer';
 
 import { QuotationComponent } from './quotation/quotation.component';
 import { QuotationFormComponent } from './quotation/quotation-form/quotation-form.component';
 import { ProductFormComponent } from './quotation/product-form/product-form.component';
+import { DrawDoorComponent } from './quotation/draw-door/draw-door.component';
 
 
 @NgModule({
@@ -35,7 +35,7 @@ import { ProductFormComponent } from './quotation/product-form/product-form.comp
       apiKey: 'AIzaSyCJgE_ZRBAXSFQb-ilbeU7OSqo74wUKUdk'
     }),
   ],
-  declarations: [HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent, QuotationComponent, QuotationFormComponent, ProductFormComponent, PdfViewerComponent],
+  declarations: [HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent, QuotationComponent, QuotationFormComponent, ProductFormComponent, DrawDoorComponent],
   exports: [HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent, QuotationComponent, QuotationFormComponent],
   providers: []
 })
