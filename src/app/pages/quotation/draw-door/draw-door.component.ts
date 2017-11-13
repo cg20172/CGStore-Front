@@ -32,10 +32,24 @@ export class DrawDoorComponent implements OnInit {
   	//console.log(this.width);
   }
 
-  
+  /*
 
+0
+:
+{id: 1, name: "Ancho", typefeature: "integer", range: "1000,4500"}
+1
+:
+{id: 2, name: "Alto", typefeature: "integer", range: "1000,4500"}
+2
+:
+{id: 3, name: "Color Lona", typefeature: "integer", range: "1,11"}
+3
+:
+{id: 4, name: "Color Perfiles", typefeature: "integer", range: "1,11"}
 
-   public squareFill = 0x666666;
+*/
+
+     public squareFill = 0x666666;
   public otherFill = 0xa12aaa;
   public borderFill = 0x009900;
    public squareTranslate: any = [250, 250];
