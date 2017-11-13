@@ -65,7 +65,7 @@
                     <div class="clearfix" *ngIf="property.type === 'bool'"></div>
                     <div class="col-xs-12 col-sm-6">
                       <mat-form-field class="full-width" *ngIf="property.type === 'integer' || property.type === 'list'">
-                        <input matInput class="full-width" *ngIf="property.type === 'integer'" [formControlName]="property.name" type="number" [placeholder]="property.name" [min]="property.values[0]" [max]="property.values[1]" />
+                        <input matInput class="full-width" *ngIf="property.type === 'integer'" [formControlName]="property.name" type="number" [placeholder]="property.name" [min]="property.values[0]" [max]="property.values[1]" (change)="updateDrawDoor(selectedProduct.name, property.name)" />
                         <mat-select *ngIf="property.type === 'list'" [formControlName]="property.name" [placeholder]="property.name" [(value)]="property.value">
                           <mat-option *ngFor="let option of property.values" [value]="option">
                             {{ option.name }}

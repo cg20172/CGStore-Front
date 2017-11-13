@@ -27,9 +27,28 @@ export class DrawDoorComponent implements OnInit {
   	console.log('componente inicializado...');
   }
 
-  public updateWidth(width): void{
-  	this.dato += width;
-  	//console.log(this.width);
+  public updateWidth(value): void{
+  	console.log("width: " + value );
+  }
+
+  public updateHeight(value): void{
+    console.log("height: " + value );
+  }
+
+  public updateLonaColor(value): void{
+ 
+    console.log("lona color: " + value );
+    if(value >= 1 && value <= 11){
+      this.lonaFill = this.colors[value - 1];
+    }
+
+  }
+
+  public updateOutlineColor(value): void{
+    console.log("outline color: " + value );
+    if(value >= 1 && value <= 11){
+      this.outlineFill = this.colors[value - 1];
+    }
   }
 
   /*
@@ -48,30 +67,28 @@ export class DrawDoorComponent implements OnInit {
 {id: 4, name: "Color Perfiles", typefeature: "integer", range: "1,11"}
 
 */
-
-     public squareFill = 0x666666;
-  public otherFill = 0xa12aaa;
-  public borderFill = 0x009900;
+   private colors = [
+                     0xFCAC2F,
+                     0x37375B,
+                     0x2B4F8D,
+                     0xF0F7EF,
+                     0xECD9BB,
+                     0x86979E,
+                     0xF2673C,
+                     0x1D1B1E,
+                     0xDC2F35,
+                     0x1A2F28,
+                     0x179785
+   ];
+   public outlineFill = this.colors[0];
+   public lonaFill = this.colors[1];
+   public borderFill = 0x009900;
    public squareTranslate: any = [250, 250];
    public squareSize = [100,100];
    public pixelHitArea = hitAreas.PixelHitArea;
 
 
 
-   public onClick (e: MouseEvent): void {
-     console.log(e);
-     this.squareSize = [200,200];
-     this.squareTranslate = [[0, -100], 500, tweens.easings.easeOutCircular, () => this.squareTranslate = [[0, 100], 800, tweens.easings.easeOutBounce]];
-   }
-
-   public onMouseEnter (e: MouseEvent): void {
-     this.squareFill = 0x666666;
-   }
-
-   public onMouseLeave (e: MouseEvent): void {
-     this.squareFill = 0x009900;
-   }
-  
 
 
 }

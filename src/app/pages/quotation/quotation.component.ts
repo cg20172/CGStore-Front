@@ -214,7 +214,25 @@ export class QuotationComponent implements OnInit {
 
 
 
-  public updateDrawDoorWidth() : void{
-    this.drawDoorComponent.updateWidth(20);
+  public updateDrawDoor(productName: any, propertyName : any) : void{
+    if (productName == 'Puerta rápida'){
+       var value = this.productForm.get(propertyName).value;
+       switch (propertyName ) {
+         case 'Ancho':
+           this.drawDoorComponent.updateWidth(value);
+           break;
+         case 'Alto':
+           this.drawDoorComponent.updateHeight(value);
+           break;
+         case 'Color Lona':
+           this.drawDoorComponent.updateLonaColor(value);
+           break;
+         case 'Color Perfiles':
+           this.drawDoorComponent.updateOutlineColor(value);
+           break;
+       }
+
+    }
+
   }
 }
