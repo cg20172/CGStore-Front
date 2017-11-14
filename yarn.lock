@@ -3446,6 +3446,10 @@ ngjs-color-picker@^1.1.2:
   dependencies:
     angular "^1.2"
 
+ngvas@^0.7.6:
+  version "0.7.6"
+  resolved "https://registry.yarnpkg.com/ngvas/-/ngvas-0.7.6.tgz#8a7def0c95084243caec4b2789f25370802a4fd1"
+
 ngx-bootstrap@^1.9.3:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-1.9.3.tgz#28e75d14fb1beaee609383d7694de4eb3ba03b26"
