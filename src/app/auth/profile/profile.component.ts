@@ -57,7 +57,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  public updateUser() {
+  public updateUser(userForm: FormGroup) {
 
   }
 
