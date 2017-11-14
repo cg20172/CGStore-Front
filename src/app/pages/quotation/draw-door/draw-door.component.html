@@ -2,18 +2,17 @@
 
 
 <h1>Puerta </h1>
-    <ngvas [width]="500" [height]="500">
+    <ngvas [width]="canvasWidth" [height]="canvasHeight" >
 
-      
-     <ngvas-rectangle [fill]="outlineFill" x="250" y="0" [width]="400" [height]="80" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
-    <ngvas-rectangle [fill]="outlineFill" x="57.5" y="240" [width]="15" [height]="510" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
-    <ngvas-rectangle [fill]="outlineFill" x="442.5" y="240" [width]="15" [height]="510" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
-    <ngvas-rectangle [fill]="lonaFill" x="250" y="130" [width]="370" [height]="180" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
-    <ngvas-rectangle [fill]="borderFill" x="250" y="222.5" [width]="370" [height]="5" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
-    <ngvas-rectangle [fill]="lonaFill" x="250" y="265" [width]="370" [height]="80" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
-    <ngvas-rectangle [fill]="borderFill" x="250" y="307.5" [width]="370" [height]="5" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
-    <ngvas-rectangle [fill]="lonaFill" x="250" y="355" [width]="370" [height]="90" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
-    <ngvas-rectangle [fill]="borderFill" x="250" y="402.5" [width]="370" [height]="5" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
-    <ngvas-rectangle [fill]="lonaFill" x="250" y="450" [width]="370" [height]="90" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
+
+      <ngvas-rectangle [stroke]="{ width: strokeWidth, style: strokeColor }" [fill]="outlineFill" [x]="topX" [y]="topY" [width]="topWidth" [height]="topHeight" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
+      <ngvas-rectangle [stroke]="{ width: strokeWidth, style: strokeColor }" [fill]="outlineFill" [x]="outlineLeftX" [y]="outlineLeftY" [width]="outlineWidth" [height]="outlineHeight" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
+      <ngvas-rectangle [stroke]="{ width: strokeWidth, style: strokeColor }" [fill]="outlineFill" [x]="outlineRightX" [y]="outlineRightY" [width]="outlineWidth" [height]="outlineHeight" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
+
+      <ngvas-rectangle [stroke]="{ width: strokeWidth, style: strokeColor }" [fill]="lonaFill" [x]="lonaX" [y]="lonaY" [width]="lonaWidth" [height]="lonaHeight" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
+
+      <ngvas-rectangle [stroke]="{ width: strokeWidth, style: strokeColor }" [fill]="dividerFill" [x]="divider_1_X" [y]="divider_1_Y" [width]="dividerWidth" [height]="dividerHeight" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
+      <ngvas-rectangle [stroke]="{ width: strokeWidth, style: strokeColor }" [fill]="dividerFill" [x]="divider_2_X" [y]="divider_2_Y" [width]="dividerWidth" [height]="dividerHeight" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
+      <ngvas-rectangle [stroke]="{ width: strokeWidth, style: strokeColor }" [fill]="dividerFill" [x]="divider_3_X" [y]="divider_3_Y" [width]="dividerWidth" [height]="dividerHeight" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
 
     </ngvas>

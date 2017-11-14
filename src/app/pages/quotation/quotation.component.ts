@@ -224,10 +224,10 @@ export class QuotationComponent implements OnInit {
          case 'Alto':
            this.drawDoorComponent.updateHeight(value);
            break;
-         case 'Color Lona':
+         case 'Color_Lona':
            this.drawDoorComponent.updateLonaColor(value);
            break;
-         case 'Color Perfiles':
+         case 'Color_Perfiles':
            this.drawDoorComponent.updateOutlineColor(value);
            break;
        }
