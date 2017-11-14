@@ -57,4 +57,8 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  public updateUser() {
+
+  }
+
 }

@@ -1,4 +1,4 @@
-<form class="form" [formGroup]="productForm" (ngSubmit)="registerQuotation(quotationForm)" novalidate>
+<form class="form" [formGroup]="quotationForm" (ngSubmit)="registerQuotation(quotationForm)" novalidate>
   <div *ngFor="let property of product.properties">
     <div class="clearfix" *ngIf="property.type === 'bool'"></div>
     <div class="col-xs-12 col-sm-6">
