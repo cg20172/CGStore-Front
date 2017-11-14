@@ -35,85 +35,74 @@
           <mat-tab label="Datos de Contacto">
             <p class="lead"></p>
             <p class="text-muted">Manten tus datos actualizados, usamos estos datos para poder contactarte y generar la cotizacion.</p>
-
-            <mat-expansion-panel [expanded]="true">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  DATOS PERSONALES
-                </mat-panel-title>
-                <mat-panel-description>
-                  Aquí podrás actualizar tu información personal
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <form [formGroup]="userForm" (ngSubmit)="updateUser(userForm)">
-                <div class="col-xs-12">
-                  <h4>Información General</h4>
-                  <hr>
+            <form [formGroup]="userForm" (ngSubmit)="updateUser(userForm)">
+              <div class="col-xs-12">
+                <h4>Información General</h4>
+                <hr>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="firstname">Primer Nombre</label>
+                  <input type="text" class="form-control" formControlName="firstName" id="firstname">
                 </div>
-                <div class="col-xs-12 col-sm-6">
-                  <div class="form-group">
-                    <label for="firstname">Primer Nombre</label>
-                    <input type="text" class="form-control" formControlName="firstName" id="firstname">
-                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="lastname">Primer Apellido</label>
+                  <input type="text" class="form-control" formControlName="lastName" id="lastname">
                 </div>
-                <div class="col-xs-12 col-sm-6">
-                  <div class="form-group">
-                    <label for="lastname">Primer Apellido</label>
-                    <input type="text" class="form-control" formControlName="lastName" id="lastname">
-                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="lastname">Documento</label>
+                  <input type="text" class="form-control" formControlName="document" id="lastname">
                 </div>
-                <div class="col-xs-12 col-sm-6">
-                  <div class="form-group">
-                    <label for="lastname">Documento</label>
-                    <input type="text" class="form-control" formControlName="document" id="lastname">
-                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="street">Correo Electrónico</label>
+                  <input type="text" class="form-control" formControlName="email" id="email">
                 </div>
-                <div class="col-xs-12 col-sm-6">
-                  <div class="form-group">
-                    <label for="street">Correo Electrónico</label>
-                    <input type="text" class="form-control" formControlName="email" id="email">
-                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="city">Teléfono</label>
+                  <input type="text" class="form-control" formControlName="phone" id="phone">
                 </div>
-                <div class="col-xs-12 col-sm-6">
-                  <div class="form-group">
-                    <label for="city">Teléfono</label>
-                    <input type="text" class="form-control" formControlName="phone" id="phone">
-                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="zip">Dirección</label>
+                  <input type="text" class="form-control" formControlName="address" id="address">
                 </div>
-                <div class="col-xs-12 col-sm-6">
-                  <div class="form-group">
-                    <label for="zip">Dirección</label>
-                    <input type="text" class="form-control" formControlName="address" id="address">
-                  </div>
+              </div>
+              <div class="col-xs-12">
+                <h4>Información de Empresa</h4>
+                <hr>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="state">Empresa</label>
+                  <input type="text" class="form-control" formControlName="enterprise" id="entreprise">
                 </div>
-                <div class="col-xs-12">
-                  <h4>Información de Empresa</h4>
-                  <hr>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="country">NIT</label>
+                  <input type="text" class="form-control" formControlName="nit" id="nit">
                 </div>
-                <div class="col-xs-12 col-sm-6">
-                  <div class="form-group">
-                    <label for="state">Empresa</label>
-                    <input type="text" class="form-control" formControlName="enterprise" id="entreprise">
-                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <label for="phone">Rol en la compañia</label>
+                  <input type="text" class="form-control" formControlName="role" id="role">
                 </div>
-                <div class="col-xs-12 col-sm-6">
-                  <div class="form-group">
-                    <label for="country">NIT</label>
-                    <input type="text" class="form-control" formControlName="nit" id="nit">
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-6">
-                  <div class="form-group">
-                    <label for="phone">Rol en la compañia</label>
-                    <input type="text" class="form-control" formControlName="role" id="role">
-                  </div>
-                </div>
-                <div class="col-sm-12 text-center">
-                  <button type="submit" class="btn btn-template-main"><i class="fa fa-save"></i> Guardar Cambios</button>
-                </div>
-                <div class="clearfix"></div>
-              </form>
-            </mat-expansion-panel>
+              </div>
+              <div class="col-sm-12 text-center">
+                <button type="submit" class="btn btn-template-main"><i class="fa fa-save"></i> Guardar Cambios</button>
+              </div>
+              <div class="clearfix"></div>
+            </form>
           </mat-tab>
           <mat-tab label="Estado Cotizaciones">
             <div class="col-md-12" id="customer-orders">

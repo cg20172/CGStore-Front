@@ -14,7 +14,7 @@ import { Product } from './../../models/product';
 import { ProductProperty } from './../../models/product-property';
 import { Quotation } from './../../models/quotation';
 
-import { DrawDoorComponent} from './draw-door/draw-door.component';
+import { DrawDoorComponent } from './draw-door/draw-door.component';
 
 @Component({
   selector: 'app-quotation',
@@ -23,15 +23,15 @@ import { DrawDoorComponent} from './draw-door/draw-door.component';
 })
 
 export class QuotationComponent implements OnInit {
-  private productTypes: ProductType[] = [];
-  private selectedProductType: ProductType = null;
-  private selectedProduct: Product = null;
-  private productQuantity: number = 1;
+  public productTypes: ProductType[] = [];
+  public selectedProductType: ProductType = null;
+  public selectedProduct: Product = null;
+  public productQuantity: number = 1;
 
-  private productForm: FormGroup;
-  private quotationForm: FormGroup;
+  public productForm: FormGroup;
+  public quotationForm: FormGroup;
 
-  private showProductForm: boolean;
+  public showProductForm: boolean;
 
   constructor(private logger: Logger,
     private notificationsService: NotificationsService,
@@ -210,27 +210,27 @@ export class QuotationComponent implements OnInit {
 
 
   @ViewChild(DrawDoorComponent)
-     private drawDoorComponent: DrawDoorComponent;
+  private drawDoorComponent: DrawDoorComponent;
 
 
 
-  public updateDrawDoor(productName: any, propertyName : any) : void{
-    if (productName == 'Puerta rápida'){
-       var value = this.productForm.get(propertyName).value;
-       switch (propertyName ) {
-         case 'Ancho':
-           this.drawDoorComponent.updateWidth(value);
-           break;
-         case 'Alto':
-           this.drawDoorComponent.updateHeight(value);
-           break;
-         case 'Color Lona':
-           this.drawDoorComponent.updateLonaColor(value);
-           break;
-         case 'Color Perfiles':
-           this.drawDoorComponent.updateOutlineColor(value);
-           break;
-       }
+  public updateDrawDoor(productName: any, propertyName: any): void {
+    if (productName == 'Puerta rápida') {
+      var value = this.productForm.get(propertyName).value;
+      switch (propertyName) {
+        case 'Ancho':
+          this.drawDoorComponent.updateWidth(value);
+          break;
+        case 'Alto':
+          this.drawDoorComponent.updateHeight(value);
+          break;
+        case 'Color Lona':
+          this.drawDoorComponent.updateLonaColor(value);
+          break;
+        case 'Color Perfiles':
+          this.drawDoorComponent.updateOutlineColor(value);
+          break;
+      }
 
     }
 

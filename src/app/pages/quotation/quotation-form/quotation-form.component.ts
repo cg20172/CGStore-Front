@@ -13,8 +13,8 @@ import { ProductProperty } from './../../../models/product-property';
 export class QuotationFormComponent implements OnInit {
 
   @Input('product') product: Product;
-  private quotationForm: FormGroup;
-  private savingQuote: boolean;
+  public quotationForm: FormGroup;
+  public savingQuote: boolean;
 
   constructor() { }
 

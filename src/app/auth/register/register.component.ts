@@ -16,8 +16,8 @@ import { UserRegister } from './../../models/user-register';
 
 export class RegisterComponent implements OnInit {
 
-  private registerForm: FormGroup;
-  private savingUser: boolean;
+  public registerForm: FormGroup;
+  public savingUser: boolean;
 
   constructor(private router: Router,
     private authService: AuthService,

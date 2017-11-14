@@ -17,9 +17,9 @@ import { Quotation } from './../../models/quotation';
 
 export class ProfileComponent implements OnInit {
 
-  private quotations: Quotation[];
-  private user: User;
-  private userForm: FormGroup;
+  public quotations: Quotation[];
+  public user: User;
+  public userForm: FormGroup;
 
   constructor(private authService: AuthService,
     private quotationService: QuotationService,
