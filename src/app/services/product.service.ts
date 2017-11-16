@@ -53,8 +53,8 @@ export class ProductService {
           let items = [];
           property.values.split(',').map((item) => {
             let data = item.split('-');
-            console.log(data.length);
-            console.log(data[0]);
+            //console.log(data.length);
+            //console.log(data[0]);
             if(data.length == 2){
               data[0] = parseInt(data[0]);
               items.push({
