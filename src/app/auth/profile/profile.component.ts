@@ -8,6 +8,11 @@ import { QuotationService } from './../../services/quotation.service';
 import { User } from './../../models/user';
 import { Quotation } from './../../models/quotation';
 
+import * as _ from 'lodash';
+
+import { TemplateRef } from '@angular/core';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 
 @Component({
   selector: 'app-profile',
@@ -17,13 +22,18 @@ import { Quotation } from './../../models/quotation';
 
 export class ProfileComponent implements OnInit {
 
-  public quotations: Quotation[];
-  public user: User;
-  public userForm: FormGroup;
+  private quotations: Quotation[];
+  private user: User;
+  private userForm: FormGroup;
+  private selectedQuotation: Quotation;
+  private displayQuotation: Object[];
 
+  public modalRef: BsModalRef;
   constructor(private authService: AuthService,
     private quotationService: QuotationService,
-    private notificationsService: NotificationsService) { }
+    private notificationsService: NotificationsService,
+    private modalService: BsModalService
+  ) { }
 
   ngOnInit() {
     const toast = this.notificationsService.info(
@@ -54,6 +64,24 @@ export class ProfileComponent implements OnInit {
       enterprise: new FormControl(this.user.enterprise, [Validators.required]),
       nit: new FormControl(this.user.nit, [Validators.required]),
       role: new FormControl(this.user.role, [Validators.required]),
+    });
+  }
+  public openModal(template: TemplateRef<any>, quotation: Quotation) {
+    this.selectedQuotation = quotation;
+    this.modalRef = this.modalService.show(template);
+    this.displayQuotation = [];
+    let compo = this;
+    _.forEach(this.selectedQuotation.originalData, function(value, key) {
+      if (
+        key != 'tipoproducto' &&
+        key != 'pedidoid' &&
+        key != 'fecha' &&
+        key != 'estado' &&
+        key != 'cantidad' &&
+        key != 'familiaproducto'
+      ) {
+        compo.displayQuotation.push({ key: key, value: value });
+      }
     });
   }
 

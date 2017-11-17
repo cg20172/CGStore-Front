@@ -1,0 +1,31 @@
+
+<div class="row vertical_center_col">
+
+    <div class="col-sm-6 center-text" *ngIf="accesorioDelantero == true" >
+    	<h4 >Accesorio Delantero</h4> 
+    	<img class = "img-responsive"height="{{imageHeight}}" width="{{imageWidth}}" [src]="accesorioDelanteroSrc" (error)="setDefaultPic('accesorioDelantero')" >    	  
+    </div>
+
+    <div class="col-sm-6 center-text" *ngIf="accesorioTrasero == true" >
+    	<h4 >Accesorio Trasero</h4> 
+    	<img class = "img-responsive"height="{{imageHeight}}" width="{{imageWidth}}" [src]="accesorioTraseroSrc" (error)="setDefaultPic('accesorioTrasero')" >    	  
+    </div>
+
+</div>
+<div class="row vertical_center_col">
+
+    <div class="col-sm-6 text-center"  *ngIf="cabina == true" >
+    <h4 >Cabina</h4>	
+        <img class = "img-responsive"height="{{imageHeight}}" width="{{imageWidth}}" [src]="cabinaSrc" (error)="setDefaultPic('cabina')" >
+    </div>
+
+    <div class="col-sm-6 center-text" *ngIf="inferior == true" >
+    	<h4 >Inferior</h4>  
+    	<img class = "img-responsive"height="{{imageHeight}}" width="{{imageWidth}}" [src]="inferiorSrc" (error)="setDefaultPic('inferior')" >
+    </div>
+
+</div>
+
+
+	
+	

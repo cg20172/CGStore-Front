@@ -104,12 +104,51 @@
               <div class="clearfix"></div>
             </form>
           </mat-tab>
+
+          <template #template>
+            <div class="modal-header">
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="heading text-center">
+                        <h3>Descripción cotización # {{selectedQuotation.id}}</h3>
+              </div>
+              <div class="text-center">
+                  <h3>{{selectedQuotation.typeProduct}}</h3>
+                  <p>{{selectedQuotation.originalData['familiaproducto']}}</p>
+              </div>
+              <div class="clearfix">
+              </div>
+            </div>
+            <div class="modal-body ">
+
+              <div class="col-xs-10 col-sm-offset-1 text-center">
+                <table class="table table-striped table-condensed ">
+                  <thead>
+                    <tr>
+                      <th  class="text-center">Caracteristica</th>
+                      <th  class="text-center">Personalización</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor=" let prop of displayQuotation" class="dataPresent">
+                      <td >{{prop.key}}</td>
+                      <td >{{prop.value}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="clearfix">
+
+              </div>
+            </div>
+          </template>
           <mat-tab label="Estado Cotizaciones">
             <div class="col-md-12" id="customer-orders">
               <h3 class="text-center">Tus Cotizaciones</h3>
               <div class="box">
                 <div class="table-responsive">
-                  <table class="table table-hover">
+                  <table class="table table-hover quotationTable">
                     <thead>
                       <tr>
                         <th>NumeroOrden</th>
@@ -120,9 +159,7 @@
                       </tr>
                     </thead>
                     <tbody>
-
-                      <tr *ngFor="let quotation of quotations">
-
+                      <tr *ngFor="let quotation of quotations" class="quotationTable " (click)="openModal(template,quotation)">
                         <th># {{quotation.id}}</th>
                         <td>{{quotation.date}}</td>
                         <td>{{quotation.typeProduct}}</td>
@@ -143,7 +180,7 @@
                           <span class="label label-danger" *ngIf="quotation.state === '1'">
                             Sin Procesar
                           </span>
-                          <span class="label label-default" *ngIf="quotation.state === NULL">
+                          <span class="label label-default " *ngIf="quotation.state === NULL">
                             UNDEFINED
                           </span>
                         </td>

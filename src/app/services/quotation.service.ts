@@ -20,7 +20,9 @@ export class QuotationService {
       .map((response) => {
         let quotations = [];
         _.forEach(response.body, (quote) => {
-          quotations.push(new Quotation(quote));
+          let quotation = new Quotation(quote);
+          quotation.originalData = quote;
+          quotations.push(quotation);
         });
         return quotations;
       })

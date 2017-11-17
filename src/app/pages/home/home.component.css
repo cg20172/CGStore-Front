@@ -19,6 +19,7 @@ h3 {
 
 .carousel .item img {
   margin: 0 auto;
+  max-width: 400px;
   /* Align slide image horizontally center */
 }
 

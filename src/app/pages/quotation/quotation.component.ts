@@ -18,6 +18,11 @@ import { Quotation } from './../../models/quotation';
 import { Machinery } from './../../models/machinery';
 
 import { DrawDoorComponent } from './draw-door/draw-door.component';
+import { DrawLegoComponent } from './draw-lego/draw-lego.component';
+
+import { CustomValidators } from 'ng2-validation';
+import { UserRegister } from './../../models/user-register';
+
 
 @Component({
   selector: 'app-quotation',
@@ -45,6 +50,9 @@ export class QuotationComponent implements OnInit {
   private allMachinery: Machinery[];
   private machinerySearch: Machinery;
   private selectedMachine: Machinery;
+
+  private user = null;
+  private savingUser: boolean;
 
   constructor(private logger: Logger,
     private notificationsService: NotificationsService,
@@ -75,18 +83,41 @@ export class QuotationComponent implements OnInit {
         this.logger.debug('Error: ', error);
       });
 
-    let user = this.authService.getUser();
-    this.quotationForm = new FormGroup({
-      firstName: new FormControl(user ? user.firstName : '', [Validators.required]),
-      lastName: new FormControl(user ? user.lastName : '', [Validators.required]),
-      address: new FormControl(user ? user.address : '', []),
-      phone: new FormControl(user ? user.phone : '', []),
-      document: new FormControl(user ? user.document : '', [Validators.required]),
-      email: new FormControl(user ? user.email : '', [Validators.required, Validators.email]),
-      enterprise: new FormControl(user ? user.enterprise : '', []),
-      nit: new FormControl(user ? user.nit : '', []),
-      role: new FormControl(user ? user.role : '', []),
-    });
+    this.user = this.authService.getUser();
+    if (this.user) {
+      this.quotationForm = new FormGroup({
+        firstName: new FormControl(this.user ? this.user.firstName : '', [Validators.required]),
+        lastName: new FormControl(this.user ? this.user.lastName : '', [Validators.required]),
+        address: new FormControl(this.user ? this.user.address : '', []),
+        phone: new FormControl(this.user ? this.user.phone : '', []),
+        document: new FormControl(this.user ? this.user.document : '', [Validators.required]),
+        email: new FormControl(this.user ? this.user.email : '', [Validators.required, Validators.email]),
+        enterprise: new FormControl(this.user ? this.user.enterprise : '', []),
+        nit: new FormControl(this.user ? this.user.nit : '', []),
+        role: new FormControl(this.user ? this.user.role : '', []),
+      });
+
+      //register:
+    } else {
+
+      this.savingUser = false;
+      let password = new FormControl('', [Validators.required, Validators.minLength(8)]);
+      let confirmPassword = new FormControl('', [Validators.required, CustomValidators.equalTo(password)]);
+
+      this.quotationForm = new FormGroup({
+        firstName: new FormControl(this.user ? this.user.firstName : '', [Validators.required]),
+        lastName: new FormControl(this.user ? this.user.lastName : '', [Validators.required]),
+        address: new FormControl(this.user ? this.user.address : '', []),
+        phone: new FormControl(this.user ? this.user.phone : '', []),
+        document: new FormControl(this.user ? this.user.document : '', [Validators.required]),
+        email: new FormControl(this.user ? this.user.email : '', [Validators.required, Validators.email]),
+        enterprise: new FormControl(this.user ? this.user.enterprise : '', []),
+        nit: new FormControl(this.user ? this.user.nit : '', []),
+        role: new FormControl(this.user ? this.user.role : '', []),
+        password: password,
+        confirmPassword: confirmPassword,
+      });
+    }
   }
 
   public selectProductType(productType) {
@@ -205,6 +236,56 @@ export class QuotationComponent implements OnInit {
   }
 
   public saveQuotation(productForm, quotationForm) {
+    if (this.user) {
+      this.makeQuotation(productForm, quotationForm);
+    } else {
+      this.registerUser(productForm, quotationForm);
+    }
+  }
+
+  @ViewChild(DrawDoorComponent)
+  private drawDoorComponent: DrawDoorComponent;
+  @ViewChild(DrawLegoComponent)
+  private drawLegoComponent: DrawLegoComponent;
+
+  public updateDraw(productName: any, propertyName: any): void {
+    if (productName == 'Puerta rápida') {
+      var value = this.productForm.get(propertyName).value;
+      switch (propertyName) {
+        case 'Ancho':
+          this.drawDoorComponent.updateWidth(value);
+          break;
+        case 'Alto':
+          this.drawDoorComponent.updateHeight(value);
+          break;
+        case 'Color_Lona':
+          this.drawDoorComponent.updateLonaColor(value);
+          break;
+        case 'Color_Perfiles':
+          this.drawDoorComponent.updateOutlineColor(value);
+          break;
+      }
+    } else if (this.selectedProductType.name == 'Lego') {
+      var value = this.productForm.get(propertyName).value.value;
+      switch (propertyName) {
+        case 'Cabina':
+          this.drawLegoComponent.changeCabinaSrc(value);
+          break;
+        case 'Accesorio_Delantero':
+          this.drawLegoComponent.changeAccesorioDelanteroSrc(value);
+          break;
+        case 'Accesorio_Trasero':
+          this.drawLegoComponent.changeAccesorioTraseroSrc(value);
+          break;
+        case 'Inferior':
+          this.drawLegoComponent.changeInferiorSrc(value);
+          break;
+      }
+    }
+
+  }
+
+  public makeQuotation(productForm, quotationForm) {
     let productData = productForm.value;
     let quotationData = quotationForm.value;
 
@@ -253,29 +334,6 @@ export class QuotationComponent implements OnInit {
       });
   }
 
-  @ViewChild(DrawDoorComponent)
-  private drawDoorComponent: DrawDoorComponent;
-
-  public updateDrawDoor(productName: any, propertyName: any): void {
-    if (productName == 'Puerta rápida') {
-      var value = this.productForm.get(propertyName).value;
-      switch (propertyName) {
-        case 'Ancho':
-          this.drawDoorComponent.updateWidth(value);
-          break;
-        case 'Alto':
-          this.drawDoorComponent.updateHeight(value);
-          break;
-        case 'Color_Lona':
-          this.drawDoorComponent.updateLonaColor(value);
-          break;
-        case 'Color_Perfiles':
-          this.drawDoorComponent.updateOutlineColor(value);
-          break;
-      }
-    }
-  }
-
   public filterMachinery(): Machinery[] {
     if (!this.allMachinery) {
       return [];
@@ -316,5 +374,50 @@ export class QuotationComponent implements OnInit {
     _.forEach(machine.originalData, (value, key) => {
       this.productForm.controls[key].setValue(value);
     });
+  }
+
+  public registerUser(productForm, quotationForm) {
+    this.logger.info('Registering user:', quotationForm.value);
+    this.savingUser = true;
+
+    let registerData = new UserRegister(quotationForm.value);
+    this.authService.register(registerData)
+      .subscribe(
+      (result) => {
+        if (result.status === 'success') {
+          this.savingUser = false;
+          const toast = this.notificationsService.success(
+            'Usuario Creado',
+            'El usuario ha sido creado correctamente'
+          );
+
+
+          this.makeQuotation(productForm, quotationForm);
+
+
+        }
+      }, (error) => {
+        this.savingUser = false;
+
+        if (error.status === 422) {
+          let responseData = JSON.parse(error.error);
+          if (responseData.errors.email) {
+            const toast = this.notificationsService.error(
+              'Error en Formulario',
+              responseData.errors['full_messages'][0]
+            );
+          } else {
+            const toast = this.notificationsService.error(
+              'Error en Formulario',
+              'Parece que han habido un error. Vuelva a intentarlo'
+            );
+          }
+        } else {
+          const toast = this.notificationsService.error(
+            'Error ' + error.status,
+            error.statusText
+          );
+        }
+      });
   }
 }

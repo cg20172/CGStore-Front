@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,11 +13,17 @@ import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 export class LegosComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
 
 
+  }
+  public goToQuotation() {
+    this.router.navigateByUrl('quotation');
+  }
+  public goToRegister() {
+    this.router.navigateByUrl('auth/register');
   }
 
 
