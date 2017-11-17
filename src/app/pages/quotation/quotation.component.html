@@ -58,15 +58,17 @@
                       <app-draw-door></app-draw-door>
                   </div>
 
-
+                  <div  class="col-xs-12 text-center" *ngIf="selectedProductType.name== 'Lego'">
+                      <app-draw-lego (ready)="showCanvasInLegos(selectedProduct)"></app-draw-lego>
+                  </div>
 
 
                   <div *ngFor="let property of selectedProduct.properties">
                     <div class="clearfix" *ngIf="property.type === 'bool'"></div>
                     <div class="col-xs-12 col-sm-6">
                       <mat-form-field class="full-width" *ngIf="property.type === 'integer' || property.type === 'list'">
-                        <input matInput class="full-width" *ngIf="property.type === 'integer'" [formControlName]="property.name" type="number" [placeholder]="property.name" [min]="property.values[0]" [max]="property.values[1]" (change)="updateDrawDoor(selectedProduct.name, property.name)" />
-                        <mat-select *ngIf="property.type === 'list'" [formControlName]="property.name" [placeholder]="property.name" [(value)]="property.value">
+                        <input matInput class="full-width" *ngIf="property.type === 'integer'" [formControlName]="property.name" type="number" [placeholder]="property.name" [min]="property.values[0]" [max]="property.values[1]" (change)="updateDraw(selectedProduct.name, property.name)" />
+                        <mat-select *ngIf="property.type === 'list'" [formControlName]="property.name" [placeholder]="property.name" [(value)]="property.value" (change)="updateDraw(selectedProduct.name, property.name)">
                           <mat-option *ngFor="let option of property.values" [value]="option">
                             {{ option.name }}
                           </mat-option>

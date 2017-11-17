@@ -15,6 +15,7 @@ import { ProductProperty } from './../../models/product-property';
 import { Quotation } from './../../models/quotation';
 
 import { DrawDoorComponent} from './draw-door/draw-door.component';
+import { DrawLegoComponent} from './draw-lego/draw-lego.component';
 
 import { CustomValidators } from 'ng2-validation';
 import { UserRegister } from './../../models/user-register';
@@ -161,6 +162,9 @@ export class QuotationComponent implements OnInit {
         this.initProductForm(product);
         this.selectedProduct = product;
         this.showProductForm = true;
+
+
+
       }, (error) => {
         if (error.status === 401) {
           let responseData = JSON.parse(error.error);
@@ -223,10 +227,14 @@ export class QuotationComponent implements OnInit {
 
   @ViewChild(DrawDoorComponent)
      private drawDoorComponent: DrawDoorComponent;
+  @ViewChild(DrawLegoComponent)
+     private drawLegoComponent: DrawLegoComponent;
 
 
-
-  public updateDrawDoor(productName: any, propertyName : any) : void{
+  
+      
+  
+  public updateDraw(productName: any, propertyName : any) : void{
     if (productName == 'Puerta rápida'){
        var value = this.productForm.get(propertyName).value;
        switch (propertyName ) {
@@ -243,7 +251,22 @@ export class QuotationComponent implements OnInit {
            this.drawDoorComponent.updateOutlineColor(value);
            break;
        }
-
+    }else if (this.selectedProductType.name== 'Lego'){
+       var value = this.productForm.get(propertyName).value.value;
+       switch (propertyName ) {
+         case 'Cabina':
+           this.drawLegoComponent.changeCabinaSrc(value);
+           break;
+         case 'Accesorio_Delantero':
+           this.drawLegoComponent.changeAccesorioDelanteroSrc(value);
+           break;
+         case 'Accesorio_Trasero':
+           this.drawLegoComponent.changeAccesorioTraseroSrc(value);
+           break;
+         case 'Inferior':
+           this.drawLegoComponent.changeInferiorSrc(value);
+           break;
+       }
     }
 
   }
