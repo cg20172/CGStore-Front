@@ -39,8 +39,11 @@ export class Quotation {
 
     if (user) {
       this.user = user;
+    }else{
+      // user not registred
+      this.userId = 1;
     }
-
+ 
     if (product) {
       this.product = product;
     }

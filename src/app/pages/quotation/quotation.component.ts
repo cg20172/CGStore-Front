@@ -208,8 +208,11 @@ export class QuotationComponent implements OnInit {
             'Cotización Guardada',
             'La cotización ha sido guardada correctamente'
           );
-
-          this.router.navigateByUrl('/auth/profile');
+          if(quotation.user){
+            this.router.navigateByUrl('/auth/profile');
+          }else{
+            this.router.navigateByUrl('');
+          }
         }
       }, (error) => {
         const toast = this.notificationsService.error(
