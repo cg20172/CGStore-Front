@@ -59,7 +59,8 @@ export class Quotation {
 
     return {
       user_id: this.user ? this.user.id : this.userId,
-      product_id: this.product ? this.product.id : this.productId,
+      //product_id: this.product ? this.product.id : this.productId,
+      product_id: this.product.productType,
       date: strDate,
       params: params
     }
