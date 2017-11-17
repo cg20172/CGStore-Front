@@ -8,7 +8,6 @@ import { ProductType } from './../models/product-type';
 import { ProductProperty } from './../models/product-property';
 import { Product } from './../models/product';
 
-
 @Injectable()
 export class ProductService {
   private url: string = 'https://cgstore-back2017.herokuapp.com/consultproducts';
@@ -53,11 +52,21 @@ export class ProductService {
           let items = [];
           property.values.split(',').map((item) => {
             let data = item.split('-');
-            data[0] = parseInt(data[0]);
-            items.push({
-              value: data[0],
-              name: data[1]
-            });
+            //console.log(data.length);
+            //console.log(data[0]);
+            if (data.length == 2) {
+              data[0] = parseInt(data[0]);
+              items.push({
+                value: data[0],
+                name: data[1]
+              });
+            } else if (data.length == 1) {
+              items.push({
+                value: data[0],
+                name: data[0]
+              });
+            }
+
           });
 
           property.values = items;

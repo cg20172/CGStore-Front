@@ -197,6 +197,14 @@
   dependencies:
     "@angular-devkit/core" "0.0.20"
 
+"@types/geojson@*":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-1.0.6.tgz#3e02972728c69248c2af08d60a48cbb8680fffdf"
+
+"@types/geojson@0.0.32":
+  version "0.0.32"
+  resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-0.0.32.tgz#1571eeaf045337b242852885f08d9a945e1cc940"
+
 "@types/jasmine@*":
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.8.0.tgz#caa5395081143e419d3f4b0277c66b26fc783e68"
@@ -210,6 +218,12 @@
   resolved "https://registry.yarnpkg.com/@types/jasminewd2/-/jasminewd2-2.0.3.tgz#0d2886b0cbdae4c0eeba55e30792f584bf040a95"
   dependencies:
     "@types/jasmine" "*"
+
+"@types/leaflet@^1.2.0":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@types/leaflet/-/leaflet-1.2.2.tgz#3530cd68c3a97fc395cd77b0f5afcb77b3423b2c"
+  dependencies:
+    "@types/geojson" "*"
 
 "@types/lodash@^4.14.80":
   version "4.14.85"
@@ -230,6 +244,20 @@
 "@types/selenium-webdriver@^2.53.35", "@types/selenium-webdriver@~2.53.39":
   version "2.53.43"
   resolved "https://registry.yarnpkg.com/@types/selenium-webdriver/-/selenium-webdriver-2.53.43.tgz#2de3d718819bc20165754c4a59afb7e9833f6707"
+
+"@yaga/generic-geojson@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@yaga/generic-geojson/-/generic-geojson-1.0.0.tgz#e27e1267c70797c7e0558a6449a1faf7aa6d8056"
+  dependencies:
+    "@types/geojson" "0.0.32"
+
+"@yaga/leaflet-ng2@^1.0.0-rc8":
+  version "1.0.0-rc8"
+  resolved "https://registry.yarnpkg.com/@yaga/leaflet-ng2/-/leaflet-ng2-1.0.0-rc8.tgz#14f116fc1627081bc4d53275478205e82b7a1d65"
+  dependencies:
+    "@types/leaflet" "^1.2.0"
+    "@yaga/generic-geojson" "^1.0.0"
+    leaflet "^1.2.0"
 
 abbrev@1:
   version "1.1.1"
@@ -3064,6 +3092,10 @@ lcid@^1.0.0:
   resolved "https://registry.yarnpkg.com/lcid/-/lcid-1.0.0.tgz#308accafa0bc483a3867b4b6f2b9506251d1b835"
   dependencies:
     invert-kv "^1.0.0"
+
+leaflet@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.2.0.tgz#fd5d93d9cb00091f5f8a69206d0d6744c1c82697"
 
 less-loader@^4.0.5:
   version "4.0.5"

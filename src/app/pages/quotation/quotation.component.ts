@@ -3,16 +3,19 @@ import { Logger } from 'angular2-logger/core';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { OSM_TILE_LAYER_URL } from '@yaga/leaflet-ng2';
 import * as _ from 'lodash';
 
-import { ProductService } from './../../services/product.service';
 import { AuthService } from './../../services/auth.service';
+import { MachineryService } from './../../services/machinery.service';
+import { ProductService } from './../../services/product.service';
 import { QuotationService } from './../../services/quotation.service';
 
 import { ProductType } from './../../models/product-type';
 import { Product } from './../../models/product';
 import { ProductProperty } from './../../models/product-property';
 import { Quotation } from './../../models/quotation';
+import { Machinery } from './../../models/machinery';
 
 import { DrawDoorComponent } from './draw-door/draw-door.component';
 
@@ -23,24 +26,38 @@ import { DrawDoorComponent } from './draw-door/draw-door.component';
 })
 
 export class QuotationComponent implements OnInit {
-  public productTypes: ProductType[] = [];
-  public selectedProductType: ProductType = null;
-  public selectedProduct: Product = null;
-  public productQuantity: number = 1;
+  private productTypes: ProductType[] = [];
+  private selectedProductType: ProductType = null;
+  private selectedProduct: Product = null;
+  private productQuantity: number = 1;
 
-  public productForm: FormGroup;
-  public quotationForm: FormGroup;
+  private productForm: FormGroup;
+  private quotationForm: FormGroup;
 
-  public showProductForm: boolean;
+  private showProductForm: boolean;
+
+  private tileLayerUrl: string = OSM_TILE_LAYER_URL;
+  private lat: number = 4.6260243;
+  private lng: number = -74.1624076;
+  private zoom: number = 11;
+
+  private showAllMachinery: boolean;
+  private allMachinery: Machinery[];
+  private machinerySearch: Machinery;
+  private selectedMachine: Machinery;
 
   constructor(private logger: Logger,
     private notificationsService: NotificationsService,
     private authService: AuthService,
     private productService: ProductService,
     private quotationService: QuotationService,
+    private machineryService: MachineryService,
     private router: Router) { }
 
   ngOnInit() {
+    this.allMachinery = null;
+    this.machinerySearch = null;
+    this.selectedMachine = null;
     this.showProductForm = false;
 
     const toast = this.notificationsService.info(
@@ -124,6 +141,18 @@ export class QuotationComponent implements OnInit {
         this.initProductForm(product);
         this.selectedProduct = product;
         this.showProductForm = true;
+
+        if (product.name === 'Maquinaria') {
+          this.machinerySearch = new Machinery(null);
+          this.showAllMachinery = true;
+          this.selectedMachine = null;
+
+          this.machineryService.getAll()
+            .subscribe((result) => {
+              this.allMachinery = result;
+            });
+        }
+
       }, (error) => {
         if (error.status === 401) {
           let responseData = JSON.parse(error.error);
@@ -155,6 +184,8 @@ export class QuotationComponent implements OnInit {
 
       switch (property.type) {
         case 'integer':
+        case 'float':
+        case 'string':
           validations.push(Validators.required);
           control = new FormControl('', validations);
           break;
@@ -180,7 +211,20 @@ export class QuotationComponent implements OnInit {
     _.forEach(productData, (value, property) => {
       let productProperty = this.selectedProduct.properties.find((prop) => prop.name === property);
       if (productProperty instanceof ProductProperty) {
-        productProperty.value = value;
+        if (productProperty.type === 'list') {
+          productProperty.value = productProperty.value.value;
+        }
+        else if (productProperty.type === 'bool') {
+          if (value) {
+            productProperty.value = 1;
+          } else {
+            productProperty.value = 0;
+          }
+        }
+        else {
+          productProperty.value = value;
+        }
+
       }
     });
 
@@ -195,8 +239,11 @@ export class QuotationComponent implements OnInit {
             'Cotización Guardada',
             'La cotización ha sido guardada correctamente'
           );
-
-          this.router.navigateByUrl('/auth/profile');
+          if (quotation.user) {
+            this.router.navigateByUrl('/auth/profile');
+          } else {
+            this.router.navigateByUrl('');
+          }
         }
       }, (error) => {
         const toast = this.notificationsService.error(
@@ -206,13 +253,8 @@ export class QuotationComponent implements OnInit {
       });
   }
 
-
-
-
   @ViewChild(DrawDoorComponent)
   private drawDoorComponent: DrawDoorComponent;
-
-
 
   public updateDrawDoor(productName: any, propertyName: any): void {
     if (productName == 'Puerta rápida') {
@@ -224,15 +266,55 @@ export class QuotationComponent implements OnInit {
         case 'Alto':
           this.drawDoorComponent.updateHeight(value);
           break;
-        case 'Color Lona':
+        case 'Color_Lona':
           this.drawDoorComponent.updateLonaColor(value);
           break;
-        case 'Color Perfiles':
+        case 'Color_Perfiles':
           this.drawDoorComponent.updateOutlineColor(value);
           break;
       }
+    }
+  }
 
+  public filterMachinery(): Machinery[] {
+    if (!this.allMachinery) {
+      return [];
     }
 
+    if (this.showAllMachinery) {
+      return this.allMachinery;
+    } else {
+      return this.allMachinery.filter((machinery) => {
+        let valid = true;
+        if (this.machinerySearch.isModelEnabled) {
+          valid = valid && machinery.model == this.machinerySearch.model;
+        }
+
+        if (this.machinerySearch.isNewEnabled) {
+          valid = valid && machinery.isNew == this.machinerySearch.isNew;
+        }
+
+        if (this.machinerySearch.isStateEnabled) {
+          valid = valid && machinery.state == this.machinerySearch.state;
+        }
+
+        if (this.machinerySearch.isRepairableEnabled) {
+          valid = valid && machinery.repairable == this.machinerySearch.repairable;
+        }
+
+        if (this.machinerySearch.isDocumentationEnabled) {
+          valid = valid && machinery.documentation == this.machinerySearch.documentation;
+        }
+
+        return valid;
+      });
+    }
+  }
+
+  public selectMachinery(machine) {
+    this.selectedMachine = machine;
+    _.forEach(machine.originalData, (value, key) => {
+      this.productForm.controls[key].setValue(value);
+    });
   }
 }

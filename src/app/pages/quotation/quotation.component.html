@@ -49,23 +49,122 @@
                 <h4 *ngIf="selectedProduct !== null && showProductForm">Características de Producto</h4>
               </div>
               <div class="quotation-form-box" *ngIf="selectedProduct !== null && showProductForm">
-                <form class="form" [formGroup]="productForm" novalidate>
-
-
-
-
-                  <div  class="col-xs-12 text-center" *ngIf="selectedProduct.name == 'Puerta rápida'">
-                      <app-draw-door></app-draw-door>
+                <div class="col-xs-12" *ngIf="selectedProduct.name === 'Maquinaria'">
+                  <div class="col-xs-12">
+                    <mat-slide-toggle color="primary" class="full-width" [(ngModel)]="showAllMachinery">
+                      Mostrar toda la maquinaria
+                    </mat-slide-toggle>
                   </div>
-
-
-
-
+                  <div class="clearfix"></div>
+                  <hr>
+                  <div class="col-xs-12" [hidden]="showAllMachinery">
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-6">
+                        <label class="control-label">Modelo de Maquinaria</label>
+                        <div class="input-group">
+                          <span class="input-group-addon">
+                            <input type="checkbox" [(ngModel)]="machinerySearch.isModelEnabled">
+                          </span>
+                          <select class="form-control" [(ngModel)]="machinerySearch.model" [disabled]="!machinerySearch.isModelEnabled">
+                            <option value="1">Modelo 1</option>
+                            <option value="2">Modelo 2</option>
+                            <option value="3">Modelo 3</option>
+                            <option value="4">Modelo 4</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <br>
+                      <div class="col-xs-12 col-sm-6">
+                        <label class="control-label">Maquinaria nueva?</label>
+                        <div class="input-group">
+                          <span class="input-group-addon">
+                            <input type="checkbox" [(ngModel)]="machinerySearch.isNewEnabled">
+                          </span>
+                          <select class="form-control" [(ngModel)]="machinerySearch.isNew" [disabled]="!machinerySearch.isNewEnabled">
+                            <option value="1">Si</option>
+                            <option value="0">No</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-6">
+                        <label class="control-label">Maquinaria en buen estado?</label>
+                        <div class="input-group">
+                          <span class="input-group-addon">
+                            <input type="checkbox" [(ngModel)]="machinerySearch.isStateEnabled">
+                          </span>
+                          <select class="form-control" [(ngModel)]="machinerySearch.state" [disabled]="!machinerySearch.isStateEnabled">
+                            <option value="1">Si</option>
+                            <option value="0">No</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <br>
+                      <div class="col-xs-12 col-sm-6">
+                        <label class="control-label">Necesita reparación?</label>
+                        <div class="input-group">
+                          <span class="input-group-addon">
+                            <input type="checkbox" [(ngModel)]="machinerySearch.isRepairableEnabled">
+                          </span>
+                          <select class="form-control" [(ngModel)]="machinerySearch.repairable" [disabled]="!machinerySearch.isRepairableEnabled">
+                            <option value="1">Si</option>
+                            <option value="0">No</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-6">
+                        <label class="control-label">Tipo de documentación</label>
+                        <div class="input-group">
+                          <span class="input-group-addon">
+                            <input type="checkbox" [(ngModel)]="machinerySearch.isDocumentationEnabled">
+                          </span>
+                          <select class="form-control" [(ngModel)]="machinerySearch.documentation" [disabled]="!machinerySearch.isDocumentationEnabled">
+                            <option [value]="idx" *ngFor="let idx of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">Documentación {{ idx }}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <hr *ngIf="!showAllMachinery">
+                  <div class="col-xs-12">
+                    <agm-map class="map" [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                      <agm-marker [latitude]="machine.latitude" [longitude]="machine.longitude" *ngFor="let machine of filterMachinery()" (markerClick)="selectMachinery(machine)"></agm-marker>
+                    </agm-map>
+                  </div>
+                  <div class="clearfix"></div>
+                  <hr *ngIf="selectedMachine">
+                  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-9 text-left" *ngIf="selectedMachine">
+                    <h3>Datos de Maquinaria Seleccionada</h3>
+                    <table class="table table-striped table-condensed">
+                      <thead>
+                        <tr>
+                          <th>Caracteristica</th>
+                          <th>Valor</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let prop of selectedMachine.toArray()">
+                          <td>{{ prop.key }}</td>
+                          <td>{{ prop.value }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <form class="form" [formGroup]="productForm" novalidate [hidden]="selectedProduct.name === 'Maquinaria'">
+                  <div class="col-xs-12 text-center" *ngIf="selectedProduct.name === 'Puerta rápida'">
+                    <app-draw-door></app-draw-door>
+                  </div>
                   <div *ngFor="let property of selectedProduct.properties">
                     <div class="clearfix" *ngIf="property.type === 'bool'"></div>
                     <div class="col-xs-12 col-sm-6">
-                      <mat-form-field class="full-width" *ngIf="property.type === 'integer' || property.type === 'list'">
-                        <input matInput class="full-width" *ngIf="property.type === 'integer'" [formControlName]="property.name" type="number" [placeholder]="property.name" [min]="property.values[0]" [max]="property.values[1]" (change)="updateDrawDoor(selectedProduct.name, property.name)" />
+                      <mat-form-field class="full-width" *ngIf="property.type === 'integer' || property.type === 'list' || property.type === 'float' || property.type === 'string'">
+                        <input matInput class="full-width" *ngIf="property.type === 'integer' || property.type === 'float'" [formControlName]="property.name" type="number" [placeholder]="property.name" [min]="property.values[0]" [max]="property.values[1]" (change)="updateDrawDoor(selectedProduct.name, property.name)"
+                        />
+                        <input matInput class="full-width" *ngIf="property.type === 'string'" [formControlName]="property.name" type="text" [placeholder]="property.name" (change)="updateDrawDoor(selectedProduct.name, property.name)" />
                         <mat-select *ngIf="property.type === 'list'" [formControlName]="property.name" [placeholder]="property.name" [(value)]="property.value">
                           <mat-option *ngFor="let option of property.values" [value]="option">
                             {{ option.name }}

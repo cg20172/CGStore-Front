@@ -30,6 +30,16 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
     });
+
+    let redirectMessage = this.authService.getRedirectMessage();
+    if (redirectMessage == 'LOGIN_REQUIRED') {
+      const toast = this.notificationsService.warn(
+        'Autenticación requerida',
+        'Para acceder a la ruta, primero debes estar autenticado.',
+        { timeOut: 0 }
+      );
+      this.authService.unsetRedirectMessage();
+    }
   }
 
   attemptLogin(form: FormGroup) {

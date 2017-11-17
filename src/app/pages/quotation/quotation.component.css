@@ -17,3 +17,7 @@
 .full-width {
   width: 100%;
 }
+
+.map {
+  height: 300px !important;
+}

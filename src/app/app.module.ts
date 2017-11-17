@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { HttpModule, RequestOptions, Headers } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { YagaModule } from '@yaga/leaflet-ng2';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module';
@@ -23,6 +24,7 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { AuthService } from './services/auth.service';
 import { ProductService } from './services/product.service';
 import { QuotationService } from './services/quotation.service';
+import { MachineryService } from './services/machinery.service';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { QuotationService } from './services/quotation.service';
   ],
   imports: [
     OwlModule,
+    YagaModule,
     FormsModule,
     BrowserModule,
     HttpClientModule,
@@ -54,7 +57,8 @@ import { QuotationService } from './services/quotation.service';
     Logger,
     AuthService,
     ProductService,
-    QuotationService
+    QuotationService,
+    MachineryService
   ],
   bootstrap: [AppComponent]
 })

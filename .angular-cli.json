@@ -24,6 +24,7 @@
       "assets/css/font-awesome.css",
       "assets/css/owl.carousel.css",
       "assets/css/style.blue.css",
+      "assets/css/leaflet.css",
       "styles.css",
       "theme.default.scss"
     ],
@@ -32,6 +33,7 @@
       "assets/js/jquery.parallax-1.1.3.js",
       "assets/js/bootstrap-hover-dropdown.js",
       "assets/js/bootstrap.min.js",
+      "assets/js/leaflet.js",
       "assets/js/owl.carousel.min.js",
       "assets/js/respond.min.js",
       "assets/js/waypoints.min.js",

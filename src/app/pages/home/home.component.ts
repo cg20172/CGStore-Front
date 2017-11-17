@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from './../../services/auth.service';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +10,20 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private authService: AuthService,
+    private notificationsService: NotificationsService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    let redirectMessage = this.authService.getRedirectMessage();
+    if (redirectMessage == 'GUEST_REQUIRED') {
+      const toast = this.notificationsService.warn(
+        'No se puede acceder a la ruta',
+        'Debe cerrar su cuenta primero'
+      );
+      this.authService.unsetRedirectMessage();
+    }
+  }
 
   public goToQuotation() {
     this.router.navigateByUrl('quotation');

@@ -12,6 +12,7 @@ export class AuthService {
 
   private url: string = 'https://cgstore-back2017.herokuapp.com/auth';
   private auth: Auth;
+  private redirectMessage: string;
 
   constructor(private http: HttpClient,
     private logger: Logger) {
@@ -94,6 +95,18 @@ export class AuthService {
   }
   public updatePassword() {
 
+  }
+
+  public setRedirectMessage(message: string): void {
+    this.redirectMessage = message;
+  }
+
+  public getRedirectMessage(): string {
+    return this.redirectMessage;
+  }
+
+  public unsetRedirectMessage(): void {
+    this.redirectMessage = null;
   }
 
 }

@@ -120,24 +120,25 @@
                       </tr>
                     </thead>
                     <tbody>
+
                       <tr *ngFor="let quotation of quotations">
 
                         <th># {{quotation.id}}</th>
                         <td>{{quotation.date}}</td>
-                        <td>{{quotation.productId}}</td>
+                        <td>{{quotation.typeProduct}}</td>
                         <th>{{quotation.quantity}}</th>
                         <td>
-                          <span class="label label-success" *ngIf="quotation.state === '1'">
+                          <span class="label label-success" *ngIf="quotation.state === '5'">
                             Cotizacion Terminada
                           </span>
-                          <span class="label label-primary" *ngIf="quotation.state === '2'">
+                          <span class="label label-primary" *ngIf="quotation.state === '4'">
                             Enviando al Correo
                           </span>
                           <span class="label label-info" *ngIf="quotation.state === '3'">
                             Generando Cotización
                           </span>
                           <span class="label label-warning" *ngIf="quotation.state === '2'">
-                            Generando Modelos
+                              Generando Modelos
                           </span>
                           <span class="label label-danger" *ngIf="quotation.state === '1'">
                             Sin Procesar

@@ -22,6 +22,10 @@ import { ProfileComponent } from './auth/profile/profile.component'
 // Quotation Components
 import { QuotationComponent } from './pages/quotation/quotation.component';
 
+// Guards
+import { AuthGuard } from './guards/auth.guard';
+import { GuestGuard } from './guards/guest.guard';
+
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
@@ -30,20 +34,21 @@ const routes: Routes = [
   { path: 'products/machinery', component: MachineryComponent },
   { path: 'products/legos', component: LegosComponent },
 
-  { path: 'quotation', component: QuotationComponent },
+  { path: 'quotation', component: QuotationComponent, canActivate: [AuthGuard] },
 
-  { path: 'auth/forgot', component: ForgotComponent },
-  { path: 'auth/login', component: LoginComponent },
-  { path: 'auth/register', component: RegisterComponent },
-  { path: "auth/profile", component: ProfileComponent },
-  { path: 'auth/reset', component: ResetComponent },
+  { path: 'auth/forgot', component: ForgotComponent, canActivate: [GuestGuard] },
+  { path: 'auth/login', component: LoginComponent, canActivate: [GuestGuard] },
+  { path: 'auth/register', component: RegisterComponent, canActivate: [GuestGuard] },
+  { path: "auth/profile", component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'auth/reset', component: ResetComponent, canActivate: [GuestGuard] },
 
   { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard, GuestGuard]
 })
 
 export class AppRoutingModule { }

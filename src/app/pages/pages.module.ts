@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OwlModule } from 'ngx-owl-carousel';
+import { YagaModule } from '@yaga/leaflet-ng2';
 
 import { MaterialModule } from './material/material.module';
 
@@ -14,13 +15,10 @@ import { DoorsComponent } from './products/doors/doors.component';
 import { MachineryComponent } from './products/machinery/machinery.component';
 import { LegosComponent } from './products/legos/legos.component';
 
-
 import { QuotationComponent } from './quotation/quotation.component';
 import { QuotationFormComponent } from './quotation/quotation-form/quotation-form.component';
-import { ProductFormComponent } from './quotation/product-form/product-form.component';
 import { DrawDoorComponent } from './quotation/draw-door/draw-door.component';
 import { NgvasModule, tweens, hitAreas } from "ngvas";
-
 
 @NgModule({
   imports: [
@@ -32,12 +30,13 @@ import { NgvasModule, tweens, hitAreas } from "ngvas";
     MaterialModule,
     OwlModule,
     NgvasModule,
+    YagaModule,
 
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCJgE_ZRBAXSFQb-ilbeU7OSqo74wUKUdk'
     }),
   ],
-  declarations: [HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent, QuotationComponent, QuotationFormComponent, ProductFormComponent, DrawDoorComponent],
+  declarations: [HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent, QuotationComponent, QuotationFormComponent, DrawDoorComponent],
   exports: [HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent, QuotationComponent, QuotationFormComponent],
   providers: []
 })
