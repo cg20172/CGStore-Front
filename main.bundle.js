@@ -132,6 +132,8 @@ AdminModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__auth_reset_reset_component__ = __webpack_require__("../../../../../src/app/auth/reset/reset.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__auth_profile_profile_component__ = __webpack_require__("../../../../../src/app/auth/profile/profile.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_quotation_quotation_component__ = __webpack_require__("../../../../../src/app/pages/quotation/quotation.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__guards_auth_guard__ = __webpack_require__("../../../../../src/app/guards/auth.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__guards_guest_guard__ = __webpack_require__("../../../../../src/app/guards/guest.guard.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -156,18 +158,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 // Quotation Components
 
+// Guards
+
+
 var routes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_3__pages_home_home_component__["a" /* HomeComponent */] },
     { path: 'contact', component: __WEBPACK_IMPORTED_MODULE_4__pages_contact_contact_component__["a" /* ContactComponent */] },
     { path: 'products/doors', component: __WEBPACK_IMPORTED_MODULE_5__pages_products_doors_doors_component__["a" /* DoorsComponent */] },
     { path: 'products/machinery', component: __WEBPACK_IMPORTED_MODULE_6__pages_products_machinery_machinery_component__["a" /* MachineryComponent */] },
     { path: 'products/legos', component: __WEBPACK_IMPORTED_MODULE_7__pages_products_legos_legos_component__["a" /* LegosComponent */] },
-    { path: 'quotation', component: __WEBPACK_IMPORTED_MODULE_13__pages_quotation_quotation_component__["a" /* QuotationComponent */] },
-    { path: 'auth/forgot', component: __WEBPACK_IMPORTED_MODULE_9__auth_forgot_forgot_component__["a" /* ForgotComponent */] },
-    { path: 'auth/login', component: __WEBPACK_IMPORTED_MODULE_8__auth_login_login_component__["a" /* LoginComponent */] },
-    { path: 'auth/register', component: __WEBPACK_IMPORTED_MODULE_10__auth_register_register_component__["a" /* RegisterComponent */] },
-    { path: "auth/profile", component: __WEBPACK_IMPORTED_MODULE_12__auth_profile_profile_component__["a" /* ProfileComponent */] },
-    { path: 'auth/reset', component: __WEBPACK_IMPORTED_MODULE_11__auth_reset_reset_component__["a" /* ResetComponent */] },
+    { path: 'quotation', component: __WEBPACK_IMPORTED_MODULE_13__pages_quotation_quotation_component__["a" /* QuotationComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_14__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'auth/forgot', component: __WEBPACK_IMPORTED_MODULE_9__auth_forgot_forgot_component__["a" /* ForgotComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_guest_guard__["a" /* GuestGuard */]] },
+    { path: 'auth/login', component: __WEBPACK_IMPORTED_MODULE_8__auth_login_login_component__["a" /* LoginComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_guest_guard__["a" /* GuestGuard */]] },
+    { path: 'auth/register', component: __WEBPACK_IMPORTED_MODULE_10__auth_register_register_component__["a" /* RegisterComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_guest_guard__["a" /* GuestGuard */]] },
+    { path: "auth/profile", component: __WEBPACK_IMPORTED_MODULE_12__auth_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_14__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'auth/reset', component: __WEBPACK_IMPORTED_MODULE_11__auth_reset_reset_component__["a" /* ResetComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_guest_guard__["a" /* GuestGuard */]] },
     { path: '**', component: __WEBPACK_IMPORTED_MODULE_2__errors_not_found_not_found_component__["a" /* NotFoundComponent */] }
 ];
 var AppRoutingModule = (function () {
@@ -178,7 +183,8 @@ var AppRoutingModule = (function () {
 AppRoutingModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(routes)],
-        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
+        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_14__guards_auth_guard__["a" /* AuthGuard */], __WEBPACK_IMPORTED_MODULE_15__guards_guest_guard__["a" /* GuestGuard */]]
     })
 ], AppRoutingModule);
 
@@ -281,24 +287,29 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_notifications___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_angular2_notifications__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__admin_admin_module__ = __webpack_require__("../../../../../src/app/admin/admin.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_pages_module__ = __webpack_require__("../../../../../src/app/pages/pages.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__auth_auth_module__ = __webpack_require__("../../../../../src/app/auth/auth.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__partials_header_header_component__ = __webpack_require__("../../../../../src/app/partials/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__partials_footer_footer_component__ = __webpack_require__("../../../../../src/app/partials/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__errors_not_found_not_found_component__ = __webpack_require__("../../../../../src/app/errors/not-found/not-found.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__errors_server_error_server_error_component__ = __webpack_require__("../../../../../src/app/errors/server-error/server-error.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_product_service__ = __webpack_require__("../../../../../src/app/services/product.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_quotation_service__ = __webpack_require__("../../../../../src/app/services/quotation.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__yaga_leaflet_ng2__ = __webpack_require__("../../../../@yaga/leaflet-ng2/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__yaga_leaflet_ng2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__yaga_leaflet_ng2__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__admin_admin_module__ = __webpack_require__("../../../../../src/app/admin/admin.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_pages_module__ = __webpack_require__("../../../../../src/app/pages/pages.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__auth_auth_module__ = __webpack_require__("../../../../../src/app/auth/auth.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__partials_header_header_component__ = __webpack_require__("../../../../../src/app/partials/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__partials_footer_footer_component__ = __webpack_require__("../../../../../src/app/partials/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__errors_not_found_not_found_component__ = __webpack_require__("../../../../../src/app/errors/not-found/not-found.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__errors_server_error_server_error_component__ = __webpack_require__("../../../../../src/app/errors/server-error/server-error.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_product_service__ = __webpack_require__("../../../../../src/app/services/product.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_quotation_service__ = __webpack_require__("../../../../../src/app/services/quotation.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_machinery_service__ = __webpack_require__("../../../../../src/app/services/machinery.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -329,14 +340,15 @@ var AppModule = (function () {
 AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_14__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__partials_header_header_component__["a" /* HeaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__partials_footer_footer_component__["a" /* FooterComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__errors_not_found_not_found_component__["a" /* NotFoundComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__errors_server_error_server_error_component__["a" /* ServerErrorComponent */]
+            __WEBPACK_IMPORTED_MODULE_15__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__partials_header_header_component__["a" /* HeaderComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__partials_footer_footer_component__["a" /* FooterComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__errors_not_found_not_found_component__["a" /* NotFoundComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__errors_server_error_server_error_component__["a" /* ServerErrorComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1_ngx_owl_carousel__["OwlModule"],
+            __WEBPACK_IMPORTED_MODULE_10__yaga_leaflet_ng2__["YagaModule"],
             __WEBPACK_IMPORTED_MODULE_6__angular_forms__["FormsModule"],
             __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__["BrowserModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClientModule */],
@@ -344,19 +356,20 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_9__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
             __WEBPACK_IMPORTED_MODULE_7_angular2_notifications__["SimpleNotificationsModule"].forRoot(),
             __WEBPACK_IMPORTED_MODULE_3__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_10__app_routing_module__["a" /* AppRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_11__app_routing_module__["a" /* AppRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_8__angular_http__["b" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_13__auth_auth_module__["a" /* AuthModule */],
-            __WEBPACK_IMPORTED_MODULE_12__pages_pages_module__["a" /* PagesModule */],
-            __WEBPACK_IMPORTED_MODULE_11__admin_admin_module__["a" /* AdminModule */]
+            __WEBPACK_IMPORTED_MODULE_14__auth_auth_module__["a" /* AuthModule */],
+            __WEBPACK_IMPORTED_MODULE_13__pages_pages_module__["a" /* PagesModule */],
+            __WEBPACK_IMPORTED_MODULE_12__admin_admin_module__["a" /* AdminModule */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_2_angular2_logger_core__["Logger"],
-            __WEBPACK_IMPORTED_MODULE_19__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_20__services_product_service__["a" /* ProductService */],
-            __WEBPACK_IMPORTED_MODULE_21__services_quotation_service__["a" /* QuotationService */]
+            __WEBPACK_IMPORTED_MODULE_20__services_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_21__services_product_service__["a" /* ProductService */],
+            __WEBPACK_IMPORTED_MODULE_22__services_quotation_service__["a" /* QuotationService */],
+            __WEBPACK_IMPORTED_MODULE_23__services_machinery_service__["a" /* MachineryService */]
         ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_14__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_15__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -547,6 +560,11 @@ var LoginComponent = (function () {
             email: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].email]),
             password: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required])
         });
+        var redirectMessage = this.authService.getRedirectMessage();
+        if (redirectMessage == 'LOGIN_REQUIRED') {
+            var toast = this.notificationsService.warn('Autenticación requerida', 'Para acceder a la ruta, primero debes estar autenticado.', { timeOut: 0 });
+            this.authService.unsetRedirectMessage();
+        }
     };
     LoginComponent.prototype.attemptLogin = function (form) {
         var _this = this;
@@ -616,7 +634,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/auth/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"heading-breadcrumbs\">\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-7\">\r\n        <h1>Mi perfil</h1>\r\n      </div>\r\n      <div class=\"col-md-5\">\r\n        <ul class=\"breadcrumb\">\r\n          <li><a href=\"#\">Inicio</a>\r\n          </li>\r\n          <li>Perfil</li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-3\">\r\n      <div class=\"profile text-center\">\r\n        <img class=\"ProfileImage\" src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWuQH3vlB_boW7QuW_SNwYpF5IDBbUlmVhG-RjWhRe_JV3LiJJTg\" alt=\"ProfileIcon\">\r\n        <div class=\"heading\">\r\n          <h2>{{ user.firstName }} {{ user.lastName }}</h2>\r\n        </div>\r\n\r\n        <h4>{{user.role}}</h4>\r\n        <p>{{user.enterprise}}</p>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-md-9\" id=\"customer-account\">\r\n      <div class=\"col-xs-12\">\r\n        <mat-tab-group>\r\n          <mat-tab label=\"Datos de Contacto\">\r\n            <p class=\"lead\"></p>\r\n            <p class=\"text-muted\">Manten tus datos actualizados, usamos estos datos para poder contactarte y generar la cotizacion.</p>\r\n\r\n            <mat-expansion-panel [expanded]=\"true\">\r\n              <mat-expansion-panel-header>\r\n                <mat-panel-title>\r\n                  DATOS PERSONALES\r\n                </mat-panel-title>\r\n                <mat-panel-description>\r\n                  Aquí podrás actualizar tu información personal\r\n                </mat-panel-description>\r\n              </mat-expansion-panel-header>\r\n              <form [formGroup]=\"userForm\" (ngSubmit)=\"updateUser(userForm)\">\r\n                <div class=\"col-xs-12\">\r\n                  <h4>Información General</h4>\r\n                  <hr>\r\n                </div>\r\n                <div class=\"col-xs-12 col-sm-6\">\r\n                  <div class=\"form-group\">\r\n                    <label for=\"firstname\">Primer Nombre</label>\r\n                    <input type=\"text\" class=\"form-control\" formControlName=\"firstName\" id=\"firstname\">\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-xs-12 col-sm-6\">\r\n                  <div class=\"form-group\">\r\n                    <label for=\"lastname\">Primer Apellido</label>\r\n                    <input type=\"text\" class=\"form-control\" formControlName=\"lastName\" id=\"lastname\">\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-xs-12 col-sm-6\">\r\n                  <div class=\"form-group\">\r\n                    <label for=\"lastname\">Documento</label>\r\n                    <input type=\"text\" class=\"form-control\" formControlName=\"document\" id=\"lastname\">\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-xs-12 col-sm-6\">\r\n                  <div class=\"form-group\">\r\n                    <label for=\"street\">Correo Electrónico</label>\r\n                    <input type=\"text\" class=\"form-control\" formControlName=\"email\" id=\"email\">\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-xs-12 col-sm-6\">\r\n                  <div class=\"form-group\">\r\n                    <label for=\"city\">Teléfono</label>\r\n                    <input type=\"text\" class=\"form-control\" formControlName=\"phone\" id=\"phone\">\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-xs-12 col-sm-6\">\r\n                  <div class=\"form-group\">\r\n                    <label for=\"zip\">Dirección</label>\r\n                    <input type=\"text\" class=\"form-control\" formControlName=\"address\" id=\"address\">\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-xs-12\">\r\n                  <h4>Información de Empresa</h4>\r\n                  <hr>\r\n                </div>\r\n                <div class=\"col-xs-12 col-sm-6\">\r\n                  <div class=\"form-group\">\r\n                    <label for=\"state\">Empresa</label>\r\n                    <input type=\"text\" class=\"form-control\" formControlName=\"enterprise\" id=\"entreprise\">\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-xs-12 col-sm-6\">\r\n                  <div class=\"form-group\">\r\n                    <label for=\"country\">NIT</label>\r\n                    <input type=\"text\" class=\"form-control\" formControlName=\"nit\" id=\"nit\">\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-xs-12 col-sm-6\">\r\n                  <div class=\"form-group\">\r\n                    <label for=\"phone\">Rol en la compañia</label>\r\n                    <input type=\"text\" class=\"form-control\" formControlName=\"role\" id=\"role\">\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-sm-12 text-center\">\r\n                  <button type=\"submit\" class=\"btn btn-template-main\"><i class=\"fa fa-save\"></i> Guardar Cambios</button>\r\n                </div>\r\n                <div class=\"clearfix\"></div>\r\n              </form>\r\n            </mat-expansion-panel>\r\n          </mat-tab>\r\n\r\n\r\n\r\n          <template #template>\r\n    <div class=\"modal-header  \">\r\n      <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\r\n        <span aria-hidden=\"true\">&times;</span>\r\n      </button>\r\n      <div class=\"heading text-center\">\r\n                <h3>Descripción cotización # {{selectedQuotation.id}}</h3>\r\n      </div>\r\n      <div class=\"text-center\">\r\n          <h3>{{selectedQuotation.typeProduct}}</h3>\r\n          <p>{{selectedQuotation.originalData['familiaproducto']}}</p>\r\n      </div>\r\n      <div class=\"clearfix\">\r\n      </div>\r\n    </div>\r\n    <div class=\"modal-body \">\r\n\r\n      <div class=\"col-xs-10 col-sm-offset-1 text-center\">\r\n        <table class=\"table table-striped table-condensed \">\r\n          <thead>\r\n            <tr>\r\n              <th  class=\"text-center\">Caracteristica</th>\r\n              <th  class=\"text-center\">Personalización</th>\r\n            </tr>\r\n          </thead>\r\n          <tbody>\r\n            <tr *ngFor=\" let prop of displayQuotation\" class=\"dataPresent\">\r\n              <td >{{prop.key}}</td>\r\n              <td >{{prop.value}}</td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div class=\"clearfix\">\r\n\r\n      </div>\r\n    </div>\r\n\r\n  </template>\r\n\r\n\r\n          <mat-tab label=\"Estado Cotizaciones\">\r\n            <div class=\"col-md-12\" id=\"customer-orders\">\r\n              <h3 class=\"text-center\">Tus Cotizaciones</h3>\r\n              <div class=\"box\">\r\n                <div class=\"table-responsive\">\r\n                  <table class=\"table table-hover quotationTable\">\r\n                    <thead>\r\n                      <tr>\r\n                        <th>NumeroOrden</th>\r\n                        <th>Fecha</th>\r\n                        <th>Producto Solicitado</th>\r\n                        <th>cantidad</th>\r\n                        <th>Estado</th>\r\n                      </tr>\r\n                    </thead>\r\n                    <tbody>\r\n\r\n\r\n\r\n                      <tr *ngFor=\"let quotation of quotations\" class=\"quotationTable \" (click)=\"openModal(template,quotation)\">\r\n\r\n\r\n\r\n                        <th># {{quotation.id}}</th>\r\n                        <td>{{quotation.date}}</td>\r\n                        <td>{{quotation.typeProduct}}</td>\r\n                        <th>{{quotation.quantity}}</th>\r\n                        <td>\r\n                          <span class=\"label label-success\" *ngIf=\"quotation.state === '5'\">\r\n                            Cotizacion Terminada\r\n                          </span>\r\n                          <span class=\"label label-primary\" *ngIf=\"quotation.state === '4'\">\r\n                            Enviando al Correo\r\n                          </span>\r\n                          <span class=\"label label-info\" *ngIf=\"quotation.state === '3'\">\r\n                            Generando Cotización\r\n                          </span>\r\n                          <span class=\"label label-warning\" *ngIf=\"quotation.state === '2'\">\r\n                              Generando Modelos\r\n                          </span>\r\n                          <span class=\"label label-danger\" *ngIf=\"quotation.state === '1'\">\r\n                            Sin Procesar\r\n                          </span>\r\n                          <span class=\"label label-default \" *ngIf=\"quotation.state === NULL\">\r\n                            UNDEFINED\r\n                          </span>\r\n                        </td>\r\n                      </tr>\r\n\r\n\r\n\r\n\r\n                    </tbody>\r\n                  </table>\r\n\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </mat-tab>\r\n        </mat-tab-group>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div id=\"heading-breadcrumbs\">\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-7\">\r\n        <h1>Mi perfil</h1>\r\n      </div>\r\n      <div class=\"col-md-5\">\r\n        <ul class=\"breadcrumb\">\r\n          <li><a href=\"#\">Inicio</a>\r\n          </li>\r\n          <li>Perfil</li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-3\">\r\n      <div class=\"profile text-center\">\r\n        <img class=\"ProfileImage\" src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWuQH3vlB_boW7QuW_SNwYpF5IDBbUlmVhG-RjWhRe_JV3LiJJTg\" alt=\"ProfileIcon\">\r\n        <div class=\"heading\">\r\n          <h2>{{ user.firstName }} {{ user.lastName }}</h2>\r\n        </div>\r\n\r\n        <h4>{{user.role}}</h4>\r\n        <p>{{user.enterprise}}</p>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-md-9\" id=\"customer-account\">\r\n      <div class=\"col-xs-12\">\r\n        <mat-tab-group>\r\n          <mat-tab label=\"Datos de Contacto\">\r\n            <p class=\"lead\"></p>\r\n            <p class=\"text-muted\">Manten tus datos actualizados, usamos estos datos para poder contactarte y generar la cotizacion.</p>\r\n            <form [formGroup]=\"userForm\" (ngSubmit)=\"updateUser(userForm)\">\r\n              <div class=\"col-xs-12\">\r\n                <h4>Información General</h4>\r\n                <hr>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"firstname\">Primer Nombre</label>\r\n                  <input type=\"text\" class=\"form-control\" formControlName=\"firstName\" id=\"firstname\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"lastname\">Primer Apellido</label>\r\n                  <input type=\"text\" class=\"form-control\" formControlName=\"lastName\" id=\"lastname\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"lastname\">Documento</label>\r\n                  <input type=\"text\" class=\"form-control\" formControlName=\"document\" id=\"lastname\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"street\">Correo Electrónico</label>\r\n                  <input type=\"text\" class=\"form-control\" formControlName=\"email\" id=\"email\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"city\">Teléfono</label>\r\n                  <input type=\"text\" class=\"form-control\" formControlName=\"phone\" id=\"phone\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"zip\">Dirección</label>\r\n                  <input type=\"text\" class=\"form-control\" formControlName=\"address\" id=\"address\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-xs-12\">\r\n                <h4>Información de Empresa</h4>\r\n                <hr>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"state\">Empresa</label>\r\n                  <input type=\"text\" class=\"form-control\" formControlName=\"enterprise\" id=\"entreprise\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"country\">NIT</label>\r\n                  <input type=\"text\" class=\"form-control\" formControlName=\"nit\" id=\"nit\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"phone\">Rol en la compañia</label>\r\n                  <input type=\"text\" class=\"form-control\" formControlName=\"role\" id=\"role\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-sm-12 text-center\">\r\n                <button type=\"submit\" class=\"btn btn-template-main\"><i class=\"fa fa-save\"></i> Guardar Cambios</button>\r\n              </div>\r\n              <div class=\"clearfix\"></div>\r\n            </form>\r\n          </mat-tab>\r\n\r\n          <template #template>\r\n            <div class=\"modal-header\">\r\n              <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"modalRef.hide()\">\r\n                <span aria-hidden=\"true\">&times;</span>\r\n              </button>\r\n              <div class=\"heading text-center\">\r\n                        <h3>Descripción cotización # {{selectedQuotation.id}}</h3>\r\n              </div>\r\n              <div class=\"text-center\">\r\n                  <h3>{{selectedQuotation.typeProduct}}</h3>\r\n                  <p>{{selectedQuotation.originalData['familiaproducto']}}</p>\r\n              </div>\r\n              <div class=\"clearfix\">\r\n              </div>\r\n            </div>\r\n            <div class=\"modal-body \">\r\n\r\n              <div class=\"col-xs-10 col-sm-offset-1 text-center\">\r\n                <table class=\"table table-striped table-condensed \">\r\n                  <thead>\r\n                    <tr>\r\n                      <th  class=\"text-center\">Caracteristica</th>\r\n                      <th  class=\"text-center\">Personalización</th>\r\n                    </tr>\r\n                  </thead>\r\n                  <tbody>\r\n                    <tr *ngFor=\" let prop of displayQuotation\" class=\"dataPresent\">\r\n                      <td >{{prop.key}}</td>\r\n                      <td >{{prop.value}}</td>\r\n                    </tr>\r\n                  </tbody>\r\n                </table>\r\n              </div>\r\n              <div class=\"clearfix\">\r\n\r\n              </div>\r\n            </div>\r\n          </template>\r\n          <mat-tab label=\"Estado Cotizaciones\">\r\n            <div class=\"col-md-12\" id=\"customer-orders\">\r\n              <h3 class=\"text-center\">Tus Cotizaciones</h3>\r\n              <div class=\"box\">\r\n                <div class=\"table-responsive\">\r\n                  <table class=\"table table-hover quotationTable\">\r\n                    <thead>\r\n                      <tr>\r\n                        <th>NumeroOrden</th>\r\n                        <th>Fecha</th>\r\n                        <th>Producto Solicitado</th>\r\n                        <th>cantidad</th>\r\n                        <th>Estado</th>\r\n                      </tr>\r\n                    </thead>\r\n                    <tbody>\r\n                      <tr *ngFor=\"let quotation of quotations\" class=\"quotationTable \" (click)=\"openModal(template,quotation)\">\r\n                        <th># {{quotation.id}}</th>\r\n                        <td>{{quotation.date}}</td>\r\n                        <td>{{quotation.typeProduct}}</td>\r\n                        <th>{{quotation.quantity}}</th>\r\n                        <td>\r\n                          <span class=\"label label-success\" *ngIf=\"quotation.state === '5'\">\r\n                            Cotizacion Terminada\r\n                          </span>\r\n                          <span class=\"label label-primary\" *ngIf=\"quotation.state === '4'\">\r\n                            Enviando al Correo\r\n                          </span>\r\n                          <span class=\"label label-info\" *ngIf=\"quotation.state === '3'\">\r\n                            Generando Cotización\r\n                          </span>\r\n                          <span class=\"label label-warning\" *ngIf=\"quotation.state === '2'\">\r\n                              Generando Modelos\r\n                          </span>\r\n                          <span class=\"label label-danger\" *ngIf=\"quotation.state === '1'\">\r\n                            Sin Procesar\r\n                          </span>\r\n                          <span class=\"label label-default \" *ngIf=\"quotation.state === NULL\">\r\n                            UNDEFINED\r\n                          </span>\r\n                        </td>\r\n                      </tr>\r\n                    </tbody>\r\n                  </table>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </mat-tab>\r\n        </mat-tab-group>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -695,6 +713,8 @@ var ProfileComponent = (function () {
                 compo.displayQuotation.push({ key: key, value: value });
             }
         });
+    };
+    ProfileComponent.prototype.updateUser = function (userForm) {
     };
     return ProfileComponent;
 }());
@@ -1031,6 +1051,96 @@ ServerErrorComponent = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/guards/auth.guard.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AuthGuard = (function () {
+    function AuthGuard(authService, router) {
+        this.authService = authService;
+        this.router = router;
+    }
+    AuthGuard.prototype.canActivate = function (next, state) {
+        if (this.authService.isGuest()) {
+            this.authService.setRedirectMessage('LOGIN_REQUIRED');
+            this.router.navigateByUrl('/auth/login');
+            return false;
+        }
+        return true;
+    };
+    return AuthGuard;
+}());
+AuthGuard = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object])
+], AuthGuard);
+
+var _a, _b;
+//# sourceMappingURL=auth.guard.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/guards/guest.guard.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GuestGuard; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var GuestGuard = (function () {
+    function GuestGuard(authService, router) {
+        this.authService = authService;
+        this.router = router;
+    }
+    GuestGuard.prototype.canActivate = function (next, state) {
+        if (this.authService.isAuth()) {
+            this.authService.setRedirectMessage('GUEST_REQUIRED');
+            this.router.navigateByUrl('/');
+            return false;
+        }
+        return true;
+    };
+    return GuestGuard;
+}());
+GuestGuard = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object])
+], GuestGuard);
+
+var _a, _b;
+//# sourceMappingURL=guest.guard.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/models/auth.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1063,6 +1173,51 @@ var Auth = (function () {
 }());
 
 //# sourceMappingURL=auth.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/models/machinery.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Machinery; });
+var Machinery = (function () {
+    function Machinery(data) {
+        this.isModelEnabled = false;
+        this.isNewEnabled = false;
+        this.isStateEnabled = false;
+        this.isRepairableEnabled = false;
+        this.isDocumentationEnabled = false;
+        if (data instanceof Object) {
+            this.model = parseInt(data.Modelo_Maquina);
+            this.latitude = parseFloat(data.Latitud.replace(',', '.'));
+            this.longitude = parseFloat(data.Longitud.replace(',', '.'));
+            this.isNew = data.Maquina_Nueva === "1" ? true : false;
+            this.state = data.Maquina_Estado === "1" ? true : false;
+            this.repairable = data.Maquina_Reparar === "1" ? true : false;
+            this.documentation = parseInt(data.Maquina_Documentacion);
+            this.piece1 = parseInt(data.Pieza_1);
+            this.piece2 = parseInt(data.Pieza_2);
+            this.piece3 = parseInt(data.Pieza_3);
+            this.piece4 = parseInt(data.Pieza_4);
+            this.originalData = data;
+        }
+    }
+    Machinery.prototype.toArray = function () {
+        return [
+            { key: 'Modelo de maquinaria', value: this.model },
+            { key: 'Latitud', value: this.latitude },
+            { key: 'Longitud', value: this.longitude },
+            { key: 'Nueva?', value: this.isNew ? 'Si' : 'No' },
+            { key: 'En buen estado?', value: this.state ? 'Si' : 'No' },
+            { key: 'Necesita repararse?', value: this.repairable ? 'Si' : 'No' },
+            { key: 'Tipo de documentación', value: this.documentation },
+        ];
+    };
+    return Machinery;
+}());
+
+//# sourceMappingURL=machinery.js.map
 
 /***/ }),
 
@@ -1163,7 +1318,7 @@ var Quotation = (function () {
                 this.typeProduct = data.tipoproducto ? data.tipoproducto : null;
                 this.state = data.estado ? data.estado : null;
                 this.quantity = data.cantidad ? data.cantidad : null;
-                this.date = data.fecha ? data.fecha : null;
+                this.date = date ? date : null;
             }
             else {
                 var date = data.date ? new Date(data.date) : null;
@@ -1172,7 +1327,7 @@ var Quotation = (function () {
                 this.quantity = data.quantity ? data.quantity : null;
                 this.userId = data.userId ? data.userId : null;
                 this.state = data.state ? data.state : "1";
-                this.date = data.date ? new Date(data.fecha) : null;
+                this.date = date ? date : null;
                 this.createdAt = data.createdAt ? new Date(data.createdAt) : null;
                 this.updatedAt = data.updatedAt ? new Date(data.updatedAt) : null;
             }
@@ -1185,7 +1340,7 @@ var Quotation = (function () {
         }
     }
     Quotation.prototype.toJSON = function () {
-        var strDate = null;
+        var strDate = '';
         var params = this.product ? this.product.getParamsJSON() : {};
         if (this.date) {
             var year = this.date.getFullYear();
@@ -1193,6 +1348,7 @@ var Quotation = (function () {
             var day = this.date.getDay() < 10 ? "0" + this.date.getDay() : this.date.getDay();
             strDate = "" + year + month + day;
         }
+        console.log(this.date);
         return {
             user_id: this.user ? this.user.id : this.userId,
             //product_id: this.product ? this.product.id : this.productId,
@@ -1319,7 +1475,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/contact/contact.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"heading-breadcrumbs\">\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-7\">\r\n        <h1>Contacto</h1>\r\n      </div>\r\n      <div class=\"col-md-5\">\r\n        <ul class=\"breadcrumb\">\r\n          <li><a href=\"#\">Inicio</a>\r\n          </li>\r\n          <li>Contacto</li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div id=\"content\">\r\n  <div class=\"container\" id=\"contact\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-8\">\r\n        <section>\r\n          <div class=\"heading\">\r\n            <h2>Contáctese con nosotros</h2>\r\n          </div>\r\n\r\n          <p class=\"lead\">Quieres saber más acerca de nosotros? Tiene algun tipo de problema con nuestros productos? Cualquier duda, inquietud, queja o comentario serán atendidos con prontitud.</p>\r\n          <p>Sientase libre de contactarnos, nuestro centro de servicio al cliente esta trabajando 24/7.</p>\r\n\r\n          <div class=\"heading\">\r\n            <h3>Formulario de contacto</h3>\r\n          </div>\r\n          <form>\r\n            <div class=\"row\">\r\n              <div class=\"col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"firstname\">Nombre</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"firstname\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"lastname\">Apellido</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"lastname\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"email\">Correo Electrónico</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"email\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"subject\">Asunto</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"subject\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-sm-12\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"message\">Mensaje</label>\r\n                  <textarea id=\"message\" rows=\"5\" class=\"form-control vertical-textarea\"></textarea>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-sm-12 text-center\">\r\n                <button type=\"submit\" class=\"btn btn-template-main\"><i class=\"fa fa-envelope-o\"></i> Enviar Mensaje</button>\r\n              </div>\r\n            </div>\r\n            <!-- /.row -->\r\n          </form>\r\n        </section>\r\n      </div>\r\n\r\n      <div class=\"col-md-4\">\r\n\r\n        <section>\r\n\r\n          <h3 class=\"text-uppercase\">Ubicación</h3>\r\n\r\n          <p>\r\n            Computación Gráfica Ltd.\r\n            <br>Universidad Nacional de Colombia\r\n            <br>Sede Bogotá\r\n            <br>Carrera 45 # 26-85\r\n            <br>Bogotá D.C.\r\n            <br>\r\n            <strong>Colombia</strong>\r\n          </p>\r\n\r\n          <h3 class=\"text-uppercase\">Soporte Técnico</h3>\r\n\r\n          <p class=\"text-muted\">Llamenos o escribanos un correo electrónico.</p>\r\n          <ul>\r\n            <li><strong>Call center: </strong> +57 322 942 25 67</li>\r\n            <li><strong>Correo electrónico: </strong><a href=\"mailto:contact@cg2017-2.com\">contact@cg2017-2.com</a></li>\r\n            <li><strong>Más información: </strong><a href=\"mailto:info@cg2017-2.com\">info@cg2017-2.com</a></li>\r\n          </ul>\r\n        </section>\r\n      </div>\r\n    </div>\r\n    <!-- /.row -->\r\n  </div>\r\n  <!-- /#contact.container -->\r\n</div>\r\n<!-- /#content -->\r\n\r\n<agm-map [latitude]=\"lat\" [longitude]=\"lng\" [draggable]=\"false\" [disableDoubleClickZoom]=\"true\" [streetViewControl]=\"false\" [zoomControl]=\"false\" [scrollwheel]=\"false\" [mapDraggable]=\"false\">\r\n  <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\r\n</agm-map>\r\n"
+module.exports = "<div id=\"heading-breadcrumbs\">\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-7\">\r\n        <h1>Contacto</h1>\r\n      </div>\r\n      <div class=\"col-md-5\">\r\n        <ul class=\"breadcrumb\">\r\n          <li><a href=\"#\">Inicio</a>\r\n          </li>\r\n          <li>Contacto</li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div id=\"content\">\r\n  <div class=\"container\" id=\"contact\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-8\">\r\n        <section>\r\n          <div class=\"heading\">\r\n            <h2>Contáctese con nosotros</h2>\r\n          </div>\r\n\r\n          <p class=\"lead\">Quieres saber más acerca de nosotros? Tiene algun tipo de problema con nuestros productos? Cualquier duda, inquietud, queja o comentario serán atendidos con prontitud.</p>\r\n          <p>Sientase libre de contactarnos, nuestro centro de servicio al cliente esta trabajando 24/7.</p>\r\n\r\n          <div class=\"heading\">\r\n            <h3>Formulario de contacto</h3>\r\n          </div>\r\n          <form>\r\n            <div class=\"row\">\r\n              <div class=\"col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"firstname\">Nombre</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"firstname\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"lastname\">Apellido</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"lastname\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"email\">Correo Electrónico</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"email\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-sm-6\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"subject\">Asunto</label>\r\n                  <input type=\"text\" class=\"form-control\" id=\"subject\">\r\n                </div>\r\n              </div>\r\n              <div class=\"col-sm-12\">\r\n                <div class=\"form-group\">\r\n                  <label for=\"message\">Mensaje</label>\r\n                  <textarea id=\"message\" rows=\"5\" class=\"form-control vertical-textarea\"></textarea>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-sm-12 text-center\">\r\n                <button type=\"submit\" class=\"btn btn-template-main\"><i class=\"fa fa-envelope-o\"></i> Enviar Mensaje</button>\r\n              </div>\r\n            </div>\r\n            <!-- /.row -->\r\n          </form>\r\n        </section>\r\n      </div>\r\n\r\n      <div class=\"col-md-4\">\r\n\r\n        <section>\r\n\r\n          <h3 class=\"text-uppercase\">Ubicación</h3>\r\n\r\n          <p>\r\n            Computación Gráfica Ltd.\r\n            <br>Universidad Nacional de Colombia\r\n            <br>Sede Bogotá\r\n            <br>Carrera 45 # 26-85\r\n            <br>Bogotá D.C.\r\n            <br>\r\n            <strong>Colombia</strong>\r\n          </p>\r\n\r\n          <h3 class=\"text-uppercase\">Soporte Técnico</h3>\r\n\r\n          <p class=\"text-muted\">Llamenos o escribanos un correo electrónico.</p>\r\n          <ul>\r\n            <li><strong>Call center: </strong> +57 322 942 25 67</li>\r\n            <li><strong>Correo electrónico: </strong><a href=\"mailto:contact@cg2017-2.com\">contact@cg2017-2.com</a></li>\r\n            <li><strong>Más información: </strong><a href=\"mailto:info@cg2017-2.com\">info@cg2017-2.com</a></li>\r\n          </ul>\r\n        </section>\r\n      </div>\r\n    </div>\r\n    <!-- /.row -->\r\n  </div>\r\n  <!-- /#contact.container -->\r\n</div>\r\n<!-- /#content -->\r\n\r\n<agm-map [latitude]=\"lat\" [longitude]=\"lng\" [draggable]=\"false\" [disableDoubleClickZoom]=\"true\" [streetViewControl]=\"false\" [zoomControl]=\"false\" [scrollwheel]=\"false\" [mapDraggable]=\"false\" [zoom]=\"14\">\r\n  <agm-marker [latitude]=\"lat\" [longitude]=\"lng\"></agm-marker>\r\n</agm-map>\r\n"
 
 /***/ }),
 
@@ -1343,6 +1499,7 @@ var ContactComponent = (function () {
     function ContactComponent() {
         this.lat = 4.639177;
         this.lng = -74.082097;
+        this.zoom = 5;
     }
     ContactComponent.prototype.ngOnInit = function () {
     };
@@ -1393,6 +1550,9 @@ module.exports = "<section class=\"no-mb\">\r\n  <!-- *** JUMBOTRON ***\r\n_____
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_notifications__ = __webpack_require__("../../../../angular2-notifications/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_notifications___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_notifications__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1404,11 +1564,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var HomeComponent = (function () {
-    function HomeComponent(router) {
+    function HomeComponent(router, authService, notificationsService) {
         this.router = router;
+        this.authService = authService;
+        this.notificationsService = notificationsService;
     }
-    HomeComponent.prototype.ngOnInit = function () { };
+    HomeComponent.prototype.ngOnInit = function () {
+        var redirectMessage = this.authService.getRedirectMessage();
+        if (redirectMessage == 'GUEST_REQUIRED') {
+            var toast = this.notificationsService.warn('No se puede acceder a la ruta', 'Debe cerrar su cuenta primero');
+            this.authService.unsetRedirectMessage();
+        }
+    };
     HomeComponent.prototype.goToQuotation = function () {
         this.router.navigateByUrl('quotation');
     };
@@ -1426,10 +1596,10 @@ HomeComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/pages/home/home.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pages/home/home.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_notifications__["NotificationsService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angular2_notifications__["NotificationsService"]) === "function" && _c || Object])
 ], HomeComponent);
 
-var _a;
+var _a, _b, _c;
 //# sourceMappingURL=home.component.js.map
 
 /***/ }),
@@ -1460,27 +1630,29 @@ MaterialModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["f" /* MatSelectModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatFormFieldModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["e" /* MatInputModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["g" /* MatSlideToggleModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["h" /* MatStepperModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["d" /* MatIconModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["i" /* MatTabsModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["g" /* MatSelectModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["d" /* MatFormFieldModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["f" /* MatInputModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["h" /* MatSlideToggleModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["i" /* MatStepperModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["e" /* MatIconModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatTabsModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_material__["a" /* MatButtonModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatExpansionModule */]
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatExpansionModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatCheckboxModule */]
         ],
         declarations: [],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["f" /* MatSelectModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatFormFieldModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["e" /* MatInputModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["g" /* MatSlideToggleModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["h" /* MatStepperModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["d" /* MatIconModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["i" /* MatTabsModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["g" /* MatSelectModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["d" /* MatFormFieldModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["f" /* MatInputModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["h" /* MatSlideToggleModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["i" /* MatStepperModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["e" /* MatIconModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatTabsModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_material__["a" /* MatButtonModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatExpansionModule */]
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["c" /* MatExpansionModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["b" /* MatCheckboxModule */]
         ]
     })
 ], MaterialModule);
@@ -1502,15 +1674,16 @@ MaterialModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_owl_carousel__ = __webpack_require__("../../../../ngx-owl-carousel/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_owl_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ngx_owl_carousel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_material_module__ = __webpack_require__("../../../../../src/app/pages/material/material.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__home_home_component__ = __webpack_require__("../../../../../src/app/pages/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__contact_contact_component__ = __webpack_require__("../../../../../src/app/pages/contact/contact.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__products_doors_doors_component__ = __webpack_require__("../../../../../src/app/pages/products/doors/doors.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__products_machinery_machinery_component__ = __webpack_require__("../../../../../src/app/pages/products/machinery/machinery.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__products_legos_legos_component__ = __webpack_require__("../../../../../src/app/pages/products/legos/legos.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__quotation_quotation_component__ = __webpack_require__("../../../../../src/app/pages/quotation/quotation.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__quotation_quotation_form_quotation_form_component__ = __webpack_require__("../../../../../src/app/pages/quotation/quotation-form/quotation-form.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__quotation_product_form_product_form_component__ = __webpack_require__("../../../../../src/app/pages/quotation/product-form/product-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__yaga_leaflet_ng2__ = __webpack_require__("../../../../@yaga/leaflet-ng2/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__yaga_leaflet_ng2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__yaga_leaflet_ng2__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_material_module__ = __webpack_require__("../../../../../src/app/pages/material/material.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__home_home_component__ = __webpack_require__("../../../../../src/app/pages/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__contact_contact_component__ = __webpack_require__("../../../../../src/app/pages/contact/contact.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__products_doors_doors_component__ = __webpack_require__("../../../../../src/app/pages/products/doors/doors.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__products_machinery_machinery_component__ = __webpack_require__("../../../../../src/app/pages/products/machinery/machinery.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__products_legos_legos_component__ = __webpack_require__("../../../../../src/app/pages/products/legos/legos.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__quotation_quotation_component__ = __webpack_require__("../../../../../src/app/pages/quotation/quotation.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__quotation_quotation_form_quotation_form_component__ = __webpack_require__("../../../../../src/app/pages/quotation/quotation-form/quotation-form.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__quotation_draw_door_draw_door_component__ = __webpack_require__("../../../../../src/app/pages/quotation/draw-door/draw-door.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__quotation_draw_lego_draw_lego_component__ = __webpack_require__("../../../../../src/app/pages/quotation/draw-lego/draw-lego.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_ngvas__ = __webpack_require__("../../../../ngvas/lib/index.js");
@@ -1553,15 +1726,16 @@ PagesModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["ReactiveFormsModule"],
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
             __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-            __WEBPACK_IMPORTED_MODULE_7__material_material_module__["a" /* MaterialModule */],
+            __WEBPACK_IMPORTED_MODULE_8__material_material_module__["a" /* MaterialModule */],
             __WEBPACK_IMPORTED_MODULE_6_ngx_owl_carousel__["OwlModule"],
             __WEBPACK_IMPORTED_MODULE_18_ngvas__["NgvasModule"],
+            __WEBPACK_IMPORTED_MODULE_7__yaga_leaflet_ng2__["YagaModule"],
             __WEBPACK_IMPORTED_MODULE_1__agm_core__["a" /* AgmCoreModule */].forRoot({
                 apiKey: 'AIzaSyCJgE_ZRBAXSFQb-ilbeU7OSqo74wUKUdk'
             }),
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */], __WEBPACK_IMPORTED_MODULE_9__contact_contact_component__["a" /* ContactComponent */], __WEBPACK_IMPORTED_MODULE_10__products_doors_doors_component__["a" /* DoorsComponent */], __WEBPACK_IMPORTED_MODULE_11__products_machinery_machinery_component__["a" /* MachineryComponent */], __WEBPACK_IMPORTED_MODULE_12__products_legos_legos_component__["a" /* LegosComponent */], __WEBPACK_IMPORTED_MODULE_13__quotation_quotation_component__["a" /* QuotationComponent */], __WEBPACK_IMPORTED_MODULE_14__quotation_quotation_form_quotation_form_component__["a" /* QuotationFormComponent */], __WEBPACK_IMPORTED_MODULE_15__quotation_product_form_product_form_component__["a" /* ProductFormComponent */], __WEBPACK_IMPORTED_MODULE_16__quotation_draw_door_draw_door_component__["a" /* DrawDoorComponent */], __WEBPACK_IMPORTED_MODULE_17__quotation_draw_lego_draw_lego_component__["a" /* DrawLegoComponent */]],
-        exports: [__WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */], __WEBPACK_IMPORTED_MODULE_9__contact_contact_component__["a" /* ContactComponent */], __WEBPACK_IMPORTED_MODULE_10__products_doors_doors_component__["a" /* DoorsComponent */], __WEBPACK_IMPORTED_MODULE_11__products_machinery_machinery_component__["a" /* MachineryComponent */], __WEBPACK_IMPORTED_MODULE_12__products_legos_legos_component__["a" /* LegosComponent */], __WEBPACK_IMPORTED_MODULE_13__quotation_quotation_component__["a" /* QuotationComponent */], __WEBPACK_IMPORTED_MODULE_14__quotation_quotation_form_quotation_form_component__["a" /* QuotationFormComponent */]],
+        declarations: [__WEBPACK_IMPORTED_MODULE_9__home_home_component__["a" /* HomeComponent */], __WEBPACK_IMPORTED_MODULE_10__contact_contact_component__["a" /* ContactComponent */], __WEBPACK_IMPORTED_MODULE_11__products_doors_doors_component__["a" /* DoorsComponent */], __WEBPACK_IMPORTED_MODULE_12__products_machinery_machinery_component__["a" /* MachineryComponent */], __WEBPACK_IMPORTED_MODULE_13__products_legos_legos_component__["a" /* LegosComponent */], __WEBPACK_IMPORTED_MODULE_14__quotation_quotation_component__["a" /* QuotationComponent */], __WEBPACK_IMPORTED_MODULE_15__quotation_quotation_form_quotation_form_component__["a" /* QuotationFormComponent */], __WEBPACK_IMPORTED_MODULE_16__quotation_draw_door_draw_door_component__["a" /* DrawDoorComponent */], __WEBPACK_IMPORTED_MODULE_17__quotation_draw_lego_draw_lego_component__["a" /* DrawLegoComponent */]],
+        exports: [__WEBPACK_IMPORTED_MODULE_9__home_home_component__["a" /* HomeComponent */], __WEBPACK_IMPORTED_MODULE_10__contact_contact_component__["a" /* ContactComponent */], __WEBPACK_IMPORTED_MODULE_11__products_doors_doors_component__["a" /* DoorsComponent */], __WEBPACK_IMPORTED_MODULE_12__products_machinery_machinery_component__["a" /* MachineryComponent */], __WEBPACK_IMPORTED_MODULE_13__products_legos_legos_component__["a" /* LegosComponent */], __WEBPACK_IMPORTED_MODULE_14__quotation_quotation_component__["a" /* QuotationComponent */], __WEBPACK_IMPORTED_MODULE_15__quotation_quotation_form_quotation_form_component__["a" /* QuotationFormComponent */]],
         providers: []
     })
 ], PagesModule);
@@ -1797,7 +1971,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/quotation/draw-door/draw-door.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n\n\n<h1>Puerta </h1>\n    <ngvas [width]=\"canvasWidth\" [height]=\"canvasHeight\" >\n\n\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"topX\" [y]=\"topY\" [width]=\"topWidth\" [height]=\"topHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"outlineLeftX\" [y]=\"outlineLeftY\" [width]=\"outlineWidth\" [height]=\"outlineHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"outlineRightX\" [y]=\"outlineRightY\" [width]=\"outlineWidth\" [height]=\"outlineHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"lonaFill\" [x]=\"lonaX\" [y]=\"lonaY\" [width]=\"lonaWidth\" [height]=\"lonaHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_1_X\" [y]=\"divider_1_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_2_X\" [y]=\"divider_2_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_3_X\" [y]=\"divider_3_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n\n    </ngvas>"
+module.exports = "\r\n\r\n\r\n<h1>Puerta </h1>\r\n    <ngvas [width]=\"canvasWidth\" [height]=\"canvasHeight\" >\r\n\r\n\r\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"topX\" [y]=\"topY\" [width]=\"topWidth\" [height]=\"topHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\r\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"outlineLeftX\" [y]=\"outlineLeftY\" [width]=\"outlineWidth\" [height]=\"outlineHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\r\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"outlineRightX\" [y]=\"outlineRightY\" [width]=\"outlineWidth\" [height]=\"outlineHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\r\n\r\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"lonaFill\" [x]=\"lonaX\" [y]=\"lonaY\" [width]=\"lonaWidth\" [height]=\"lonaHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\r\n\r\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_1_X\" [y]=\"divider_1_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\r\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_2_X\" [y]=\"divider_2_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\r\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_3_X\" [y]=\"divider_3_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\r\n\r\n    </ngvas>"
 
 /***/ }),
 
@@ -1975,7 +2149,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/quotation/draw-lego/draw-lego.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"row vertical_center_col\">\n\n    <div class=\"col-sm-6 center-text\" *ngIf=\"accesorioDelantero == true\" >\n    \t<h4 >Accesorio Delantero</h4> \n    \t<img class = \"img-responsive\"height=\"{{imageHeight}}\" width=\"{{imageWidth}}\" [src]=\"accesorioDelanteroSrc\" (error)=\"setDefaultPic('accesorioDelantero')\" >    \t  \n    </div>\n\n    <div class=\"col-sm-6 center-text\" *ngIf=\"accesorioTrasero == true\" >\n    \t<h4 >Accesorio Trasero</h4> \n    \t<img class = \"img-responsive\"height=\"{{imageHeight}}\" width=\"{{imageWidth}}\" [src]=\"accesorioTraseroSrc\" (error)=\"setDefaultPic('accesorioTrasero')\" >    \t  \n    </div>\n\n</div>\n<div class=\"row vertical_center_col\">\n\n    <div class=\"col-sm-6 text-center\"  *ngIf=\"cabina == true\" >\n    <h4 >Cabina</h4>\t\n        <img class = \"img-responsive\"height=\"{{imageHeight}}\" width=\"{{imageWidth}}\" [src]=\"cabinaSrc\" (error)=\"setDefaultPic('cabina')\" >\n    </div>\n\n    <div class=\"col-sm-6 center-text\" *ngIf=\"inferior == true\" >\n    \t<h4 >Inferior</h4>  \n    \t<img class = \"img-responsive\"height=\"{{imageHeight}}\" width=\"{{imageWidth}}\" [src]=\"inferiorSrc\" (error)=\"setDefaultPic('inferior')\" >\n    </div>\n\n</div>\n\n\n\t\n\t"
+module.exports = "\r\n<div class=\"row vertical_center_col\">\r\n\r\n    <div class=\"col-sm-6 center-text\" *ngIf=\"accesorioDelantero == true\" >\r\n    \t<h4 >Accesorio Delantero</h4> \r\n    \t<img class = \"img-responsive\"height=\"{{imageHeight}}\" width=\"{{imageWidth}}\" [src]=\"accesorioDelanteroSrc\" (error)=\"setDefaultPic('accesorioDelantero')\" >    \t  \r\n    </div>\r\n\r\n    <div class=\"col-sm-6 center-text\" *ngIf=\"accesorioTrasero == true\" >\r\n    \t<h4 >Accesorio Trasero</h4> \r\n    \t<img class = \"img-responsive\"height=\"{{imageHeight}}\" width=\"{{imageWidth}}\" [src]=\"accesorioTraseroSrc\" (error)=\"setDefaultPic('accesorioTrasero')\" >    \t  \r\n    </div>\r\n\r\n</div>\r\n<div class=\"row vertical_center_col\">\r\n\r\n    <div class=\"col-sm-6 text-center\"  *ngIf=\"cabina == true\" >\r\n    <h4 >Cabina</h4>\t\r\n        <img class = \"img-responsive\"height=\"{{imageHeight}}\" width=\"{{imageWidth}}\" [src]=\"cabinaSrc\" (error)=\"setDefaultPic('cabina')\" >\r\n    </div>\r\n\r\n    <div class=\"col-sm-6 center-text\" *ngIf=\"inferior == true\" >\r\n    \t<h4 >Inferior</h4>  \r\n    \t<img class = \"img-responsive\"height=\"{{imageHeight}}\" width=\"{{imageWidth}}\" [src]=\"inferiorSrc\" (error)=\"setDefaultPic('inferior')\" >\r\n    </div>\r\n\r\n</div>\r\n\r\n\r\n\t\r\n\t"
 
 /***/ }),
 
@@ -2100,67 +2274,6 @@ DrawLegoComponent = __decorate([
 
 /***/ }),
 
-/***/ "../../../../../src/app/pages/quotation/product-form/product-form.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/pages/quotation/product-form/product-form.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<p>\r\n  product-form works!\r\n</p>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/pages/quotation/product-form/product-form.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductFormComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var ProductFormComponent = (function () {
-    function ProductFormComponent() {
-    }
-    ProductFormComponent.prototype.ngOnInit = function () {
-    };
-    return ProductFormComponent;
-}());
-ProductFormComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-product-form',
-        template: __webpack_require__("../../../../../src/app/pages/quotation/product-form/product-form.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/pages/quotation/product-form/product-form.component.css")]
-    }),
-    __metadata("design:paramtypes", [])
-], ProductFormComponent);
-
-//# sourceMappingURL=product-form.component.js.map
-
-/***/ }),
-
 /***/ "../../../../../src/app/pages/quotation/quotation-form/quotation-form.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2182,7 +2295,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/quotation/quotation-form/quotation-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"form\" [formGroup]=\"productForm\" (ngSubmit)=\"registerQuotation(quotationForm)\" novalidate>\r\n  <div *ngFor=\"let property of product.properties\">\r\n    <div class=\"clearfix\" *ngIf=\"property.type === 'bool'\"></div>\r\n    <div class=\"col-xs-12 col-sm-6\">\r\n      <mat-form-field class=\"full-width\" *ngIf=\"property.type === 'integer' || property.type === 'list'\">\r\n        <input matInput class=\"full-width\" *ngIf=\"property.type === 'integer'\" type=\"number\" [placeholder]=\"property.name\" [(value)]=\"property.value\" [required]=\"true\" [min]=\"property.values[0]\" [max]=\"property.values[1]\" />\r\n        <mat-select *ngIf=\"property.type === 'list'\" placeholder=\"property.name\" [(value)]=\"property.value\" [required]=\"true\">\r\n          <mat-option *ngFor=\"let option of property.values\" [value]=\"option\">\r\n            {{ option.name }}\r\n          </mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n      <mat-slide-toggle class=\"full-width\" *ngIf=\"property.type === 'bool'\" [required]=\"true\">\r\n        {{ property.name }}\r\n      </mat-slide-toggle>\r\n    </div>\r\n  </div>\r\n</form>\r\n<div class=\"clearfix\"></div>\r\n"
+module.exports = "<form class=\"form\" [formGroup]=\"quotationForm\" (ngSubmit)=\"registerQuotation(quotationForm)\" novalidate>\r\n  <div *ngFor=\"let property of product.properties\">\r\n    <div class=\"clearfix\" *ngIf=\"property.type === 'bool'\"></div>\r\n    <div class=\"col-xs-12 col-sm-6\">\r\n      <mat-form-field class=\"full-width\" *ngIf=\"property.type === 'integer' || property.type === 'list'\">\r\n        <input matInput class=\"full-width\" *ngIf=\"property.type === 'integer'\" type=\"number\" [placeholder]=\"property.name\" [(value)]=\"property.value\" [required]=\"true\" [min]=\"property.values[0]\" [max]=\"property.values[1]\" />\r\n        <mat-select *ngIf=\"property.type === 'list'\" placeholder=\"property.name\" [(value)]=\"property.value\" [required]=\"true\">\r\n          <mat-option *ngFor=\"let option of property.values\" [value]=\"option\">\r\n            {{ option.name }}\r\n          </mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n      <mat-slide-toggle class=\"full-width\" *ngIf=\"property.type === 'bool'\" [required]=\"true\">\r\n        {{ property.name }}\r\n      </mat-slide-toggle>\r\n    </div>\r\n  </div>\r\n</form>\r\n<div class=\"clearfix\"></div>\r\n"
 
 /***/ }),
 
@@ -2259,7 +2372,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".quotation-jumbotron {\r\n  background: #467fbf;\r\n  padding: 10px 20px;\r\n  margin-bottom: 20px;\r\n}\r\n\r\n.ul-with-border {\r\n  border: 1px solid #467fbf;\r\n}\r\n\r\n.stepper-box {\r\n  margin-top: 5px;\r\n  padding-bottom: 10px;\r\n  border: 1px dashed #467fbf;\r\n}\r\n\r\n.full-width {\r\n  width: 100%;\r\n}\r\n", ""]);
+exports.push([module.i, ".quotation-jumbotron {\r\n  background: #467fbf;\r\n  padding: 10px 20px;\r\n  margin-bottom: 20px;\r\n}\r\n\r\n.ul-with-border {\r\n  border: 1px solid #467fbf;\r\n}\r\n\r\n.stepper-box {\r\n  margin-top: 5px;\r\n  padding-bottom: 10px;\r\n  border: 1px dashed #467fbf;\r\n}\r\n\r\n.full-width {\r\n  width: 100%;\r\n}\r\n\r\n.map {\r\n  height: 300px !important;\r\n}\r\n", ""]);
 
 // exports
 
@@ -2272,7 +2385,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/quotation/quotation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-xs-12 col-sm-10 col-sm-offset-1\">\r\n  <h1 class=\"page-header\">Formulario De Cotización  </h1>\r\n  <p class=\"lead mb-small\">Llegaste al lugar correcto!</p>\r\n  <p class=\"text-justify\">\r\n    Ahora podras personalizar como desees tu producto,rellena el formulario a tu gusto el y al finalizar enviaremos el producto con sus planos personalizados al correo que nos has provisto.Solo se permite un producto por cotización,debido a esto cada vez\r\n    que presiónes en el boton de cotizar al finalizar el formulario empezaremos a procesar tu solicitud y en cuanto termine te sera entregada en tu correo.</p>\r\n  <div class=\"clearfix\"></div>\r\n  <br>\r\n\r\n  <div class=\"row\">\r\n    <div class=\"col-xs-12 col-sm-3\">\r\n      <ul class=\"nav nav-pills nav-stacked ul-with-border\">\r\n        <li *ngFor=\"let productType of productTypes\" [ngClass]=\"{active: productType == selectedProductType }\">\r\n          <a href=\"javascript: void(0);\" (click)=\"selectProductType(productType)\">{{ productType.name }}</a>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"col-xs-12 col-sm-9\">\r\n      <div *ngIf=\"!selectedProductType\">\r\n        <div class=\"alert alert-info\">\r\n          <p class=\"text-strong\">Seleccione un Tipo de Producto</p>\r\n          <p>Para continuar con la cotización debe primero seleccionar un tipo de producto que desee cotizar.</p>\r\n        </div>\r\n      </div>\r\n      <div *ngIf=\"selectedProductType\">\r\n        <h2>{{ selectedProductType.name }} <br><small>{{ selectedProductType.description }}</small></h2>\r\n\r\n        <mat-horizontal-stepper linear>\r\n          <mat-step [stepControl]=\"productForm\" label=\"Información de Producto\">\r\n            <div class=\"stepper-box\">\r\n              <div class=\"col-xs-12\">\r\n                <h3 class=\"text-center\">Información de Producto</h3>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <mat-form-field class=\"full-width\">\r\n                  <mat-select placeholder=\"Producto\" [(value)]=\"selectedProduct\" (change)=\"selectProduct($event.value)\" [required]=\"true\">\r\n                    <mat-option *ngFor=\"let product of selectedProductType.products\" [value]=\"product\">\r\n                      {{ product.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <mat-form-field class=\"full-width\">\r\n                  <input matInput class=\"full-width\" [(value)]=\"productQuantity\" type=\"number\" placeholder=\"Cantidad\" min=\"1\" />\r\n                </mat-form-field>\r\n              </div>\r\n              <div class=\"col-xs-12\">\r\n                <h4 *ngIf=\"selectedProduct !== null && showProductForm\">Características de Producto</h4>\r\n              </div>\r\n              <div class=\"quotation-form-box\" *ngIf=\"selectedProduct !== null && showProductForm\">\r\n                <form class=\"form\" [formGroup]=\"productForm\" novalidate>\r\n\r\n\r\n\r\n\r\n                  <div  class=\"col-xs-12 text-center\" *ngIf=\"selectedProduct.name == 'Puerta rápida'\">\r\n                      <app-draw-door></app-draw-door>\r\n                  </div>\r\n\r\n                  <div  class=\"col-xs-12 text-center\" *ngIf=\"selectedProductType.name== 'Lego'\">\r\n                      <app-draw-lego (ready)=\"showCanvasInLegos(selectedProduct)\"></app-draw-lego>\r\n                  </div>\r\n\r\n\r\n                  <div *ngFor=\"let property of selectedProduct.properties\">\r\n                    <div class=\"clearfix\" *ngIf=\"property.type === 'bool'\"></div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\" *ngIf=\"property.type === 'integer' || property.type === 'list'\">\r\n                        <input matInput class=\"full-width\" *ngIf=\"property.type === 'integer'\" [formControlName]=\"property.name\" type=\"number\" [placeholder]=\"property.name\" [min]=\"property.values[0]\" [max]=\"property.values[1]\" (change)=\"updateDraw(selectedProduct.name, property.name)\" />\r\n                        <mat-select *ngIf=\"property.type === 'list'\" [formControlName]=\"property.name\" [placeholder]=\"property.name\" [(value)]=\"property.value\" (change)=\"updateDraw(selectedProduct.name, property.name)\">\r\n                          <mat-option *ngFor=\"let option of property.values\" [value]=\"option\">\r\n                            {{ option.name }}\r\n                          </mat-option>\r\n                        </mat-select>\r\n                      </mat-form-field>\r\n                      <mat-slide-toggle color=\"primary\" class=\"full-width\" [formControlName]=\"property.name\" *ngIf=\"property.type === 'bool'\">\r\n                        {{ property.name }}\r\n                      </mat-slide-toggle>\r\n                    </div>\r\n                  </div>\r\n                </form>\r\n                <div class=\"col-xs-12\">\r\n                  <button mat-raised-button matStepperNext color=\"primary\" [disabled]=\"productForm.invalid\" class=\"pull-right\">Siguiente</button>\r\n                </div>\r\n                <div class=\"clearfix\"></div>\r\n              </div>\r\n              <div class=\"clearfix\"></div>\r\n            </div>\r\n          </mat-step>\r\n          <mat-step label=\"Información de Cotización\" [stepControl]=\"quotationForm\">\r\n            <div class=\"stepper-box\">\r\n              <div class=\"quotation-form-box\">\r\n                <form class=\"form\" [formGroup]=\"quotationForm\" novalidate>\r\n                  <div class=\"col-xs-12\">\r\n                    <div class=\"col-xs-12\">\r\n                      <h3 class=\"text-center\">Información de Cotización</h3>\r\n                      <h4>Información General</h4>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"firstName\" type=\"text\" placeholder=\"Nombres\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"lastName\" type=\"text\" placeholder=\"Apellidos\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"document\" type=\"text\" placeholder=\"Documento de Identidad\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"address\" type=\"text\" placeholder=\"Dirección\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"phone\" type=\"text\" placeholder=\"Teléfono\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"email\" type=\"text\" placeholder=\"Correo Electrónico\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"col-xs-12\">\r\n\r\n\r\n                  <div class=\"col-xs-12\" *ngIf=\"!user\" >\r\n                    <div class=\"row\">\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <mat-form-field class=\"full-width\">\r\n                          <input matInput class=\"full-width\" id=\"password\" formControlName=\"password\" type=\"password\" placeholder='Contraseña*' />\r\n                        </mat-form-field>\r\n                        <mat-chip class=\"mat-primary\"  *ngIf=\"quotationForm.controls.password.dirty && quotationForm.controls.password.errors\">\r\n                          <ul class=\"list-unstyled\">\r\n                            <li *ngIf=\"quotationForm.controls.password.hasError('required')\">\r\n                              <span class=\"fa fa-exclamation\"></span> Oops, este campo es requerido!\r\n                            </li>\r\n                            <li *ngIf=\"!quotationForm.controls.password.hasError('required') && quotationForm.controls.password.hasError('minlength')\">\r\n                              <span class=\"fa fa-exclamation\"></span> Oops, este campo debe contener minimo 8 caracteres!\r\n                            </li>\r\n                          </ul>                \r\n                        </mat-chip>\r\n                      </div>\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <mat-form-field class=\"full-width\">\r\n                          <input matInput class=\"full-width\" id=\"confirmpassword\" formControlName=\"confirmPassword\" type=\"password\" placeholder='Confirmar contraseña*' />\r\n                        </mat-form-field>\r\n                        <mat-chip class=\"mat-primary\" *ngIf=\"quotationForm.controls.confirmPassword.dirty && quotationForm.controls.confirmPassword.errors\">\r\n                          <ul class=\"list-unstyled\">\r\n                            <li *ngIf=\"quotationForm.controls.confirmPassword.hasError('required')\">\r\n                              <span class=\"fa fa-exclamation\"></span> Oops, este campo es requerido!\r\n                            </li>\r\n                            <li *ngIf=\"!quotationForm.controls.confirmPassword.hasError('required') && quotationForm.value.password != quotationForm.value.confirmPassword\">\r\n                              <span class=\"fa fa-exclamation\"></span> Oops, los campos de contraseña deben coincidir!\r\n                            </li>\r\n                          </ul>\r\n                        </mat-chip>\r\n                      </div>\r\n                    </div>\r\n                    <div class=\"clearfix\"></div>\r\n                    <br>\r\n                  </div>\r\n\r\n\r\n\r\n\r\n                    <div class=\"col-xs-12\">\r\n                      <h4>Información de Empresa</h4>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"enterprise\" type=\"text\" placeholder=\"Empresa\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"nit\" type=\"text\" placeholder=\"NIT\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"role\" type=\"text\" placeholder=\"Rol en la compañia\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"clearfix\"></div>\r\n                  <div class=\"col-xs-12\">\r\n                    <button mat-raised-button matStepperPrevious>Anterior</button>\r\n                    <button mat-raised-button matStepperNext color=\"primary\" [disabled]=\"quotationForm.invalid\" class=\"pull-right\">Siguiente</button>\r\n                    <div class=\"clearfix\"></div>\r\n                  </div>\r\n                </form>\r\n              </div>\r\n              <div class=\"clearfix\"></div>\r\n            </div>\r\n            <div class=\"clearfix\"></div>\r\n          </mat-step>\r\n          <mat-step label=\"Completar Cotización\">\r\n            <div class=\"stepper-box\">\r\n              <div class=\"quotation-form-box\">\r\n                <div class=\"col-xs-12\">\r\n                  <h3>Completar Cotización</h3>\r\n                  <p>Para completar el proceso de cotización, haga clic en el botón \"Procesar Cotización\" de la parte inferior.</p>\r\n                </div>\r\n                <div class=\"clearfix\"></div>\r\n                <br><br>\r\n                <div class=\"col-xs-12\">\r\n                  <button mat-raised-button matStepperPrevious>Anterior</button>\r\n                  <button mat-raised-button matStepperNext color=\"primary\" [disabled]=\"false\" class=\"pull-right\" (click)=\"saveQuotation(productForm, quotationForm)\">Procesar Cotización</button>\r\n                </div>\r\n                <div class=\"clearfix\"></div>\r\n              </div>\r\n            </div>\r\n          </mat-step>\r\n        </mat-horizontal-stepper>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"clearfix\"></div>\r\n<br><br>\r\n"
+module.exports = "<div class=\"col-xs-12 col-sm-10 col-sm-offset-1\">\r\n  <h1 class=\"page-header\">Formulario De Cotización  </h1>\r\n  <p class=\"lead mb-small\">Llegaste al lugar correcto!</p>\r\n  <p class=\"text-justify\">\r\n    Ahora podras personalizar como desees tu producto,rellena el formulario a tu gusto el y al finalizar enviaremos el producto con sus planos personalizados al correo que nos has provisto.Solo se permite un producto por cotización,debido a esto cada vez\r\n    que presiónes en el boton de cotizar al finalizar el formulario empezaremos a procesar tu solicitud y en cuanto termine te sera entregada en tu correo.</p>\r\n  <div class=\"clearfix\"></div>\r\n  <br>\r\n\r\n  <div class=\"row\">\r\n    <div class=\"col-xs-12 col-sm-3\">\r\n      <ul class=\"nav nav-pills nav-stacked ul-with-border\">\r\n        <li *ngFor=\"let productType of productTypes\" [ngClass]=\"{active: productType == selectedProductType }\">\r\n          <a href=\"javascript: void(0);\" (click)=\"selectProductType(productType)\">{{ productType.name }}</a>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"col-xs-12 col-sm-9\">\r\n      <div *ngIf=\"!selectedProductType\">\r\n        <div class=\"alert alert-info\">\r\n          <p class=\"text-strong\">Seleccione un Tipo de Producto</p>\r\n          <p>Para continuar con la cotización debe primero seleccionar un tipo de producto que desee cotizar.</p>\r\n        </div>\r\n      </div>\r\n      <div *ngIf=\"selectedProductType\">\r\n        <h2>{{ selectedProductType.name }} <br><small>{{ selectedProductType.description }}</small></h2>\r\n\r\n        <mat-horizontal-stepper linear>\r\n          <mat-step [stepControl]=\"productForm\" label=\"Información de Producto\">\r\n            <div class=\"stepper-box\">\r\n              <div class=\"col-xs-12\">\r\n                <h3 class=\"text-center\">Información de Producto</h3>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <mat-form-field class=\"full-width\">\r\n                  <mat-select placeholder=\"Producto\" [(value)]=\"selectedProduct\" (change)=\"selectProduct($event.value)\" [required]=\"true\">\r\n                    <mat-option *ngFor=\"let product of selectedProductType.products\" [value]=\"product\">\r\n                      {{ product.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <mat-form-field class=\"full-width\">\r\n                  <input matInput class=\"full-width\" [(value)]=\"productQuantity\" type=\"number\" placeholder=\"Cantidad\" min=\"1\" />\r\n                </mat-form-field>\r\n              </div>\r\n              <div class=\"col-xs-12\">\r\n                <h4 *ngIf=\"selectedProduct !== null && showProductForm\">Características de Producto</h4>\r\n              </div>\r\n              <div class=\"quotation-form-box\" *ngIf=\"selectedProduct !== null && showProductForm\">\r\n                <div class=\"col-xs-12\" *ngIf=\"selectedProduct.name === 'Maquinaria'\">\r\n                  <div class=\"col-xs-12\">\r\n                    <mat-slide-toggle color=\"primary\" class=\"full-width\" [(ngModel)]=\"showAllMachinery\">\r\n                      Mostrar toda la maquinaria\r\n                    </mat-slide-toggle>\r\n                  </div>\r\n                  <div class=\"clearfix\"></div>\r\n                  <hr>\r\n                  <div class=\"col-xs-12\" [hidden]=\"showAllMachinery\">\r\n                    <div class=\"row\">\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <label class=\"control-label\">Modelo de Maquinaria</label>\r\n                        <div class=\"input-group\">\r\n                          <span class=\"input-group-addon\">\r\n                            <input type=\"checkbox\" [(ngModel)]=\"machinerySearch.isModelEnabled\">\r\n                          </span>\r\n                          <select class=\"form-control\" [(ngModel)]=\"machinerySearch.model\" [disabled]=\"!machinerySearch.isModelEnabled\">\r\n                            <option value=\"1\">Modelo 1</option>\r\n                            <option value=\"2\">Modelo 2</option>\r\n                            <option value=\"3\">Modelo 3</option>\r\n                            <option value=\"4\">Modelo 4</option>\r\n                          </select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"clearfix\"></div>\r\n                      <br>\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <label class=\"control-label\">Maquinaria nueva?</label>\r\n                        <div class=\"input-group\">\r\n                          <span class=\"input-group-addon\">\r\n                            <input type=\"checkbox\" [(ngModel)]=\"machinerySearch.isNewEnabled\">\r\n                          </span>\r\n                          <select class=\"form-control\" [(ngModel)]=\"machinerySearch.isNew\" [disabled]=\"!machinerySearch.isNewEnabled\">\r\n                            <option value=\"1\">Si</option>\r\n                            <option value=\"0\">No</option>\r\n                          </select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <label class=\"control-label\">Maquinaria en buen estado?</label>\r\n                        <div class=\"input-group\">\r\n                          <span class=\"input-group-addon\">\r\n                            <input type=\"checkbox\" [(ngModel)]=\"machinerySearch.isStateEnabled\">\r\n                          </span>\r\n                          <select class=\"form-control\" [(ngModel)]=\"machinerySearch.state\" [disabled]=\"!machinerySearch.isStateEnabled\">\r\n                            <option value=\"1\">Si</option>\r\n                            <option value=\"0\">No</option>\r\n                          </select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"clearfix\"></div>\r\n                      <br>\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <label class=\"control-label\">Necesita reparación?</label>\r\n                        <div class=\"input-group\">\r\n                          <span class=\"input-group-addon\">\r\n                            <input type=\"checkbox\" [(ngModel)]=\"machinerySearch.isRepairableEnabled\">\r\n                          </span>\r\n                          <select class=\"form-control\" [(ngModel)]=\"machinerySearch.repairable\" [disabled]=\"!machinerySearch.isRepairableEnabled\">\r\n                            <option value=\"1\">Si</option>\r\n                            <option value=\"0\">No</option>\r\n                          </select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <label class=\"control-label\">Tipo de documentación</label>\r\n                        <div class=\"input-group\">\r\n                          <span class=\"input-group-addon\">\r\n                            <input type=\"checkbox\" [(ngModel)]=\"machinerySearch.isDocumentationEnabled\">\r\n                          </span>\r\n                          <select class=\"form-control\" [(ngModel)]=\"machinerySearch.documentation\" [disabled]=\"!machinerySearch.isDocumentationEnabled\">\r\n                            <option [value]=\"idx\" *ngFor=\"let idx of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]\">Documentación {{ idx }}</option>\r\n                          </select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"clearfix\"></div>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"clearfix\"></div>\r\n                  <hr *ngIf=\"!showAllMachinery\">\r\n                  <div class=\"col-xs-12\">\r\n                    <agm-map class=\"map\" [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"zoom\">\r\n                      <agm-marker [latitude]=\"machine.latitude\" [longitude]=\"machine.longitude\" *ngFor=\"let machine of filterMachinery()\" (markerClick)=\"selectMachinery(machine)\"></agm-marker>\r\n                    </agm-map>\r\n                  </div>\r\n                  <div class=\"clearfix\"></div>\r\n                  <hr *ngIf=\"selectedMachine\">\r\n                  <div class=\"col-xs-12 col-sm-10 col-sm-offset-1 col-md-9 text-left\" *ngIf=\"selectedMachine\">\r\n                    <h3>Datos de Maquinaria Seleccionada</h3>\r\n                    <table class=\"table table-striped table-condensed\">\r\n                      <thead>\r\n                        <tr>\r\n                          <th>Caracteristica</th>\r\n                          <th>Valor</th>\r\n                        </tr>\r\n                      </thead>\r\n                      <tbody>\r\n                        <tr *ngFor=\"let prop of selectedMachine.toArray()\">\r\n                          <td>{{ prop.key }}</td>\r\n                          <td>{{ prop.value }}</td>\r\n                        </tr>\r\n                      </tbody>\r\n                    </table>\r\n                  </div>\r\n                </div>\r\n                <form class=\"form\" [formGroup]=\"productForm\" novalidate [hidden]=\"selectedProduct.name === 'Maquinaria'\">\r\n                  <div class=\"col-xs-12 text-center\" *ngIf=\"selectedProduct.name === 'Puerta rápida'\">\r\n                    <app-draw-door></app-draw-door>\r\n                  </div>\r\n\r\n                  <div class=\"col-xs-12 text-center\" *ngIf=\"selectedProductType.name== 'Lego'\">\r\n                    <app-draw-lego (ready)=\"showCanvasInLegos(selectedProduct)\"></app-draw-lego>\r\n                  </div>\r\n\r\n                  <div *ngFor=\"let property of selectedProduct.properties\">\r\n                    <div class=\"clearfix\" *ngIf=\"property.type === 'bool'\"></div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\" *ngIf=\"property.type === 'integer' || property.type === 'list'\">\r\n                        <input matInput class=\"full-width\" *ngIf=\"property.type === 'integer'\" [formControlName]=\"property.name\" type=\"number\" [placeholder]=\"property.name\" [min]=\"property.values[0]\" [max]=\"property.values[1]\" (change)=\"updateDraw(selectedProduct.name, property.name)\"\r\n                        />\r\n                        <mat-select *ngIf=\"property.type === 'list'\" [formControlName]=\"property.name\" [placeholder]=\"property.name\" [(value)]=\"property.value\" (change)=\"updateDraw(selectedProduct.name, property.name)\">\r\n                          <mat-option *ngFor=\"let option of property.values\" [value]=\"option\">\r\n                            {{ option.name }}\r\n                          </mat-option>\r\n                        </mat-select>\r\n                      </mat-form-field>\r\n                      <mat-slide-toggle color=\"primary\" class=\"full-width\" [formControlName]=\"property.name\" *ngIf=\"property.type === 'bool'\">\r\n                        {{ property.name }}\r\n                      </mat-slide-toggle>\r\n                    </div>\r\n                  </div>\r\n                </form>\r\n                <div class=\"col-xs-12\">\r\n                  <button mat-raised-button matStepperNext color=\"primary\" [disabled]=\"productForm.invalid\" class=\"pull-right\">Siguiente</button>\r\n                </div>\r\n                <div class=\"clearfix\"></div>\r\n              </div>\r\n              <div class=\"clearfix\"></div>\r\n            </div>\r\n          </mat-step>\r\n          <mat-step label=\"Información de Cotización\" [stepControl]=\"quotationForm\">\r\n            <div class=\"stepper-box\">\r\n              <div class=\"quotation-form-box\">\r\n                <form class=\"form\" [formGroup]=\"quotationForm\" novalidate>\r\n                  <div class=\"col-xs-12\">\r\n                    <div class=\"col-xs-12\">\r\n                      <h3 class=\"text-center\">Información de Cotización</h3>\r\n                      <h4>Información General</h4>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"firstName\" type=\"text\" placeholder=\"Nombres\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"lastName\" type=\"text\" placeholder=\"Apellidos\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"document\" type=\"text\" placeholder=\"Documento de Identidad\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"address\" type=\"text\" placeholder=\"Dirección\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"phone\" type=\"text\" placeholder=\"Teléfono\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"email\" type=\"text\" placeholder=\"Correo Electrónico\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"col-xs-12\">\r\n                    <div class=\"col-xs-12\" *ngIf=\"!user\">\r\n                      <div class=\"row\">\r\n                        <div class=\"col-xs-12 col-sm-6\">\r\n                          <mat-form-field class=\"full-width\">\r\n                            <input matInput class=\"full-width\" id=\"password\" formControlName=\"password\" type=\"password\" placeholder='Contraseña*' />\r\n                          </mat-form-field>\r\n                          <mat-chip class=\"mat-primary\" *ngIf=\"quotationForm.controls.password.dirty && quotationForm.controls.password.errors\">\r\n                            <ul class=\"list-unstyled\">\r\n                              <li *ngIf=\"quotationForm.controls.password.hasError('required')\">\r\n                                <span class=\"fa fa-exclamation\"></span> Oops, este campo es requerido!\r\n                              </li>\r\n                              <li *ngIf=\"!quotationForm.controls.password.hasError('required') && quotationForm.controls.password.hasError('minlength')\">\r\n                                <span class=\"fa fa-exclamation\"></span> Oops, este campo debe contener minimo 8 caracteres!\r\n                              </li>\r\n                            </ul>\r\n                          </mat-chip>\r\n                        </div>\r\n                        <div class=\"col-xs-12 col-sm-6\">\r\n                          <mat-form-field class=\"full-width\">\r\n                            <input matInput class=\"full-width\" id=\"confirmpassword\" formControlName=\"confirmPassword\" type=\"password\" placeholder='Confirmar contraseña*' />\r\n                          </mat-form-field>\r\n                          <mat-chip class=\"mat-primary\" *ngIf=\"quotationForm.controls.confirmPassword.dirty && quotationForm.controls.confirmPassword.errors\">\r\n                            <ul class=\"list-unstyled\">\r\n                              <li *ngIf=\"quotationForm.controls.confirmPassword.hasError('required')\">\r\n                                <span class=\"fa fa-exclamation\"></span> Oops, este campo es requerido!\r\n                              </li>\r\n                              <li *ngIf=\"!quotationForm.controls.confirmPassword.hasError('required') && quotationForm.value.password != quotationForm.value.confirmPassword\">\r\n                                <span class=\"fa fa-exclamation\"></span> Oops, los campos de contraseña deben coincidir!\r\n                              </li>\r\n                            </ul>\r\n                          </mat-chip>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"clearfix\"></div>\r\n                      <br>\r\n                    </div>\r\n\r\n                    <div class=\"col-xs-12\">\r\n                      <h4>Información de Empresa</h4>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"enterprise\" type=\"text\" placeholder=\"Empresa\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"nit\" type=\"text\" placeholder=\"NIT\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"role\" type=\"text\" placeholder=\"Rol en la compañia\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"clearfix\"></div>\r\n                  <div class=\"col-xs-12\">\r\n                    <button mat-raised-button matStepperPrevious>Anterior</button>\r\n                    <button mat-raised-button matStepperNext color=\"primary\" [disabled]=\"quotationForm.invalid\" class=\"pull-right\">Siguiente</button>\r\n                    <div class=\"clearfix\"></div>\r\n                  </div>\r\n                </form>\r\n              </div>\r\n              <div class=\"clearfix\"></div>\r\n            </div>\r\n            <div class=\"clearfix\"></div>\r\n          </mat-step>\r\n          <mat-step label=\"Completar Cotización\">\r\n            <div class=\"stepper-box\">\r\n              <div class=\"quotation-form-box\">\r\n                <div class=\"col-xs-12\">\r\n                  <h3>Completar Cotización</h3>\r\n                  <p>Para completar el proceso de cotización, haga clic en el botón \"Procesar Cotización\" de la parte inferior.</p>\r\n                </div>\r\n                <div class=\"clearfix\"></div>\r\n                <br><br>\r\n                <div class=\"col-xs-12\">\r\n                  <button mat-raised-button matStepperPrevious>Anterior</button>\r\n                  <button mat-raised-button matStepperNext color=\"primary\" [disabled]=\"false\" class=\"pull-right\" (click)=\"saveQuotation(productForm, quotationForm)\">Procesar Cotización</button>\r\n                </div>\r\n                <div class=\"clearfix\"></div>\r\n              </div>\r\n            </div>\r\n          </mat-step>\r\n        </mat-horizontal-stepper>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"clearfix\"></div>\r\n<br><br>\r\n"
 
 /***/ }),
 
@@ -2288,18 +2401,22 @@ module.exports = "<div class=\"col-xs-12 col-sm-10 col-sm-offset-1\">\r\n  <h1 c
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_notifications__ = __webpack_require__("../../../../angular2-notifications/dist/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_notifications___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_notifications__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_product_service__ = __webpack_require__("../../../../../src/app/services/product.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__yaga_leaflet_ng2__ = __webpack_require__("../../../../@yaga/leaflet-ng2/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__yaga_leaflet_ng2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__yaga_leaflet_ng2__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_lodash__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_quotation_service__ = __webpack_require__("../../../../../src/app/services/quotation.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__models_product_property__ = __webpack_require__("../../../../../src/app/models/product-property.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__models_quotation__ = __webpack_require__("../../../../../src/app/models/quotation.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__draw_door_draw_door_component__ = __webpack_require__("../../../../../src/app/pages/quotation/draw-door/draw-door.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__draw_lego_draw_lego_component__ = __webpack_require__("../../../../../src/app/pages/quotation/draw-lego/draw-lego.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_ng2_validation__ = __webpack_require__("../../../../ng2-validation/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_ng2_validation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_ng2_validation__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__models_user_register__ = __webpack_require__("../../../../../src/app/models/user-register.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_machinery_service__ = __webpack_require__("../../../../../src/app/services/machinery.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_product_service__ = __webpack_require__("../../../../../src/app/services/product.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_quotation_service__ = __webpack_require__("../../../../../src/app/services/quotation.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__models_product_property__ = __webpack_require__("../../../../../src/app/models/product-property.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__models_quotation__ = __webpack_require__("../../../../../src/app/models/quotation.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__models_machinery__ = __webpack_require__("../../../../../src/app/models/machinery.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__draw_door_draw_door_component__ = __webpack_require__("../../../../../src/app/pages/quotation/draw-door/draw-door.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__draw_lego_draw_lego_component__ = __webpack_require__("../../../../../src/app/pages/quotation/draw-lego/draw-lego.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ng2_validation__ = __webpack_require__("../../../../ng2-validation/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ng2_validation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_ng2_validation__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__models_user_register__ = __webpack_require__("../../../../../src/app/models/user-register.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2324,22 +2441,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var QuotationComponent = (function () {
-    function QuotationComponent(logger, notificationsService, authService, productService, quotationService, router) {
+    function QuotationComponent(logger, notificationsService, authService, productService, quotationService, machineryService, router) {
         this.logger = logger;
         this.notificationsService = notificationsService;
         this.authService = authService;
         this.productService = productService;
         this.quotationService = quotationService;
+        this.machineryService = machineryService;
         this.router = router;
         this.productTypes = [];
         this.selectedProductType = null;
         this.selectedProduct = null;
         this.productQuantity = 1;
+        this.tileLayerUrl = __WEBPACK_IMPORTED_MODULE_5__yaga_leaflet_ng2__["OSM_TILE_LAYER_URL"];
+        this.lat = 4.6260243;
+        this.lng = -74.1624076;
+        this.zoom = 11;
         this.user = null;
     }
     QuotationComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.allMachinery = null;
+        this.machinerySearch = null;
+        this.selectedMachine = null;
         this.showProductForm = false;
         var toast = this.notificationsService.info('Cargando', 'Cargando información...', { timeOut: 0 });
         this.productService.getProductTypes()
@@ -2367,7 +2495,7 @@ var QuotationComponent = (function () {
         else {
             this.savingUser = false;
             var password = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].minLength(8)]);
-            var confirmPassword = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_13_ng2_validation__["CustomValidators"].equalTo(password)]);
+            var confirmPassword = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_16_ng2_validation__["CustomValidators"].equalTo(password)]);
             this.quotationForm = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormGroup"]({
                 firstName: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"](this.user ? this.user.firstName : '', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required]),
                 lastName: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"](this.user ? this.user.lastName : '', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required]),
@@ -2418,6 +2546,15 @@ var QuotationComponent = (function () {
             _this.initProductForm(product);
             _this.selectedProduct = product;
             _this.showProductForm = true;
+            if (product.name === 'Maquinaria') {
+                _this.machinerySearch = new __WEBPACK_IMPORTED_MODULE_13__models_machinery__["a" /* Machinery */](null);
+                _this.showAllMachinery = true;
+                _this.selectedMachine = null;
+                _this.machineryService.getAll()
+                    .subscribe(function (result) {
+                    _this.allMachinery = result;
+                });
+            }
         }, function (error) {
             if (error.status === 401) {
                 var responseData = JSON.parse(error.error);
@@ -2440,6 +2577,8 @@ var QuotationComponent = (function () {
             var validations = [];
             switch (property.type) {
                 case 'integer':
+                case 'float':
+                case 'string':
                     validations.push(__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required);
                     control = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', validations);
                     break;
@@ -2503,9 +2642,9 @@ var QuotationComponent = (function () {
         var _this = this;
         var productData = productForm.value;
         var quotationData = quotationForm.value;
-        __WEBPACK_IMPORTED_MODULE_5_lodash__["forEach"](productData, function (value, property) {
+        __WEBPACK_IMPORTED_MODULE_6_lodash__["forEach"](productData, function (value, property) {
             var productProperty = _this.selectedProduct.properties.find(function (prop) { return prop.name === property; });
-            if (productProperty instanceof __WEBPACK_IMPORTED_MODULE_9__models_product_property__["a" /* ProductProperty */]) {
+            if (productProperty instanceof __WEBPACK_IMPORTED_MODULE_11__models_product_property__["a" /* ProductProperty */]) {
                 if (productProperty.type === 'list') {
                     productProperty.value = productProperty.value.value;
                 }
@@ -2524,22 +2663,64 @@ var QuotationComponent = (function () {
         });
         quotationData.quantity = this.productQuantity;
         quotationData.date = new Date();
-        var quotation = new __WEBPACK_IMPORTED_MODULE_10__models_quotation__["a" /* Quotation */](quotationData, this.authService.getUser(), this.selectedProduct);
+        var quotation = new __WEBPACK_IMPORTED_MODULE_12__models_quotation__["a" /* Quotation */](quotationData, this.authService.getUser(), this.selectedProduct);
         this.quotationService.create(quotation)
             .subscribe(function (result) {
             if (result.statusText === 'Created') {
                 var toast = _this.notificationsService.success('Cotización Guardada', 'La cotización ha sido guardada correctamente');
-                _this.router.navigateByUrl('/auth/profile');
+                if (quotation.user) {
+                    _this.router.navigateByUrl('/auth/profile');
+                }
+                else {
+                    _this.router.navigateByUrl('');
+                }
             }
         }, function (error) {
             var toast = _this.notificationsService.error('Error Guardando Cotización', 'No se ha podido guardar la cotización');
+        });
+    };
+    QuotationComponent.prototype.filterMachinery = function () {
+        var _this = this;
+        if (!this.allMachinery) {
+            return [];
+        }
+        if (this.showAllMachinery) {
+            return this.allMachinery;
+        }
+        else {
+            return this.allMachinery.filter(function (machinery) {
+                var valid = true;
+                if (_this.machinerySearch.isModelEnabled) {
+                    valid = valid && machinery.model == _this.machinerySearch.model;
+                }
+                if (_this.machinerySearch.isNewEnabled) {
+                    valid = valid && machinery.isNew == _this.machinerySearch.isNew;
+                }
+                if (_this.machinerySearch.isStateEnabled) {
+                    valid = valid && machinery.state == _this.machinerySearch.state;
+                }
+                if (_this.machinerySearch.isRepairableEnabled) {
+                    valid = valid && machinery.repairable == _this.machinerySearch.repairable;
+                }
+                if (_this.machinerySearch.isDocumentationEnabled) {
+                    valid = valid && machinery.documentation == _this.machinerySearch.documentation;
+                }
+                return valid;
+            });
+        }
+    };
+    QuotationComponent.prototype.selectMachinery = function (machine) {
+        var _this = this;
+        this.selectedMachine = machine;
+        __WEBPACK_IMPORTED_MODULE_6_lodash__["forEach"](machine.originalData, function (value, key) {
+            _this.productForm.controls[key].setValue(value);
         });
     };
     QuotationComponent.prototype.registerUser = function (productForm, quotationForm) {
         var _this = this;
         this.logger.info('Registering user:', quotationForm.value);
         this.savingUser = true;
-        var registerData = new __WEBPACK_IMPORTED_MODULE_14__models_user_register__["a" /* UserRegister */](quotationForm.value);
+        var registerData = new __WEBPACK_IMPORTED_MODULE_17__models_user_register__["a" /* UserRegister */](quotationForm.value);
         this.authService.register(registerData)
             .subscribe(function (result) {
             if (result.status === 'success') {
@@ -2566,12 +2747,12 @@ var QuotationComponent = (function () {
     return QuotationComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_11__draw_door_draw_door_component__["a" /* DrawDoorComponent */]),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_11__draw_door_draw_door_component__["a" /* DrawDoorComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__draw_door_draw_door_component__["a" /* DrawDoorComponent */]) === "function" && _a || Object)
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_14__draw_door_draw_door_component__["a" /* DrawDoorComponent */]),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_14__draw_door_draw_door_component__["a" /* DrawDoorComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_14__draw_door_draw_door_component__["a" /* DrawDoorComponent */]) === "function" && _a || Object)
 ], QuotationComponent.prototype, "drawDoorComponent", void 0);
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_12__draw_lego_draw_lego_component__["a" /* DrawLegoComponent */]),
-    __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_12__draw_lego_draw_lego_component__["a" /* DrawLegoComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_12__draw_lego_draw_lego_component__["a" /* DrawLegoComponent */]) === "function" && _b || Object)
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_15__draw_lego_draw_lego_component__["a" /* DrawLegoComponent */]),
+    __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_15__draw_lego_draw_lego_component__["a" /* DrawLegoComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_15__draw_lego_draw_lego_component__["a" /* DrawLegoComponent */]) === "function" && _b || Object)
 ], QuotationComponent.prototype, "drawLegoComponent", void 0);
 QuotationComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -2579,10 +2760,10 @@ QuotationComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/pages/quotation/quotation.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pages/quotation/quotation.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_logger_core__["Logger"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angular2_logger_core__["Logger"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_notifications__["NotificationsService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angular2_notifications__["NotificationsService"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_7__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_auth_service__["a" /* AuthService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__services_product_service__["a" /* ProductService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__services_product_service__["a" /* ProductService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_8__services_quotation_service__["a" /* QuotationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__services_quotation_service__["a" /* QuotationService */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _h || Object])
+    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_logger_core__["Logger"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angular2_logger_core__["Logger"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_notifications__["NotificationsService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angular2_notifications__["NotificationsService"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_7__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_auth_service__["a" /* AuthService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_9__services_product_service__["a" /* ProductService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__services_product_service__["a" /* ProductService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_10__services_quotation_service__["a" /* QuotationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__services_quotation_service__["a" /* QuotationService */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_8__services_machinery_service__["a" /* MachineryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__services_machinery_service__["a" /* MachineryService */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _j || Object])
 ], QuotationComponent);
 
-var _a, _b, _c, _d, _e, _f, _g, _h;
+var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 //# sourceMappingURL=quotation.component.js.map
 
 /***/ }),
@@ -2833,6 +3014,15 @@ var AuthService = (function () {
     };
     AuthService.prototype.updatePassword = function () {
     };
+    AuthService.prototype.setRedirectMessage = function (message) {
+        this.redirectMessage = message;
+    };
+    AuthService.prototype.getRedirectMessage = function () {
+        return this.redirectMessage;
+    };
+    AuthService.prototype.unsetRedirectMessage = function () {
+        this.redirectMessage = null;
+    };
     return AuthService;
 }());
 AuthService = __decorate([
@@ -2842,6 +3032,60 @@ AuthService = __decorate([
 
 var _a, _b;
 //# sourceMappingURL=auth.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/machinery.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MachineryService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__("../../../../rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_machinery__ = __webpack_require__("../../../../../src/app/models/machinery.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var MachineryService = (function () {
+    function MachineryService(http) {
+        this.http = http;
+        this.url = 'https://cgstore-back2017.herokuapp.com/heavyequipments';
+    }
+    MachineryService.prototype.getAll = function () {
+        return this.http.post(this.url, { parametro1: 1 })
+            .map(function (result) {
+            var listMachinery = [];
+            __WEBPACK_IMPORTED_MODULE_3_lodash__["forEach"](result, function (machinery) {
+                listMachinery.push(new __WEBPACK_IMPORTED_MODULE_4__models_machinery__["a" /* Machinery */](machinery));
+            });
+            return listMachinery;
+        })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error || 'ServerError'); });
+    };
+    return MachineryService;
+}());
+MachineryService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+], MachineryService);
+
+var _a;
+//# sourceMappingURL=machinery.service.js.map
 
 /***/ }),
 
