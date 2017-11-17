@@ -1,11 +1,9 @@
 /* your styles go here */
 
-
 .jumbotron {
-  background: url('https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849825_960_720.jpg') center center repeat;
+  background: url('http://www.designals.net/wp-content/uploads/2012/12/texturas-metal-25.jpg') center center repeat;
   background-size: cover;
 }
-
 
 @media (min-width: 992px) {
   .vertical_center_col {
@@ -14,13 +12,13 @@
   }
 }
 
-.vertical_center_col{
+.vertical_center_col {
   text-align: center;
 }
 
-.list_custom{
+.list_custom {
   font-size: 21px;
-   font-weight: 400
+  font-weight: 400
 }
 
 @media (max-width: 991px) and (min-width: 768px) {
@@ -98,7 +96,6 @@
   margin-top: 30px;
 }
 
-
-.img-responsive{
-  margin:0 auto;
+.img-responsive {
+  margin: 0 auto;
 }
