@@ -13,6 +13,7 @@ export class Quotation {
   public product: Product;
   public createdAt: Date;
   public updatedAt: Date;
+  public originalData: Object;
 
   constructor(data: any, user: User = null, product: Product = null) {
     if (data instanceof Object) {

@@ -2,3 +2,15 @@
   max-width: 200px;
   max-height: 200px;
 }
+
+.quotationTable tbody tr:hover {
+  cursor: pointer;
+}
+
+template modal-body {
+  background-image: image('assets/img/logoEnd.png');
+}
+
+.dataPresent:nth-child(even) {
+  background-color: rgba(70, 127, 191, 0.5) !important;
+}

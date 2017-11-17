@@ -10,14 +10,18 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { ResetComponent } from './reset/reset.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { ModalModule } from 'ngx-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalModule.forRoot()
   ],
-  declarations: [LoginComponent, RegisterComponent, ForgotComponent, ResetComponent, ProfileComponent]
+  declarations: [LoginComponent, RegisterComponent, ForgotComponent, ResetComponent, ProfileComponent],
+  providers: [BsModalService]
 })
 export class AuthModule { }
