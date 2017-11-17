@@ -40,8 +40,7 @@ export class Quotation {
 
     if (user) {
       this.user = user;
-    }
-
+    } 
     if (product) {
       this.product = product;
     }
