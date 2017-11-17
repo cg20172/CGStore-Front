@@ -180,10 +180,15 @@ export class QuotationComponent implements OnInit {
     _.forEach(productData, (value, property) => {
       let productProperty = this.selectedProduct.properties.find((prop) => prop.name === property);
       if (productProperty instanceof ProductProperty) {
-        if(productProperty.value instanceof Object){
-           if(productProperty.value.hasOwnProperty('name') && productProperty.value.hasOwnProperty('value')){
-              productProperty.value = productProperty.value.value;
-            }
+        if(productProperty.type === 'list'){
+          productProperty.value = productProperty.value.value;
+        }
+        else if(productProperty.type === 'bool'){
+          if(value){
+             productProperty.value = 1;
+          }else {
+             productProperty.value = 0;
+          }
         }
         else{
           productProperty.value = value;
