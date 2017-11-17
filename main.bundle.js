@@ -1165,7 +1165,8 @@ var Quotation = (function () {
         }
         return {
             user_id: this.user ? this.user.id : this.userId,
-            product_id: this.product ? this.product.id : this.productId,
+            //product_id: this.product ? this.product.id : this.productId,
+            product_id: this.product.productType,
             date: strDate,
             params: params
         };
@@ -2244,7 +2245,20 @@ var QuotationComponent = (function () {
         __WEBPACK_IMPORTED_MODULE_5_lodash__["forEach"](productData, function (value, property) {
             var productProperty = _this.selectedProduct.properties.find(function (prop) { return prop.name === property; });
             if (productProperty instanceof __WEBPACK_IMPORTED_MODULE_9__models_product_property__["a" /* ProductProperty */]) {
-                productProperty.value = value;
+                if (productProperty.type === 'list') {
+                    productProperty.value = productProperty.value.value;
+                }
+                else if (productProperty.type === 'bool') {
+                    if (value) {
+                        productProperty.value = 1;
+                    }
+                    else {
+                        productProperty.value = 0;
+                    }
+                }
+                else {
+                    productProperty.value = value;
+                }
             }
         });
         quotationData.quantity = this.productQuantity;
@@ -2629,11 +2643,21 @@ var ProductService = (function () {
                 var items_1 = [];
                 property.values.split(',').map(function (item) {
                     var data = item.split('-');
-                    data[0] = parseInt(data[0]);
-                    items_1.push({
-                        value: data[0],
-                        name: data[1]
-                    });
+                    //console.log(data.length);
+                    //console.log(data[0]);
+                    if (data.length == 2) {
+                        data[0] = parseInt(data[0]);
+                        items_1.push({
+                            value: data[0],
+                            name: data[1]
+                        });
+                    }
+                    else if (data.length == 1) {
+                        items_1.push({
+                            value: data[0],
+                            name: data[0]
+                        });
+                    }
                 });
                 property.values = items_1;
             }
