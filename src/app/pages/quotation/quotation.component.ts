@@ -236,11 +236,7 @@ export class QuotationComponent implements OnInit {
   }
 
   public saveQuotation(productForm, quotationForm) {
-    if (this.user) {
-      this.makeQuotation(productForm, quotationForm);
-    } else {
-      this.registerUser(productForm, quotationForm);
-    }
+    this.makeQuotation(productForm, quotationForm);
   }
 
   @ViewChild(DrawDoorComponent)
@@ -374,6 +370,7 @@ export class QuotationComponent implements OnInit {
     _.forEach(machine.originalData, (value, key) => {
       this.productForm.controls[key].setValue(value);
     });
+    console.log(this.productForm);
   }
 
   public registerUser(productForm, quotationForm) {
