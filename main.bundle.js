@@ -1686,14 +1686,18 @@ MaterialModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__quotation_quotation_form_quotation_form_component__ = __webpack_require__("../../../../../src/app/pages/quotation/quotation-form/quotation-form.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__quotation_draw_door_draw_door_component__ = __webpack_require__("../../../../../src/app/pages/quotation/draw-door/draw-door.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__quotation_draw_lego_draw_lego_component__ = __webpack_require__("../../../../../src/app/pages/quotation/draw-lego/draw-lego.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_ngvas__ = __webpack_require__("../../../../ngvas/lib/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_ngvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_ngvas__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__quotation_draw_muelle_draw_muelle_component__ = __webpack_require__("../../../../../src/app/pages/quotation/draw-muelle/draw-muelle.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__quotation_draw_abrigo_draw_abrigo_component__ = __webpack_require__("../../../../../src/app/pages/quotation/draw-abrigo/draw-abrigo.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_ngvas__ = __webpack_require__("../../../../ngvas/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_ngvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20_ngvas__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -1728,13 +1732,13 @@ PagesModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
             __WEBPACK_IMPORTED_MODULE_8__material_material_module__["a" /* MaterialModule */],
             __WEBPACK_IMPORTED_MODULE_6_ngx_owl_carousel__["OwlModule"],
-            __WEBPACK_IMPORTED_MODULE_18_ngvas__["NgvasModule"],
+            __WEBPACK_IMPORTED_MODULE_20_ngvas__["NgvasModule"],
             __WEBPACK_IMPORTED_MODULE_7__yaga_leaflet_ng2__["YagaModule"],
             __WEBPACK_IMPORTED_MODULE_1__agm_core__["a" /* AgmCoreModule */].forRoot({
                 apiKey: 'AIzaSyCJgE_ZRBAXSFQb-ilbeU7OSqo74wUKUdk'
             }),
         ],
-        declarations: [__WEBPACK_IMPORTED_MODULE_9__home_home_component__["a" /* HomeComponent */], __WEBPACK_IMPORTED_MODULE_10__contact_contact_component__["a" /* ContactComponent */], __WEBPACK_IMPORTED_MODULE_11__products_doors_doors_component__["a" /* DoorsComponent */], __WEBPACK_IMPORTED_MODULE_12__products_machinery_machinery_component__["a" /* MachineryComponent */], __WEBPACK_IMPORTED_MODULE_13__products_legos_legos_component__["a" /* LegosComponent */], __WEBPACK_IMPORTED_MODULE_14__quotation_quotation_component__["a" /* QuotationComponent */], __WEBPACK_IMPORTED_MODULE_15__quotation_quotation_form_quotation_form_component__["a" /* QuotationFormComponent */], __WEBPACK_IMPORTED_MODULE_16__quotation_draw_door_draw_door_component__["a" /* DrawDoorComponent */], __WEBPACK_IMPORTED_MODULE_17__quotation_draw_lego_draw_lego_component__["a" /* DrawLegoComponent */]],
+        declarations: [__WEBPACK_IMPORTED_MODULE_9__home_home_component__["a" /* HomeComponent */], __WEBPACK_IMPORTED_MODULE_10__contact_contact_component__["a" /* ContactComponent */], __WEBPACK_IMPORTED_MODULE_11__products_doors_doors_component__["a" /* DoorsComponent */], __WEBPACK_IMPORTED_MODULE_12__products_machinery_machinery_component__["a" /* MachineryComponent */], __WEBPACK_IMPORTED_MODULE_13__products_legos_legos_component__["a" /* LegosComponent */], __WEBPACK_IMPORTED_MODULE_14__quotation_quotation_component__["a" /* QuotationComponent */], __WEBPACK_IMPORTED_MODULE_15__quotation_quotation_form_quotation_form_component__["a" /* QuotationFormComponent */], __WEBPACK_IMPORTED_MODULE_16__quotation_draw_door_draw_door_component__["a" /* DrawDoorComponent */], __WEBPACK_IMPORTED_MODULE_17__quotation_draw_lego_draw_lego_component__["a" /* DrawLegoComponent */], __WEBPACK_IMPORTED_MODULE_19__quotation_draw_abrigo_draw_abrigo_component__["a" /* DrawAbrigoComponent */], __WEBPACK_IMPORTED_MODULE_18__quotation_draw_muelle_draw_muelle_component__["a" /* DrawMuelleComponent */]],
         exports: [__WEBPACK_IMPORTED_MODULE_9__home_home_component__["a" /* HomeComponent */], __WEBPACK_IMPORTED_MODULE_10__contact_contact_component__["a" /* ContactComponent */], __WEBPACK_IMPORTED_MODULE_11__products_doors_doors_component__["a" /* DoorsComponent */], __WEBPACK_IMPORTED_MODULE_12__products_machinery_machinery_component__["a" /* MachineryComponent */], __WEBPACK_IMPORTED_MODULE_13__products_legos_legos_component__["a" /* LegosComponent */], __WEBPACK_IMPORTED_MODULE_14__quotation_quotation_component__["a" /* QuotationComponent */], __WEBPACK_IMPORTED_MODULE_15__quotation_quotation_form_quotation_form_component__["a" /* QuotationFormComponent */]],
         providers: []
     })
@@ -1950,6 +1954,197 @@ var _a;
 
 /***/ }),
 
+/***/ "../../../../../src/app/pages/quotation/draw-abrigo/draw-abrigo.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/quotation/draw-abrigo/draw-abrigo.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n\n\n<h1>Abrigos </h1>\n        <ngvas [width]=\"canvasWidth\" [height]=\"canvasHeight\" >\n\n\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"topX\" [y]=\"topY\" [width]=\"topWidth\" [height]=\"topHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"outlineLeftX\" [y]=\"outlineLeftY\" [width]=\"outlineWidth\" [height]=\"outlineHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"outlineRightX\" [y]=\"outlineRightY\" [width]=\"outlineWidth\" [height]=\"outlineHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n\n            <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"aletaFill\" [x]=\"centerOutlineLeftX\" [y]=\"centerOutlineLeftY\" [width]=\"centerOutlineWidth\" [height]=\"centerOutlineHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"aletaFill\" [x]=\"centerOutlineRightX\" [y]=\"centerOutlineRightY\" [width]=\"centerOutlineWidth\" [height]=\"centerOutlineHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n\n    </ngvas>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/quotation/draw-abrigo/draw-abrigo.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DrawAbrigoComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ngvas__ = __webpack_require__("../../../../ngvas/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ngvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_ngvas__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_fromEvent__ = __webpack_require__("../../../../rxjs/add/observable/fromEvent.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_fromEvent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_fromEvent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_takeUntil__ = __webpack_require__("../../../../rxjs/add/operator/takeUntil.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_takeUntil___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_takeUntil__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_pairwise__ = __webpack_require__("../../../../rxjs/add/operator/pairwise.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_pairwise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_pairwise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__ = __webpack_require__("../../../../rxjs/add/operator/switchMap.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var DrawAbrigoComponent = (function () {
+    function DrawAbrigoComponent() {
+        this.sizefactor = 5;
+        this.lonaWidth = 3400 / this.sizefactor;
+        this.lonaHeight = 3400 / this.sizefactor;
+        this.lonaFill = 0x666666;
+        this.outlineFill = 0x37375B;
+        this.dividerFill = 0xffffff;
+        this.aletaFill = 0xFCAC2F;
+        this.outlineWidth = 600 / this.sizefactor;
+        this.outlineHeight = (1000 / this.sizefactor);
+        this.topWidth = this.lonaHeight + ((600 / this.sizefactor) * 2) + this.outlineWidth;
+        this.topHeight = 1000 / this.sizefactor;
+        this.centerOutlineWidth = (this.outlineWidth / 3);
+        this.centerOutlineHeight = this.outlineHeight;
+        this.canvasWidth = this.topWidth;
+        this.canvasHeight = this.lonaHeight + this.topHeight;
+        this.topX = this.canvasWidth / 2;
+        this.topY = this.topHeight / 2;
+        this.lonaX = this.canvasWidth / 2;
+        this.lonaY = (this.lonaHeight / 2) + (this.topHeight);
+        this.outlineLeftX = (this.canvasWidth / 2) - (this.topWidth / 2) + (600 / this.sizefactor);
+        this.outlineLeftY = (this.outlineHeight / 2) + (this.topHeight);
+        this.outlineRightX = (this.canvasWidth / 2) + (this.topWidth / 2) - (600 / this.sizefactor);
+        this.outlineRightY = (this.outlineHeight / 2) + (this.topHeight);
+        this.centerOutlineLeftX = (this.canvasWidth / 2) - (this.topWidth / 2) + (this.outlineWidth / 2) + (this.centerOutlineWidth / 2) - 10;
+        this.centerOutlineLeftY = (this.outlineHeight / 2) + (this.topHeight) + (2400 / this.sizefactor);
+        this.centerOutlineRightX = (this.canvasWidth / 2) + (this.topWidth / 2) - (this.outlineWidth / 2) - (this.centerOutlineWidth / 2) + 10;
+        this.centerOutlineRightY = (this.outlineHeight / 2) + (this.topHeight) + (2400 / this.sizefactor);
+        this.strokeColor = 0x000000;
+        this.strokeWidth = 1;
+        this.pixelHitArea = __WEBPACK_IMPORTED_MODULE_1_ngvas__["hitAreas"].PixelHitArea;
+        this.colors = [
+            0xFCAC2F,
+            0x37375B,
+            0x2B4F8D,
+            0x1D1B1E
+        ];
+        this.changeSize(1);
+    }
+    DrawAbrigoComponent.prototype.ngOnInit = function () {
+        //console.log('componente inicializado...');
+    };
+    DrawAbrigoComponent.prototype.updateColor = function (value) {
+        //console.log("lona color: " + value );
+        if (value >= 1 && value <= 4) {
+            this.outlineFill = this.colors[value - 1];
+        }
+    };
+    DrawAbrigoComponent.prototype.changeSize = function (option) {
+        var width;
+        var height;
+        switch (option) {
+            case 1:
+                width = 3200 / this.sizefactor;
+                height = 3200 / this.sizefactor;
+                var extraSpace = 100 / this.sizefactor;
+                this.lonaWidth = width;
+                this.lonaHeight = height;
+                this.topWidth = width;
+                this.outlineHeight = this.lonaHeight;
+                this.topWidth = this.lonaWidth + ((600 / this.sizefactor) * 2) + this.outlineWidth;
+                this.topHeight = 1000 / this.sizefactor;
+                this.topY = this.topHeight / 2 + extraSpace;
+                this.lonaY = (this.lonaHeight / 2) + (this.topHeight) + extraSpace;
+                this.outlineLeftX = (this.canvasWidth / 2) - (this.topWidth / 2) + (this.outlineWidth / 2) + 10;
+                this.outlineLeftY = (this.outlineHeight / 2) + (this.topHeight) + extraSpace;
+                this.outlineRightX = (this.canvasWidth / 2) + (this.topWidth / 2) - (this.outlineWidth / 2) - 10;
+                this.outlineRightY = (this.outlineHeight / 2) + (this.topHeight) + extraSpace;
+                this.centerOutlineLeftX = (this.canvasWidth / 2) - (this.topWidth / 2) + (this.outlineWidth / 2) + (this.centerOutlineWidth / 2) - 7;
+                this.centerOutlineLeftY = (this.outlineHeight / 2) + (this.topHeight) + (1200 / this.sizefactor);
+                this.centerOutlineRightX = (this.canvasWidth / 2) + (this.topWidth / 2) - (this.outlineWidth / 2) - (this.centerOutlineWidth / 2) + 7;
+                this.centerOutlineRightY = (this.outlineHeight / 2) + (this.topHeight) + (1200 / this.sizefactor);
+                break;
+            case 2:
+                width = 3200 / this.sizefactor;
+                height = 3400 / this.sizefactor;
+                var extraSpace = 100;
+                this.lonaWidth = width;
+                this.lonaHeight = height;
+                this.outlineWidth = 600 / this.sizefactor;
+                this.outlineHeight = this.lonaHeight;
+                this.topWidth = this.lonaWidth + ((600 / this.sizefactor) * 2) + this.outlineWidth;
+                this.topHeight = 1000 / this.sizefactor;
+                this.topX = this.canvasWidth / 2;
+                this.topY = this.topHeight / 2;
+                this.lonaX = this.canvasWidth / 2;
+                this.lonaY = (this.lonaHeight / 2) + (this.topHeight);
+                this.outlineLeftX = (this.canvasWidth / 2) - (this.topWidth / 2) + (this.outlineWidth / 2) + 10;
+                this.outlineLeftY = (this.outlineHeight / 2) + (this.topHeight);
+                this.outlineRightX = (this.canvasWidth / 2) + (this.topWidth / 2) - (this.outlineWidth / 2) - 10;
+                this.outlineRightY = (this.outlineHeight / 2) + (this.topHeight);
+                this.centerOutlineLeftX = (this.canvasWidth / 2) - (this.topWidth / 2) + (this.outlineWidth / 2) + (this.centerOutlineWidth / 2) - 7;
+                this.centerOutlineLeftY = (this.outlineHeight / 2) + (this.topHeight) + (1200 / this.sizefactor);
+                this.centerOutlineRightX = (this.canvasWidth / 2) + (this.topWidth / 2) - (this.outlineWidth / 2) - (this.centerOutlineWidth / 2) + 7;
+                this.centerOutlineRightY = (this.outlineHeight / 2) + (this.topHeight) + (1200 / this.sizefactor);
+                break;
+            case 3:
+                width = 3400 / this.sizefactor;
+                height = 3400 / this.sizefactor;
+                var extraSpace = 0;
+                this.lonaWidth = width;
+                this.lonaHeight = height;
+                this.topWidth = width;
+                this.outlineHeight = this.lonaHeight;
+                this.topWidth = this.lonaWidth + ((600 / this.sizefactor) * 2) + this.outlineWidth;
+                this.topHeight = 1000 / this.sizefactor;
+                this.topY = this.topHeight / 2 + extraSpace;
+                this.lonaY = (this.lonaHeight / 2) + (this.topHeight) + extraSpace;
+                this.outlineLeftX = (this.canvasWidth / 2) - (this.topWidth / 2) + (this.outlineWidth / 2) + 10;
+                this.outlineLeftY = (this.outlineHeight / 2) + (this.topHeight) + extraSpace;
+                this.outlineRightX = (this.canvasWidth / 2) + (this.topWidth / 2) - (this.outlineWidth / 2) - 10;
+                this.outlineRightY = (this.outlineHeight / 2) + (this.topHeight) + extraSpace;
+                this.centerOutlineLeftX = (this.canvasWidth / 2) - (this.topWidth / 2) + (this.outlineWidth / 2) + (this.centerOutlineWidth / 2) - 10;
+                this.centerOutlineLeftY = (this.outlineHeight / 2) + (this.topHeight) + (1200 / this.sizefactor);
+                this.centerOutlineRightX = (this.canvasWidth / 2) + (this.topWidth / 2) - (this.outlineWidth / 2) - (this.centerOutlineWidth / 2) + 10;
+                this.centerOutlineRightY = (this.outlineHeight / 2) + (this.topHeight) + (1200 / this.sizefactor);
+                break;
+        }
+    };
+    return DrawAbrigoComponent;
+}());
+DrawAbrigoComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-draw-abrigo',
+        template: __webpack_require__("../../../../../src/app/pages/quotation/draw-abrigo/draw-abrigo.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/pages/quotation/draw-abrigo/draw-abrigo.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], DrawAbrigoComponent);
+
+//# sourceMappingURL=draw-abrigo.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/pages/quotation/draw-door/draw-door.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1971,7 +2166,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/quotation/draw-door/draw-door.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n\r\n<h1>Puerta </h1>\r\n    <ngvas [width]=\"canvasWidth\" [height]=\"canvasHeight\" >\r\n\r\n\r\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"topX\" [y]=\"topY\" [width]=\"topWidth\" [height]=\"topHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\r\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"outlineLeftX\" [y]=\"outlineLeftY\" [width]=\"outlineWidth\" [height]=\"outlineHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\r\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"outlineRightX\" [y]=\"outlineRightY\" [width]=\"outlineWidth\" [height]=\"outlineHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\r\n\r\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"lonaFill\" [x]=\"lonaX\" [y]=\"lonaY\" [width]=\"lonaWidth\" [height]=\"lonaHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\r\n\r\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_1_X\" [y]=\"divider_1_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\r\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_2_X\" [y]=\"divider_2_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\r\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_3_X\" [y]=\"divider_3_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\r\n\r\n    </ngvas>"
+module.exports = "\n\n\n<h1>Puerta </h1>\n    <ngvas [width]=\"canvasWidth\" [height]=\"canvasHeight\" >\n\n\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"topX\" [y]=\"topY\" [width]=\"topWidth\" [height]=\"topHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"outlineLeftX\" [y]=\"outlineLeftY\" [width]=\"outlineWidth\" [height]=\"outlineHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"outlineRightX\" [y]=\"outlineRightY\" [width]=\"outlineWidth\" [height]=\"outlineHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"lonaFill\" [x]=\"lonaX\" [y]=\"lonaY\" [width]=\"lonaWidth\" [height]=\"lonaHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_1_X\" [y]=\"divider_1_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_2_X\" [y]=\"divider_2_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_3_X\" [y]=\"divider_3_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n\n    </ngvas>"
 
 /***/ }),
 
@@ -2149,7 +2344,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/quotation/draw-lego/draw-lego.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"row vertical_center_col\">\r\n\r\n    <div class=\"col-sm-6 center-text\" *ngIf=\"accesorioDelantero == true\" >\r\n    \t<h4 >Accesorio Delantero</h4> \r\n    \t<img class = \"img-responsive\"height=\"{{imageHeight}}\" width=\"{{imageWidth}}\" [src]=\"accesorioDelanteroSrc\" (error)=\"setDefaultPic('accesorioDelantero')\" >    \t  \r\n    </div>\r\n\r\n    <div class=\"col-sm-6 center-text\" *ngIf=\"accesorioTrasero == true\" >\r\n    \t<h4 >Accesorio Trasero</h4> \r\n    \t<img class = \"img-responsive\"height=\"{{imageHeight}}\" width=\"{{imageWidth}}\" [src]=\"accesorioTraseroSrc\" (error)=\"setDefaultPic('accesorioTrasero')\" >    \t  \r\n    </div>\r\n\r\n</div>\r\n<div class=\"row vertical_center_col\">\r\n\r\n    <div class=\"col-sm-6 text-center\"  *ngIf=\"cabina == true\" >\r\n    <h4 >Cabina</h4>\t\r\n        <img class = \"img-responsive\"height=\"{{imageHeight}}\" width=\"{{imageWidth}}\" [src]=\"cabinaSrc\" (error)=\"setDefaultPic('cabina')\" >\r\n    </div>\r\n\r\n    <div class=\"col-sm-6 center-text\" *ngIf=\"inferior == true\" >\r\n    \t<h4 >Inferior</h4>  \r\n    \t<img class = \"img-responsive\"height=\"{{imageHeight}}\" width=\"{{imageWidth}}\" [src]=\"inferiorSrc\" (error)=\"setDefaultPic('inferior')\" >\r\n    </div>\r\n\r\n</div>\r\n\r\n\r\n\t\r\n\t"
+module.exports = "\n<div class=\"row vertical_center_col\">\n\n    <div class=\"col-sm-6 center-text\" *ngIf=\"accesorioDelantero == true\" >\n    \t<h4 >Accesorio Delantero</h4> \n    \t<img class = \"img-responsive\"height=\"{{imageHeight}}\" width=\"{{imageWidth}}\" [src]=\"accesorioDelanteroSrc\" (error)=\"setDefaultPic('accesorioDelantero')\" >    \t  \n    </div>\n\n    <div class=\"col-sm-6 center-text\" *ngIf=\"accesorioTrasero == true\" >\n    \t<h4 >Accesorio Trasero</h4> \n    \t<img class = \"img-responsive\"height=\"{{imageHeight}}\" width=\"{{imageWidth}}\" [src]=\"accesorioTraseroSrc\" (error)=\"setDefaultPic('accesorioTrasero')\" >    \t  \n    </div>\n\n</div>\n<div class=\"row vertical_center_col\">\n\n    <div class=\"col-sm-6 text-center\"  *ngIf=\"cabina == true\" >\n    <h4 >Cabina</h4>\t\n        <img class = \"img-responsive\"height=\"{{imageHeight}}\" width=\"{{imageWidth}}\" [src]=\"cabinaSrc\" (error)=\"setDefaultPic('cabina')\" >\n    </div>\n\n    <div class=\"col-sm-6 center-text\" *ngIf=\"inferior == true\" >\n    \t<h4 >Inferior</h4>  \n    \t<img class = \"img-responsive\"height=\"{{imageHeight}}\" width=\"{{imageWidth}}\" [src]=\"inferiorSrc\" (error)=\"setDefaultPic('inferior')\" >\n    </div>\n\n</div>\n\n\n\t\n\t"
 
 /***/ }),
 
@@ -2274,6 +2469,274 @@ DrawLegoComponent = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/pages/quotation/draw-muelle/draw-muelle.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/quotation/draw-muelle/draw-muelle.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n\n\n<h1>Sello </h1>\n    <ngvas [width]=\"canvasWidth\" [height]=\"canvasHeight\" >\n\n\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"topX\" [y]=\"topY\" [width]=\"topWidth\" [height]=\"topHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"outlineLeftX\" [y]=\"outlineLeftY\" [width]=\"outlineWidth\" [height]=\"outlineHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"outlineFill\" [x]=\"outlineRightX\" [y]=\"outlineRightY\" [width]=\"outlineWidth\" [height]=\"outlineHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n\n\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"aletaFill\" [x]=\"centerOutlineLeftX\" [y]=\"centerOutlineLeftY\" [width]=\"centerOutlineWidth\" [height]=\"centerOutlineHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"aletaFill\" [x]=\"centerOutlineRightX\" [y]=\"centerOutlineRightY\" [width]=\"centerOutlineWidth\" [height]=\"centerOutlineHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n\n\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_0_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_1_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_2_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_3_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_4_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_5_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_6_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_7_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_8_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_9_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_10_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_11_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_12_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_13_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_14_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_15_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>  \n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_16_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_17_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_18_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_19_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_20_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [fill]=\"dividerFill\" [x]=\"divider_0_X\" [y]=\"divider_21_Y\" [width]=\"dividerWidth\" [height]=\"dividerHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>  \n\n\n      <ngvas-rectangle  [fill]=\"lonaFill\" [x]=\"lonaX\" [y]=\"lonaY\" [width]=\"lonaWidth\" [height]=\"lonaHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle> \n      <ngvas-rectangle  [fill]=\"lonaFill\" [x]=\"extraLonaX\" [y]=\"extraLonaY\" [width]=\"extraLonaWidth\" [height]=\"extraLonaHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle> \n\n      <ngvas-rectangle  [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [rotation]=\"angleShapeRotation\" [fill]=\"outlineFill\" [x]=\"angleShapeX\" [y]=\"angleShapeY\" [width]=\"angleShapeWidth\" [height]=\"angleShapeHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-rectangle  [stroke]=\"{ width: strokeWidth, style: strokeColor }\" [rotation]=\"angleShapeRotation\" [fill]=\"outlineFill\" [x]=\"angleShapeX\" [y]=\"angleShapeY\" [width]=\"angleShapeWidth\" [height]=\"angleShapeHeight\" origin=\"center\" [hitArea]=\"pixelHitArea\"></ngvas-rectangle>\n      <ngvas-text [fill]=\"textFill\" [textStyle]=\"{ font: '30px Arial' }\"    [x]=\"textAngleX\" [y]=\"textAngleY\" [text]=\"angleShapeText\"></ngvas-text>      \n    </ngvas>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/quotation/draw-muelle/draw-muelle.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DrawMuelleComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ngvas__ = __webpack_require__("../../../../ngvas/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ngvas___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_ngvas__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_fromEvent__ = __webpack_require__("../../../../rxjs/add/observable/fromEvent.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_fromEvent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_fromEvent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_takeUntil__ = __webpack_require__("../../../../rxjs/add/operator/takeUntil.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_takeUntil___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_takeUntil__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_pairwise__ = __webpack_require__("../../../../rxjs/add/operator/pairwise.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_pairwise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_pairwise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__ = __webpack_require__("../../../../rxjs/add/operator/switchMap.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var DrawMuelleComponent = (function () {
+    function DrawMuelleComponent() {
+        this.sizefactor = 5;
+        this.lonaWidth = 3000 / this.sizefactor;
+        this.lonaHeight = 3000 / this.sizefactor;
+        this.lonaFill = 0xffffff;
+        this.aletaFill = 0xFCAC2F;
+        this.outlineFill = 0x37375B;
+        this.dividerFill = 0x000000;
+        this.textFill = 0x000000;
+        this.angleShapeFill = 0xff0000;
+        this.outlineWidth = 250 / this.sizefactor;
+        this.outlineHeight = this.lonaHeight;
+        this.centerOutlineWidth = (this.outlineWidth / 3);
+        this.centerOutlineHeight = this.outlineHeight;
+        this.topWidth = this.lonaWidth + ((200 / this.sizefactor) * 2) + this.outlineWidth;
+        this.topHeight = 270 / this.sizefactor;
+        this.dividerWidth = this.lonaWidth + this.outlineWidth * 2;
+        this.dividerHeight = 1;
+        this.canvasWidth = this.topWidth;
+        this.canvasHeight = this.lonaHeight + this.topHeight;
+        this.topX = this.canvasWidth / 2;
+        this.topY = this.topHeight / 2;
+        this.lonaX = this.canvasWidth / 2;
+        this.lonaY = (this.lonaHeight / 2) + (this.topHeight);
+        this.text1X = this.lonaX;
+        this.text1Y = this.lonaY;
+        this.outlineLeftX = (this.canvasWidth / 2) - (this.topWidth / 2) + (200 / this.sizefactor);
+        this.outlineLeftY = (this.outlineHeight / 2) + (this.topHeight);
+        this.outlineRightX = (this.canvasWidth / 2) + (this.topWidth / 2) - (200 / this.sizefactor);
+        this.outlineRightY = (this.outlineHeight / 2) + (this.topHeight);
+        this.centerOutlineLeftX = (this.canvasWidth / 2) - (this.topWidth / 2) + (200 / this.sizefactor);
+        this.centerOutlineLeftY = (this.outlineHeight / 2) + (this.topHeight);
+        this.centerOutlineRightX = (this.canvasWidth / 2) + (this.topWidth / 2) - (200 / this.sizefactor);
+        this.centerOutlineRightY = (this.outlineHeight / 2) + (this.topHeight);
+        this.angleShapeWidth = 25;
+        this.angleShapeHeight = 150;
+        this.angleShapeX = (this.canvasWidth / 2);
+        this.angleShapeY = (this.canvasHeight / 2) + (this.topHeight);
+        this.angleShapeRotation = 0;
+        this.angleShapeText = "0°";
+        this.textAngleY = (this.canvasHeight / 2) + (this.topHeight) + (this.angleShapeHeight / 2) + 35;
+        this.textAngleX = (this.canvasWidth / 2) - (this.angleShapeWidth / 2);
+        this.extraLonaHeight = this.canvasHeight;
+        this.extraLonaWidth = this.canvasWidth;
+        this.extraLonaX = this.canvasWidth / 2;
+        this.extraLonaY = (this.canvasHeight / 2) + (this.topHeight) + this.lonaHeight + 2;
+        this.aleta10cm = (130 / this.sizefactor);
+        this.aleta15cm = (195 / this.sizefactor);
+        this.aleta20cm = (260 / this.sizefactor);
+        this.currentAletaHeight = this.aleta10cm;
+        this.aletaSpace = this.aleta10cm;
+        this.divider_0_X = this.lonaX;
+        this.divider_0_Y = (this.topY * 2) + this.aletaSpace;
+        this.divider_1_Y = this.divider_0_Y + this.aletaSpace;
+        this.divider_2_Y = this.divider_1_Y + this.aletaSpace;
+        this.divider_3_Y = this.divider_2_Y + this.aletaSpace;
+        this.divider_4_Y = this.divider_3_Y + this.aletaSpace;
+        this.divider_5_Y = this.divider_4_Y + this.aletaSpace;
+        this.divider_6_Y = this.divider_5_Y + this.aletaSpace;
+        this.divider_7_Y = this.divider_6_Y + this.aletaSpace;
+        this.divider_8_Y = this.divider_7_Y + this.aletaSpace;
+        this.divider_9_Y = this.divider_8_Y + this.aletaSpace;
+        this.divider_10_Y = this.divider_9_Y + this.aletaSpace;
+        this.divider_11_Y = this.divider_10_Y + this.aletaSpace;
+        this.divider_12_Y = this.divider_11_Y + this.aletaSpace;
+        this.divider_13_Y = this.divider_12_Y + this.aletaSpace;
+        this.divider_14_Y = this.divider_13_Y + this.aletaSpace;
+        this.divider_15_Y = this.divider_14_Y + this.aletaSpace;
+        this.divider_16_Y = this.divider_15_Y + this.aletaSpace;
+        this.divider_17_Y = this.divider_16_Y + this.aletaSpace;
+        this.divider_18_Y = this.divider_17_Y + this.aletaSpace;
+        this.divider_19_Y = this.divider_18_Y + this.aletaSpace;
+        this.divider_20_Y = this.divider_19_Y + this.aletaSpace;
+        this.divider_21_Y = this.divider_20_Y + this.aletaSpace;
+        this.strokeColor = 0x000000;
+        this.strokeWidth = 1;
+        this.pixelHitArea = __WEBPACK_IMPORTED_MODULE_1_ngvas__["hitAreas"].PixelHitArea;
+        this.colors = [
+            0xFCAC2F,
+            0x37375B,
+            0x2B4F8D,
+            0x1D1B1E
+        ];
+        this.initSizeMuelle();
+    }
+    DrawMuelleComponent.prototype.ngOnInit = function () {
+        //console.log('componente inicializado...');
+    };
+    DrawMuelleComponent.prototype.initSizeMuelle = function () {
+        this.updateHeight(2500);
+        this.updateWidth(2000);
+    };
+    DrawMuelleComponent.prototype.updateColor = function (value) {
+        //console.log("lona color: " + value );
+        if (value >= 1 && value <= 4) {
+            this.outlineFill = this.colors[value - 1];
+        }
+    };
+    ;
+    DrawMuelleComponent.prototype.changeAngleShapeRotation = function (value) {
+        var angle = value - this.angleShapeRotation;
+        if (angle >= -40 && angle <= 40) {
+            this.angleShapeRotation += angle;
+            this.angleShapeText = value + "°";
+        }
+    };
+    DrawMuelleComponent.prototype.changeAletaHeight = function (option) {
+        switch (option) {
+            case "1":
+                this.changeDividers_Y(this.aleta10cm - this.currentAletaHeight);
+                this.currentAletaHeight = this.aleta10cm;
+                break;
+            case "2":
+                this.changeDividers_Y(this.aleta15cm - this.currentAletaHeight);
+                this.currentAletaHeight = this.aleta15cm;
+                break;
+            case "3":
+                this.changeDividers_Y(this.aleta20cm - this.currentAletaHeight);
+                this.currentAletaHeight = this.aleta20cm;
+                break;
+        }
+    };
+    DrawMuelleComponent.prototype.changeDividers_Y = function (extraHeight) {
+        console.log("cambiando tamaño");
+        this.divider_0_Y += extraHeight;
+        this.divider_1_Y += extraHeight * 2;
+        this.divider_2_Y += extraHeight * 3;
+        this.divider_3_Y += extraHeight * 4;
+        this.divider_4_Y += extraHeight * 5;
+        this.divider_5_Y += extraHeight * 6;
+        this.divider_6_Y += extraHeight * 7;
+        this.divider_7_Y += extraHeight * 8;
+        this.divider_8_Y += extraHeight * 9;
+        this.divider_9_Y += extraHeight * 10;
+        this.divider_10_Y += extraHeight * 11;
+        this.divider_11_Y += extraHeight * 12;
+        this.divider_12_Y += extraHeight * 13;
+        this.divider_13_Y += extraHeight * 14;
+        this.divider_14_Y += extraHeight * 15;
+        this.divider_15_Y += extraHeight * 16;
+        this.divider_16_Y += extraHeight * 17;
+        this.divider_17_Y += extraHeight * 18;
+        this.divider_18_Y += extraHeight * 19;
+        this.divider_19_Y += extraHeight * 20;
+        this.divider_20_Y += extraHeight * 21;
+        this.divider_21_Y += extraHeight * 22;
+    };
+    DrawMuelleComponent.prototype.updateWidth = function (value) {
+        //console.log("width: " + value );
+        var width = (value / this.sizefactor) - this.lonaWidth;
+        if (this.lonaWidth + width >= 1000 / this.sizefactor && this.lonaWidth + width <= 3000 / this.sizefactor) {
+            this.lonaWidth += width;
+            this.topWidth += width;
+            this.outlineRightX += (width / 2);
+            this.outlineLeftX -= (width / 2);
+            this.centerOutlineLeftX -= (width / 2);
+            this.centerOutlineRightX += (width / 2);
+            this.dividerWidth = this.lonaWidth + this.outlineWidth * 2;
+        }
+    };
+    DrawMuelleComponent.prototype.updateHeight = function (value) {
+        //console.log("height: " + value );
+        var height = (value / this.sizefactor) - this.lonaHeight;
+        if (this.lonaHeight + height >= 2000 / this.sizefactor && this.lonaHeight + height <= 3000 / this.sizefactor) {
+            var currentLonaHeight = this.lonaHeight;
+            this.lonaHeight += height;
+            this.outlineHeight += height;
+            this.centerOutlineHeight += height;
+            this.topY -= (height / 2);
+            this.extraLonaY += height + 2;
+            this.angleShapeY += (height / 2);
+            this.textAngleY += (height / 2);
+            this.divider_0_Y -= (height / 2);
+            this.divider_1_Y -= (height / 2);
+            this.divider_2_Y -= (height / 2);
+            this.divider_3_Y -= (height / 2);
+            this.divider_4_Y -= (height / 2);
+            this.divider_5_Y -= (height / 2);
+            this.divider_6_Y -= (height / 2);
+            this.divider_7_Y -= (height / 2);
+            this.divider_8_Y -= (height / 2);
+            this.divider_9_Y -= (height / 2);
+            this.divider_10_Y -= (height / 2);
+            this.divider_11_Y -= (height / 2);
+            this.divider_12_Y -= (height / 2);
+            this.divider_13_Y -= (height / 2);
+            this.divider_14_Y -= (height / 2);
+            this.divider_15_Y -= (height / 2);
+            this.divider_16_Y -= (height / 2);
+            this.divider_17_Y -= (height / 2);
+            this.divider_18_Y -= (height / 2);
+            this.divider_19_Y -= (height / 2);
+            this.divider_20_Y -= (height / 2);
+            this.divider_21_Y -= (height / 2);
+        }
+    };
+    return DrawMuelleComponent;
+}());
+DrawMuelleComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-draw-muelle',
+        template: __webpack_require__("../../../../../src/app/pages/quotation/draw-muelle/draw-muelle.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/pages/quotation/draw-muelle/draw-muelle.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], DrawMuelleComponent);
+
+//# sourceMappingURL=draw-muelle.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/pages/quotation/quotation-form/quotation-form.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2385,7 +2848,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/quotation/quotation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-xs-12 col-sm-10 col-sm-offset-1\">\r\n  <h1 class=\"page-header\">Formulario De Cotización  </h1>\r\n  <p class=\"lead mb-small\">Llegaste al lugar correcto!</p>\r\n  <p class=\"text-justify\">\r\n    Ahora podras personalizar como desees tu producto,rellena el formulario a tu gusto el y al finalizar enviaremos el producto con sus planos personalizados al correo que nos has provisto.Solo se permite un producto por cotización,debido a esto cada vez\r\n    que presiónes en el boton de cotizar al finalizar el formulario empezaremos a procesar tu solicitud y en cuanto termine te sera entregada en tu correo.</p>\r\n  <div class=\"clearfix\"></div>\r\n  <br>\r\n\r\n  <div class=\"row\">\r\n    <div class=\"col-xs-12 col-sm-3\">\r\n      <ul class=\"nav nav-pills nav-stacked ul-with-border\">\r\n        <li *ngFor=\"let productType of productTypes\" [ngClass]=\"{active: productType == selectedProductType }\">\r\n          <a href=\"javascript: void(0);\" (click)=\"selectProductType(productType)\">{{ productType.name }}</a>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"col-xs-12 col-sm-9\">\r\n      <div *ngIf=\"!selectedProductType\">\r\n        <div class=\"alert alert-info\">\r\n          <p class=\"text-strong\">Seleccione un Tipo de Producto</p>\r\n          <p>Para continuar con la cotización debe primero seleccionar un tipo de producto que desee cotizar.</p>\r\n        </div>\r\n      </div>\r\n      <div *ngIf=\"selectedProductType\">\r\n        <h2>{{ selectedProductType.name }} <br><small>{{ selectedProductType.description }}</small></h2>\r\n\r\n        <mat-horizontal-stepper linear>\r\n          <mat-step [stepControl]=\"productForm\" label=\"Información de Producto\">\r\n            <div class=\"stepper-box\">\r\n              <div class=\"col-xs-12\">\r\n                <h3 class=\"text-center\">Información de Producto</h3>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <mat-form-field class=\"full-width\">\r\n                  <mat-select placeholder=\"Producto\" [(value)]=\"selectedProduct\" (change)=\"selectProduct($event.value)\" [required]=\"true\">\r\n                    <mat-option *ngFor=\"let product of selectedProductType.products\" [value]=\"product\">\r\n                      {{ product.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <mat-form-field class=\"full-width\">\r\n                  <input matInput class=\"full-width\" [(value)]=\"productQuantity\" type=\"number\" placeholder=\"Cantidad\" min=\"1\" />\r\n                </mat-form-field>\r\n              </div>\r\n              <div class=\"col-xs-12\">\r\n                <h4 *ngIf=\"selectedProduct !== null && showProductForm\">Características de Producto</h4>\r\n              </div>\r\n              <div class=\"quotation-form-box\" *ngIf=\"selectedProduct !== null && showProductForm\">\r\n                <div class=\"col-xs-12\" *ngIf=\"selectedProduct.name === 'Maquinaria'\">\r\n                  <div class=\"col-xs-12\">\r\n                    <mat-slide-toggle color=\"primary\" class=\"full-width\" [(ngModel)]=\"showAllMachinery\">\r\n                      Mostrar toda la maquinaria\r\n                    </mat-slide-toggle>\r\n                  </div>\r\n                  <div class=\"clearfix\"></div>\r\n                  <hr>\r\n                  <div class=\"col-xs-12\" [hidden]=\"showAllMachinery\">\r\n                    <div class=\"row\">\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <label class=\"control-label\">Modelo de Maquinaria</label>\r\n                        <div class=\"input-group\">\r\n                          <span class=\"input-group-addon\">\r\n                            <input type=\"checkbox\" [(ngModel)]=\"machinerySearch.isModelEnabled\">\r\n                          </span>\r\n                          <select class=\"form-control\" [(ngModel)]=\"machinerySearch.model\" [disabled]=\"!machinerySearch.isModelEnabled\">\r\n                            <option value=\"1\">Modelo 1</option>\r\n                            <option value=\"2\">Modelo 2</option>\r\n                            <option value=\"3\">Modelo 3</option>\r\n                            <option value=\"4\">Modelo 4</option>\r\n                          </select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"clearfix\"></div>\r\n                      <br>\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <label class=\"control-label\">Maquinaria nueva?</label>\r\n                        <div class=\"input-group\">\r\n                          <span class=\"input-group-addon\">\r\n                            <input type=\"checkbox\" [(ngModel)]=\"machinerySearch.isNewEnabled\">\r\n                          </span>\r\n                          <select class=\"form-control\" [(ngModel)]=\"machinerySearch.isNew\" [disabled]=\"!machinerySearch.isNewEnabled\">\r\n                            <option value=\"1\">Si</option>\r\n                            <option value=\"0\">No</option>\r\n                          </select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <label class=\"control-label\">Maquinaria en buen estado?</label>\r\n                        <div class=\"input-group\">\r\n                          <span class=\"input-group-addon\">\r\n                            <input type=\"checkbox\" [(ngModel)]=\"machinerySearch.isStateEnabled\">\r\n                          </span>\r\n                          <select class=\"form-control\" [(ngModel)]=\"machinerySearch.state\" [disabled]=\"!machinerySearch.isStateEnabled\">\r\n                            <option value=\"1\">Si</option>\r\n                            <option value=\"0\">No</option>\r\n                          </select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"clearfix\"></div>\r\n                      <br>\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <label class=\"control-label\">Necesita reparación?</label>\r\n                        <div class=\"input-group\">\r\n                          <span class=\"input-group-addon\">\r\n                            <input type=\"checkbox\" [(ngModel)]=\"machinerySearch.isRepairableEnabled\">\r\n                          </span>\r\n                          <select class=\"form-control\" [(ngModel)]=\"machinerySearch.repairable\" [disabled]=\"!machinerySearch.isRepairableEnabled\">\r\n                            <option value=\"1\">Si</option>\r\n                            <option value=\"0\">No</option>\r\n                          </select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <label class=\"control-label\">Tipo de documentación</label>\r\n                        <div class=\"input-group\">\r\n                          <span class=\"input-group-addon\">\r\n                            <input type=\"checkbox\" [(ngModel)]=\"machinerySearch.isDocumentationEnabled\">\r\n                          </span>\r\n                          <select class=\"form-control\" [(ngModel)]=\"machinerySearch.documentation\" [disabled]=\"!machinerySearch.isDocumentationEnabled\">\r\n                            <option [value]=\"idx\" *ngFor=\"let idx of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]\">Documentación {{ idx }}</option>\r\n                          </select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"clearfix\"></div>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"clearfix\"></div>\r\n                  <hr *ngIf=\"!showAllMachinery\">\r\n                  <div class=\"col-xs-12\">\r\n                    <agm-map class=\"map\" [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"zoom\">\r\n                      <agm-marker [latitude]=\"machine.latitude\" [longitude]=\"machine.longitude\" *ngFor=\"let machine of filterMachinery()\" (markerClick)=\"selectMachinery(machine)\"></agm-marker>\r\n                    </agm-map>\r\n                  </div>\r\n                  <div class=\"clearfix\"></div>\r\n                  <hr *ngIf=\"selectedMachine\">\r\n                  <div class=\"col-xs-12 col-sm-10 col-sm-offset-1 col-md-9 text-left\" *ngIf=\"selectedMachine\">\r\n                    <h3>Datos de Maquinaria Seleccionada</h3>\r\n                    <table class=\"table table-striped table-condensed\">\r\n                      <thead>\r\n                        <tr>\r\n                          <th>Caracteristica</th>\r\n                          <th>Valor</th>\r\n                        </tr>\r\n                      </thead>\r\n                      <tbody>\r\n                        <tr *ngFor=\"let prop of selectedMachine.toArray()\">\r\n                          <td>{{ prop.key }}</td>\r\n                          <td>{{ prop.value }}</td>\r\n                        </tr>\r\n                      </tbody>\r\n                    </table>\r\n                  </div>\r\n                </div>\r\n                <form class=\"form\" [formGroup]=\"productForm\" novalidate [hidden]=\"selectedProduct.name === 'Maquinaria'\">\r\n                  <div class=\"col-xs-12 text-center\" *ngIf=\"selectedProduct.name === 'Puerta rápida'\">\r\n                    <app-draw-door></app-draw-door>\r\n                  </div>\r\n\r\n                  <div class=\"col-xs-12 text-center\" *ngIf=\"selectedProductType.name== 'Lego'\">\r\n                    <app-draw-lego (ready)=\"showCanvasInLegos(selectedProduct)\"></app-draw-lego>\r\n                  </div>\r\n\r\n                  <div *ngFor=\"let property of selectedProduct.properties\">\r\n                    <div class=\"clearfix\" *ngIf=\"property.type === 'bool'\"></div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\" *ngIf=\"property.type === 'integer' || property.type === 'list'\">\r\n                        <input matInput class=\"full-width\" *ngIf=\"property.type === 'integer'\" [formControlName]=\"property.name\" type=\"number\" [placeholder]=\"property.name\" [min]=\"property.values[0]\" [max]=\"property.values[1]\" (change)=\"updateDraw(selectedProduct.name, property.name)\"\r\n                        />\r\n                        <mat-select *ngIf=\"property.type === 'list'\" [formControlName]=\"property.name\" [placeholder]=\"property.name\" [(value)]=\"property.value\" (change)=\"updateDraw(selectedProduct.name, property.name)\">\r\n                          <mat-option *ngFor=\"let option of property.values\" [value]=\"option\">\r\n                            {{ option.name }}\r\n                          </mat-option>\r\n                        </mat-select>\r\n                      </mat-form-field>\r\n                      <mat-slide-toggle color=\"primary\" class=\"full-width\" [formControlName]=\"property.name\" *ngIf=\"property.type === 'bool'\">\r\n                        {{ property.name }}\r\n                      </mat-slide-toggle>\r\n                    </div>\r\n                  </div>\r\n                </form>\r\n                <div class=\"col-xs-12\">\r\n                  <button mat-raised-button matStepperNext color=\"primary\" [disabled]=\"productForm.invalid\" class=\"pull-right\">Siguiente</button>\r\n                </div>\r\n                <div class=\"clearfix\"></div>\r\n              </div>\r\n              <div class=\"clearfix\"></div>\r\n            </div>\r\n          </mat-step>\r\n          <mat-step label=\"Información de Cotización\" [stepControl]=\"quotationForm\">\r\n            <div class=\"stepper-box\">\r\n              <div class=\"quotation-form-box\">\r\n                <form class=\"form\" [formGroup]=\"quotationForm\" novalidate>\r\n                  <div class=\"col-xs-12\">\r\n                    <div class=\"col-xs-12\">\r\n                      <h3 class=\"text-center\">Información de Cotización</h3>\r\n                      <h4>Información General</h4>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"firstName\" type=\"text\" placeholder=\"Nombres\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"lastName\" type=\"text\" placeholder=\"Apellidos\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"document\" type=\"text\" placeholder=\"Documento de Identidad\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"address\" type=\"text\" placeholder=\"Dirección\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"phone\" type=\"text\" placeholder=\"Teléfono\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"email\" type=\"text\" placeholder=\"Correo Electrónico\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"col-xs-12\">\r\n                    <div class=\"col-xs-12\" *ngIf=\"!user\">\r\n                      <div class=\"row\">\r\n                        <div class=\"col-xs-12 col-sm-6\">\r\n                          <mat-form-field class=\"full-width\">\r\n                            <input matInput class=\"full-width\" id=\"password\" formControlName=\"password\" type=\"password\" placeholder='Contraseña*' />\r\n                          </mat-form-field>\r\n                          <mat-chip class=\"mat-primary\" *ngIf=\"quotationForm.controls.password.dirty && quotationForm.controls.password.errors\">\r\n                            <ul class=\"list-unstyled\">\r\n                              <li *ngIf=\"quotationForm.controls.password.hasError('required')\">\r\n                                <span class=\"fa fa-exclamation\"></span> Oops, este campo es requerido!\r\n                              </li>\r\n                              <li *ngIf=\"!quotationForm.controls.password.hasError('required') && quotationForm.controls.password.hasError('minlength')\">\r\n                                <span class=\"fa fa-exclamation\"></span> Oops, este campo debe contener minimo 8 caracteres!\r\n                              </li>\r\n                            </ul>\r\n                          </mat-chip>\r\n                        </div>\r\n                        <div class=\"col-xs-12 col-sm-6\">\r\n                          <mat-form-field class=\"full-width\">\r\n                            <input matInput class=\"full-width\" id=\"confirmpassword\" formControlName=\"confirmPassword\" type=\"password\" placeholder='Confirmar contraseña*' />\r\n                          </mat-form-field>\r\n                          <mat-chip class=\"mat-primary\" *ngIf=\"quotationForm.controls.confirmPassword.dirty && quotationForm.controls.confirmPassword.errors\">\r\n                            <ul class=\"list-unstyled\">\r\n                              <li *ngIf=\"quotationForm.controls.confirmPassword.hasError('required')\">\r\n                                <span class=\"fa fa-exclamation\"></span> Oops, este campo es requerido!\r\n                              </li>\r\n                              <li *ngIf=\"!quotationForm.controls.confirmPassword.hasError('required') && quotationForm.value.password != quotationForm.value.confirmPassword\">\r\n                                <span class=\"fa fa-exclamation\"></span> Oops, los campos de contraseña deben coincidir!\r\n                              </li>\r\n                            </ul>\r\n                          </mat-chip>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"clearfix\"></div>\r\n                      <br>\r\n                    </div>\r\n\r\n                    <div class=\"col-xs-12\">\r\n                      <h4>Información de Empresa</h4>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"enterprise\" type=\"text\" placeholder=\"Empresa\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"nit\" type=\"text\" placeholder=\"NIT\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"role\" type=\"text\" placeholder=\"Rol en la compañia\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"clearfix\"></div>\r\n                  <div class=\"col-xs-12\">\r\n                    <button mat-raised-button matStepperPrevious>Anterior</button>\r\n                    <button mat-raised-button matStepperNext color=\"primary\" [disabled]=\"quotationForm.invalid\" class=\"pull-right\">Siguiente</button>\r\n                    <div class=\"clearfix\"></div>\r\n                  </div>\r\n                </form>\r\n              </div>\r\n              <div class=\"clearfix\"></div>\r\n            </div>\r\n            <div class=\"clearfix\"></div>\r\n          </mat-step>\r\n          <mat-step label=\"Completar Cotización\">\r\n            <div class=\"stepper-box\">\r\n              <div class=\"quotation-form-box\">\r\n                <div class=\"col-xs-12\">\r\n                  <h3>Completar Cotización</h3>\r\n                  <p>Para completar el proceso de cotización, haga clic en el botón \"Procesar Cotización\" de la parte inferior.</p>\r\n                </div>\r\n                <div class=\"clearfix\"></div>\r\n                <br><br>\r\n                <div class=\"col-xs-12\">\r\n                  <button mat-raised-button matStepperPrevious>Anterior</button>\r\n                  <button mat-raised-button matStepperNext color=\"primary\" [disabled]=\"false\" class=\"pull-right\" (click)=\"saveQuotation(productForm, quotationForm)\">Procesar Cotización</button>\r\n                </div>\r\n                <div class=\"clearfix\"></div>\r\n              </div>\r\n            </div>\r\n          </mat-step>\r\n        </mat-horizontal-stepper>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"clearfix\"></div>\r\n<br><br>\r\n"
+module.exports = "<div class=\"col-xs-12 col-sm-10 col-sm-offset-1\">\r\n  <h1 class=\"page-header\">Formulario De Cotización  </h1>\r\n  <p class=\"lead mb-small\">Llegaste al lugar correcto!</p>\r\n  <p class=\"text-justify\">\r\n    Ahora podras personalizar como desees tu producto,rellena el formulario a tu gusto el y al finalizar enviaremos el producto con sus planos personalizados al correo que nos has provisto.Solo se permite un producto por cotización,debido a esto cada vez\r\n    que presiónes en el boton de cotizar al finalizar el formulario empezaremos a procesar tu solicitud y en cuanto termine te sera entregada en tu correo.</p>\r\n  <div class=\"clearfix\"></div>\r\n  <br>\r\n\r\n  <div class=\"row\">\r\n    <div class=\"col-xs-12 col-sm-3\">\r\n      <ul class=\"nav nav-pills nav-stacked ul-with-border\">\r\n        <li *ngFor=\"let productType of productTypes\" [ngClass]=\"{active: productType == selectedProductType }\">\r\n          <a href=\"javascript: void(0);\" (click)=\"selectProductType(productType)\">{{ productType.name }}</a>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"col-xs-12 col-sm-9\">\r\n      <div *ngIf=\"!selectedProductType\">\r\n        <div class=\"alert alert-info\">\r\n          <p class=\"text-strong\">Seleccione un Tipo de Producto</p>\r\n          <p>Para continuar con la cotización debe primero seleccionar un tipo de producto que desee cotizar.</p>\r\n        </div>\r\n      </div>\r\n      <div *ngIf=\"selectedProductType\">\r\n        <h2>{{ selectedProductType.name }} <br><small>{{ selectedProductType.description }}</small></h2>\r\n\r\n        <mat-horizontal-stepper linear>\r\n          <mat-step [stepControl]=\"productForm\" label=\"Información de Producto\">\r\n            <div class=\"stepper-box\">\r\n              <div class=\"col-xs-12\">\r\n                <h3 class=\"text-center\">Información de Producto</h3>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <mat-form-field class=\"full-width\">\r\n                  <mat-select placeholder=\"Producto\" [(value)]=\"selectedProduct\" (change)=\"selectProduct($event.value)\" [required]=\"true\">\r\n                    <mat-option *ngFor=\"let product of selectedProductType.products\" [value]=\"product\">\r\n                      {{ product.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </div>\r\n              <div class=\"col-xs-12 col-sm-6\">\r\n                <mat-form-field class=\"full-width\">\r\n                  <input matInput class=\"full-width\" [(value)]=\"productQuantity\" type=\"number\" placeholder=\"Cantidad\" min=\"1\" />\r\n                </mat-form-field>\r\n              </div>\r\n              <div class=\"col-xs-12\">\r\n                <h4 *ngIf=\"selectedProduct !== null && showProductForm\">Características de Producto</h4>\r\n              </div>\r\n              <div class=\"quotation-form-box\" *ngIf=\"selectedProduct !== null && showProductForm\">\r\n                <div class=\"col-xs-12\" *ngIf=\"selectedProduct.name === 'Maquinaria'\">\r\n                  <div class=\"col-xs-12\">\r\n                    <mat-slide-toggle color=\"primary\" class=\"full-width\" [(ngModel)]=\"showAllMachinery\">\r\n                      Mostrar toda la maquinaria\r\n                    </mat-slide-toggle>\r\n                  </div>\r\n                  <div class=\"clearfix\"></div>\r\n                  <hr>\r\n                  <div class=\"col-xs-12\" [hidden]=\"showAllMachinery\">\r\n                    <div class=\"row\">\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <label class=\"control-label\">Modelo de Maquinaria</label>\r\n                        <div class=\"input-group\">\r\n                          <span class=\"input-group-addon\">\r\n                            <input type=\"checkbox\" [(ngModel)]=\"machinerySearch.isModelEnabled\">\r\n                          </span>\r\n                          <select class=\"form-control\" [(ngModel)]=\"machinerySearch.model\" [disabled]=\"!machinerySearch.isModelEnabled\">\r\n                            <option value=\"1\">Modelo 1</option>\r\n                            <option value=\"2\">Modelo 2</option>\r\n                            <option value=\"3\">Modelo 3</option>\r\n                            <option value=\"4\">Modelo 4</option>\r\n                          </select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"clearfix\"></div>\r\n                      <br>\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <label class=\"control-label\">Maquinaria nueva?</label>\r\n                        <div class=\"input-group\">\r\n                          <span class=\"input-group-addon\">\r\n                            <input type=\"checkbox\" [(ngModel)]=\"machinerySearch.isNewEnabled\">\r\n                          </span>\r\n                          <select class=\"form-control\" [(ngModel)]=\"machinerySearch.isNew\" [disabled]=\"!machinerySearch.isNewEnabled\">\r\n                            <option value=\"1\">Si</option>\r\n                            <option value=\"0\">No</option>\r\n                          </select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <label class=\"control-label\">Maquinaria en buen estado?</label>\r\n                        <div class=\"input-group\">\r\n                          <span class=\"input-group-addon\">\r\n                            <input type=\"checkbox\" [(ngModel)]=\"machinerySearch.isStateEnabled\">\r\n                          </span>\r\n                          <select class=\"form-control\" [(ngModel)]=\"machinerySearch.state\" [disabled]=\"!machinerySearch.isStateEnabled\">\r\n                            <option value=\"1\">Si</option>\r\n                            <option value=\"0\">No</option>\r\n                          </select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"clearfix\"></div>\r\n                      <br>\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <label class=\"control-label\">Necesita reparación?</label>\r\n                        <div class=\"input-group\">\r\n                          <span class=\"input-group-addon\">\r\n                            <input type=\"checkbox\" [(ngModel)]=\"machinerySearch.isRepairableEnabled\">\r\n                          </span>\r\n                          <select class=\"form-control\" [(ngModel)]=\"machinerySearch.repairable\" [disabled]=\"!machinerySearch.isRepairableEnabled\">\r\n                            <option value=\"1\">Si</option>\r\n                            <option value=\"0\">No</option>\r\n                          </select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"col-xs-12 col-sm-6\">\r\n                        <label class=\"control-label\">Tipo de documentación</label>\r\n                        <div class=\"input-group\">\r\n                          <span class=\"input-group-addon\">\r\n                            <input type=\"checkbox\" [(ngModel)]=\"machinerySearch.isDocumentationEnabled\">\r\n                          </span>\r\n                          <select class=\"form-control\" [(ngModel)]=\"machinerySearch.documentation\" [disabled]=\"!machinerySearch.isDocumentationEnabled\">\r\n                            <option [value]=\"idx\" *ngFor=\"let idx of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]\">Documentación {{ idx }}</option>\r\n                          </select>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"clearfix\"></div>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"clearfix\"></div>\r\n                  <hr *ngIf=\"!showAllMachinery\">\r\n                  <div class=\"col-xs-12\">\r\n                    <agm-map class=\"map\" [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"zoom\">\r\n                      <agm-marker [latitude]=\"machine.latitude\" [longitude]=\"machine.longitude\" *ngFor=\"let machine of filterMachinery()\" (markerClick)=\"selectMachinery(machine)\"></agm-marker>\r\n                    </agm-map>\r\n                  </div>\r\n                  <div class=\"clearfix\"></div>\r\n                  <hr *ngIf=\"selectedMachine\">\r\n                  <div class=\"col-xs-12 col-sm-10 col-sm-offset-1 col-md-9 text-left\" *ngIf=\"selectedMachine\">\r\n                    <h3>Datos de Maquinaria Seleccionada</h3>\r\n                    <table class=\"table table-striped table-condensed\">\r\n                      <thead>\r\n                        <tr>\r\n                          <th>Caracteristica</th>\r\n                          <th>Valor</th>\r\n                        </tr>\r\n                      </thead>\r\n                      <tbody>\r\n                        <tr *ngFor=\"let prop of selectedMachine.toArray()\">\r\n                          <td>{{ prop.key }}</td>\r\n                          <td>{{ prop.value }}</td>\r\n                        </tr>\r\n                      </tbody>\r\n                    </table>\r\n                  </div>\r\n                </div>\r\n                <form class=\"form\" [formGroup]=\"productForm\" novalidate [hidden]=\"selectedProduct.name === 'Maquinaria'\">\r\n                  <div class=\"col-xs-12 text-center\" *ngIf=\"selectedProduct.name === 'Puerta rápida'\">\r\n                    <app-draw-door></app-draw-door>\r\n                  </div>\r\n                  <div class=\"col-xs-12 text-center\" *ngIf=\"selectedProduct.name === 'Sellos'\">\r\n                    <app-draw-muelle></app-draw-muelle>\r\n                  </div>\r\n                  <div class=\"col-xs-12 text-center\" *ngIf=\"selectedProduct.name === 'Abrigos'\">\r\n                    <app-draw-abrigo></app-draw-abrigo>\r\n                  </div>\r\n\r\n                  <div class=\"col-xs-12 text-center\" *ngIf=\"selectedProductType.name== 'Lego'\">\r\n                    <app-draw-lego (ready)=\"showCanvasInLegos(selectedProduct)\"></app-draw-lego>\r\n                  </div>\r\n\r\n                  <div *ngFor=\"let property of selectedProduct.properties\">\r\n                    <div class=\"clearfix\" *ngIf=\"property.type === 'bool'\"></div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\" *ngIf=\"property.type === 'integer' || property.type === 'list'\">\r\n                        <input matInput class=\"full-width\" *ngIf=\"property.type === 'integer' && property.name != 'Exposicion_Aletas'\" [formControlName]=\"property.name\" type=\"number\" [placeholder]=\"property.name\" [min]=\"property.values[0]\" [max]=\"property.values[1]\" (change)=\"updateDraw(selectedProduct.name, property.name)\"\r\n                        />\r\n                        <mat-select *ngIf=\"property.type === 'list' && property.name != 'Exposicion_Aletas'\" [formControlName]=\"property.name\" [placeholder]=\"property.name\" [(value)]=\"property.value\" (change)=\"updateDraw(selectedProduct.name, property.name)\">\r\n                          <mat-option *ngFor=\"let option of property.values\" [value]=\"option\">\r\n                            {{ option.name }}\r\n                          </mat-option>\r\n                        </mat-select>\r\n\r\n                        <mat-select *ngIf=\"property.name == 'Exposicion_Aletas'\" [formControlName]=\"property.name\" [placeholder]=\"property.name\" [(value)]=\"property.value\" (change)=\"updateDraw(selectedProduct.name, property.name)\">\r\n                              <mat-option value=\"1\">10 cm</mat-option>\r\n                              <mat-option value=\"2\">15 cm</mat-option>\r\n                              <mat-option value=\"3\">20 cm</mat-option>\r\n                        </mat-select>\r\n\r\n\r\n\r\n                      </mat-form-field>\r\n\r\n                      <mat-slide-toggle color=\"primary\" class=\"full-width\" [formControlName]=\"property.name\" *ngIf=\"property.type === 'bool'\">\r\n                        {{ property.name }}\r\n                      </mat-slide-toggle>\r\n                    </div>\r\n                  </div>\r\n                </form>\r\n                <div class=\"col-xs-12\">\r\n                  <button mat-raised-button matStepperNext color=\"primary\" [disabled]=\"productForm.invalid\" class=\"pull-right\">Siguiente</button>\r\n                </div>\r\n                <div class=\"clearfix\"></div>\r\n              </div>\r\n              <div class=\"clearfix\"></div>\r\n            </div>\r\n          </mat-step>\r\n          <mat-step label=\"Información de Cotización\" [stepControl]=\"quotationForm\">\r\n            <div class=\"stepper-box\">\r\n              <div class=\"quotation-form-box\">\r\n                <form class=\"form\" [formGroup]=\"quotationForm\" novalidate>\r\n                  <div class=\"col-xs-12\">\r\n                    <div class=\"col-xs-12\">\r\n                      <h3 class=\"text-center\">Información de Cotización</h3>\r\n                      <h4>Información General</h4>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"firstName\" type=\"text\" placeholder=\"Nombres\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"lastName\" type=\"text\" placeholder=\"Apellidos\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"document\" type=\"text\" placeholder=\"Documento de Identidad\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"address\" type=\"text\" placeholder=\"Dirección\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"phone\" type=\"text\" placeholder=\"Teléfono\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"email\" type=\"text\" placeholder=\"Correo Electrónico\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"col-xs-12\">\r\n                    <div class=\"col-xs-12\" *ngIf=\"!user\">\r\n                      <div class=\"row\">\r\n                        <div class=\"col-xs-12 col-sm-6\">\r\n                          <mat-form-field class=\"full-width\">\r\n                            <input matInput class=\"full-width\" id=\"password\" formControlName=\"password\" type=\"password\" placeholder='Contraseña*' />\r\n                          </mat-form-field>\r\n                          <mat-chip class=\"mat-primary\" *ngIf=\"quotationForm.controls.password.dirty && quotationForm.controls.password.errors\">\r\n                            <ul class=\"list-unstyled\">\r\n                              <li *ngIf=\"quotationForm.controls.password.hasError('required')\">\r\n                                <span class=\"fa fa-exclamation\"></span> Oops, este campo es requerido!\r\n                              </li>\r\n                              <li *ngIf=\"!quotationForm.controls.password.hasError('required') && quotationForm.controls.password.hasError('minlength')\">\r\n                                <span class=\"fa fa-exclamation\"></span> Oops, este campo debe contener minimo 8 caracteres!\r\n                              </li>\r\n                            </ul>\r\n                          </mat-chip>\r\n                        </div>\r\n                        <div class=\"col-xs-12 col-sm-6\">\r\n                          <mat-form-field class=\"full-width\">\r\n                            <input matInput class=\"full-width\" id=\"confirmpassword\" formControlName=\"confirmPassword\" type=\"password\" placeholder='Confirmar contraseña*' />\r\n                          </mat-form-field>\r\n                          <mat-chip class=\"mat-primary\" *ngIf=\"quotationForm.controls.confirmPassword.dirty && quotationForm.controls.confirmPassword.errors\">\r\n                            <ul class=\"list-unstyled\">\r\n                              <li *ngIf=\"quotationForm.controls.confirmPassword.hasError('required')\">\r\n                                <span class=\"fa fa-exclamation\"></span> Oops, este campo es requerido!\r\n                              </li>\r\n                              <li *ngIf=\"!quotationForm.controls.confirmPassword.hasError('required') && quotationForm.value.password != quotationForm.value.confirmPassword\">\r\n                                <span class=\"fa fa-exclamation\"></span> Oops, los campos de contraseña deben coincidir!\r\n                              </li>\r\n                            </ul>\r\n                          </mat-chip>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"clearfix\"></div>\r\n                      <br>\r\n                    </div>\r\n\r\n                    <div class=\"col-xs-12\">\r\n                      <h4>Información de Empresa</h4>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"enterprise\" type=\"text\" placeholder=\"Empresa\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"nit\" type=\"text\" placeholder=\"NIT\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                    <div class=\"col-xs-12 col-sm-6\">\r\n                      <mat-form-field class=\"full-width\">\r\n                        <input matInput class=\"full-width\" formControlName=\"role\" type=\"text\" placeholder=\"Rol en la compañia\" />\r\n                      </mat-form-field>\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"clearfix\"></div>\r\n                  <div class=\"col-xs-12\">\r\n                    <button mat-raised-button matStepperPrevious>Anterior</button>\r\n                    <button mat-raised-button matStepperNext color=\"primary\" [disabled]=\"quotationForm.invalid\" class=\"pull-right\">Siguiente</button>\r\n                    <div class=\"clearfix\"></div>\r\n                  </div>\r\n                </form>\r\n              </div>\r\n              <div class=\"clearfix\"></div>\r\n            </div>\r\n            <div class=\"clearfix\"></div>\r\n          </mat-step>\r\n          <mat-step label=\"Completar Cotización\">\r\n            <div class=\"stepper-box\">\r\n              <div class=\"quotation-form-box\">\r\n                <div class=\"col-xs-12\">\r\n                  <h3>Completar Cotización</h3>\r\n                  <p>Para completar el proceso de cotización, haga clic en el botón \"Procesar Cotización\" de la parte inferior.</p>\r\n                </div>\r\n                <div class=\"clearfix\"></div>\r\n                <br><br>\r\n                <div class=\"col-xs-12\">\r\n                  <button mat-raised-button matStepperPrevious>Anterior</button>\r\n                  <button mat-raised-button matStepperNext color=\"primary\" [disabled]=\"false\" class=\"pull-right\" (click)=\"saveQuotation(productForm, quotationForm)\">Procesar Cotización</button>\r\n                </div>\r\n                <div class=\"clearfix\"></div>\r\n              </div>\r\n            </div>\r\n          </mat-step>\r\n        </mat-horizontal-stepper>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"clearfix\"></div>\r\n<br><br>\r\n"
 
 /***/ }),
 
@@ -2414,9 +2877,11 @@ module.exports = "<div class=\"col-xs-12 col-sm-10 col-sm-offset-1\">\r\n  <h1 c
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__models_machinery__ = __webpack_require__("../../../../../src/app/models/machinery.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__draw_door_draw_door_component__ = __webpack_require__("../../../../../src/app/pages/quotation/draw-door/draw-door.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__draw_lego_draw_lego_component__ = __webpack_require__("../../../../../src/app/pages/quotation/draw-lego/draw-lego.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ng2_validation__ = __webpack_require__("../../../../ng2-validation/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ng2_validation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_ng2_validation__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__models_user_register__ = __webpack_require__("../../../../../src/app/models/user-register.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__draw_muelle_draw_muelle_component__ = __webpack_require__("../../../../../src/app/pages/quotation/draw-muelle/draw-muelle.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__draw_abrigo_draw_abrigo_component__ = __webpack_require__("../../../../../src/app/pages/quotation/draw-abrigo/draw-abrigo.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_ng2_validation__ = __webpack_require__("../../../../ng2-validation/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_ng2_validation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_ng2_validation__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__models_user_register__ = __webpack_require__("../../../../../src/app/models/user-register.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2426,6 +2891,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
 
 
 
@@ -2495,7 +2962,7 @@ var QuotationComponent = (function () {
         else {
             this.savingUser = false;
             var password = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].minLength(8)]);
-            var confirmPassword = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_16_ng2_validation__["CustomValidators"].equalTo(password)]);
+            var confirmPassword = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_18_ng2_validation__["CustomValidators"].equalTo(password)]);
             this.quotationForm = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormGroup"]({
                 firstName: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"](this.user ? this.user.firstName : '', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required]),
                 lastName: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"](this.user ? this.user.lastName : '', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required]),
@@ -2620,6 +3087,37 @@ var QuotationComponent = (function () {
                     break;
             }
         }
+        else if (productName == 'Sellos') {
+            var value = this.productForm.get(propertyName).value;
+            switch (propertyName) {
+                case 'Ancho':
+                    this.drawMuelleComponent.updateWidth(value);
+                    break;
+                case 'Alto':
+                    this.drawMuelleComponent.updateHeight(value);
+                    break;
+                case 'Color':
+                    this.drawMuelleComponent.updateColor(value);
+                    break;
+                case 'Exposicion_Aletas':
+                    this.drawMuelleComponent.changeAletaHeight(value);
+                    break;
+                case 'Inclinacion':
+                    this.drawMuelleComponent.changeAngleShapeRotation(value);
+                    break;
+            }
+        }
+        else if (productName == 'Abrigos') {
+            var value = this.productForm.get(propertyName).value;
+            switch (propertyName) {
+                case 'Dimensiones':
+                    this.drawAbrigoComponent.changeSize(value.value);
+                    break;
+                case 'Color':
+                    this.drawAbrigoComponent.updateColor(value);
+                    break;
+            }
+        }
         else if (this.selectedProductType.name == 'Lego') {
             var value = this.productForm.get(propertyName).value.value;
             switch (propertyName) {
@@ -2648,12 +3146,25 @@ var QuotationComponent = (function () {
                 if (productProperty.type === 'list') {
                     productProperty.value = productProperty.value.value;
                 }
-                else if (productProperty.type === 'bool') {
+                else if (productProperty.type === 'bool' && _this.selectedProduct.name != 'Maquinaria') {
                     if (value) {
                         productProperty.value = 1;
                     }
                     else {
                         productProperty.value = 0;
+                    }
+                }
+                else if (productProperty.name == 'Exposicion_Aletas') {
+                    switch (value) {
+                        case '1':
+                            productProperty.value = 1;
+                            break;
+                        case '2':
+                            productProperty.value = 2;
+                            break;
+                        case '3':
+                            productProperty.value = 3;
+                            break;
                     }
                 }
                 else {
@@ -2720,7 +3231,7 @@ var QuotationComponent = (function () {
         var _this = this;
         this.logger.info('Registering user:', quotationForm.value);
         this.savingUser = true;
-        var registerData = new __WEBPACK_IMPORTED_MODULE_17__models_user_register__["a" /* UserRegister */](quotationForm.value);
+        var registerData = new __WEBPACK_IMPORTED_MODULE_19__models_user_register__["a" /* UserRegister */](quotationForm.value);
         this.authService.register(registerData)
             .subscribe(function (result) {
             if (result.status === 'success') {
@@ -2754,16 +3265,24 @@ __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_15__draw_lego_draw_lego_component__["a" /* DrawLegoComponent */]),
     __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_15__draw_lego_draw_lego_component__["a" /* DrawLegoComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_15__draw_lego_draw_lego_component__["a" /* DrawLegoComponent */]) === "function" && _b || Object)
 ], QuotationComponent.prototype, "drawLegoComponent", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_16__draw_muelle_draw_muelle_component__["a" /* DrawMuelleComponent */]),
+    __metadata("design:type", typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_16__draw_muelle_draw_muelle_component__["a" /* DrawMuelleComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_16__draw_muelle_draw_muelle_component__["a" /* DrawMuelleComponent */]) === "function" && _c || Object)
+], QuotationComponent.prototype, "drawMuelleComponent", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_17__draw_abrigo_draw_abrigo_component__["a" /* DrawAbrigoComponent */]),
+    __metadata("design:type", typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_17__draw_abrigo_draw_abrigo_component__["a" /* DrawAbrigoComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_17__draw_abrigo_draw_abrigo_component__["a" /* DrawAbrigoComponent */]) === "function" && _d || Object)
+], QuotationComponent.prototype, "drawAbrigoComponent", void 0);
 QuotationComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-quotation',
         template: __webpack_require__("../../../../../src/app/pages/quotation/quotation.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pages/quotation/quotation.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_logger_core__["Logger"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angular2_logger_core__["Logger"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_notifications__["NotificationsService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angular2_notifications__["NotificationsService"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_7__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_auth_service__["a" /* AuthService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_9__services_product_service__["a" /* ProductService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__services_product_service__["a" /* ProductService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_10__services_quotation_service__["a" /* QuotationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__services_quotation_service__["a" /* QuotationService */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_8__services_machinery_service__["a" /* MachineryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__services_machinery_service__["a" /* MachineryService */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _j || Object])
+    __metadata("design:paramtypes", [typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_logger_core__["Logger"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angular2_logger_core__["Logger"]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_notifications__["NotificationsService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angular2_notifications__["NotificationsService"]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_7__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_auth_service__["a" /* AuthService */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_9__services_product_service__["a" /* ProductService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__services_product_service__["a" /* ProductService */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_10__services_quotation_service__["a" /* QuotationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__services_quotation_service__["a" /* QuotationService */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_8__services_machinery_service__["a" /* MachineryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__services_machinery_service__["a" /* MachineryService */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _l || Object])
 ], QuotationComponent);
 
-var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 //# sourceMappingURL=quotation.component.js.map
 
 /***/ }),
