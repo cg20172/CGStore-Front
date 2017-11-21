@@ -19,6 +19,8 @@ import { Machinery } from './../../models/machinery';
 
 import { DrawDoorComponent } from './draw-door/draw-door.component';
 import { DrawLegoComponent } from './draw-lego/draw-lego.component';
+import { DrawMuelleComponent } from './draw-muelle/draw-muelle.component';
+import { DrawAbrigoComponent } from './draw-abrigo/draw-abrigo.component';
 
 import { CustomValidators } from 'ng2-validation';
 import { UserRegister } from './../../models/user-register';
@@ -247,6 +249,10 @@ export class QuotationComponent implements OnInit {
   private drawDoorComponent: DrawDoorComponent;
   @ViewChild(DrawLegoComponent)
   private drawLegoComponent: DrawLegoComponent;
+   @ViewChild(DrawMuelleComponent)
+  private drawMuelleComponent: DrawMuelleComponent;
+   @ViewChild(DrawAbrigoComponent)
+  private drawAbrigoComponent: DrawAbrigoComponent;
 
   public updateDraw(productName: any, propertyName: any): void {
     if (productName == 'Puerta rápida') {
@@ -263,6 +269,36 @@ export class QuotationComponent implements OnInit {
           break;
         case 'Color_Perfiles':
           this.drawDoorComponent.updateOutlineColor(value);
+          break;
+      }
+    }else if(productName == 'Sellos'){
+      var value = this.productForm.get(propertyName).value;
+      switch (propertyName) {
+        case 'Ancho':
+          this.drawMuelleComponent.updateWidth(value);
+          break;
+        case 'Alto':
+          this.drawMuelleComponent.updateHeight(value);
+          break;
+        case 'Color':
+          this.drawMuelleComponent.updateColor(value);
+          break;
+        case 'Exposicion_Aletas':
+            this.drawMuelleComponent.changeAletaHeight(value);
+          break;
+        case 'Inclinacion':
+          this.drawMuelleComponent.changeAngleShapeRotation(value);
+          break;
+
+      }
+    }else if(productName == 'Abrigos'){
+      var value = this.productForm.get(propertyName).value;
+        switch (propertyName) {
+        case 'Dimensiones':
+          this.drawAbrigoComponent.changeSize(value.value);
+          break;
+        case 'Color':
+          this.drawAbrigoComponent.updateColor(value);
           break;
       }
     } else if (this.selectedProductType.name == 'Lego') {
@@ -301,6 +337,19 @@ export class QuotationComponent implements OnInit {
            } else {
              productProperty.value = 0;
            }
+        }
+        else if (productProperty.name == 'Exposicion_Aletas'){
+          switch (value){
+            case '1':
+              productProperty.value = 1;
+             break;
+             case '2':
+              productProperty.value = 2;
+             break;
+             case '3':
+              productProperty.value = 3;
+             break;
+          }
         }
         else {
           productProperty.value = value;
