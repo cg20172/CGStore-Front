@@ -295,12 +295,12 @@ export class QuotationComponent implements OnInit {
         if (productProperty.type === 'list') {
           productProperty.value = productProperty.value.value;
         }
-        else if (productProperty.type === 'bool') {
-          if (value) {
-            productProperty.value = 1;
-          } else {
-            productProperty.value = 0;
-          }
+        else if (productProperty.type === 'bool' && this.selectedProduct.name != 'Maquinaria') {
+             if (value) {
+             productProperty.value = 1;
+           } else {
+             productProperty.value = 0;
+           }
         }
         else {
           productProperty.value = value;
