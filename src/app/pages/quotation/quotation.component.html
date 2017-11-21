@@ -158,6 +158,12 @@
                   <div class="col-xs-12 text-center" *ngIf="selectedProduct.name === 'Puerta rápida'">
                     <app-draw-door></app-draw-door>
                   </div>
+                  <div class="col-xs-12 text-center" *ngIf="selectedProduct.name === 'Sellos'">
+                    <app-draw-muelle></app-draw-muelle>
+                  </div>
+                  <div class="col-xs-12 text-center" *ngIf="selectedProduct.name === 'Abrigos'">
+                    <app-draw-abrigo></app-draw-abrigo>
+                  </div>
 
                   <div class="col-xs-12 text-center" *ngIf="selectedProductType.name== 'Lego'">
                     <app-draw-lego (ready)="showCanvasInLegos(selectedProduct)"></app-draw-lego>
@@ -167,14 +173,24 @@
                     <div class="clearfix" *ngIf="property.type === 'bool'"></div>
                     <div class="col-xs-12 col-sm-6">
                       <mat-form-field class="full-width" *ngIf="property.type === 'integer' || property.type === 'list'">
-                        <input matInput class="full-width" *ngIf="property.type === 'integer'" [formControlName]="property.name" type="number" [placeholder]="property.name" [min]="property.values[0]" [max]="property.values[1]" (change)="updateDraw(selectedProduct.name, property.name)"
+                        <input matInput class="full-width" *ngIf="property.type === 'integer' && property.name != 'Exposicion_Aletas'" [formControlName]="property.name" type="number" [placeholder]="property.name" [min]="property.values[0]" [max]="property.values[1]" (change)="updateDraw(selectedProduct.name, property.name)"
                         />
-                        <mat-select *ngIf="property.type === 'list'" [formControlName]="property.name" [placeholder]="property.name" [(value)]="property.value" (change)="updateDraw(selectedProduct.name, property.name)">
+                        <mat-select *ngIf="property.type === 'list' && property.name != 'Exposicion_Aletas'" [formControlName]="property.name" [placeholder]="property.name" [(value)]="property.value" (change)="updateDraw(selectedProduct.name, property.name)">
                           <mat-option *ngFor="let option of property.values" [value]="option">
                             {{ option.name }}
                           </mat-option>
                         </mat-select>
+
+                        <mat-select *ngIf="property.name == 'Exposicion_Aletas'" [formControlName]="property.name" [placeholder]="property.name" [(value)]="property.value" (change)="updateDraw(selectedProduct.name, property.name)">
+                              <mat-option value="1">10 cm</mat-option>
+                              <mat-option value="2">15 cm</mat-option>
+                              <mat-option value="3">20 cm</mat-option>
+                        </mat-select>
+
+
+
                       </mat-form-field>
+
                       <mat-slide-toggle color="primary" class="full-width" [formControlName]="property.name" *ngIf="property.type === 'bool'">
                         {{ property.name }}
                       </mat-slide-toggle>
