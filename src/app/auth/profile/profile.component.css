@@ -14,3 +14,11 @@ template modal-body {
 .dataPresent:nth-child(even) {
   background-color: rgba(70, 127, 191, 0.5) !important;
 }
+
+mat-expansion-panel .personalData tr {
+  line-height: 54px;
+}
+
+mat-expansion-panel .personalData tr:hover {
+  background: rgba(70, 127, 191, 0.6);
+}

@@ -43,6 +43,8 @@ export class ProfileComponent implements OnInit {
     );
 
     this.user = this.authService.getUser();
+    console.log(this.user);
+
     this.quotationService.getQuotations(this.user.id)
       .subscribe((result) => {
         this.notificationsService.remove(toast.id);
@@ -84,7 +86,6 @@ export class ProfileComponent implements OnInit {
       }
     });
   }
-
   public updateUser(userForm: FormGroup) {
 
   }
