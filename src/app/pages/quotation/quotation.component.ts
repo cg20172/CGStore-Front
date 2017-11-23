@@ -265,10 +265,10 @@ export class QuotationComponent implements OnInit {
           this.drawDoorComponent.updateHeight(value);
           break;
         case 'Color_Lona':
-          this.drawDoorComponent.updateLonaColor(value);
+          this.drawDoorComponent.updateLonaColor(value.value);
           break;
         case 'Color_Perfiles':
-          this.drawDoorComponent.updateOutlineColor(value);
+          this.drawDoorComponent.updateOutlineColor(value.value);
           break;
       }
     }else if(productName == 'Sellos'){
@@ -281,10 +281,10 @@ export class QuotationComponent implements OnInit {
           this.drawMuelleComponent.updateHeight(value);
           break;
         case 'Color':
-          this.drawMuelleComponent.updateColor(value);
+          this.drawMuelleComponent.updateColor(value.value);
           break;
         case 'Exposicion_Aletas':
-            this.drawMuelleComponent.changeAletaHeight(value);
+            this.drawMuelleComponent.changeAletaHeight(value.value);
           break;
         case 'Inclinacion':
           this.drawMuelleComponent.changeAngleShapeRotation(value);
@@ -298,7 +298,7 @@ export class QuotationComponent implements OnInit {
           this.drawAbrigoComponent.changeSize(value.value);
           break;
         case 'Color':
-          this.drawAbrigoComponent.updateColor(value);
+          this.drawAbrigoComponent.updateColor(value.value);
           break;
       }
     } else if (this.selectedProductType.name == 'Lego') {

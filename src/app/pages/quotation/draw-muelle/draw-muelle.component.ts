@@ -28,7 +28,7 @@ export class DrawMuelleComponent implements OnInit {
   }
 
   public initSizeMuelle(): void {
-    this.updateHeight(2500);
+    this.updateHeight(3000);
     this.updateWidth(2000);
   }
 
@@ -48,7 +48,7 @@ export class DrawMuelleComponent implements OnInit {
   public sizefactor = 5;  
 
   public lonaWidth =  3000 / this.sizefactor;
-  public lonaHeight =  3000 / this.sizefactor;
+  public lonaHeight =  3000 / this.sizefactor +2;
 
   public lonaFill = 0xffffff;
   public aletaFill = 0xFCAC2F;
@@ -83,7 +83,7 @@ export class DrawMuelleComponent implements OnInit {
   public topY =   this.topHeight / 2;
 
   public lonaX =  this.canvasWidth  / 2 ;
-  public lonaY =  (this.lonaHeight / 2 ) + (this.topHeight);
+  public lonaY =  (this.lonaHeight / 2 ) + (this.topHeight) + 1;
 
   public text1X = this.lonaX;
   public text1Y = this.lonaY;
@@ -106,19 +106,35 @@ export class DrawMuelleComponent implements OnInit {
   public angleShapeWidth = 25;
   public angleShapeHeight = 150;
   public angleShapeX = (this.canvasWidth / 2) ;
-  public angleShapeY = (this.canvasHeight / 2) + (this.topHeight);
+  public angleShapeY = this.topY + (this.topHeight/ 2) + (this.angleShapeHeight/2) + 20;
   public angleShapeRotation = 0;
   public angleShapeText = "0°";
 
-  public textAngleY = (this.canvasHeight / 2) + (this.topHeight) + (this.angleShapeHeight / 2) + 35;
+  //public textAngleY = this.angleShapeY  + (this.angleShapeHeight / 2) + 35;
+  public textAngleY = this.angleShapeY + 10 ;
+  public textAngleX = this.angleShapeX + this.angleShapeWidth;
+  //public textAngleX =   (this.canvasWidth / 2) - (this.angleShapeWidth / 2);
+  
 
-  public textAngleX =   (this.canvasWidth / 2) - (this.angleShapeWidth / 2);
+  public imageAngleWidth = 285 ;
+  public imageAngleHeight = 145 ;
+
+
+  public imageAngle_no_10_Y = this.angleShapeY + (this.angleShapeHeight / 2);
+  public imageAngle_0_Y = this.imageAngle_no_10_Y + this.imageAngleHeight;
+  public imageAngle_10_Y = this.imageAngle_0_Y+ this.imageAngleHeight;
+
+
+  public imageAngle_0_X = (this.canvasWidth / 2) - (this.imageAngleWidth/2);
+  public imageAngle_10_X = (this.canvasWidth / 2) - (this.imageAngleWidth/2);
+  public imageAngle_no_10_X = (this.canvasWidth / 2) - (this.imageAngleWidth/2);
+  public imageAngle_0_visibility = true;
 
 
   public extraLonaHeight = this.canvasHeight;
-  public extraLonaWidth = this.canvasWidth;  
+  public extraLonaWidth = this.canvasWidth - 2;  
   public extraLonaX = this.canvasWidth  / 2 ;;
-  public extraLonaY = (this.canvasHeight / 2 ) + (this.topHeight) + this.lonaHeight + 2;
+  public extraLonaY = (this.canvasHeight / 2 ) + (this.topHeight) + this.lonaHeight ;
 
  
   public aleta10cm = (130/ this.sizefactor);
@@ -169,15 +185,15 @@ export class DrawMuelleComponent implements OnInit {
 
     public changeAletaHeight(option):void{
       switch (option) {
-        case "1":
+        case 1:
               this.changeDividers_Y(this.aleta10cm - this.currentAletaHeight);
               this.currentAletaHeight = this.aleta10cm;
           break;
-        case "2":
+        case 2:
               this.changeDividers_Y(this.aleta15cm - this.currentAletaHeight);
               this.currentAletaHeight = this.aleta15cm;
           break;
-        case "3":
+        case 3:
               this.changeDividers_Y(this.aleta20cm - this.currentAletaHeight);
               this.currentAletaHeight = this.aleta20cm ;
           break;    
@@ -217,17 +233,41 @@ export class DrawMuelleComponent implements OnInit {
       //console.log("width: " + value );
       var width =  (value / this.sizefactor) - this.lonaWidth;
       if(this.lonaWidth + width >= 1000/this.sizefactor && this.lonaWidth + width <= 3000/this.sizefactor){
-      this.lonaWidth += width;
-      this.topWidth += width;
-      this.outlineRightX += (width / 2);
-      this.outlineLeftX -= (width / 2);
-      this.centerOutlineLeftX -= (width / 2);
-      this.centerOutlineRightX += (width / 2);
-      this.dividerWidth = this.lonaWidth  + this.outlineWidth * 2;
-    }
+        this.lonaWidth += width;
+        this.topWidth += width;
+        this.outlineRightX += (width / 2);
+        this.outlineLeftX -= (width / 2);
+        this.centerOutlineLeftX -= (width / 2);
+        this.centerOutlineRightX += (width / 2);
+        this.dividerWidth = this.lonaWidth  + this.outlineWidth * 2;
+        
+
+
+        if(this.lonaWidth * this.sizefactor <= 1500){
+            this.imageAngleWidth = 190 ;
+            //decrement height equal to width
+            this.imageAngleHeight = 97.5;
+
+            this.imageAngle_no_10_Y = this.angleShapeY + (this.angleShapeHeight / 2);
+            this.imageAngle_0_Y = this.imageAngle_no_10_Y + this.imageAngleHeight;
+            this.imageAngle_10_Y = this.imageAngle_0_Y+ this.imageAngleHeight;
+
+            this.imageAngle_0_X = (this.canvasWidth / 2) - (this.imageAngleWidth/2);
+            this.imageAngle_10_X = (this.canvasWidth / 2) - (this.imageAngleWidth/2);
+            this.imageAngle_no_10_X = (this.canvasWidth / 2) - (this.imageAngleWidth/2);  
+        }else{
+          this.updateHeight(this.lonaHeight*this.sizefactor);
+        }  
+
+
+
+
+
+
+      }
     }
     public updateHeight (value): void {
-      //console.log("height: " + value );
+  
     var height = (value / this.sizefactor) - this.lonaHeight;
       if(this.lonaHeight + height >= 2000/this.sizefactor && this.lonaHeight + height <= 3000/this.sizefactor){
         var currentLonaHeight = this.lonaHeight;
@@ -236,9 +276,9 @@ export class DrawMuelleComponent implements OnInit {
         this.outlineHeight += height;
         this.centerOutlineHeight += height;
         this.topY -= (height / 2);
-        this.extraLonaY += height +2 ;  
-        this.angleShapeY += (height / 2);  
-        this.textAngleY += (height / 2);  
+        this.angleShapeY -= (height / 2);  
+        this.textAngleY -= (height / 2);  
+
         this.divider_0_Y -=   (height / 2);
         this.divider_1_Y -= (height / 2);
         this.divider_2_Y -= (height / 2);
@@ -261,8 +301,38 @@ export class DrawMuelleComponent implements OnInit {
         this.divider_19_Y -= (height / 2);
         this.divider_20_Y -= (height / 2);
         this.divider_21_Y -= (height / 2);
+        this.extraLonaY += (height /2);
+         
+
+        this.angleShapeHeight = value * 150 / 3000;
+        this.angleShapeY = this.topY + (this.topHeight/ 2) + (this.angleShapeHeight/2) + 20;
+        this.textAngleY = this.angleShapeY + 10 ;
+
+
+
+        if(this.lonaWidth * this.sizefactor <= 1500){
+            this.imageAngleWidth = 190 ;
+            //decrement height equal to width
+            this.imageAngleHeight = 97.5 ;
+        } else{
+            this.imageAngleWidth = (value*285/3000) ;
+            //decrement height equal to width
+            this.imageAngleHeight = 145 - ((285 - this.imageAngleWidth) /2) ;
+        }    
+        this.imageAngle_no_10_Y = this.angleShapeY + (this.angleShapeHeight / 2);
+        this.imageAngle_0_Y = this.imageAngle_no_10_Y + this.imageAngleHeight;
+        this.imageAngle_10_Y = this.imageAngle_0_Y+ this.imageAngleHeight;
+
+        this.imageAngle_0_X = (this.canvasWidth / 2) - (this.imageAngleWidth/2);
+        this.imageAngle_10_X = (this.canvasWidth / 2) - (this.imageAngleWidth/2);
+        this.imageAngle_no_10_X = (this.canvasWidth / 2) - (this.imageAngleWidth/2);  
+
+
+
       }
     }
+
+
    private colors = [
                      0xFCAC2F,
                      0x37375B,

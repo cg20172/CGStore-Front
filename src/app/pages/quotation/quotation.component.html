@@ -175,23 +175,16 @@
                     <div class="form-container">
                       <mat-form-field class="full-width" *ngIf="property.type === 'integer' || property.type === 'list'">
 
-                        <input class="example-right-align" matInput class="full-width" *ngIf="property.type === 'integer' && property.name != 'Exposicion_Aletas'" [formControlName]="property.name" type="number" [placeholder]="formatPlaceHolderForm(property)" [min]="property.values[0]" [max]="property.values[1]" (change)="updateDraw(selectedProduct.name, property.name)" 
+                        <input class="example-right-align" matInput class="full-width" *ngIf="property.type === 'integer'" [formControlName]="property.name" type="number" [placeholder]="formatPlaceHolderForm(property)" [min]="property.values[0]" [max]="property.values[1]" (change)="updateDraw(selectedProduct.name, property.name)" 
                         />
                         <span matSuffix *ngIf="property.type === 'integer' && property.name != 'Exposicion_Aletas'">
                         {{formatSuffixForm(property)}}
                         </span>
-                        <mat-select *ngIf="property.type === 'list' && property.name != 'Exposicion_Aletas'" [formControlName]="property.name" [placeholder]="formatPropertyName(property.name)" [(value)]="property.value" (change)="updateDraw(selectedProduct.name, property.name)">
+                        <mat-select *ngIf="property.type === 'list'" [formControlName]="property.name" [placeholder]="formatPropertyName(property.name)" [(value)]="property.value" (change)="updateDraw(selectedProduct.name, property.name)">
                           <mat-option *ngFor="let option of property.values" [value]="option">
                             {{ option.name }}
                           </mat-option>
                         </mat-select>
-
-                        <mat-select *ngIf="property.name == 'Exposicion_Aletas'" [formControlName]="property.name" [placeholder]="formatPropertyName(property.name)" [(value)]="property.value" (change)="updateDraw(selectedProduct.name, property.name)">
-                              <mat-option value="1">10 cm</mat-option>
-                              <mat-option value="2">15 cm</mat-option>
-                              <mat-option value="3">20 cm</mat-option>
-                        </mat-select>      
-
                       </mat-form-field>
 
                     </div>
@@ -200,10 +193,10 @@
                       <mat-slide-toggle color="primary" class="full-width" [formControlName]="property.name" *ngIf="property.type === 'bool'">
                         {{ formatPropertyName(property.name) }}
                       </mat-slide-toggle>
-                      <mat-error *ngIf="property.type === 'integer' && productForm.controls[property.name].hasError('min')">
+                      <mat-error style="margin-bottom: 10px;" *ngIf="property.type === 'integer' && productForm.controls[property.name].hasError('min')">
                            <span class="fa fa-exclamation-triangle"></span> El valor mínimo es: {{property.values[0]}}{{formatSuffixForm(property)}}
                        </mat-error>
-                      <mat-error *ngIf="property.type === 'integer' && productForm.controls[property.name].hasError('max')">
+                      <mat-error style="margin-bottom: 10px;" *ngIf="property.type === 'integer' && productForm.controls[property.name].hasError('max')">
                            <span class="fa fa-exclamation-triangle"></span> El valor máximo es: {{property.values[1]}}{{formatSuffixForm(property)}}
                        </mat-error>
                     </div>
