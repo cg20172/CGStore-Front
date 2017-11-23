@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Logger } from 'angular2-logger/core';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidatorFn } from '@angular/forms';
 import { OSM_TILE_LAYER_URL } from '@yaga/leaflet-ng2';
 import * as _ from 'lodash';
 
@@ -220,7 +220,11 @@ export class QuotationComponent implements OnInit {
         case 'float':
         case 'string':
           validations.push(Validators.required);
+          validations.push(Validators.min(property.values[0]));
+          validations.push(Validators.max(property.values[1]));
           control = new FormControl('', validations);
+          // set the medium value option for default
+          // control.setValue(Math.floor(((property.values[1] - property.values[0])/2) + property.values[0]));
           break;
         case 'list':
           validations.push(Validators.required);
@@ -315,6 +319,55 @@ export class QuotationComponent implements OnInit {
       }
     }
 
+  }
+
+  public formatPropertyName(name): String{
+    var re = /_/gi; 
+    name = name.replace(re, " ");
+    name = name.toLowerCase();
+    name = name.charAt(0).toUpperCase() + name.substr(1);
+
+    var words =   name.split(" ");
+
+    for (var i = 0; i < words.length ; i++) {
+      if(words[i].length >= 4){
+        switch (words[i].substr(words[i].length - 4 )) {
+
+            case "cion":
+              words[i] = words[i].substr(0, words[i].length - 4 ) + "ción";
+              break;
+        
+            case "sion":
+              words[i] = words[i].substr(0, words[i].length - 4 ) + "sión";
+              break;
+        }
+      }
+    }
+    name = "";  
+    for (var i = 0; i < words.length ; i++) {
+        name += words[i];
+        if(i < words.length -1){
+          name +=  " ";
+        }
+    }
+
+   
+    return name;
+  }
+  public formatSuffixForm(property):String{
+    var suffix = '';
+    if(property.name == 'Ancho' || property.name == 'Alto'){
+        suffix  = ' cm';
+    }else if(property.name == 'Inclinacion'){
+      suffix  = '°';
+    }
+    return suffix ;
+  }  
+  public formatPlaceHolderForm(property):String{
+    var name = '';
+    var type = this.formatSuffixForm(property);
+    name += this.formatPropertyName(property.name) + ' (' + property.values[0] +  type +' a ' + property.values[1] + type +')';
+    return name;  
   }
 
   public makeQuotation(productForm, quotationForm) {
