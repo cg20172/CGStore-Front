@@ -3209,7 +3209,7 @@ var QuotationComponent = (function () {
     QuotationComponent.prototype.formatSuffixForm = function (property) {
         var suffix = '';
         if (property.name == 'Ancho' || property.name == 'Alto') {
-            suffix = ' cm';
+            suffix = ' mm';
         }
         else if (property.name == 'Inclinacion') {
             suffix = '°';
