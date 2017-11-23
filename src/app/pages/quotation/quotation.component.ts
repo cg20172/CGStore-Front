@@ -357,7 +357,7 @@ export class QuotationComponent implements OnInit {
   public formatSuffixForm(property):String{
     var suffix = '';
     if(property.name == 'Ancho' || property.name == 'Alto'){
-        suffix  = ' cm';
+        suffix  = ' mm';
     }else if(property.name == 'Inclinacion'){
       suffix  = '°';
     }
