@@ -421,7 +421,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "canvas{\r\n\twidth:60%;\r\n\tmargin: 20px auto;\r\n  \tdisplay: block;\r\n  \tborder: 1px solid black;\r\n}", ""]);
+exports.push([module.i, "canvas{\r\n\twidth:70%;\r\n\tmargin: 20px auto;\r\n  \tdisplay: block;\r\n  \tborder: 1px solid black;\r\n}", ""]);
 
 // exports
 
