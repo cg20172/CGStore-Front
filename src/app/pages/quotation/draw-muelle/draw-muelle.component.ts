@@ -42,7 +42,14 @@ export class DrawMuelleComponent implements OnInit {
     }
 
   }
+ 
 
+   private colors = [
+                     0xFCAC2F,
+                     0x37375B,
+                     0x2B4F8D,
+                     0x1D1B1E
+   ];
  
 
   public sizefactor = 5;  
@@ -52,7 +59,7 @@ export class DrawMuelleComponent implements OnInit {
 
   public lonaFill = 0xffffff;
   public aletaFill = 0xFCAC2F;
-  public outlineFill = 0x37375B;
+  public outlineFill = this.colors[2];
   public dividerFill = 0x000000;
   public textFill = 0x000000;
 
@@ -175,7 +182,7 @@ export class DrawMuelleComponent implements OnInit {
 
     public changeAngleShapeRotation(value):void{
       var angle = value - this.angleShapeRotation;
-      if(angle >= -40 && angle <= 40){
+      if(angle >= -30 && angle <= 30){
         this.angleShapeRotation += angle;
         this.angleShapeText = value+ "°";
       }
@@ -333,12 +340,6 @@ export class DrawMuelleComponent implements OnInit {
     }
 
 
-   private colors = [
-                     0xFCAC2F,
-                     0x37375B,
-                     0x2B4F8D,
-                     0x1D1B1E
-   ];
 
 
 

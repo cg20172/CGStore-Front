@@ -36,6 +36,13 @@ export class DrawAbrigoComponent implements OnInit {
 
   }
   
+  private colors = [
+                    0xFCAC2F,
+                    0x37375B,
+                    0x2B4F8D,
+                    0x1D1B1E
+  ];
+  
    public sizefactor = 5;  
 
   public lonaWidth =  3400 / this.sizefactor;
@@ -43,7 +50,7 @@ export class DrawAbrigoComponent implements OnInit {
 
 
   public lonaFill = 0x666666;
-  public outlineFill = 0x37375B;
+  public outlineFill = this.colors[3];
   public dividerFill = 0xffffff;
     public aletaFill = 0xFCAC2F;
 
@@ -198,12 +205,7 @@ export class DrawAbrigoComponent implements OnInit {
       }
     }
 
-   private colors = [
-                     0xFCAC2F,
-                     0x37375B,
-                     0x2B4F8D,
-                     0x1D1B1E
-   ];
+
 
 
 

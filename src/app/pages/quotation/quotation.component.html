@@ -42,11 +42,11 @@
               </div>
               <div class="col-xs-12 col-sm-6">
                 <mat-form-field class="full-width">
-                  <input matInput class="full-width" [(value)]="productQuantity" type="number" placeholder="Cantidad" min="1" />
+                  <input matInput class="full-width" [(ngModel)]="productQuantity" type="number" placeholder="Cantidad" min="1" />
                 </mat-form-field>
               </div>
               <div class="col-xs-12">
-                <h4 *ngIf="selectedProduct !== null && showProductForm">Características de Producto</h4>
+                <h4 *ngIf="selectedProduct !== null && showProductForm" >Características de Producto</h4>
               </div>
               <div class="quotation-form-box" *ngIf="selectedProduct !== null && showProductForm">
                 <div class="col-xs-12" *ngIf="selectedProduct.name === 'Maquinaria'">
@@ -66,10 +66,10 @@
                             <input type="checkbox" [(ngModel)]="machinerySearch.isModelEnabled">
                           </span>
                           <select class="form-control" [(ngModel)]="machinerySearch.model" [disabled]="!machinerySearch.isModelEnabled">
-                            <option value="1">Modelo 1</option>
-                            <option value="2">Modelo 2</option>
-                            <option value="3">Modelo 3</option>
-                            <option value="4">Modelo 4</option>
+                            <option value="1">Máquina: Cargadora frontal</option>
+                            <option value="2">Máquina: Retroexcavadora</option>
+                            <option value="3">Máquina: Montacargas</option>
+                            <option value="4">Máquina: Camioneta</option>
                           </select>
                         </div>
                       </div>

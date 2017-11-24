@@ -28,8 +28,8 @@ export class DrawDoorComponent implements OnInit {
   }
 
   public initSizeDoor(): void {
-    this.updateHeight(2500);
-    this.updateWidth(2000);
+    this.updateHeight(4400);
+    this.updateWidth(3500);
   }
 
   public updateWidth(value): void{
@@ -157,7 +157,7 @@ export class DrawDoorComponent implements OnInit {
                      0x1A2F28,
                      0x179785
    ];
-   public outlineFill = this.colors[0];
+   public outlineFill = this.colors[5];
    public lonaFill = this.colors[1];
    public dividerFill = 0xffffff;
 
