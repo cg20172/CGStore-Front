@@ -76,7 +76,7 @@
                       <div class="clearfix"></div>
                       <br>
                       <div class="col-xs-12 col-sm-6">
-                        <label class="control-label">Maquinaria nueva?</label>
+                        <label class="control-label">¿Maquinaria nueva?</label>
                         <div class="input-group">
                           <span class="input-group-addon">
                             <input type="checkbox" [(ngModel)]="machinerySearch.isNewEnabled">
@@ -88,7 +88,7 @@
                         </div>
                       </div>
                       <div class="col-xs-12 col-sm-6">
-                        <label class="control-label">Maquinaria en buen estado?</label>
+                        <label class="control-label">¿Maquinaria en buen estado?</label>
                         <div class="input-group">
                           <span class="input-group-addon">
                             <input type="checkbox" [(ngModel)]="machinerySearch.isStateEnabled">
@@ -102,7 +102,7 @@
                       <div class="clearfix"></div>
                       <br>
                       <div class="col-xs-12 col-sm-6">
-                        <label class="control-label">Necesita reparación?</label>
+                        <label class="control-label">¿Necesita reparación?</label>
                         <div class="input-group">
                           <span class="input-group-addon">
                             <input type="checkbox" [(ngModel)]="machinerySearch.isRepairableEnabled">
@@ -148,7 +148,7 @@
                       <tbody>
                         <tr *ngFor="let prop of selectedMachine.toArray()">
                           <td>{{ prop.key }}</td>
-                          <td>{{ prop.value }}</td>
+                          <td>{{ prop.value}}</td>
                         </tr>
                       </tbody>
                     </table>

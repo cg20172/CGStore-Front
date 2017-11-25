@@ -32,135 +32,7 @@
     <div class="col-md-9" id="customer-account">
       <div class="col-xs-12">
         <mat-tab-group>
-          <mat-tab label="Datos de Contacto">
-            <p class="lead"></p>
-            <p class="text-muted">Mantén tus datos actualizados, usamos estos datos para poder contactarle y generar la cotización.</p>
-            <form [formGroup]="userForm" (ngSubmit)="updateUser(userForm)">
-              <mat-accordion>
-                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>
-                      <b>Datos personales</b>
-                    </mat-panel-title>
-                    <mat-panel-description>
-                      {{panelOpenState ? ' ' : 'Click para desplegar datos.'}}
-                    </mat-panel-description>
-                  </mat-expansion-panel-header>
 
-                  <table class="col-md-12 personalData" frame="void" rules="rows">
-                    <tr>
-                      <td class="col-md-6">
-                        <b>Nombres</b>
-                      </td>
-                      <td>{{user.firstName}}</td>
-                    </tr>
-                    <tr>
-                      <td class="col-md-6">
-                        <b>Apellidos</b>
-                      </td>
-                      <td>{{user.lastName}}</td>
-                    </tr>
-                    <tr>
-                      <td class="col-md-6">
-                        <b>Documento</b>
-                      </td>
-                      <td>{{user.document}}</td>
-                    </tr>
-                    <tr>
-                      <td class="col-md-6">
-                        <b>Correo Electrónico</b>
-                      </td>
-                      <td>{{user.uid}}</td>
-                    </tr>
-                    <tr>
-                      <td class="col-md-6">
-                        <b>Télefono</b>
-                      </td>
-                      <td>{{user.phone}}</td>
-                    </tr>
-                    <tr>
-                      <td class="col-md-6">
-                        <b>Dirección</b>
-                      </td>
-                      <td>{{user.address}}</td>
-                    </tr>
-
-                  </table>
-                </mat-expansion-panel>
-                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>
-                      <b>Datos Empresariales</b>
-                    </mat-panel-title>
-                    <mat-panel-description>
-                      {{panelOpenState ? ' ' : 'Click para desplegar datos.'}}
-                    </mat-panel-description>
-                  </mat-expansion-panel-header>
-                  <table class="col-md-12 personalData" frame="void" rules="rows">
-                    <tr>
-                      <td class="col-md-6">
-                        <b>Empresa</b>
-                      </td>
-                      <td>{{user.enterprise}}</td>
-                    </tr>
-                    <tr>
-                      <td class="col-md-6">
-                        <b>NIT</b>
-                      </td>
-                      <td>{{user.nit}}</td>
-                    </tr>
-
-                    <tr>
-                      <td class="col-md-6">
-                        <b>Rol en la compañia</b>
-                      </td>
-                      <td>{{user.role}}</td>
-                    </tr>
-
-                  </table>
-                </mat-expansion-panel>
-              </mat-accordion>
-            </form>
-          </mat-tab>
-
-          <template #template>
-            <div class="modal-header">
-              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <div class="heading text-center">
-                        <h3>Descripción cotización # {{selectedQuotation.id}}</h3>
-              </div>
-              <div class="text-center">
-                  <h3>{{selectedQuotation.typeProduct}}</h3>
-                  <p>{{selectedQuotation.originalData['familiaproducto']}}</p>
-              </div>
-              <div class="clearfix">
-              </div>
-            </div>
-            <div class="modal-body ">
-
-              <div class="col-xs-10 col-sm-offset-1 text-center">
-                <table class="table table-striped table-condensed ">
-                  <thead>
-                    <tr>
-                      <th  class="text-center">Caracteristica</th>
-                      <th  class="text-center">Personalización</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor=" let prop of displayQuotation" class="dataPresent">
-                      <td >{{prop.key}}</td>
-                      <td >{{prop.value}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="clearfix">
-
-              </div>
-            </div>
-          </template>
           <mat-tab label="Estado Cotizaciones">
             <div class="col-md-12" id="customer-orders">
               <h3 class="text-center">Tus Cotizaciones</h3>
@@ -209,6 +81,132 @@
               </div>
             </div>
           </mat-tab>
+          <template #template>
+            <div class="modal-header">
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="heading text-center">
+                        <h3>Descripción cotización # {{selectedQuotation.id}}</h3>
+              </div>
+              <div class="text-center">
+                  <h3>{{selectedQuotation.typeProduct}}</h3>
+                  <p>{{selectedQuotation.originalData['familiaproducto']}}</p>
+              </div>
+              <div class="clearfix">
+              </div>
+            </div>
+            <div class="modal-body ">
+
+              <div class="col-xs-10 col-sm-offset-1 text-center">
+                <table class="table table-striped table-condensed ">
+                  <thead>
+                    <tr>
+                      <th  class="text-center">Caracteristica</th>
+                      <th  class="text-center">Personalización</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor=" let prop of displayQuotation" class="dataPresent">
+                      <td >{{prop.key}}</td>
+                      <td >{{prop.value}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="clearfix">
+
+              </div>
+            </div>
+          </template>
+          <mat-tab label="Datos de Contacto">
+            <p class="lead"></p>
+            <p class="text-muted">Mantén tus datos actualizados, usamos estos datos para poder contactarle y generar la cotización.</p>
+            <form [formGroup]="userForm" (ngSubmit)="updateUser(userForm)">
+              <mat-accordion>
+                <mat-expansion-panel >
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <b>Datos personales</b>
+                    </mat-panel-title>
+                    <mat-panel-description>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+
+                  <table class="col-md-12 personalData" frame="void" rules="rows">
+                    <tr>
+                      <td class="col-md-6">
+                        <b>Nombres</b>
+                      </td>
+                      <td>{{user.firstName}}</td>
+                    </tr>
+                    <tr>
+                      <td class="col-md-6">
+                        <b>Apellidos</b>
+                      </td>
+                      <td>{{user.lastName}}</td>
+                    </tr>
+                    <tr>
+                      <td class="col-md-6">
+                        <b>Documento</b>
+                      </td>
+                      <td>{{user.document}}</td>
+                    </tr>
+                    <tr>
+                      <td class="col-md-6">
+                        <b>Correo Electrónico</b>
+                      </td>
+                      <td>{{user.uid}}</td>
+                    </tr>
+                    <tr>
+                      <td class="col-md-6">
+                        <b>Télefono</b>
+                      </td>
+                      <td>{{user.phone}}</td>
+                    </tr>
+                    <tr>
+                      <td class="col-md-6">
+                        <b>Dirección</b>
+                      </td>
+                      <td>{{user.address}}</td>
+                    </tr>
+
+                  </table>
+                </mat-expansion-panel>
+                <mat-expansion-panel >
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <b>Datos Empresariales</b>
+                    </mat-panel-title>
+                    <mat-panel-description>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <table class="col-md-12 personalData" frame="void" rules="rows">
+                    <tr>
+                      <td class="col-md-6">
+                        <b>Empresa</b>
+                      </td>
+                      <td>{{user.enterprise}}</td>
+                    </tr>
+                    <tr>
+                      <td class="col-md-6">
+                        <b>NIT</b>
+                      </td>
+                      <td>{{user.nit}}</td>
+                    </tr>
+
+                    <tr>
+                      <td class="col-md-6">
+                        <b>Rol en la compañia</b>
+                      </td>
+                      <td>{{user.role}}</td>
+                    </tr>
+
+                  </table>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </form>
+          </mat-tab>  
         </mat-tab-group>
       </div>
     </div>

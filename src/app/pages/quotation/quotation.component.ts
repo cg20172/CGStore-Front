@@ -467,6 +467,8 @@ export class QuotationComponent implements OnInit {
     }
   }
 
+
+   
   public selectMachinery(machine) {
     this.selectedMachine = machine;
     _.forEach(machine.originalData, (value, key) => {
