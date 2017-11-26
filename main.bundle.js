@@ -3473,6 +3473,17 @@ var QuotationComponent = (function () {
         quotationData.quantity = this.productQuantity;
         quotationData.date = new Date();
         var quotation = new __WEBPACK_IMPORTED_MODULE_12__models_quotation__["a" /* Quotation */](quotationData, this.authService.getUser(), this.selectedProduct);
+        if (this.selectedProduct.name == "Maquinaria") {
+            this.quotationService.activeMachienaryScript().subscribe(function (result) {
+                if (result.statusText == 'OK') {
+                    console.log("Script de maquinaria Activado: ");
+                    console.log(result);
+                }
+            }, function (error) {
+                console.log("ERROR activando script de maquinaria: ");
+                console.log(error);
+            });
+        }
         this.quotationService.create(quotation)
             .subscribe(function (result) {
             if (result.statusText === 'Created') {
@@ -4045,6 +4056,7 @@ var QuotationService = (function () {
     function QuotationService(http) {
         this.http = http;
         this.url = 'https://cgstore-back2017.herokuapp.com/';
+        this.urlMachienary = 'https://script.google.com/macros/s/AKfycbxccU8Q9FdlIehuqSp-ykhZTyvEIxxT2MPbTw_3RFFelw8Ayl7k/exec';
     }
     QuotationService.prototype.getQuotations = function (userId) {
         return this.http.post(this.url + 'user_quote', { user_id: userId }, { observe: 'response' })
@@ -4061,6 +4073,14 @@ var QuotationService = (function () {
     };
     QuotationService.prototype.create = function (quotation) {
         return this.http.post(this.url + 'new_quote', quotation.toJSON(), { observe: 'response' })
+            .map(function (response) {
+            return response;
+        })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error || 'ServerError'); });
+    };
+    QuotationService.prototype.activeMachienaryScript = function () {
+        console.log("Activando maquinaria...");
+        return this.http.get(this.urlMachienary, { observe: 'response', responseType: 'text' })
             .map(function (response) {
             return response;
         })
