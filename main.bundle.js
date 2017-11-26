@@ -675,18 +675,43 @@ var ProfileComponent = (function () {
         this.notificationsService = notificationsService;
         this.modalService = modalService;
     }
-    ProfileComponent.prototype.ngOnInit = function () {
+    ProfileComponent.prototype.ngOnDestroy = function () {
+        this.quotationSubscription.unsubscribe();
+    };
+    ProfileComponent.prototype.callQuotationService = function (toast) {
         var _this = this;
+        this.quotationSubscription = this.quotationService.getQuotations(this.user.id)
+            .subscribe(function (result) {
+            //console.log("Refresh data...");
+            //Only update view when its needed
+            if (_this.quotations) {
+                result = result.reverse();
+                for (var i = 0, len = _this.quotations.length; i < len; i++) {
+                    if (_this.quotations[i].id != result[i].id || _this.quotations[i].state != result[i].state) {
+                        _this.quotations = result;
+                        break;
+                    }
+                }
+            }
+            else {
+                //when call first time
+                _this.quotations = result.reverse();
+                _this.notificationsService.remove(toast.id);
+            }
+        }, function (error) {
+            // show error only first time, not when refresh data
+            if (!_this.quotations) {
+                var toast_1 = _this.notificationsService.error('Error ' + error.status, (error.status == 0) ? 'Por favor revise su conexión a Internet' : error.statusText);
+            }
+            //and try again the service 
+            _this.callQuotationService(toast);
+        });
+    };
+    ProfileComponent.prototype.ngOnInit = function () {
         var toast = this.notificationsService.info('Cargando', 'Cargando Cotizaciones...', { timeOut: 0 });
         this.user = this.authService.getUser();
         console.log(this.user);
-        this.quotationService.getQuotations(this.user.id)
-            .subscribe(function (result) {
-            _this.notificationsService.remove(toast.id);
-            _this.quotations = result;
-        }, function (error) {
-            var toast = _this.notificationsService.error('Error ' + error.status, error.statusText);
-        });
+        this.callQuotationService(toast);
         this.userForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormGroup"]({
             firstName: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"](this.user.firstName, [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required]),
             lastName: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"](this.user.lastName, [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required]),
@@ -3473,21 +3498,21 @@ var QuotationComponent = (function () {
         quotationData.quantity = this.productQuantity;
         quotationData.date = new Date();
         var quotation = new __WEBPACK_IMPORTED_MODULE_12__models_quotation__["a" /* Quotation */](quotationData, this.authService.getUser(), this.selectedProduct);
-        if (this.selectedProduct.name == "Maquinaria") {
-            this.quotationService.activeMachienaryScript().subscribe(function (result) {
-                if (result.statusText == 'OK') {
-                    console.log("Script de maquinaria Activado: ");
-                    console.log(result);
-                }
-            }, function (error) {
-                console.log("ERROR activando script de maquinaria: ");
-                console.log(error);
-            });
-        }
         this.quotationService.create(quotation)
             .subscribe(function (result) {
             if (result.statusText === 'Created') {
-                var toast = _this.notificationsService.success('Cotización Guardada', 'La cotización ha sido guardada correctamente');
+                if (_this.selectedProduct.name == "Maquinaria") {
+                    _this.quotationService.activeMachienaryScript().subscribe(function (result) {
+                        if (result.statusText == 'OK') {
+                            console.log("Script de maquinaria Activado!!! ");
+                            //console.log(result);
+                        }
+                    }, function (error) {
+                        //console.log("ERROR activando script de maquinaria: ")
+                        //console.log(error);
+                    });
+                }
+                var toast = _this.notificationsService.success('Cotización Guardada', 'La cotización ha sido guardada correctamente', { timeOut: 5000 });
                 if (quotation.user) {
                     _this.router.navigateByUrl('/auth/profile');
                 }
@@ -4056,10 +4081,12 @@ var QuotationService = (function () {
     function QuotationService(http) {
         this.http = http;
         this.url = 'https://cgstore-back2017.herokuapp.com/';
-        this.urlMachienary = 'https://script.google.com/macros/s/AKfycbxccU8Q9FdlIehuqSp-ykhZTyvEIxxT2MPbTw_3RFFelw8Ayl7k/exec';
+        this.urlMachienary = 'https://script.google.com/macros/s/AKfycbxTTi1hkoAUzJCADQcw4wRZnFBo8J0OqRIxfiC-iEgy6ymW1Ncw/exec';
     }
     QuotationService.prototype.getQuotations = function (userId) {
-        return this.http.post(this.url + 'user_quote', { user_id: userId }, { observe: 'response' })
+        var _this = this;
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].interval(10000)
+            .flatMap(function () { return _this.http.post(_this.url + 'user_quote', { user_id: userId }, { observe: 'response' })
             .map(function (response) {
             var quotations = [];
             __WEBPACK_IMPORTED_MODULE_3_lodash__["forEach"](response.body, function (quote) {
@@ -4069,7 +4096,7 @@ var QuotationService = (function () {
             });
             return quotations;
         })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error || 'ServerError'); });
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error || 'ServerError'); }); });
     };
     QuotationService.prototype.create = function (quotation) {
         return this.http.post(this.url + 'new_quote', quotation.toJSON(), { observe: 'response' })
