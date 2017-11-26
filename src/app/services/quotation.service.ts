@@ -12,7 +12,7 @@ import { Quotation } from './../models/quotation';
 export class QuotationService {
 
   private url: string = 'https://cgstore-back2017.herokuapp.com/';
-
+  private urlMachienary: string = 'https://script.google.com/macros/s/AKfycbxccU8Q9FdlIehuqSp-ykhZTyvEIxxT2MPbTw_3RFFelw8Ayl7k/exec';
   constructor(private http: HttpClient) { }
 
   public getQuotations(userId: number): Observable<any> {
@@ -31,6 +31,15 @@ export class QuotationService {
 
   public create(quotation: Quotation): Observable<any> {
     return this.http.post(this.url + 'new_quote', quotation.toJSON(), { observe: 'response' })
+      .map((response) => {
+        return response;
+      })
+      .catch((error: any) => Observable.throw(error || 'ServerError'));
+  }
+
+  public activeMachienaryScript(): Observable<any>{
+    console.log("Activando maquinaria...");
+    return this.http.get(this.urlMachienary, { observe: 'response', responseType: 'text' })
       .map((response) => {
         return response;
       })
