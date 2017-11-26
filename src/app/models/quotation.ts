@@ -26,7 +26,7 @@ export class Quotation {
         this.quantity = data.cantidad ? data.cantidad : null;
         this.date = date ? date : null;
       } else {
-        let date = data.date ? new Date(data.date) : null;
+        let date = data.date ? data.date : null;
         this.id = data.id ? data.id : null;
         this.productId = data.productId ? data.productId : null;
         this.quantity = data.quantity ? data.quantity : null;
@@ -53,9 +53,12 @@ export class Quotation {
 
     if (this.date) {
       let year = this.date.getFullYear();
-      let month = this.date.getMonth() < 10 ? "0" + this.date.getMonth() : this.date.getMonth();
-      let day = this.date.getDay() < 10 ? "0" + this.date.getDay() : this.date.getDay();
-      strDate = "" + year + month + day;
+      let month = this.date.getMonth() < 10 ? "0" + (this.date.getMonth() + 1) :  this.date.getMonth() + 1;
+      let day = this.date.getDate() < 10 ? "0" + this.date.getDate() : this.date.getDate();
+      let hour = this.date.getHours() < 10 ? "0" + this.date.getHours() : this.date.getHours();
+      let minutes= this.date.getMinutes() < 10 ? "0" + this.date.getMinutes()  : this.date.getMinutes() 
+      let seconds = this.date.getSeconds() < 10 ? "0" + this.date.getSeconds()  : this.date.getSeconds();
+      strDate = "" + year + month + day + hour + minutes + seconds;
     }
 
     return {

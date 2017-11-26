@@ -51,7 +51,7 @@
                     <tbody>
                       <tr *ngFor="let quotation of quotations" class="quotationTable " (click)="openModal(template,quotation)">
                         <th># {{quotation.id}}</th>
-                        <td>{{quotation.date}}</td>
+                        <td>{{quotation.date.toLocaleString(es-ES, { hour12: true,weekday:'long',year:'numeric',month: 'long', day: 'numeric', hour:'numeric', minute: 'numeric', second:'numeric' })}}</td>
                         <td>{{quotation.typeProduct}}</td>
                         <th>{{quotation.quantity}}</th>
                         <td>
