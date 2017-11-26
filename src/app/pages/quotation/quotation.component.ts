@@ -427,7 +427,7 @@ export class QuotationComponent implements OnInit {
           const toast = this.notificationsService.success(
             'Cotización Guardada',
             'La cotización ha sido guardada correctamente',
-            {timeOut: 5000}
+            {timeOut: 500}
           );
           if (quotation.user) {
             this.router.navigateByUrl('/auth/profile');

@@ -43,8 +43,8 @@ export class ProfileComponent implements OnInit  {
     this.quotationSubscription.unsubscribe();
   }
 
- private callQuotationService(toast){
-   this.quotationSubscription = this.quotationService.getQuotations(this.user.id)
+ private callRefreshQuotationService(toast){
+   this.quotationSubscription = this.quotationService.refreshQuotations(this.user.id)
      .subscribe((result) => {
        //console.log("Refresh data...");
        //Only update view when its needed
@@ -71,13 +71,13 @@ export class ProfileComponent implements OnInit  {
          );
        }
        //and try again the service 
-       this.callQuotationService(toast);
+       this.callRefreshQuotationService(toast);
 
      });
  }
 
   ngOnInit() {
-    const toast = this.notificationsService.info(
+    const toastLoading = this.notificationsService.info(
       'Cargando',
       'Cargando Cotizaciones...',
       { timeOut: 0 }
@@ -87,9 +87,22 @@ export class ProfileComponent implements OnInit  {
 
     this.user = this.authService.getUser();
     console.log(this.user);
-    this.callQuotationService(toast);
 
 
+    this.quotationService.getQuotations(this.user.id)
+          .subscribe((result) => {
+            this.notificationsService.remove(toastLoading.id);
+            this.quotations = result.reverse();
+            // call refrehs method
+            this.callRefreshQuotationService(toastLoading);
+          }, (error) => {
+            const toast = this.notificationsService.error(
+              'Error ' + error.status,
+              (error.status == 0) ? 'Por favor revise su conexión a Internet' :  error.statusText
+            );
+            // call refrehs method
+            this.callRefreshQuotationService(toastLoading);
+          });
 
 
     this.userForm = new FormGroup({
