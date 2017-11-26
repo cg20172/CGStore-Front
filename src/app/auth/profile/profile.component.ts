@@ -20,7 +20,9 @@ import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
   styleUrls: ['./profile.component.css']
 })
 
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit  {
+  
+
 
   private quotations: Quotation[];
   private user: User;
@@ -28,11 +30,51 @@ export class ProfileComponent implements OnInit {
   private selectedQuotation: Quotation;
   private displayQuotation: Object[];
   public modalRef: BsModalRef;
+  private quotationSubscription;
+
+  
+
   constructor(private authService: AuthService,
     private quotationService: QuotationService,
     private notificationsService: NotificationsService,
     private modalService: BsModalService
   ) { }
+  ngOnDestroy() {
+    this.quotationSubscription.unsubscribe();
+  }
+
+ private callQuotationService(toast){
+   this.quotationSubscription = this.quotationService.getQuotations(this.user.id)
+     .subscribe((result) => {
+       //console.log("Refresh data...");
+       //Only update view when its needed
+       if(this.quotations){
+           result = result.reverse();
+           for (var i = 0, len = this.quotations.length; i < len; i++) { 
+             if (this.quotations[i].id != result[i].id || this.quotations[i].state != result[i].state) {
+               this.quotations = result;
+               break;
+             }       
+         }
+       }else{
+         //when call first time
+         this.quotations = result.reverse();
+         this.notificationsService.remove(toast.id);
+       }
+
+     }, (error) => {
+       // show error only first time, not when refresh data
+       if(!this.quotations){
+         const toast = this.notificationsService.error(
+           'Error ' + error.status,
+           (error.status == 0) ? 'Por favor revise su conexión a Internet' :  error.statusText
+         );
+       }
+       //and try again the service 
+       this.callQuotationService(toast);
+
+     });
+ }
 
   ngOnInit() {
     const toast = this.notificationsService.info(
@@ -41,19 +83,14 @@ export class ProfileComponent implements OnInit {
       { timeOut: 0 }
     );
 
+ 
+
     this.user = this.authService.getUser();
     console.log(this.user);
+    this.callQuotationService(toast);
 
-    this.quotationService.getQuotations(this.user.id)
-      .subscribe((result) => {
-        this.notificationsService.remove(toast.id);
-        this.quotations = result;
-      }, (error) => {
-        const toast = this.notificationsService.error(
-          'Error ' + error.status,
-          error.statusText
-        );
-      });
+
+
 
     this.userForm = new FormGroup({
       firstName: new FormControl(this.user.firstName, [Validators.required]),
@@ -67,6 +104,8 @@ export class ProfileComponent implements OnInit {
       role: new FormControl(this.user.role, [Validators.required]),
     });
   }
+
+
   public openModal(template: TemplateRef<any>, quotation: Quotation) {
     this.selectedQuotation = quotation;
     this.modalRef = this.modalService.show(template);

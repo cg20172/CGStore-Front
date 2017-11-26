@@ -410,24 +410,24 @@ export class QuotationComponent implements OnInit {
     quotationData.quantity = this.productQuantity;
     quotationData.date = new Date();
     var quotation = new Quotation(quotationData, this.authService.getUser(), this.selectedProduct);
-
-    if(this.selectedProduct.name == "Maquinaria"){
-           this.quotationService.activeMachienaryScript().subscribe((result) => {
-               if (result.statusText == 'OK') {
-                 console.log("Script de maquinaria Activado: ");
-                 console.log(result);
-               }
-               }, (error) => {
-                   console.log("ERROR activando script de maquinaria: ")
-                   console.log(error);
-               });
-    }
     this.quotationService.create(quotation)
       .subscribe((result) => {
         if (result.statusText === 'Created') {
+          if(this.selectedProduct.name == "Maquinaria"){
+              this.quotationService.activeMachienaryScript().subscribe((result) => {
+              if (result.statusText == 'OK') {
+                console.log("Script de maquinaria Activado!!! ");
+                //console.log(result);
+              }
+              }, (error) => {
+                    //console.log("ERROR activando script de maquinaria: ")
+                    //console.log(error);
+              });
+          }
           const toast = this.notificationsService.success(
             'Cotización Guardada',
-            'La cotización ha sido guardada correctamente'
+            'La cotización ha sido guardada correctamente',
+            {timeOut: 5000}
           );
           if (quotation.user) {
             this.router.navigateByUrl('/auth/profile');
