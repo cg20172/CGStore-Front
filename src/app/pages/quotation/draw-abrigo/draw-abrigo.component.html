@@ -1,0 +1,15 @@
+
+
+
+<h1>Abrigo para muelle de carga </h1>
+        <ngvas [width]="canvasWidth" [height]="canvasHeight" >
+
+
+      <ngvas-rectangle [stroke]="{ width: strokeWidth, style: strokeColor }" [fill]="outlineFill" [x]="topX" [y]="topY" [width]="topWidth" [height]="topHeight" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
+      <ngvas-rectangle [stroke]="{ width: strokeWidth, style: strokeColor }" [fill]="outlineFill" [x]="outlineLeftX" [y]="outlineLeftY" [width]="outlineWidth" [height]="outlineHeight" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
+      <ngvas-rectangle [stroke]="{ width: strokeWidth, style: strokeColor }" [fill]="outlineFill" [x]="outlineRightX" [y]="outlineRightY" [width]="outlineWidth" [height]="outlineHeight" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
+
+            <ngvas-rectangle [stroke]="{ width: strokeWidth, style: strokeColor }" [fill]="aletaFill" [x]="centerOutlineLeftX" [y]="centerOutlineLeftY" [width]="centerOutlineWidth" [height]="centerOutlineHeight" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
+      <ngvas-rectangle [stroke]="{ width: strokeWidth, style: strokeColor }" [fill]="aletaFill" [x]="centerOutlineRightX" [y]="centerOutlineRightY" [width]="centerOutlineWidth" [height]="centerOutlineHeight" origin="center" [hitArea]="pixelHitArea"></ngvas-rectangle>
+
+    </ngvas>

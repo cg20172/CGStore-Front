@@ -1,0 +1,21 @@
+@media (min-width: 768px) {
+  .vertical_center_col {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.vertical_center_col {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.img-responsive{
+	margin:0 auto;
+	width:80%;
+}
+
+
+
+canvas{
+	width: 100% !important;
+}

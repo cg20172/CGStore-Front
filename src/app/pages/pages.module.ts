@@ -19,6 +19,8 @@ import { QuotationComponent } from './quotation/quotation.component';
 import { QuotationFormComponent } from './quotation/quotation-form/quotation-form.component';
 import { DrawDoorComponent } from './quotation/draw-door/draw-door.component';
 import { DrawLegoComponent } from './quotation/draw-lego/draw-lego.component';
+import { DrawMuelleComponent } from './quotation/draw-muelle/draw-muelle.component';
+import { DrawAbrigoComponent } from './quotation/draw-abrigo/draw-abrigo.component';
 import { NgvasModule, tweens, hitAreas } from "ngvas";
 
 @NgModule({
@@ -37,7 +39,7 @@ import { NgvasModule, tweens, hitAreas } from "ngvas";
       apiKey: 'AIzaSyCJgE_ZRBAXSFQb-ilbeU7OSqo74wUKUdk'
     }),
   ],
-  declarations: [HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent, QuotationComponent, QuotationFormComponent, DrawDoorComponent, DrawLegoComponent],
+  declarations: [HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent, QuotationComponent, QuotationFormComponent, DrawDoorComponent, DrawLegoComponent, DrawAbrigoComponent, DrawMuelleComponent],
   exports: [HomeComponent, ContactComponent, DoorsComponent, MachineryComponent, LegosComponent, QuotationComponent, QuotationFormComponent],
   providers: []
 })

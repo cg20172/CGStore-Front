@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Logger } from 'angular2-logger/core';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidatorFn } from '@angular/forms';
 import { OSM_TILE_LAYER_URL } from '@yaga/leaflet-ng2';
 import * as _ from 'lodash';
 
@@ -19,6 +19,8 @@ import { Machinery } from './../../models/machinery';
 
 import { DrawDoorComponent } from './draw-door/draw-door.component';
 import { DrawLegoComponent } from './draw-lego/draw-lego.component';
+import { DrawMuelleComponent } from './draw-muelle/draw-muelle.component';
+import { DrawAbrigoComponent } from './draw-abrigo/draw-abrigo.component';
 
 import { CustomValidators } from 'ng2-validation';
 import { UserRegister } from './../../models/user-register';
@@ -218,7 +220,11 @@ export class QuotationComponent implements OnInit {
         case 'float':
         case 'string':
           validations.push(Validators.required);
+          validations.push(Validators.min(property.values[0]));
+          validations.push(Validators.max(property.values[1]));
           control = new FormControl('', validations);
+          // set the medium value option for default
+          // control.setValue(Math.floor(((property.values[1] - property.values[0])/2) + property.values[0]));
           break;
         case 'list':
           validations.push(Validators.required);
@@ -236,17 +242,17 @@ export class QuotationComponent implements OnInit {
   }
 
   public saveQuotation(productForm, quotationForm) {
-    if (this.user) {
-      this.makeQuotation(productForm, quotationForm);
-    } else {
-      this.registerUser(productForm, quotationForm);
-    }
+    this.makeQuotation(productForm, quotationForm);
   }
 
   @ViewChild(DrawDoorComponent)
   private drawDoorComponent: DrawDoorComponent;
   @ViewChild(DrawLegoComponent)
   private drawLegoComponent: DrawLegoComponent;
+   @ViewChild(DrawMuelleComponent)
+  private drawMuelleComponent: DrawMuelleComponent;
+   @ViewChild(DrawAbrigoComponent)
+  private drawAbrigoComponent: DrawAbrigoComponent;
 
   public updateDraw(productName: any, propertyName: any): void {
     if (productName == 'Puerta rápida') {
@@ -259,10 +265,40 @@ export class QuotationComponent implements OnInit {
           this.drawDoorComponent.updateHeight(value);
           break;
         case 'Color_Lona':
-          this.drawDoorComponent.updateLonaColor(value);
+          this.drawDoorComponent.updateLonaColor(value.value);
           break;
         case 'Color_Perfiles':
-          this.drawDoorComponent.updateOutlineColor(value);
+          this.drawDoorComponent.updateOutlineColor(value.value);
+          break;
+      }
+    }else if(productName == 'Sellos'){
+      var value = this.productForm.get(propertyName).value;
+      switch (propertyName) {
+        case 'Ancho':
+          this.drawMuelleComponent.updateWidth(value);
+          break;
+        case 'Alto':
+          this.drawMuelleComponent.updateHeight(value);
+          break;
+        case 'Color':
+          this.drawMuelleComponent.updateColor(value.value);
+          break;
+        case 'Exposicion_Aletas':
+            this.drawMuelleComponent.changeAletaHeight(value.value);
+          break;
+        case 'Inclinacion':
+          this.drawMuelleComponent.changeAngleShapeRotation(value);
+          break;
+
+      }
+    }else if(productName == 'Abrigos'){
+      var value = this.productForm.get(propertyName).value;
+        switch (propertyName) {
+        case 'Dimensiones':
+          this.drawAbrigoComponent.changeSize(value.value);
+          break;
+        case 'Color':
+          this.drawAbrigoComponent.updateColor(value.value);
           break;
       }
     } else if (this.selectedProductType.name == 'Lego') {
@@ -285,6 +321,55 @@ export class QuotationComponent implements OnInit {
 
   }
 
+  public formatPropertyName(name): String{
+    var re = /_/gi; 
+    name = name.replace(re, " ");
+    name = name.toLowerCase();
+    name = name.charAt(0).toUpperCase() + name.substr(1);
+
+    var words =   name.split(" ");
+
+    for (var i = 0; i < words.length ; i++) {
+      if(words[i].length >= 4){
+        switch (words[i].substr(words[i].length - 4 )) {
+
+            case "cion":
+              words[i] = words[i].substr(0, words[i].length - 4 ) + "ción";
+              break;
+        
+            case "sion":
+              words[i] = words[i].substr(0, words[i].length - 4 ) + "sión";
+              break;
+        }
+      }
+    }
+    name = "";  
+    for (var i = 0; i < words.length ; i++) {
+        name += words[i];
+        if(i < words.length -1){
+          name +=  " ";
+        }
+    }
+
+   
+    return name;
+  }
+  public formatSuffixForm(property):String{
+    var suffix = '';
+    if(property.name == 'Ancho' || property.name == 'Alto'){
+        suffix  = ' mm';
+    }else if(property.name == 'Inclinacion'){
+      suffix  = '°';
+    }
+    return suffix ;
+  }  
+  public formatPlaceHolderForm(property):String{
+    var name = '';
+    var type = this.formatSuffixForm(property);
+    name += this.formatPropertyName(property.name) + ' (' + property.values[0] +  type +' a ' + property.values[1] + type +')';
+    return name;  
+  }
+
   public makeQuotation(productForm, quotationForm) {
     let productData = productForm.value;
     let quotationData = quotationForm.value;
@@ -295,11 +380,24 @@ export class QuotationComponent implements OnInit {
         if (productProperty.type === 'list') {
           productProperty.value = productProperty.value.value;
         }
-        else if (productProperty.type === 'bool') {
-          if (value) {
-            productProperty.value = 1;
-          } else {
-            productProperty.value = 0;
+        else if (productProperty.type === 'bool' && this.selectedProduct.name != 'Maquinaria') {
+             if (value) {
+             productProperty.value = 1;
+           } else {
+             productProperty.value = 0;
+           }
+        }
+        else if (productProperty.name == 'Exposicion_Aletas'){
+          switch (value){
+            case '1':
+              productProperty.value = 1;
+             break;
+             case '2':
+              productProperty.value = 2;
+             break;
+             case '3':
+              productProperty.value = 3;
+             break;
           }
         }
         else {
@@ -311,14 +409,25 @@ export class QuotationComponent implements OnInit {
 
     quotationData.quantity = this.productQuantity;
     quotationData.date = new Date();
-    let quotation = new Quotation(quotationData, this.authService.getUser(), this.selectedProduct);
-
+    var quotation = new Quotation(quotationData, this.authService.getUser(), this.selectedProduct);
     this.quotationService.create(quotation)
       .subscribe((result) => {
         if (result.statusText === 'Created') {
+          if(this.selectedProduct.name == "Maquinaria"){
+              this.quotationService.activeMachienaryScript().subscribe((result) => {
+              if (result.statusText == 'OK') {
+                console.log("Script de maquinaria Activado!!! ");
+                //console.log(result);
+              }
+              }, (error) => {
+                    //console.log("ERROR activando script de maquinaria: ")
+                    //console.log(error);
+              });
+          }
           const toast = this.notificationsService.success(
             'Cotización Guardada',
-            'La cotización ha sido guardada correctamente'
+            'La cotización ha sido guardada correctamente',
+            {timeOut: 500}
           );
           if (quotation.user) {
             this.router.navigateByUrl('/auth/profile');
@@ -369,11 +478,14 @@ export class QuotationComponent implements OnInit {
     }
   }
 
+
+   
   public selectMachinery(machine) {
     this.selectedMachine = machine;
     _.forEach(machine.originalData, (value, key) => {
       this.productForm.controls[key].setValue(value);
     });
+    console.log(this.productForm);
   }
 
   public registerUser(productForm, quotationForm) {

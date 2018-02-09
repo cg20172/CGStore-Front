@@ -9,3 +9,12 @@
   text-align: center;
   margin:0 auto;
 }
+
+.last_col{
+	margin-bottom: 20px;
+}
+
+.image_center{
+  max-width: 50%;
+  margin:0 auto;
+}

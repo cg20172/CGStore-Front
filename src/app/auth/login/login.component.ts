@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       const toast = this.notificationsService.warn(
         'Autenticación requerida',
         'Para acceder a la ruta, primero debes estar autenticado.',
-        { timeOut: 0 }
+        { timeOut: 5000 }
       );
       this.authService.unsetRedirectMessage();
     }

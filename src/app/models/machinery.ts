@@ -43,13 +43,30 @@ export class Machinery {
 
   public toArray() {
     return [
-      { key: 'Modelo de maquinaria', value: this.model },
+      { key: 'Modelo de maquinaria', value: this.formatModelMachinery(this.model) },
       { key: 'Latitud', value: this.latitude },
       { key: 'Longitud', value: this.longitude },
-      { key: 'Nueva?', value: this.isNew ? 'Si' : 'No' },
-      { key: 'En buen estado?', value: this.state ? 'Si' : 'No' },
-      { key: 'Necesita repararse?', value: this.repairable ? 'Si' : 'No' },
+      { key: '¿Nueva?', value: this.isNew ? 'Si' : 'No' },
+      { key: '¿En buen estado?', value: this.state ? 'Si' : 'No' },
+      { key: '¿Necesita repararse?', value: this.repairable ? 'Si' : 'No' },
       { key: 'Tipo de documentación', value: this.documentation },
     ];
   }
+  public formatModelMachinery(value ):String{
+        switch (value) {
+           case 1:
+             value = "Cargadora frontal";
+             break;
+           case 2:
+             value = "Retroexcavadora"
+             break;
+           case 3:
+             value = "Montacargas"
+             break;
+           case 4:
+             value = "Camioneta"
+             break; 
+         }
+     return value;
+  } 
 }

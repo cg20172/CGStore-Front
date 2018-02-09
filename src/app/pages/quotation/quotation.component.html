@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
   <h1 class="page-header">Formulario De Cotización  </h1>
   <p class="lead mb-small">Llegaste al lugar correcto!</p>
   <p class="text-justify">
@@ -42,11 +42,11 @@
               </div>
               <div class="col-xs-12 col-sm-6">
                 <mat-form-field class="full-width">
-                  <input matInput class="full-width" [(value)]="productQuantity" type="number" placeholder="Cantidad" min="1" />
+                  <input matInput class="full-width" [(ngModel)]="productQuantity" type="number" placeholder="Cantidad" min="1" />
                 </mat-form-field>
               </div>
               <div class="col-xs-12">
-                <h4 *ngIf="selectedProduct !== null && showProductForm">Características de Producto</h4>
+                <h4 *ngIf="selectedProduct !== null && showProductForm" >Características de Producto</h4>
               </div>
               <div class="quotation-form-box" *ngIf="selectedProduct !== null && showProductForm">
                 <div class="col-xs-12" *ngIf="selectedProduct.name === 'Maquinaria'">
@@ -66,17 +66,17 @@
                             <input type="checkbox" [(ngModel)]="machinerySearch.isModelEnabled">
                           </span>
                           <select class="form-control" [(ngModel)]="machinerySearch.model" [disabled]="!machinerySearch.isModelEnabled">
-                            <option value="1">Modelo 1</option>
-                            <option value="2">Modelo 2</option>
-                            <option value="3">Modelo 3</option>
-                            <option value="4">Modelo 4</option>
+                            <option value="1">Máquina: Cargadora frontal</option>
+                            <option value="2">Máquina: Retroexcavadora</option>
+                            <option value="3">Máquina: Montacargas</option>
+                            <option value="4">Máquina: Camioneta</option>
                           </select>
                         </div>
                       </div>
                       <div class="clearfix"></div>
                       <br>
                       <div class="col-xs-12 col-sm-6">
-                        <label class="control-label">Maquinaria nueva?</label>
+                        <label class="control-label">¿Maquinaria nueva?</label>
                         <div class="input-group">
                           <span class="input-group-addon">
                             <input type="checkbox" [(ngModel)]="machinerySearch.isNewEnabled">
@@ -88,7 +88,7 @@
                         </div>
                       </div>
                       <div class="col-xs-12 col-sm-6">
-                        <label class="control-label">Maquinaria en buen estado?</label>
+                        <label class="control-label">¿Maquinaria en buen estado?</label>
                         <div class="input-group">
                           <span class="input-group-addon">
                             <input type="checkbox" [(ngModel)]="machinerySearch.isStateEnabled">
@@ -102,7 +102,7 @@
                       <div class="clearfix"></div>
                       <br>
                       <div class="col-xs-12 col-sm-6">
-                        <label class="control-label">Necesita reparación?</label>
+                        <label class="control-label">¿Necesita reparación?</label>
                         <div class="input-group">
                           <span class="input-group-addon">
                             <input type="checkbox" [(ngModel)]="machinerySearch.isRepairableEnabled">
@@ -148,7 +148,7 @@
                       <tbody>
                         <tr *ngFor="let prop of selectedMachine.toArray()">
                           <td>{{ prop.key }}</td>
-                          <td>{{ prop.value }}</td>
+                          <td>{{ prop.value}}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -158,6 +158,12 @@
                   <div class="col-xs-12 text-center" *ngIf="selectedProduct.name === 'Puerta rápida'">
                     <app-draw-door></app-draw-door>
                   </div>
+                  <div class="col-xs-12 text-center" *ngIf="selectedProduct.name === 'Sellos'">
+                    <app-draw-muelle></app-draw-muelle>
+                  </div>
+                  <div class="col-xs-12 text-center" *ngIf="selectedProduct.name === 'Abrigos'">
+                    <app-draw-abrigo></app-draw-abrigo>
+                  </div>
 
                   <div class="col-xs-12 text-center" *ngIf="selectedProductType.name== 'Lego'">
                     <app-draw-lego (ready)="showCanvasInLegos(selectedProduct)"></app-draw-lego>
@@ -166,18 +172,33 @@
                   <div *ngFor="let property of selectedProduct.properties">
                     <div class="clearfix" *ngIf="property.type === 'bool'"></div>
                     <div class="col-xs-12 col-sm-6">
+                    <div class="form-container">
                       <mat-form-field class="full-width" *ngIf="property.type === 'integer' || property.type === 'list'">
-                        <input matInput class="full-width" *ngIf="property.type === 'integer'" [formControlName]="property.name" type="number" [placeholder]="property.name" [min]="property.values[0]" [max]="property.values[1]" (change)="updateDraw(selectedProduct.name, property.name)"
+
+                        <input class="example-right-align" matInput class="full-width" *ngIf="property.type === 'integer'" [formControlName]="property.name" type="number" [placeholder]="formatPlaceHolderForm(property)" [min]="property.values[0]" [max]="property.values[1]" (change)="updateDraw(selectedProduct.name, property.name)" 
                         />
-                        <mat-select *ngIf="property.type === 'list'" [formControlName]="property.name" [placeholder]="property.name" [(value)]="property.value" (change)="updateDraw(selectedProduct.name, property.name)">
+                        <span matSuffix *ngIf="property.type === 'integer' && property.name != 'Exposicion_Aletas'">
+                        {{formatSuffixForm(property)}}
+                        </span>
+                        <mat-select *ngIf="property.type === 'list'" [formControlName]="property.name" [placeholder]="formatPropertyName(property.name)" [(value)]="property.value" (change)="updateDraw(selectedProduct.name, property.name)">
                           <mat-option *ngFor="let option of property.values" [value]="option">
                             {{ option.name }}
                           </mat-option>
                         </mat-select>
                       </mat-form-field>
+
+                    </div>
+
+
                       <mat-slide-toggle color="primary" class="full-width" [formControlName]="property.name" *ngIf="property.type === 'bool'">
-                        {{ property.name }}
+                        {{ formatPropertyName(property.name) }}
                       </mat-slide-toggle>
+                      <mat-error style="margin-bottom: 10px;" *ngIf="property.type === 'integer' && productForm.controls[property.name].hasError('min')">
+                           <span class="fa fa-exclamation-triangle"></span> El valor mínimo es: {{property.values[0]}}{{formatSuffixForm(property)}}
+                       </mat-error>
+                      <mat-error style="margin-bottom: 10px;" *ngIf="property.type === 'integer' && productForm.controls[property.name].hasError('max')">
+                           <span class="fa fa-exclamation-triangle"></span> El valor máximo es: {{property.values[1]}}{{formatSuffixForm(property)}}
+                       </mat-error>
                     </div>
                   </div>
                 </form>
